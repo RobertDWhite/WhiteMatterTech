@@ -161,11 +161,3 @@ categories:
 <!-- wp:heading -->
 <h2 id="contribute">Contribute</h2>
 <!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Do you notice any issues or want to add information to this post? Visit the link below to submit a PR on GitHub with your modifications in Markdown.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p><a href="https://github.com/RobertDWhite/WhiteMatterTech/blob/main/_posts/2022/tails-os-with-encrypted-persistence-on-unraid-as-a-vm.md">https://github.com/RobertDWhite/WhiteMatterTech/blob/main/_posts/2022/tails-os-with-encrypted-persistence-on-unraid-as-a-vm.md</a></p>
-<!-- /wp:paragraph -->
