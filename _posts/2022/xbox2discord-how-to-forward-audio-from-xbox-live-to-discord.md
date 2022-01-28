@@ -118,3 +118,7 @@ categories:
 <!-- wp:paragraph -->
 <p>Special thanks to Samuel Wallace for dreaming with me and making the ins-and-outs of this project work.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 id="contribute">Contribute</h2>
+<!-- /wp:heading -->
