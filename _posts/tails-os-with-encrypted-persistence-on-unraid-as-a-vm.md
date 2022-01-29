@@ -157,7 +157,3 @@ categories:
 <!-- wp:paragraph -->
 <p><strong>Congratulations</strong> if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to use Tails as a VM. If you have any questions or need assistance, please let me know in the comments!</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 id="contribute">Contribute</h2>
-<!-- /wp:heading -->
