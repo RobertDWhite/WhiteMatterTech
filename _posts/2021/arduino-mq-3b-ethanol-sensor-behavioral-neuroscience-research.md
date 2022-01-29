@@ -342,7 +342,7 @@ The backpack has a small circular potentiometer built onto it near the top-right
  [3]: https://amzn.to/3ldMdpT "https://amzn.to/3ldMdpT"
 
 
- <!-- wp:heading -->
+ <!-- wp:heading {"level":1} -->
 
  ## Contribute {#contribute}
 
