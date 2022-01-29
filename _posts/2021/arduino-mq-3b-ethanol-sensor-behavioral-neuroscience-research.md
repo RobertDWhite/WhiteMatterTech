@@ -54,19 +54,19 @@ This project was made possible and open-source by the work of <a href="https://s
 
 <!-- wp:paragraph -->
 
-This project was completed for the <a href="https://www.aradlab.com/" target="_blank" rel="noreferrer noopener">Reward and Addictive Disorders (RAD)</a> Lab at Miami University by Dr. Anna Radke. 
+This project was completed for the <a href="https://www.aradlab.com/" target="_blank" rel="noreferrer noopener">Reward and Addictive Disorders (RAD)</a> Lab at Miami University by Dr. Anna Radke.
 
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 
-The sensors will be used in a current experiment utilizing mouse operant chambers for a visual representation of the EtOH vapor pressure in the chambers. The support of this experiment utilizing these modules is under the direction of Elizabeth Sneddon *(PhD candidate at the time of this writing; recipient of the prestigious DSPAN F99/K00 from NINDS -- read more from the <a href="https://www.aradlab.com/news" target="_blank" rel="noreferrer noopener">Lab News here</a>)*. 
+The sensors will be used in a current experiment utilizing mouse operant chambers for a visual representation of the EtOH vapor pressure in the chambers. The support of this experiment utilizing these modules is under the direction of Elizabeth Sneddon *(PhD candidate at the time of this writing; recipient of the prestigious DSPAN F99/K00 from NINDS -- read more from the <a href="https://www.aradlab.com/news" target="_blank" rel="noreferrer noopener">Lab News here</a>)*.
 
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 
-I highly recommend checking out <a href="https://www.aradlab.com/" target="_blank" rel="noreferrer noopener">the RAD Lab's website</a> for more information on Dr. Radke and both her incredibly talented graduate students and undergraduate students. You can find information about many of their current projects. 
+I highly recommend checking out <a href="https://www.aradlab.com/" target="_blank" rel="noreferrer noopener">the RAD Lab's website</a> for more information on Dr. Radke and both her incredibly talented graduate students and undergraduate students. You can find information about many of their current projects.
 
 <!-- /wp:paragraph -->
 
@@ -105,7 +105,7 @@ I highly recommend checking out <a href="https://www.aradlab.com/" target="_blan
 *   500Ohm Trim Potentiometer (for rat operant boxes); 1k-2kOhm Trim Potentiometer (for mouse operant boxes) -- <a href="https://amzn.to/318VPLq" target="_blank" rel="noreferrer noopener">this kit contains 4 of each along with other (unnecessary for this project) resistance values</a>
 *   Wiring: while there are many options for wires, <a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ref=pd_bxgy_img_2/132-1315716-1567653?pd_rd_w=cSDZ2&pf_rd_p=c64372fa-c41c-422e-990d-9e034f73989b&pf_rd_r=CH2KN5DS1W5BYMAQP5BN&pd_rd_r=4b0add23-3cdd-4e21-b3e6-f153ec79ec22&pd_rd_wg=HVNXr&pd_rd_i=B01EV70C78&th=1" target="_blank" rel="noreferrer noopener">this kit</a> has an assortment of Male-Female, Male-Male, and Female-Female wires that will be helpful in learning/testing the circuit later
 *   ***Optional:*** <a href="https://www.amazon.com/Breadboard-Solderless-Prototype-Universal-Raspberry/dp/B07LF84HWK/ref=sr_1_2_sspa?keywords=arduino+breadboard&qid=1638163676&sr=8-2-spons&psc=1&smid=A14FP9XIRL6C1F&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExRURBV1paQTZUMEpFJmVuY3J5cHRlZElkPUEwNDY4MDQ3M0YwQUFTUkVaSjZUOCZlbmNyeXB0ZWRBZElkPUEwOTA4NzE2MlBGODVVMUtHTlIwRyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=" target="_blank" rel="noreferrer noopener" title="https://www.amazon.com/Breadboard-Solderless-Prototype-Universal-Raspberry/dp/B07LF84HWK/ref=sr_1_2_sspa?keywords=arduino+breadboard&qid=1638163676&sr=8-2-spons&psc=1&smid=A14FP9XIRL6C1F&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExRURBV1paQTZUMEpFJmVuY3J5cHRlZElkPUEwNDY4MDQ3M0YwQUFTUkVaSjZUOCZlbmNyeXB0ZWRBZElkPUEwOTA4NzE2MlBGODVVMUtHTlIwRyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=">Breadboard </a>(this is super helpful to learn/test the circuit before you commit to soldering, but it is definitely not a requirement)
-*   ***Optional: ***This project REQUIRES soldering. I used<a href="https://amzn.to/31BtYEb" target="_blank" rel="noreferrer noopener"> this soldering iron kit here</a>. In addition to this soldering iron, a <a href="https://amzn.to/3pAkNMm" target="_blank" rel="noreferrer noopener">solder sucker kit</a> is highly recommended when you make a mistake. 
+*   ***Optional: ***This project REQUIRES soldering. I used<a href="https://amzn.to/31BtYEb" target="_blank" rel="noreferrer noopener"> this soldering iron kit here</a>. In addition to this soldering iron, a <a href="https://amzn.to/3pAkNMm" target="_blank" rel="noreferrer noopener">solder sucker kit</a> is highly recommended when you make a mistake.
 
 <!-- /wp:list -->
 
@@ -117,7 +117,7 @@ I highly recommend checking out <a href="https://www.aradlab.com/" target="_blan
 
 <!-- wp:paragraph -->
 
-Otherwise, I highly recommend powering your Arduino unit with <a href="https://amzn.to/3FVAVif" target="_blank" rel="noreferrer noopener">a standard USB printer cable</a> and a<a href="https://www.amazon.com/Charger-LUOATIP-Adapter-Charging-Replacement/dp/B07TK6MPNB/ref=sr_1_5?keywords=5v+2a+power+block+usb&qid=1637993414&s=electronics&sr=1-5" target="_blank" rel="noreferrer noopener"> USB power block</a>. Your mileage with that particular power block may vary, as it is specifically 5V and 2.1A. I did not use this particular power block but instead used an Apple power block for an iPhone. Any block that supplies at minimum 5V and 2A should be sufficient. 
+Otherwise, I highly recommend powering your Arduino unit with <a href="https://amzn.to/3FVAVif" target="_blank" rel="noreferrer noopener">a standard USB printer cable</a> and a<a href="https://www.amazon.com/Charger-LUOATIP-Adapter-Charging-Replacement/dp/B07TK6MPNB/ref=sr_1_5?keywords=5v+2a+power+block+usb&qid=1637993414&s=electronics&sr=1-5" target="_blank" rel="noreferrer noopener"> USB power block</a>. Your mileage with that particular power block may vary, as it is specifically 5V and 2.1A. I did not use this particular power block but instead used an Apple power block for an iPhone. Any block that supplies at minimum 5V and 2A should be sufficient.
 
 <!-- /wp:paragraph -->
 
@@ -131,13 +131,13 @@ Nonetheless, you will need at least one <a href="https://amzn.to/3FVAVif" target
 
 This list is adapted from a list shared by <meta charset="utf-8" />
 
-<a href="https://school.wakehealth.edu/Faculty/M/Brian-A-McCool" target="_blank" rel="noreferrer noopener">Dr. Brian McCool</a>. 
+<a href="https://school.wakehealth.edu/Faculty/M/Brian-A-McCool" target="_blank" rel="noreferrer noopener">Dr. Brian McCool</a>.
 
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 
-*As an Amazon Associate, I earn from qualifying purchases. **Thank you** for supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!* 
+*As an Amazon Associate, I earn from qualifying purchases. **Thank you** for supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!*
 
 <!-- /wp:paragraph -->
 
@@ -179,7 +179,7 @@ This circuit diagram was drawn by my father, a radio and broadcast engineer, and
 
 <!-- wp:paragraph -->
 
-I am certainly no Arduino expert. In fact, this project was my first experience with Arduino. I definitely had a fun (sometimes irritating) time building the modules. Unfortunately, I did not take as many pictures as I should have of the process or the built circuit (mostly because I did not intend to write this up). If I have an opportunity to build more in the future, I will update this post with more / better pictures. 
+I am certainly no Arduino expert. In fact, this project was my first experience with Arduino. I definitely had a fun (sometimes irritating) time building the modules. Unfortunately, I did not take as many pictures as I should have of the process or the built circuit (mostly because I did not intend to write this up). If I have an opportunity to build more in the future, I will update this post with more / better pictures.
 
 <!-- /wp:paragraph -->
 
@@ -223,7 +223,7 @@ Once complete, your Protoshield and Mainboard should look like the first image a
 
 <!-- wp:paragraph -->
 
-The 16-pin connector will be used to connect the backpack to the screen. The front of the screen should be soldered using the short ends of the connectors (see image below). Solder all 16-pins. 
+The 16-pin connector will be used to connect the backpack to the screen. The front of the screen should be soldered using the short ends of the connectors (see image below). Solder all 16-pins.
 
 <!-- /wp:paragraph -->
 
@@ -249,7 +249,7 @@ From the other side, attach the backpack and solder all 16-pins as shown in the 
 
 <!-- wp:paragraph -->
 
-The GND, 5V, CLK, and DAT ports are shown on the Diagram as the *READ-OUT BOARD*. 
+The GND, 5V, CLK, and DAT ports are shown on the Diagram as the *READ-OUT BOARD*.
 
 <!-- /wp:paragraph -->
 
@@ -261,7 +261,7 @@ The GND, 5V, CLK, and DAT ports are shown on the Diagram as the *READ-OUT BOARD*
 
 <!-- wp:paragraph -->
 
-Unfortunately, I do not have too many detailed images of the Protoshield with the wires attached. In the image below, you can see how I wired the 5V and the Ground from the Mainboard to the central 5V and GND. From there, all the required 5V and Ground wires can be soldered to the center for easy access. 
+Unfortunately, I do not have too many detailed images of the Protoshield with the wires attached. In the image below, you can see how I wired the 5V and the Ground from the Mainboard to the central 5V and GND. From there, all the required 5V and Ground wires can be soldered to the center for easy access.
 
 <!-- /wp:paragraph -->
 
@@ -299,7 +299,7 @@ The code provided at <a href="https://github.com/RobertDWhite/arduino_mq-3b/blob
 
 <!-- wp:paragraph -->
 
-The backpack has a small circular potentiometer built onto it near the top-right corner. The potentiometer is labeled "Contrast." If your screen lights up but you do not see a read-out, you may need to turn the potentiometer to adjust the contrast on the screen. I had to adjust the contrast on each one of the modules I assembled. 
+The backpack has a small circular potentiometer built onto it near the top-right corner. The potentiometer is labeled "Contrast." If your screen lights up but you do not see a read-out, you may need to turn the potentiometer to adjust the contrast on the screen. I had to adjust the contrast on each one of the modules I assembled.
 
 <!-- /wp:paragraph -->
 
@@ -340,3 +340,16 @@ The backpack has a small circular potentiometer built onto it near the top-right
  [1]: https://amzn.to/3p3AT0S "https://amzn.to/3p3AT0S"
  [2]: https://www.amazon.com/Adafruit-i2c-Character-Backpack-ADA292/dp/B00OKCON84/ref=sr_1_2?keywords=i2c%2FSPI+character+LCD+backpack%2C&qid=1637994049&s=electronics&sr=1-2 "https://www.amazon.com/Adafruit-i2c-Character-Backpack-ADA292/dp/B00OKCON84/ref=sr_1_2?keywords=i2c%2FSPI+character+LCD+backpack%2C&qid=1637994049&s=electronics&sr=1-2"
  [3]: https://amzn.to/3ldMdpT "https://amzn.to/3ldMdpT"
+
+
+ <!-- wp:heading -->
+
+ ## Contribute {#contribute}
+
+ <!-- /wp:heading -->
+
+ <!-- wp:paragraph -->
+
+ Do you notice any issues or want to add information to this post? Visit the link below to submit a PR on GitHub with your modifications in Markdown.
+ <!-- /wp:paragraph -->
+ [giw_edit_link]
