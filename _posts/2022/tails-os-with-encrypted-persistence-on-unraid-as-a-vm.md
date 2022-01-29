@@ -138,7 +138,7 @@ In Unraid's VM manager, select "**ADD VM**." From there, select "**Linux**." Sel
 
 <!-- /wp:paragraph -->
 
-<!-- wp:image {"id":442,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"> 
+<!-- wp:image {"id":442,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large">
 
 <img src="https://whitematter.tech/wp-content/uploads/2022/01/image-1024x485.png" alt="" class="wp-image-442" /></figure> <!-- /wp:image -->
 
@@ -166,7 +166,7 @@ Back on Unraid's VM Manager page, click your VM, click **Start**, and very quick
 
 <!-- /wp:paragraph -->
 
-<!-- wp:image {"id":443,"width":840,"height":632,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large is-resized"> 
+<!-- wp:image {"id":443,"width":840,"height":632,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large is-resized">
 
 <img src="https://whitematter.tech/wp-content/uploads/2022/01/image-1-1024x771.png" alt="" class="wp-image-443" width="840" height="632" /></figure> <!-- /wp:image -->
 
@@ -206,7 +206,7 @@ Once Tails has booted again, you will be presented with the same wlecome screen 
 
 <!-- /wp:paragraph -->
 
-<!-- wp:image {"id":444,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large"> 
+<!-- wp:image {"id":444,"sizeSlug":"large","linkDestination":"none"} --><figure class="wp-block-image size-large">
 
 <img src="https://whitematter.tech/wp-content/uploads/2022/01/image-2-1024x762.png" alt="" class="wp-image-444" /></figure> <!-- /wp:image -->
 
@@ -231,5 +231,5 @@ Once Tails has booted again, you will be presented with the same wlecome screen 
 <!-- wp:paragraph -->
 
 Do you notice any issues or want to add information to this post? Visit the link below to submit a PR on GitHub with your modifications in Markdown.
-
 <!-- /wp:paragraph -->
+[giw_edit_link]
