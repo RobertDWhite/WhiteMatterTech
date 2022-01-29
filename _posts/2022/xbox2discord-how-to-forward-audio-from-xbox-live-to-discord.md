@@ -118,3 +118,15 @@ categories:
 <!-- wp:paragraph -->
 <p>Special thanks to Samuel Wallace for dreaming with me and making the ins-and-outs of this project work.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+
+## Contribute {#contribute}
+
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+
+Do you notice any issues or want to add information to this post? Visit the link below to submit a PR on GitHub with your modifications in Markdown.
+<!-- /wp:paragraph -->
+[giw_edit_link]
