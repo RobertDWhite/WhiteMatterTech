@@ -3,6 +3,15 @@ title        = "WhiteMatter Technology"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
 paginate     = 10
+rssLimit  = 20  # Maximum number of items in the RSS feed.
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
+enableGitInfo   = true
+enableEmoji     = true
+enableMissingTranslationPlaceholders = false
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = false
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -10,8 +19,9 @@ paginate     = 10
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04"
 
+  GithubEdit = "https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/"
   # Subtitle for home
-  #homeSubtitle = "A simple and beautiful blog"
+  homeSubtitle = "Enterprise Services Engineer // Consultant"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -20,7 +30,7 @@ paginate     = 10
   enableSharingButtons = true
 
   # Metadata mostly used in document's head
-  description = "My new homepage or blog"
+  description = "WhiteMatterTech blog and resume"
   keywords = "homepage, blog"
   images = [""]
 
@@ -31,8 +41,8 @@ paginate     = 10
 
 [languages]
   [languages.en]
-    title = "Hello Friend NG"
-    subtitle = "A simple theme for Hugo"
+    title = "Robert D. White"
+    subtitle = "Enterprise Services Engineer // Consultant"
     keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
     readOtherPosts = "Read other posts"
@@ -47,6 +57,31 @@ paginate     = 10
 
   # And you can even create generic menu
   [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
+    identifier = "posts"
+    name       = "Posts"
     url        = "/posts"
+
+  [[menu.main]]
+    identifier = "contact"
+    name       = "Contact"
+    url        = "/contact"
+
+  [[params.social]]
+    name = "linkedin"
+    url = "https://linkedin.white.fm"
+
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.white.fm"
+
+  [[params.social]]
+    name = "github"
+    url = "https://github.white.fm"
+
+  [[params.social]]
+    name = "googlescholar"
+    url = "https://scholar.google.com/citations?hl=en&authuser=1&user=uZOlQSsAAAAJ"
+
+  [[params.social]]
+    name = "email"
+    url = "mailto:robert@whitematter.tech"
