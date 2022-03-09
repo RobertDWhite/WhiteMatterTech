@@ -21,7 +21,7 @@ disableHugoGeneratorInject = false
 
   GithubEdit = "https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content/"
   # Subtitle for home
-  homeSubtitle = "Enterprise Services Engineer // Consultant"
+  homeSubtitle = "Enterprise Services Engineer @ Tanium // Consultant"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -42,7 +42,7 @@ disableHugoGeneratorInject = false
 [languages]
   [languages.en]
     title = "Robert D. White"
-    subtitle = "Enterprise Services Engineer // Consultant"
+    subtitle = "Enterprise Services Engineer @ Tanium // Consultant"
     keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
     readOtherPosts = "Read other posts"
@@ -80,7 +80,7 @@ disableHugoGeneratorInject = false
 
   [[params.social]]
     name = "googlescholar"
-    url = "https://scholar.google.com/citations?hl=en&authuser=1&user=uZOlQSsAAAAJ"
+    url = "https://scholar.white.fm"
 
   [[params.social]]
     name = "email"
