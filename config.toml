@@ -19,7 +19,7 @@ disableHugoGeneratorInject = false
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04"
 
-  GithubEdit = "https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/"
+  GithubEdit = "https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content/"
   # Subtitle for home
   homeSubtitle = "Enterprise Services Engineer // Consultant"
 
