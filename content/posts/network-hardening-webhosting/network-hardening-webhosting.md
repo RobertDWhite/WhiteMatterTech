@@ -12,7 +12,11 @@ tags:
   - "network"
   - "security"
   - "webhost"
-coverImage: "Screen-Shot-2021-04-06-at-4.25.49-PM-min-scaled.jpg"
+cover:
+    image: "/posts/network-hardening-webhosting/network-hardening-webhosting.jpg"
+    alt: "Image of Lock"
+    caption: "<text>"
+    relative: true
 ---
 
 ## Overview

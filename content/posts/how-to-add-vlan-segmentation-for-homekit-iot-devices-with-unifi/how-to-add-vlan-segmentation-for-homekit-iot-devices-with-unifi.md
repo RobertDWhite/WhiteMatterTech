@@ -11,7 +11,11 @@ tags:
   - "iot"
   - "network"
   - "vlan"
-coverImage: "iot-3337536_1280.jpg"
+cover:
+    image: "/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/header_how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi.jpg"
+    alt: "IoT Graphic"
+    caption: "<text>"
+    relative: true
 ---
 
 ## IoT Overview

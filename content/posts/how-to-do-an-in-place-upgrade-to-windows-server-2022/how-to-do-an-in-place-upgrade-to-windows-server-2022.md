@@ -1,16 +1,20 @@
 ---
 title: "How To Do An In-Place Upgrade To Windows Server 2022"
 date: "2021-11-19"
-categories: 
+categories:
   - "business"
   - "tips"
   - "tutorials"
   - "windows"
-tags: 
+tags:
   - "server"
   - "upgrade"
   - "windows"
-coverImage: "external-content.duckduckgo.jpg"
+cover:
+    image: "/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/how-to-do-an-in-place-upgrade-to-windows-server-2022.jpg"
+    alt: "Windows Server 2022 Logo"
+    caption: "<text>"
+    relative: true
 ---
 
 I recently had to upgrade two domain controllers to Windows Server 2022. The main controller was still on Windows Server 2016 while the secondary was Windows Server 2019. Both in-place upgrades went without issue.

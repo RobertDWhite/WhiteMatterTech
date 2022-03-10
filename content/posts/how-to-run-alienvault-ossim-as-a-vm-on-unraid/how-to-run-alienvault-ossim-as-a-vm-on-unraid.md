@@ -13,7 +13,11 @@ tags:
   - "siem"
   - "unraid"
   - "vm"
-coverImage: "ossimunraid-1.png"
+cover:
+    image: "/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/ossimunraid.png"
+    alt: "OSSIM + Unraid Graphic"
+    caption: "<text>"
+    relative: true
 ---
 
 ## Introduction
@@ -48,7 +52,7 @@ The biggest trick to get OSSIM to work on Unraid is specifically choosing **Debi
 
 To configure the VM, be sure to leave CPU mode as the default "Host Passthrough." You can select the number of cores/threads you would like for your OSSIM VM. My CPU is a Ryzen 9 3950x with 16 cores / 32 threads. I currently have 8 cores assigned to my VM. I run 8192MB for both Initial and Max Memory. For the **Machine,** select **_Q35-6.0_**. For **BIOS,** select **_SeaBIOS_**. For **USB Controller,** select **_3.0 (nec XHCI)._** For **OS Install ISO,** select the ISO you uploaded / downloaded earlier (e.g., _/mnt/user/iso/AlienVault\_OSSIM\_64bits.iso_).
 
-![](/posts/images/Screen-Shot-2021-10-01-at-1.50.01-PM-1024x857.png)
+![](/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/Screen-Shot-2021-10-01-at-1.50.01-PM-1024x857.png)
 
 Next, select **_SATA_** as the **OS Install CDRom Bus**. Select where you would like the OSSIM VM virtual disk to be located and how large it should be under **Primary vDisk Location** (e.g., mine is located on a specific VM pool I made on an SSD). Select **_SATA_** again for **Primary vDisk Bus.** Leave everything else down to **Network MAC** as is. In the bottom left of the network pane, click the "+" to add another virtual network interface. For the new **2nd Network MAC**, I recommend copy+pasting the original MAC and changing the last number/letter to be different. Leave the rest of the settings as is.
 

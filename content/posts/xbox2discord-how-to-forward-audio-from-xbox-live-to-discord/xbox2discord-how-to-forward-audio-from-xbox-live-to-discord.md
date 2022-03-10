@@ -6,7 +6,11 @@ categories:
   - "windows"
 tags:
   - "gaming"
-coverImage: "external-content.duckduckgo-3.jpg"
+cover:
+    image: "/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord.jpg"
+    alt: "XBOX + Discord Logo"
+    caption: "<text>"
+    relative: true
 ---
 
 If you game on PC, you probably have Discord installed to chat with your friends as you game. Discord has relatively decent audio, and it far surpasses the in-game chat capabilities built into most games.

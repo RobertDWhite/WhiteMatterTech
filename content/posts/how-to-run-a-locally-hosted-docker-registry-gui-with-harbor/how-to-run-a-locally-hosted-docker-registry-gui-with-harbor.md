@@ -1,15 +1,19 @@
 ---
 title: "How to Run a Locally Hosted Docker Registry GUI with Harbor"
 date: "2021-10-04"
-categories: 
+categories:
   - "docker"
   - "tutorials"
-tags: 
+tags:
   - "docker"
   - "docker-compose"
   - "harbor"
   - "registry"
-coverImage: "harbor.png"
+cover:
+    image: "/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/harbor.png"
+    alt: "Harbor Logo"
+    caption: "<text>"
+    relative: true
 ---
 
 For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
@@ -113,5 +117,5 @@ I will not go into detail about the administration of Harbor, but I will point y
 If you were able to make it through all the steps above, you should be able to push to and pull from your registry. You will definitely want to look up information about how to tag images and containers in Docker.
 
 > As always, if you have any questions, feel free to post below and share your successes or frustrations! You can also reach out to me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
-> 
+>
 > Thanks for reading!

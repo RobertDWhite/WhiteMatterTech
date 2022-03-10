@@ -11,7 +11,11 @@ tags:
   - "unifi"
   - "webhost"
   - "wordpress"
-coverImage: "npm-logo-1024x353-1.png"
+cover:
+    image: "/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker.png"
+    alt: "NPM Logo"
+    caption: "<text>"
+    relative: true
 ---
 
 Reverse proxies are powerful tools used typically to forward client traffic to a server. In contrast to a forward proxy, a reverse proxy sits in front of web servers or other servers and forwards client traffic to the appropriate server. In this post, I will show you how to easily setup a reverse proxy using Docker, forward the necessary ports to the reverse proxy, and configure the reverse proxy to forward traffic to various servers on your network. Specifically, I will show how to setup the reverse proxy for se with WordPress, though the applications of this reverse proxy are endless!
@@ -61,25 +65,25 @@ Once your password is changed, you can begin configuration. For an example, I wi
 
 The first step is to forward ports 80 and 443 to your reverse proxy host (e.g., 192.168.1.10). I use _a [Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_ _(UDMP)_ as my gateway, so the screenshots will reflect the Unifi Controller. For Unifi users, go to _**Settings > Routing & Firewall > Port Forwarding**_. Create a new rule and name it something descriptive (I named mine NGINGX\_443). Check to enable the forward, check the _WAN interface_, and check _"Anywhere."_ In both the _Port_ and the _Forward Port_, enter "443." Add your reverse proxy host local IP in the _Forward IP_ spot (e.g., 192.168.1.10). Save the rule, and create another rule with the same info, but replace "443" with "80." Be sure to save this rule too! You should then have two rules: NGINX\_443 and NGINX\_80. This will forward all incoming Internet traffic using ports 443 (HTTPS) and 80 (HTTP) to your reverse proxy server.
 
-![](/posts/images/Screen-Shot-2021-08-16-at-11.15.04-PM.png)
+![](/posts/run-a-reverse-proxy-using-docker/images/Screen-Shot-2021-08-16-at-11.15.04-PM.png)
 
 ### Configure a Proxy Host
 
 Go back to your Nginx Proxy Server at http://youripaddress:81. Select **_Hosts > Proxy Hosts_**. Near the top right, select _Add Proxy Host_. From here, we can add our first proxy host! Under the _Details_ section, fill in the info similarly to the screenshot below. Under _Domain Names_, enter the URL and subdomains of the traffic that you want forwarded to your server. For example, if you have a webserver like I do hosting a WordPress site, you could inout your domain whitematter.tech and www.whitematter.tech. If you were hosting a Docker container elsewhere on your network, you might have something like homeassistant.whitematter.tech or something. This will certainly vary on your use-case. Feel free to reach out if you have more questions or need assistance with this piece! Under _Scheme,_ I recommend _**https**_, but this also may vary. For a WordPress site, definitely select **_https_**. Under the _Forward Hostname / IP,_ input your server IP as shown below. For the forward port, you will use the port required for traffic flow. If using a WordPress site, you will use 443. If using a Docker container like HomeAssistant, you would use something like 8123. Finally, check _Cache Assets, Block Common Exploits,_ and _Websockets Support._
 
-![](/posts/images/Screen-Shot-2021-08-16-at-11.10.29-PM.png)
+![](/posts/run-a-reverse-proxy-using-docker/images/Screen-Shot-2021-08-16-at-11.10.29-PM.png)
 
 Next, select _**Custom locations**_ and click _Add location._ If forwarding to a WordPress server, type "**/wp-admin**" as the location. The scheme should match the previous page, which is _https_ in this case. Again, add your server IP and forward port like the previous page as well.
 
-![](/posts/images/Screen-Shot-2021-08-16-at-11.10.35-PM.png)
+![](/posts/run-a-reverse-proxy-using-docker/images/Screen-Shot-2021-08-16-at-11.10.35-PM.png)
 
 Finally, under **_SSL,_** you can easily configure a LetsEncrypt certificate for use with your server, which will secure your connection to that server. You will probably not need this functionality every time you set up a proxy host especially if you use other means to generate SSL/TLS certs, but I will show you this function anyway! Under _SSL Certificate_, select "_Request a new SSL Certificate"_. Check _Force SSL_ and _HTTP/2 Support._ Enter your email address at the bottom of the config and check to agree to LetsEncrypt's ToS. Click _Save_. A cert will generate, and your proxy host will be configured!
 
-![](/posts/images/Screen-Shot-2021-08-16-at-11.50.18-PM.png)
+![](/posts/run-a-reverse-proxy-using-docker/images/Screen-Shot-2021-08-16-at-11.50.18-PM.png)
 
 #### Your proxy host should look something like this:
 
-![](/posts/images/Screen-Shot-2021-08-16-at-11.10.17-PM.png)
+![](/posts/run-a-reverse-proxy-using-docker/images/Screen-Shot-2021-08-16-at-11.10.17-PM.png)
 
 > Conclusion
 

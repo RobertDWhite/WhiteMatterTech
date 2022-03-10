@@ -12,7 +12,12 @@ tags:
   - "ubuntu"
   - "webhost"
   - "wordpress"
-coverImage: "/posts/headers/hosting-your-own-site-with-traefik-and-wordpress_main.jpg"
+cover:
+    image: "/posts/hosting-your-own-site-with-traefik-and-wordpress/header_hosting-your-own-site-with-traefik-and-wordpress_main.jpg"
+    alt: "Docker, Wordpress, & Traefik"
+    caption: "<text>"
+    relative: true
+
 ---
 
 My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a _[Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_ . You can use a VPS or an OS on bare-metal capable of running Docker _(for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu)._ Check out [this project's GitHub page](https://github.com/robertomano24/WhiteMatterWP) for examples and help.

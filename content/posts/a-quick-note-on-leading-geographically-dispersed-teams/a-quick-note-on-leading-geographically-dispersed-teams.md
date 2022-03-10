@@ -9,7 +9,11 @@ tags:
   - "leadership"
   - "remote"
   - "teams"
-coverImage: "external-content.duckduckgo-1.jpg"
+cover:
+    image: "/posts/a-quick-note-on-leading-geographically-dispersed-teams/header_a-quick-note-on-leading-geographically-dispersed-teams.jpg"
+    alt: "Graphic of Interconnected Team"
+    caption: "<text>"
+    relative: false
 ---
 
 The ability for geographically dispersed teams to interact, engage, and collaborate effectively is a concern for increasing numbers of corporations, teams, and leadership, especially in the post-COVID-19 era workplace. Adoption of technological solutions for computer-mediated communication can mitigate some of the inherent complexities and difficulties of the geographical dispersion problem, and research teams have increased efforts to both understand the problem and design groupware solutions to support virtual team collaboration (Morrison-Smith & Ruiz, 2020). Researchers suggest that, along with the physical demands of distance for virtual teams, leaders should consider cognitive, social and emotional concerns at the forefront of the discussion in order to best address the problems and create a positive collaborative environment (Morrison-Smith & Ruiz, 2020).

@@ -1,15 +1,19 @@
 ---
 title: "Usability Evaluations: Findability"
 date: "2021-09-28"
-categories: 
+categories:
   - "research"
   - "science"
   - "usability"
-tags: 
+tags:
   - "findability"
   - "research"
   - "usability"
-coverImage: "Small-Business-Website-Usab.jpg"
+cover:
+    image: "/posts/usability-evaluations-findability/usability-evaluations-findability.jpg"
+    alt: "Usability Graphic"
+    caption: "<text>"
+    relative: true
 ---
 
 ## **Abstract**

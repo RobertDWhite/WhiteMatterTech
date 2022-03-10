@@ -11,7 +11,11 @@ tags:
   - "research"
   - "science"
   - "tutorials"
-coverImage: "IMG_0825-min-768x1024-1.jpeg"
+cover:
+    image: "/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/images/IMG_0825-min-768x1024.jpeg"
+    alt: "Image of Completed Sensor"
+#   caption: "Completed Sensor with Readout: Volts = 4.91"
+    relative: true
 ---
 
 # Introduction

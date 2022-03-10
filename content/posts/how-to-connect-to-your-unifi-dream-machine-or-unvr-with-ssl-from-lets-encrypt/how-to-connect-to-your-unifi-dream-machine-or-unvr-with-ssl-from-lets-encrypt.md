@@ -11,7 +11,12 @@ tags:
   - "security"
   - "unifi"
   - "webhost"
-coverImage: "Screenshot_1.png"
+cover:
+    image: "/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/header_how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt.png"
+    alt: "SSL Error Screenshot"
+    caption: "<text>"
+    relative: true
+
 ---
 
 Alright, if you have a Unifi device like a [_Dream Machine_](https://amzn.to/3zvS2nd), _[Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_, _[UNVR](https://amzn.to/3Cze3TN "https://amzn.to/3Cze3TN")_, _[CloudKey](https://amzn.to/2W1CZUz "https://amzn.to/2W1CZUz")_, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, "**Your** **connection is not private**."

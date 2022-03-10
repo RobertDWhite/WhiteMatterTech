@@ -11,7 +11,11 @@ tags:
   - "docker"
   - "twitter"
   - "unraid"
-coverImage: "external-content.duckduckgo-1.jpg"
+cover:
+    image: "/posts/how-to-access-twitter-without-an-account-anonymously/header_how-to-access-twitter-without-an-account-anonymously.jpg"
+    alt: "Twitter Icon"
+    caption: "<text>"
+    relative: true
 ---
 
 Interestingly, after my previous post describing [how to route Docker containers through VPN on Unraid,](https://whitematter.tech/2021/how-to-route-any-docker-container-through-vpn-in-unraid/) I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
