@@ -12,7 +12,11 @@ tags:
   - "pfsense"
   - "unifi"
   - "vlan"
-coverImage: "Untitled-design.png"
+cover:
+    image: "/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic.png"
+    alt: "pfSense, Unifi, & PIA Graphic"
+    caption: "<text>"
+    relative: true
 ---
 
 This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway _\[in my case, the gateway is the [Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd) (hereafter referred to as UDMP)\]_. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client's physical port to that VLAN. This VLAN will be tied to a subnet that sends data through the pfSense machine which is acting as a VPN client _(I use [Private Internet Access](http://www.privateinternetaccess.com/pages/buy-a-vpn/1218buyavpn?invite=U2FsdGVkX19vJeCiFLTHejdg7_UKL-kbJpMDRcdZ8ZM%2CwwbqkM0Pr8u1JywwOJHsqq-mX14))_. This method allows the UDMP to continue to act as the DHCP server for these clients while allowing pfSense to anonymize and encrypt the data of the clients in question.
@@ -35,7 +39,7 @@ To import the certificate needed, choose the 1198 port option, and click "Genera
 
 Once the file is downloaded, open it in your favorite text editor (e.g., **Atom**, Notepad++, etc.). Copy the portion **\-----BEGIN CERTIFICATE-----** all the way through **\-----END CERTIFICATE-----** as shown in the image below.
 
-![](/posts/images/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic-4.jpg)
+![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic-4.jpg)
 
 ## Create a Certificate Authority in pfSense
 

@@ -9,7 +9,11 @@ tags:
   - "home-automation"
   - "iot"
   - "open-source"
-coverImage: "external-content.duckduckgo.jpg"
+cover:
+    image: "/posts/live-better-with-circadian-lighting/live-better-with-circadian-lighting.jpg"
+    alt: "Circadian Rhythm Graphic"
+    caption: "<text>"
+    relative: true
 ---
 
 **A Little Background and Some Thoughts**
@@ -36,7 +40,7 @@ First, download Circadian Lighting. There are two options for this. [Option 1](h
 
 You then must make a folder within your Home Assistant config root folder called "_custom\_components_" _(without the quotes)_. See the image below, as this folder should be in the same directory as the _configuration.yaml_. Inside the _custom\_components_ folder, make a folder called "_circadian\_lighting_" _(without the quotes)_. Inside that folder, place the contents of the Zip (I.e., _\_\_\_init\_\_\_.py, manifest.json, sensor.py, services.yaml_, and _switch.py_). The structure should look like this: _config/custom\_components/circadian\_lighting/_
 
-![](/posts/images/Screen-Shot-2021-05-24-at-10.14.06-PM-1-1024x272.png)
+![](/posts/live-better-with-circadian-lighting/images/Screen-Shot-2021-05-24-at-10.14.06-PM-1-1024x272.png)
 
 Folder Structure Setup
 
@@ -64,11 +68,11 @@ If you want, you can create multiple switches so you can turn Circadian Lighting
 
 The main difference between Option 1 and Option 2 mentioned above is that Option 1 allows you to have scenes set per room that can be assigned to a Hue switch, which lets you turn on your lights to the correct Circadian Lighting value. In each room where you would like to turn on the Circadian Light scene with a Hue switch/dimmer, you will need a scene in that room called "Circadian" without quotes. The "C" must be capitalized. I use the [iConnectHue app](https://iconnecthue.com/) on my iPhone to make these scenes. Different apps may not appropriately make the scenes, and I recommend iConnectHue anyway. In a room, like Kitchen, add a scene with the bulbs you would like to be turned on with your switch. The color/brightness values do not matter as this plugin will overwrite them. Create the Circadian scene and assign the scene to your switch (see the images below for screenshots of my iConnectHue app setup).
 
-![](/posts/images/IMG_0311-473x1024.jpeg)
+![](/posts/live-better-with-circadian-lighting/images/IMG_0311-473x1024.jpeg)
 
 Kitchen Lights Example
 
-![](/posts/images/IMG_0312-1-473x1024.jpeg)
+![](/posts/live-better-with-circadian-lighting/images/IMG_0312-1-473x1024.jpeg)
 
 Created Scene Example
 
@@ -82,6 +86,6 @@ Thanks for reading!
 
 **_Note: For your first launch with the plugin installed, you may need to turn on the Switch(s) manually. On your Home Assistant Dashboard, you can add entities to your home page like the image below. Once added, you can flip the switch to enable Circadian Lighting for those lights!_**
 
-![](/posts/images/Screen-Shot-2021-05-24-at-11.09.04-PM.png)
+![](/posts/live-better-with-circadian-lighting/images/Screen-Shot-2021-05-24-at-11.09.04-PM.png)
 
 CL Switches on Home Assistant Dashboard

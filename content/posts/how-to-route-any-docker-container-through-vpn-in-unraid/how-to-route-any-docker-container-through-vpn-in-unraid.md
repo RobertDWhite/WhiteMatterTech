@@ -10,7 +10,11 @@ tags:
   - "docker"
   - "unraid"
   - "vpn"
-coverImage: "docker-vpn.png"
+cover:
+    image: "/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid.png"
+    alt: "Docker VPN Graphic"
+    caption: "<text>"
+    relative: true
 ---
 
 Today's post will cover how you can route any Docker container through a VPN.

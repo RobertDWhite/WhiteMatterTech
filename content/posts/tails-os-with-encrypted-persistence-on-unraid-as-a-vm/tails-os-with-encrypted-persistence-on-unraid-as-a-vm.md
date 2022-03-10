@@ -11,7 +11,11 @@ tags:
   - "tails"
   - "unraid"
   - "vm"
-coverImage: "sale-1-2.png"
+cover:
+    image: "/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tailsunraid.png"
+    alt: "Tails + Unraid Logo"
+    caption: "<text>"
+    relative: true
 ---
 
 This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
