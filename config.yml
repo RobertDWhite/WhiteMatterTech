@@ -33,9 +33,6 @@ languages:
                 - name: Categories
                   url: categories/
                   weight: 10
-                - name: Resume
-                  url: resume/
-                  weight: 10
 
 outputs:
     home:
@@ -60,7 +57,13 @@ params:
     ShowToc: true
     # comments: false
     images: ["brain.jpg"]
-
+    logo:
+      logoHomeLink: "/"
+      logoMark: ">"
+      logoText: "$ sudo ./whitematter.tech"
+      logoCursorDisabled: false
+      logoCursorAnimate: "2s"
+      logoCursorColor: "#67a2c9"
     homeInfoParams:
         Title: "Robert D. White"
         Content: >
@@ -115,6 +118,8 @@ params:
     #     threshold: 0.4
     #     minMatchCharLength: 0
     #     keys: ["title", "permalink", "summary", "content"]
+
+
 
 taxonomies:
     category: categories
