@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>portainer on WhiteMatterTech</title>
+    <link>https://whitematter.tech/tags/portainer/</link>
+    <description>Recent content in portainer on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/portainer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Host Your Own Free Wordpress Site with Traefik and Docker</title>
+      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</guid>
+      <description>My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).</description>
+    </item>
+    
+  </channel>
+</rss>

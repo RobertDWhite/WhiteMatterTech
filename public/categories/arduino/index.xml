@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>arduino on WhiteMatterTech</title>
+    <link>https://whitematter.tech/categories/arduino/</link>
+    <description>Recent content in arduino on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/arduino/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research</title>
+      <link>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</guid>
+      <description>Introduction Recently, I had the opportunity to collaborate with a university research lab to build some vapor sensors to roughly measure ethanol (EtOH) vapor within an operant chamber. This project was a lot of fun.
+With extremely limited circuit documentation on the web and never having personally used Arduino before, there were a lot of interesting hiccups I ran into. Overall, this project was a bit out of my wheelhouse, but with much determination, the finished product turned out rather nicely.</description>
+    </item>
+    
+  </channel>
+</rss>

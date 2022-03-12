@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Host Your Own Free Wordpress Site with Traefik and Docker | WhiteMatterTech</title>
+<meta name="keywords" content="docker, portainer, traefik, ubuntu, webhost, wordpress" />
+<meta name="description" content="My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).">
+<meta name="author" content="Robert D. White">
+<link rel="canonical" href="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.d15de49c11ffd395ee3ed4ee5174b5b86d66a7692bfdf48f1a9c29c125edc3ea.css" integrity="sha256-0V3knBH/05XuPtTuUXS1uG1mp2kr/fSPGpwpwSXtw&#43;o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://whitematter.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://whitematter.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://whitematter.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://whitematter.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="https://whitematter.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Host Your Own Free Wordpress Site with Traefik and Docker" />
+<meta property="og:description" content="My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/" />
+<meta property="og:image" content="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/posts/hosting-your-own-site-with-traefik-and-wordpress/header_hosting-your-own-site-with-traefik-and-wordpress_main.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-02T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-02T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/posts/hosting-your-own-site-with-traefik-and-wordpress/header_hosting-your-own-site-with-traefik-and-wordpress_main.jpg" />
+<meta name="twitter:title" content="Host Your Own Free Wordpress Site with Traefik and Docker"/>
+<meta name="twitter:description" content="My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://whitematter.tech/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Host Your Own Free Wordpress Site with Traefik and Docker",
+      "item": "https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Host Your Own Free Wordpress Site with Traefik and Docker",
+  "name": "Host Your Own Free Wordpress Site with Traefik and Docker",
+  "description": "My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).",
+  "keywords": [
+    "docker", "portainer", "traefik", "ubuntu", "webhost", "wordpress"
+  ],
+  "articleBody": "My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu). Check out this project’s GitHub page for examples and help.\nAs an Amazon Associate, I earn from qualifying purchases. Thank you for supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!\nThis post assumes you have Ubuntu installed with access to a user with root privileges, Docker and Docker-Compose installed, a domain that you own (if you do not have one, I suggest purchasing through Google Domains or Hover), the ability to modify your domain’s DNS records (I recommend CloudFlare), and the ability to forward ports on your network (unless you are using a VPS or other externally hosted OS).\nOne reason I am using Ubuntu to host this Docker setup is because of the ability to use Ubuntu’s environment file to store pertinent and sensitive variables securely. This allows me to easily share my docker-compose files without exposing my secrets in GitHub or elsewhere. There may be better alternatives to storing your variables with Docker’s built-in secrets management, but this tutorial will not cover that. Finally, consider the security implications of hosting a website on your network. Check out this post to get some ideas and walkthroughs of some easy things you can do to increase your network security for this endeavor. You might also consider checking out this post about reverse proxies if you run more than one webserver you need externally accessible.\nPrepare Your Domain For your domain, you will need to add DNS records pointing your domain, for example, whitematter.tech, to the public IP address of your server (if you are using a bare-metal install on your home network, this would be the public IP your ISP provides you, which can be determined at whatismyip.com). I personally prefer a Dynamic DNS solution like duckdns.org, which allows me to automatically keep updated with my changing public IP since I do not have a static address from my ISP (for tips on exploring duckdns for your setup, check out this video on YouTube). The image below shows what CloudFlare looks like for my domain being pointed to my duckdns address (if you do not have duckdns, “Content” would be your public-facing IP, like 177.99.88.10).\nSet Environment Variables On Ubuntu, open the Environment file by issuing the following command:\nsudo nano /etc/environment Copy and paste the following underneath the PATH in the file. Replace the generic values in red below with your own. DO NOT modify the PATH itself for your configuration (i.e., PATH=\"\" should not be changed!).\nTo find your time zone (TZ), see this list.\nReplace “username” in the USERDIR with your Ubuntu username. I strongly recommend using a password manager (I use 1Password) to generate and store passwords for MySQL and WP databases.\nPATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games\" TZ=America/New_York USERDIR=/home/username/docker MYSQL_ROOT_PASSWORD=dbrootpassword DATABASE_NAME=dbname DATABASE_USER=dbuser DATABASE_PASSWORD=dbpassword DOMAIN=yourdomain.com Save the file by “Ctrl” + “o” and then “Enter”. Use “Ctrl” + “x” to exit the file after saving.\nAfter saving, you will need to logout and log back in or by rebooting.\nsudo reboot Preparing Directories and Permissions Issue the following commands. You can copy and paste all at once or issue one at a time. The ${USERDIR} will be pulled from the environment file we just set up.\nsudo mkdir ${USERDIR} sudo mkdir ${USERDIR}/apps sudo mkdir ${USERDIR}/wordpress sudo mkdir ${USERDIR}/wordpress/wp-data sudo mkdir ${USERDIR}/data sudo mkdir ${USERDIR}/data/configurations sudo touch ${USERDIR}/data/acme.json sudo chmod 600 ${USERDIR}/data/acme.json Create Traefik static configuration file. Issue this command to create the Traefik static configuration file. ${USERDIR} will be pulled from the environment file.\nsudo nano ${USERDIR}/data/traefik.yml Copy the following into the file. Be sure to change the email address in red to your own email address.\nNote that there are two caServer addresses at the bottom of the file. The one with “staging” in the address is for testing. You may want to use this address until you get everything working. However, you will get security warnings from browsers while using the staging server certificates. The actual LetsEncrypt server will only allow you to get a few certificates over a time period before it locks you out. Put a “#” in front of the caServer address that you do not want to use. Ubuntu ignores lines with “#” in front of them.\napi: dashboard: true entryPoints: http: address: \":80\" http: redirections: entryPoint: to: https https: address: \":443\" http: middlewares: - secureHeaders@file - page-ratelimit@file tls: certResolver: letsencrypt providers: docker: endpoint: \"unix:///var/run/docker.sock\" exposedByDefault: false file: filename: /configurations/dynamic.yml certificatesResolvers: letsencrypt: acme: email: you@yourdomain.com storage: acme.json keyType: EC384 httpChallenge: entryPoint: http #caServer: https://acme-staging-v02.api.letsencrypt.org/directory caServer: https://acme-v02.api.letsencrypt.org/directory Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.\nPrepare Traefik and Create Traefik Dynamic Config The Traefik password must be hashed using MD5, SHA1, or BCrypt. I recommend using BCrypt since it is more secure.\nYou can use an online Htpassword generator to hash your password. For example, if your username is “admin” and password is “password1234”, the BCrypt hashed version will look something like this: “admin:$2y$10$d0yk7WE.XqhF5bT1DdJhduRFOM5JSabTiSFCTnbC2.JgMolypHgS2”. I strongly recommend using a password manager (I use 1Password) to generate a high bit-count password to use in this step.\nOnce you have created your username, password, and hashed version of the password, continue to the next steps.\nIssue this command to create the Traefik dynamic configuration file. ${USERDIR} will be pulled from the environment file.\nsudo nano ${USERDIR}/data/configurations/dynamic.yml Copy the following into the dynamic.yml file. Update the username and password (in red) with the hashed values you just created above.\nNote that this file uses the page-ratelimit middleware. The values below allow 50 requests per second average with a burst of 50. You can change this if desired.\nhttp: middlewares: secureHeaders: headers: frameDeny: true sslRedirect: true browserXssFilter: true contentTypeNosniff: true forceSTSHeader: true stsIncludeSubdomains: true stsPreload: true stsSeconds: 31536000 customFrameOptionsValue: SAMEORIGIN user-auth: basicAuth: users: - \"admin:$2y$10$d0yk7WE.XqhF5bT1DdJhduRFOM5JSabTiSFCTnbC2.JgMolypHgS2\" page-ratelimit: rateLimit: average: 50 burst: 50 tls: options: default: cipherSuites: - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305 minVersion: VersionTLS12 Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.\nCreate the Traefik Docker-Compose File Issue this command to create the Traefik docker-compose file. ${USERDIR} will be pulled from the environment file.\nsudo nano ${USERDIR}/docker-compose.yml Copy the following into the file. Note that fields with “${ }” will be pulled from the environment file.\nThis file will pull the latest version of traefik (currently v2.2.6). You could limit the image to the latest version in the 2.2.X series by using image tag “traefik:chevrotin”. Note that if you use the “latest” tag, and Treafik releases the next version (v3, etc), your current configuration may not work with the new version. I prefer to use the latest tag and fix the configuration as needed. See dockerhub for the release tags.\nThis file will route ports 80 (http) and 443 (https) to the Traefik container.\nYou can also find a copy of the docker-compose.yml here on GitHub.\nversion: '3.3' services: traefik: image: traefik:latest container_name: traefik restart: always security_opt: - no-new-privileges:true ports: - 80:80 - 443:443 volumes: - /var/run/docker.sock:/var/run/docker.sock:ro - ${USERDIR}/data/traefik.yml:/traefik.yml:ro - ${USERDIR}/data/configurations:/configurations - ${USERDIR}/data/acme.json:/acme.json environment: TZ: ${TZ} networks: - proxy labels: - \"traefik.enable=true\" - \"traefik.docker.network=proxy\" - \"traefik.http.routers.traefik-secure.entrypoints=https\" - \"traefik.http.routers.traefik-secure.rule=Host(`traefik.${DOMAIN}`)\" - \"traefik.http.routers.traefik-secure.service=api@internal\" - \"traefik.http.routers.traefik-secure.middlewares=user-auth@file\" networks: proxy: external: true Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.\nCreate the WordPress Docker-Compose File Issue this command to create the WordPress docker-compose file. ${USERDIR} will be pulled from the environment file.\nsudo nano ${USERDIR}/apps/docker-compose.yml Copy the following into the file. Note that fields with “${ }” will be pulled from the environment file.\nYou can also find a copy of the docker-compose.yml on GitHub:\nversion: '3.7' services: db: image: mariadb:latest container_name: wp-db volumes: - db-data:/var/lib/mysql networks: - default security_opt: - no-new-privileges:true restart: unless-stopped environment: MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} MYSQL_DATABASE: ${DATABASE_NAME} MYSQL_USER: ${DATABASE_USER} MYSQL_PASSWORD: ${DATABASE_PASSWORD} TZ: ${TZ} wordpress: depends_on: - db image: wordpress:latest container_name: wordpress environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_NAME: ${DATABASE_NAME} WORDPRESS_DB_USER: ${DATABASE_USER} WORDPRESS_DB_PASSWORD: ${DATABASE_PASSWORD} TZ: ${TZ} volumes: - ${USERDIR}/wordpress/wp-data:/var/www/html networks: - proxy - default security_opt: - no-new-privileges:true restart: unless-stopped labels: - \"traefik.enable=true\" - \"traefik.docker.network=proxy\" - \"traefik.http.routers.wordpress-secure.entrypoints=https\" - \"traefik.http.routers.wordpress-secure.rule=Host(`${DOMAIN}`)\" portainer: container_name: portainer image: portainer/portainer:latest restart: unless-stopped command: -H unix:///var/run/docker.sock networks: - proxy - default security_opt: - no-new-privileges:true volumes: - /var/run/docker.sock:/var/run/docker.sock:ro environment: TZ: ${TZ} labels: - \"traefik.enable=true\" - \"traefik.docker.network=proxy\" - \"traefik.http.routers.portainer-secure.entrypoints=https\" - \"traefik.http.routers.portainer-secure.rule=Host(`portainer.${DOMAIN}`)\" volumes: db-data: networks: proxy: external: true Create the Proxy Network and Start Traefik Now that the files are created, you are ready to create the proxy network and start Traefik.\nIssue this command to create the proxy network:\ndocker network create proxy Issue this command to start the Traefik container. ${USERDIR} will be pulled from the environment file.\ndocker-compose -f ${USERDIR}/docker-compose.yml up -d Once that is complete, wait a few minutes and attempt to access the Traefik web admin page. You should be able to reach it at https://traefik.yourdomain.com. Replace “yourdomain.com” with your actual domain matching the domain you added to the environment file. If it works, use the non-hashed username and password. You should see this:\nIf you are unable to access this page, you will likely need to forward ports 80 and 443 to your Ubuntu server (see the below screenshot for an example of the ports forwarded to Ubuntu(10.100.0.15), and also see this post for recommendations on how to secure your network). If you are using a VPS or other externally hosted option, this will not be necessary. Once your ports are forwarded, you should be ready to continue.\nStart the Remaining Containers Warning – It is important that you login to WordPress and Portainer after you start them so that you can set passwords. If you do not, anyone could have access to them!\nIssue this command to start the remaining containers. ${USERDIR} will be pulled from the environment file.\ndocker-compose -f ${USERDIR}/apps/docker-compose.yml up -d Give it a few minutes and attempt to access WordPress and Portainer from a browser.\n WordPress:\n You should be able to access WordPress at “https://yourdomain.com“. Replace “yourdomain.com” with your domain.\nIf successful, you should see the initial WordPress screen where you create your WordPress user and password. Use a really strong password for WordPress (again, I recommend using a password manager like 1Password).\nIf the WordPress installation was successful, you should see a message declaring success.\n Portainer:\n You should be able to access Portainer at “https://portainer.yourdomain.com“. Replace “yourdomain.com” with your domain created in section 1.\nIf successful, you should see the initial Portainer screen where you create your Portainer user and password. Use a really strong password for Portainer (again, I recommend using a password manager like 1Password).\nAfter you create your Portainer password, login to Portainer, and click “containers” on the left side of the page. You will see a list of your running containers. You can stop, start, restart, remove, etc. installed containers.\nGetting Started with WordPress A solid recommended thing to do with a new WordPress site is increase the php memory limit and max file upload size. One way to do this is to modify the .htaccess file. To change this file, do the following in terminal. ${USERDIR} will be pulled from the environment file. The file path below assumes you specified the WordPress volume as shown in the docker-compose file.\nsudo nano ${USERDIR}/wordpress/wp-data/.htaccess Add these lines to the file:\nphp_value memory_limit 256M php_value upload_max_filesize 128M php_value post_max_size 128M php_value max_execution_time 300 php_value max_input_time 1000 Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.\nRestart the WordPress container for changes to take effect. You can restart it from Portainer or restart all containers with this command:\ndocker restart $(docker ps -q)  WordPress Admin Page:\n To reach your WordPress admin page, open a browser and navigate to “https://yourdomain.com/wp-admin” (replace “yourdomain.com” with your actual domain). Log in using the credentials you created in Section 14.\n Change the WordPress Theme:\n You can change the theme of your blog or website if you want.\nAfter clicking “Add New Theme”, search your favorite theme and put your mouse over it and click “Install”. After it installs, click “Activate”.\n Create a Blog Post:\n To add a blog post, click “Posts” and then “Add New”. A new, blank blog post will be created. I like using the default block editor that comes with WordPress. You can add page builder plugins if you want. This is what the default block editor looks like:\nAfter creating your post using the block editor, click “Publish” and then “Publish” again to make the post available. Navigate to the address shown on the “Post address”. Your blog post will look something like this. You can customize your site by changing settings or adding plug-ins.\n",
+  "wordCount" : "2229",
+  "inLanguage": "en",
+  "image":"https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/posts/hosting-your-own-site-with-traefik-and-wordpress/header_hosting-your-own-site-with-traefik-and-wordpress_main.jpg","datePublished": "2021-04-02T00:00:00Z",
+  "dateModified": "2021-04-02T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Robert D. White"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WhiteMatterTech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://whitematter.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">sudo ./whitematter.tech</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#67a2c9;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+            <span class="logo-switches">
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://whitematter.tech/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://whitematter.tech/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://whitematter.tech/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://whitematter.tech/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+  </header>
+<div id="particles-js"></div>
+ <div class="site-wrapper">
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://whitematter.tech">Home</a>&nbsp;»&nbsp;<a href="https://whitematter.tech/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Host Your Own Free Wordpress Site with Traefik and Docker
+    </h1>
+    <div class="post-meta"><span title='2021-04-02 00:00:00 +0000 UTC'>April 2, 2021</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Robert D. White&nbsp;|&nbsp;<a href="https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content//posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress.md" rel="noopener noreferrer" target="_blank">Suggest Changes @ GitHub</a>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/header_hosting-your-own-site-with-traefik-and-wordpress_main.jpg" alt="Docker, Wordpress, &amp; Traefik">
+        <p><!-- raw HTML omitted --></p>
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#prepare-your-domain" aria-label="Prepare Your Domain">Prepare Your Domain</a></li>
+                <li>
+                    <a href="#set-environment-variables" aria-label="Set Environment Variables"><strong>Set Environment Variables</strong></a></li>
+                <li>
+                    <a href="#preparing-directories-and-permissions" aria-label="Preparing Directories and Permissions"><strong>Preparing Directories and Permissions</strong></a></li>
+                <li>
+                    <a href="#create-traefik-static-configuration-file" aria-label="Create Traefik static configuration file."><strong>Create Traefik static configuration file.</strong></a></li>
+                <li>
+                    <a href="#prepare-traefik-and-create-traefik-dynamic-config" aria-label="Prepare Traefik and Create Traefik Dynamic Config"><strong>Prepare Traefik and Create Traefik Dynamic Config</strong></a></li>
+                <li>
+                    <a href="#create-the-traefik-docker-compose-file" aria-label="Create the Traefik Docker-Compose File"><strong>Create the Traefik Docker-Compose File</strong></a></li>
+                <li>
+                    <a href="#create-the-wordpress-docker-compose-file" aria-label="Create the WordPress Docker-Compose File"><strong>Create the WordPress Docker-Compose File</strong></a></li>
+                <li>
+                    <a href="#create-the-proxy-network-and-start-traefik" aria-label="Create the Proxy Network and Start Traefik"><strong>Create the Proxy Network and Start Traefik</strong></a></li>
+                <li>
+                    <a href="#start-the-remaining-containers" aria-label="Start the Remaining Containers"><strong>Start the Remaining Containers</strong></a></li>
+                <li>
+                    <a href="#getting-started-with-wordpress" aria-label="Getting Started with WordPress"><strong>Getting Started with WordPress</strong></a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a <em><a href="https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B086967C9X&amp;linkCode=as2&amp;tag=whitematter-20&amp;linkId=4fc0624a437d4bfe761f2ebb02ca61bd">Unifi Dream Machine Pro</a></em> . You can use a VPS or an OS on bare-metal capable of running Docker <em>(for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).</em> Check out <a href="https://github.com/robertomano24/WhiteMatterWP">this project&rsquo;s GitHub page</a> for examples and help.</p>
+<p><em>As an Amazon Associate, I earn from qualifying purchases.</em> Thank you for <em>supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!</em></p>
+<p>This post assumes you have Ubuntu installed with access to a user with root privileges, Docker and Docker-Compose installed, a domain that you own (if you do not have one, I suggest purchasing through Google Domains or Hover), the ability to modify your domain&rsquo;s DNS records <em>(I recommend <a href="https://www.cloudflare.com/">CloudFlare</a>)</em>, and the ability to forward ports on your network (unless you are using a VPS or other externally hosted OS).</p>
+<p>One reason I am using Ubuntu to host this Docker setup is because of the ability to use Ubuntu&rsquo;s environment file to store pertinent and sensitive variables securely. This allows me to easily share my docker-compose files without exposing my secrets in GitHub or elsewhere. There may be better alternatives to storing your variables with Docker&rsquo;s built-in secrets management, but this tutorial will not cover that. Finally, consider the security implications of hosting a website on your network. Check out <a href="https://whitematter.tech/2021/04/06/network-hardening-webhosting/" title="https://whitematter.tech/2021/04/06/network-hardening-webhosting/">this post</a> to get some ideas and walkthroughs of some easy things you can do to increase your network security for this endeavor. You might also consider checking out <a href="https://whitematter.tech/2021/run-a-reverse-proxy-using-docker/">this post</a> about reverse proxies if you run more than one webserver you need externally accessible.</p>
+<h2 id="prepare-your-domain">Prepare Your Domain<a hidden class="anchor" aria-hidden="true" href="#prepare-your-domain">#</a></h2>
+<p>For your domain, you will need to add DNS records pointing your domain, for example, whitematter.tech, to the public IP address of your server <em>(if you are using a bare-metal install on your home network, this would be the public IP your ISP provides you, which can be determined at <a href="http://whatismyip.com">whatismyip.com</a>)</em>. I personally prefer a Dynamic DNS solution like <a href="http://duckdns.org" title="duckdns.org">duckdns.org</a>, which allows me to automatically keep updated with my changing public IP since I do not have a static address from my ISP <em>(for tips on exploring duckdns for your setup, check out <a href="https://www.youtube.com/watch?v=bVmUV1G5wpI">this video</a> on YouTube).</em> The image below shows what CloudFlare looks like for my domain being pointed to my duckdns address <em>(if you do not have duckdns, &ldquo;Content&rdquo; would be your public-facing IP, like 177.99.88.10)</em>.</p>
+<p><img loading="lazy" src="/posts/images/Screen-Shot-2021-04-01-at-8.15.44-PM.jpg" alt=""  />
+</p>
+<h2 id="set-environment-variables"><strong>Set Environment Variables</strong><a hidden class="anchor" aria-hidden="true" href="#set-environment-variables">#</a></h2>
+<p>On Ubuntu, open the Environment file by issuing the following command:</p>
+<pre tabindex="0"><code>sudo nano /etc/environment
+</code></pre><p>Copy and paste the following underneath the PATH in the file. <strong>Replace the generic values in red below with your own</strong>. <strong><em>DO NOT modify the PATH itself for your configuration (i.e., PATH=&quot;&quot; should not be changed!)</em></strong>.</p>
+<p>To find your time zone (TZ), see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">this list</a>.</p>
+<p>Replace “username” in the USERDIR with your Ubuntu username. <em>I strongly recommend using a password manager (I use <a href="https://1password.com">1Password</a>) to generate and store passwords for MySQL and WP databases.</em></p>
+<pre tabindex="0"><code>PATH=&#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&#34;
+
+TZ=America/New_York
+USERDIR=/home/username/docker
+MYSQL_ROOT_PASSWORD=dbrootpassword
+DATABASE_NAME=dbname
+DATABASE_USER=dbuser
+DATABASE_PASSWORD=dbpassword
+DOMAIN=yourdomain.com
+</code></pre><p>Save the file by “Ctrl” + “o” and then “Enter”. Use “Ctrl” + “x” to exit the file after saving.</p>
+<p>After saving, you will need to logout and log back in or by rebooting.</p>
+<pre tabindex="0"><code>sudo reboot
+</code></pre><h2 id="preparing-directories-and-permissions"><strong>Preparing Directories and Permissions</strong><a hidden class="anchor" aria-hidden="true" href="#preparing-directories-and-permissions">#</a></h2>
+<p>Issue the following commands. You can copy and paste all at once or issue one at a time. <em>The ${USERDIR} will be pulled from the environment file we just set up.</em></p>
+<pre tabindex="0"><code>sudo mkdir ${USERDIR}
+sudo mkdir ${USERDIR}/apps
+sudo mkdir ${USERDIR}/wordpress
+sudo mkdir ${USERDIR}/wordpress/wp-data
+sudo mkdir ${USERDIR}/data
+sudo mkdir ${USERDIR}/data/configurations
+sudo touch ${USERDIR}/data/acme.json
+sudo chmod 600 ${USERDIR}/data/acme.json
+</code></pre><h2 id="create-traefik-static-configuration-file"><strong>Create Traefik static configuration file.</strong><a hidden class="anchor" aria-hidden="true" href="#create-traefik-static-configuration-file">#</a></h2>
+<p>Issue this command to create the Traefik static configuration file. ${USERDIR} will be pulled from the environment file.</p>
+<pre tabindex="0"><code>sudo nano ${USERDIR}/data/traefik.yml
+</code></pre><p>Copy the following into the file. <em><strong>Be sure to change the email address in red to your own email address</strong>.</em></p>
+<p>Note that there are two caServer addresses at the bottom of the file. The one with “staging” in the address is for testing. You may want to use this address until you get everything working. However, you will get security warnings from browsers while using the staging server certificates. The actual LetsEncrypt server will only allow you to get a few certificates over a time period before it locks you out. Put a “#” in front of the caServer address that you do not want to use. Ubuntu ignores lines with “#” in front of them.</p>
+<pre tabindex="0"><code>api:
+  dashboard: true
+
+entryPoints:
+  http:
+    address: &#34;:80&#34;
+    http:
+      redirections:
+        entryPoint:
+          to: https
+  https:
+    address: &#34;:443&#34;
+    http:
+      middlewares:
+        - secureHeaders@file
+        - page-ratelimit@file
+      tls:
+        certResolver: letsencrypt
+
+providers:
+  docker:
+    endpoint: &#34;unix:///var/run/docker.sock&#34;
+    exposedByDefault: false
+  file:
+    filename: /configurations/dynamic.yml
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: you@yourdomain.com
+      storage: acme.json
+      keyType: EC384
+      httpChallenge:
+        entryPoint: http
+      #caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+      caServer: https://acme-v02.api.letsencrypt.org/directory
+</code></pre><p>Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.</p>
+<h2 id="prepare-traefik-and-create-traefik-dynamic-config"><strong>Prepare Traefik and Create Traefik Dynamic Config</strong><a hidden class="anchor" aria-hidden="true" href="#prepare-traefik-and-create-traefik-dynamic-config">#</a></h2>
+<p>The Traefik password must be hashed using MD5, SHA1, or BCrypt. I recommend using BCrypt since it is more secure.</p>
+<p>You can use an online <a href="https://hostingcanada.org/htpasswd-generator/">Htpassword generator</a> to hash your password. For example, if your username is “admin” and password is “password1234”, the BCrypt hashed version will look something like this: “admin:$2y$10$d0yk7WE.XqhF5bT1DdJhduRFOM5JSabTiSFCTnbC2.JgMolypHgS2”. <em>I strongly recommend using a password manager (I use <em><a href="https://1password.com/">1Password</a></em>) to generate a high bit-count password to use in this step.</em></p>
+<p>Once you have created your username, password, and hashed version of the password, continue to the next steps.</p>
+<p>Issue this command to create the Traefik dynamic configuration file. <em>${USERDIR} will be pulled from the environment file.</em></p>
+<pre tabindex="0"><code>sudo nano ${USERDIR}/data/configurations/dynamic.yml
+</code></pre><p>Copy the following into the dynamic.yml file. <strong>Update the username and password (in red) with the hashed values you just created above.</strong></p>
+<p>Note that this file uses the page-ratelimit middleware. The values below allow 50 requests per second average with a burst of 50. You can change this if desired.</p>
+<pre tabindex="0"><code>http:
+  middlewares:
+    secureHeaders:
+      headers:
+        frameDeny: true
+        sslRedirect: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+        customFrameOptionsValue: SAMEORIGIN
+    user-auth:
+      basicAuth:
+        users:
+          - &#34;admin:$2y$10$d0yk7WE.XqhF5bT1DdJhduRFOM5JSabTiSFCTnbC2.JgMolypHgS2&#34;
+    page-ratelimit:
+      rateLimit:
+        average: 50
+        burst: 50
+tls:
+  options:
+    default:
+      cipherSuites:
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+      minVersion: VersionTLS12
+</code></pre><p>Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.</p>
+<h2 id="create-the-traefik-docker-compose-file"><strong>Create the Traefik Docker-Compose File</strong><a hidden class="anchor" aria-hidden="true" href="#create-the-traefik-docker-compose-file">#</a></h2>
+<p>Issue this command to create the Traefik docker-compose file. <em>${USERDIR} will be pulled from the environment file.</em></p>
+<pre tabindex="0"><code>sudo nano ${USERDIR}/docker-compose.yml
+</code></pre><p>Copy the following into the file. <em>Note that fields with “${ }” will be pulled from the environment file.</em></p>
+<p>This file will pull the latest version of traefik (currently v2.2.6). You could limit the image to the latest version in the 2.2.X series by using image tag “traefik:chevrotin”. Note that if you use the “latest” tag, and Treafik releases the next version (v3, etc), your current configuration may not work with the new version. I prefer to use the latest tag and fix the configuration as needed. See <a href="https://hub.docker.com/_/traefik?tab=tags">dockerhub</a> for the release tags.</p>
+<p>This file will route ports 80 (http) and 443 (https) to the Traefik container.</p>
+<p>You can also find a copy of the <a href="https://github.com/RobertDWhite/WhiteMatterWP/blob/main/docker-compose.yml" title="docker-compose.yml here on GitHub">docker-compose.yml here on GitHub</a>.</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${USERDIR}/data/traefik.yml:/traefik.yml:ro
+      - ${USERDIR}/data/configurations:/configurations
+      - ${USERDIR}/data/acme.json:/acme.json
+    environment:
+      TZ: ${TZ}
+    networks:
+      - proxy
+    labels:
+      - &#34;traefik.enable=true&#34;
+      - &#34;traefik.docker.network=proxy&#34;
+      - &#34;traefik.http.routers.traefik-secure.entrypoints=https&#34;
+      - &#34;traefik.http.routers.traefik-secure.rule=Host(`traefik.${DOMAIN}`)&#34;
+      - &#34;traefik.http.routers.traefik-secure.service=api@internal&#34;
+      - &#34;traefik.http.routers.traefik-secure.middlewares=user-auth@file&#34;
+
+networks:
+  proxy:
+    external: true
+</code></pre><p>Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.</p>
+<h2 id="create-the-wordpress-docker-compose-file"><strong>Create the WordPress Docker-Compose File</strong><a hidden class="anchor" aria-hidden="true" href="#create-the-wordpress-docker-compose-file">#</a></h2>
+<p>Issue this command to create the WordPress docker-compose file. <em>${USERDIR} will be pulled from the environment file.</em></p>
+<pre tabindex="0"><code>sudo nano ${USERDIR}/apps/docker-compose.yml
+</code></pre><p>Copy the following into the file. <em>Note that fields with “${ }” will be pulled from the environment file.</em></p>
+<p>You can also find a copy of the <a href="https://github.com/RobertDWhite/WhiteMatterWP/blob/main/apps/docker-compose.yml" title="docker-compose.yml on GitHub">docker-compose.yml on GitHub</a>:</p>
+<pre tabindex="0"><code>version: &#39;3.7&#39;
+services:
+  db:
+    image: mariadb:latest
+    container_name: wp-db
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - default
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      TZ: ${TZ}
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    container_name: wordpress
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DATABASE_NAME}
+      WORDPRESS_DB_USER: ${DATABASE_USER}
+      WORDPRESS_DB_PASSWORD: ${DATABASE_PASSWORD}
+      TZ: ${TZ}
+    volumes:
+      - ${USERDIR}/wordpress/wp-data:/var/www/html
+    networks:
+      - proxy
+      - default
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    labels:
+      - &#34;traefik.enable=true&#34;
+      - &#34;traefik.docker.network=proxy&#34;
+      - &#34;traefik.http.routers.wordpress-secure.entrypoints=https&#34;
+      - &#34;traefik.http.routers.wordpress-secure.rule=Host(`${DOMAIN}`)&#34;
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer:latest
+    restart: unless-stopped
+    command: -H unix:///var/run/docker.sock
+    networks:
+      - proxy
+      - default
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      TZ: ${TZ}
+    labels:
+      - &#34;traefik.enable=true&#34;
+      - &#34;traefik.docker.network=proxy&#34;
+      - &#34;traefik.http.routers.portainer-secure.entrypoints=https&#34;
+      - &#34;traefik.http.routers.portainer-secure.rule=Host(`portainer.${DOMAIN}`)&#34;
+
+volumes:
+  db-data:
+
+networks:
+  proxy:
+    external: true
+</code></pre><h2 id="create-the-proxy-network-and-start-traefik"><strong>Create the Proxy Network and Start Traefik</strong><a hidden class="anchor" aria-hidden="true" href="#create-the-proxy-network-and-start-traefik">#</a></h2>
+<p>Now that the files are created, you are ready to create the proxy network and start Traefik.</p>
+<p>Issue this command to create the proxy network:</p>
+<pre tabindex="0"><code>docker network create proxy
+</code></pre><p>Issue this command to start the Traefik container. <em>${USERDIR} will be pulled from the environment file.</em></p>
+<pre tabindex="0"><code>docker-compose -f ${USERDIR}/docker-compose.yml up -d
+</code></pre><p>Once that is complete, wait a few minutes and attempt to access the Traefik web admin page. You should be able to reach it at <a href="https://traefik.yourdomain.com">https://traefik.yourdomain.com</a>. Replace “yourdomain.com” with your actual domain matching the domain you added to the environment file. If it works, use the <strong><em>non-hashed username and password</em></strong>. You should see this:</p>
+<p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/traefik-dashboard-1024x683.png" alt=""  />
+</p>
+<p>If you are unable to access this page, you will likely need to forward ports 80 and 443 to your Ubuntu server <em>(see the below screenshot for an example of the ports forwarded to Ubuntu(10.100.0.15), and also see this post for recommendations on how to secure your network)</em>. If you are using a VPS or other externally hosted option, this will not be necessary. Once your ports are forwarded, you should be ready to continue.</p>
+<p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/Screen-Shot-2021-04-01-at-8.38.18-PM-1024x64.png" alt=""  />
+</p>
+<h2 id="start-the-remaining-containers"><strong>Start the Remaining Containers</strong><a hidden class="anchor" aria-hidden="true" href="#start-the-remaining-containers">#</a></h2>
+<p><strong>Warning – It is important that you login to WordPress and Portainer after you start them so that you can set passwords. If you do not, anyone could have access to them!</strong></p>
+<p>Issue this command to start the remaining containers. <em>${USERDIR}</em> will be pulled from the environment file.</p>
+<pre tabindex="0"><code>docker-compose -f ${USERDIR}/apps/docker-compose.yml up -d
+</code></pre><p>Give it a few minutes and attempt to access WordPress and Portainer from a browser.</p>
+<blockquote>
+<p><strong>WordPress:</strong></p>
+</blockquote>
+<p>You should be able to access WordPress at “https://yourdomain.com“. Replace “yourdomain.com” with your domain.</p>
+<p>If successful, you should see the initial WordPress screen where you <strong>create your WordPress user and password</strong>. Use a really strong password for WordPress <em>(again, I recommend using a password manager like <em><a href="https://1password.com/">1Password</a></em>).</em></p>
+<p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/wordpress-initial.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/wordpress-initial-install.png" alt=""  />
+</p>
+<p>If the WordPress installation was successful, you should see a message declaring success.</p>
+<blockquote>
+<p><strong>Portainer:</strong></p>
+</blockquote>
+<p>You should be able to access Portainer at “https://portainer.yourdomain.com“. Replace “yourdomain.com” with your domain created in section 1.</p>
+<p>If successful, you should see the initial Portainer screen where you <strong>create your Portainer user and password</strong>. Use a <strong><em>really strong</em></strong> password for Portainer <em>(again, I recommend using a password manager like <em><a href="https://1password.com/">1Password</a></em>).</em></p>
+<p><img loading="lazy" src="/posts/images/portainer-initial.png" alt=""  />
+</p>
+<p>After you create your Portainer password, login to Portainer, and click “containers” on the left side of the page. You will see a list of your running containers. You can stop, start, restart, remove, etc. installed containers.</p>
+<p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/portainer-container-list-1024x515.png" alt=""  />
+</p>
+<h2 id="getting-started-with-wordpress"><strong>Getting Started with WordPress</strong><a hidden class="anchor" aria-hidden="true" href="#getting-started-with-wordpress">#</a></h2>
+<p>A solid recommended thing to do with a new WordPress site is increase the php memory limit and max file upload size. One way to do this is to modify the .htaccess file. To change this file, do the following in terminal. <em>${USERDIR} will be pulled from the environment file. The file path below assumes you specified the WordPress volume as shown in the docker-compose file.</em></p>
+<pre tabindex="0"><code>sudo nano ${USERDIR}/wordpress/wp-data/.htaccess
+</code></pre><p>Add these lines to the file:</p>
+<pre tabindex="0"><code>php_value memory_limit 256M
+php_value upload_max_filesize 128M
+php_value post_max_size 128M
+php_value max_execution_time 300
+php_value max_input_time 1000
+</code></pre><p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/increase-file-upload-size-1.png" alt=""  />
+</p>
+<p>Once you have copied the text above into the file, save the file with “Ctrl” + “o” and then “Enter”. Exit the file with “Ctrl” + “x”.</p>
+<p>Restart the WordPress container for changes to take effect. You can restart it from Portainer or restart all containers with this command:</p>
+<pre tabindex="0"><code>docker restart $(docker ps -q)
+</code></pre><blockquote>
+<p><strong>WordPress Admin Page:</strong></p>
+</blockquote>
+<p>To reach your WordPress admin page, open a browser and navigate to “https://yourdomain.com/wp-admin” (replace “yourdomain.com” with your actual domain). Log in using the credentials you created in Section 14.</p>
+<blockquote>
+<p><strong>Change the WordPress Theme:</strong></p>
+</blockquote>
+<p>You can change the theme of your blog or website if you want.</p>
+<p>After clicking “Add New Theme”, search your favorite theme and put your mouse over it and click “Install”. After it installs, click “Activate”.</p>
+<blockquote>
+<p><strong>Create a Blog Post:</strong></p>
+</blockquote>
+<p>To add a blog post, click “Posts” and then “Add New”. A new, blank blog post will be created. I like using the default block editor that comes with WordPress. You can add page builder plugins if you want. This is what the default block editor looks like:</p>
+<p><img loading="lazy" src="/posts/hosting-your-own-site-with-traefik-and-wordpress/images/blogpost-1024x665.png" alt=""  />
+</p>
+<p>After creating your post using the block editor, click “Publish” and then “Publish” again to make the post available. Navigate to the address shown on the “Post address”. Your blog post will look something like this. You can customize your site by changing settings or adding plug-ins.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://whitematter.tech/tags/docker/">docker</a></li>
+      <li><a href="https://whitematter.tech/tags/portainer/">portainer</a></li>
+      <li><a href="https://whitematter.tech/tags/traefik/">traefik</a></li>
+      <li><a href="https://whitematter.tech/tags/ubuntu/">ubuntu</a></li>
+      <li><a href="https://whitematter.tech/tags/webhost/">webhost</a></li>
+      <li><a href="https://whitematter.tech/tags/wordpress/">wordpress</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Host Your Own Free Wordpress Site with Traefik and Docker on twitter"
+        href="https://twitter.com/intent/tweet/?text=Host%20Your%20Own%20Free%20Wordpress%20Site%20with%20Traefik%20and%20Docker&amp;url=https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f&amp;hashtags=docker%2cportainer%2ctraefik%2cubuntu%2cwebhost%2cwordpress">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Host Your Own Free Wordpress Site with Traefik and Docker on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f&amp;title=Host%20Your%20Own%20Free%20Wordpress%20Site%20with%20Traefik%20and%20Docker&amp;summary=Host%20Your%20Own%20Free%20Wordpress%20Site%20with%20Traefik%20and%20Docker&amp;source=https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Host Your Own Free Wordpress Site with Traefik and Docker on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f&title=Host%20Your%20Own%20Free%20Wordpress%20Site%20with%20Traefik%20and%20Docker">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Host Your Own Free Wordpress Site with Traefik and Docker on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Host Your Own Free Wordpress Site with Traefik and Docker on whatsapp"
+        href="https://api.whatsapp.com/send?text=Host%20Your%20Own%20Free%20Wordpress%20Site%20with%20Traefik%20and%20Docker%20-%20https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Host Your Own Free Wordpress Site with Traefik and Docker on telegram"
+        href="https://telegram.me/share/url?text=Host%20Your%20Own%20Free%20Wordpress%20Site%20with%20Traefik%20and%20Docker&amp;url=https%3a%2f%2fwhitematter.tech%2fposts%2fhosting-your-own-site-with-traefik-and-wordpress%2fhosting-your-own-site-with-traefik-and-wordpress%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://whitematter.tech">WhiteMatterTech</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+
+
+</footer>
+</div>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script type="text/javascript" src="https://whitematter.techjs/jquery.js"></script>
+<script type="text/javascript" src="https://whitematter.techjs/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://whitematter.techjs/index.js"></script>
+<script src="https://whitematter.techjs/particles.min.js"></script>
+<script src="https://whitematter.techjs/particles.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

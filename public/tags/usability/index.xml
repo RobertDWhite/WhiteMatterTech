@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>usability on WhiteMatterTech</title>
+    <link>https://whitematter.tech/tags/usability/</link>
+    <description>Recent content in usability on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 28 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/usability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Usability Evaluations: Findability</title>
+      <link>https://whitematter.tech/posts/usability-evaluations-findability/usability-evaluations-findability/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/usability-evaluations-findability/usability-evaluations-findability/</guid>
+      <description>Abstract This review investigated findability and its relationship to usability and usability evaluations. Definitions of usability, findability, usability evaluations, and other sub-components of these terms including navigability are discussed, and the importance of research studies using similar terminologies is considered. A series of six usability evaluation studies is presented, and the terminologies presented in each are described. Goals, findings, and conclusions of each study are considered, and applications from the conclusions are drawn.</description>
+    </item>
+    
+  </channel>
+</rss>
