@@ -67,14 +67,14 @@ params:
     logo:
       logoHomeLink: "/"
       logoMark: ">"
-      logoText: "sudo ./whitematter.tech"
+      logoText: "./whitematter.tech"
       logoCursorDisabled: false
       logoCursorAnimate: "2s"
       logoCursorColor: "#67a2c9"
     homeInfoParams:
         Title: "Robert D. White"
         Content: >
-            Enterprise Services Engineer @ Tanium // Consultant 
+            Enterprise Services Engineer @ Tanium // Consultant
         imageUrl: "profile/rdw.png"
 
     socialIcons:
