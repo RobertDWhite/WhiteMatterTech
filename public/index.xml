@@ -2,228 +2,579 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>WhiteMatterTech</title>
-    <link>https://whitematter.tech/</link>
+    <link>https://whitematter.tech/index.html</link>
     <description>Recent content on WhiteMatterTech</description>
     <image>
       <url>https://whitematter.tech/brain.jpg</url>
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://whitematter.tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Privacy Policy</title>
-      <link>https://whitematter.tech/privacy-policy/</link>
-      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/privacy-policy/</guid>
-      <description>Last updated: [wpautoterms last_updated_date]
-[wpautoterms company_name] (&amp;ldquo;us&amp;rdquo;, &amp;ldquo;we&amp;rdquo;, or &amp;ldquo;our&amp;rdquo;) operates the [wpautoterms site_name] website (the &amp;ldquo;Service&amp;rdquo;).
-This page informs you of our policies regarding the collection, use and disclosure of Personal Information when you use our Service.
-We will not use or share your information with anyone except as described in this Privacy Policy.
-We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.</description>
-    </item>
-    
-    <item>
-      <title>Terms and Conditions</title>
-      <link>https://whitematter.tech/terms-and-conditions/</link>
-      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/terms-and-conditions/</guid>
-      <description>Last updated: [wpautoterms last_updated_date]
-Please read these Terms of Use (&amp;ldquo;Terms&amp;rdquo;, &amp;ldquo;Terms of Use&amp;rdquo;) carefully before using the [wpautoterms site_url] website (the &amp;ldquo;Service&amp;rdquo;) operated by [wpautoterms company_name] (&amp;ldquo;us&amp;rdquo;, &amp;ldquo;we&amp;rdquo;, or &amp;ldquo;our&amp;rdquo;).
-Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
-By accessing or using the Service you agree to be bound by these Terms.</description>
-    </item>
-    
-    <item>
-      <title>Recommended Products</title>
-      <link>https://whitematter.tech/recommended-products/</link>
-      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/recommended-products/</guid>
-      <description>Live Streaming ATEM Mini Pro</description>
-    </item>
-    
-    <item>
-      <title>Tails OS with Encrypted Persistence on Unraid as a VM</title>
-      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
+      <title>anonymous</title>
+      <link>https://whitematter.tech/tags/anonymous/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
-      <description>This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
-Running Tails as a VM is not recommended generally as it defeats many of the security features in Tails. For example, virtualization requires that you trust the hypervisor host, as the hypervisor has extra privileges over a VM that can reduce security and privacy of the VM.
-I recommend reading Tails&amp;rsquo;s official documentation about virtualization considerations before continuing: https://tails.</description>
+      <guid>https://whitematter.tech/tags/anonymous/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Xbox2Discord: How to Forward Audio from Xbox Live to Discord</title>
-      <link>https://whitematter.tech/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/</link>
+      <title>Categories</title>
+      <link>https://whitematter.tech/categories/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>encrypt</title>
+      <link>https://whitematter.tech/tags/encrypt/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/encrypt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>https://whitematter.tech/tags/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tails</title>
+      <link>https://whitematter.tech/tags/tails/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/tails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>https://whitematter.tech/categories/tutorials/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unraid</title>
+      <link>https://whitematter.tech/tags/unraid/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/unraid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unraid</title>
+      <link>https://whitematter.tech/categories/unraid/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/unraid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vm</title>
+      <link>https://whitematter.tech/tags/vm/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/vm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vm</title>
+      <link>https://whitematter.tech/categories/vm/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/vm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gaming</title>
+      <link>https://whitematter.tech/tags/gaming/</link>
       <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/</guid>
-      <description>If you game on PC, you probably have Discord installed to chat with your friends as you game. Discord has relatively decent audio, and it far surpasses the in-game chat capabilities built into most games.
-When gaming cross-platform, however, you&amp;rsquo;re stuck either using in-game chat or the tedious Xbox Companion app with limited controls and annoying party configs.
-This post will show you how to configure a setup to forward audio from an Xbox party directly to Discord, and visa versa.</description>
+      <guid>https://whitematter.tech/tags/gaming/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research</title>
-      <link>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</link>
+      <title>windows</title>
+      <link>https://whitematter.tech/categories/windows/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arduino</title>
+      <link>https://whitematter.tech/tags/arduino/</link>
       <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</guid>
-      <description>Introduction Recently, I had the opportunity to collaborate with a university research lab to build some vapor sensors to roughly measure ethanol (EtOH) vapor within an operant chamber. This project was a lot of fun.
-With extremely limited circuit documentation on the web and never having personally used Arduino before, there were a lot of interesting hiccups I ran into. Overall, this project was a bit out of my wheelhouse, but with much determination, the finished product turned out rather nicely.</description>
+      <guid>https://whitematter.tech/tags/arduino/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Access Twitter Without an Account, Anonymously</title>
-      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</link>
+      <title>arduino</title>
+      <link>https://whitematter.tech/categories/arduino/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/arduino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://whitematter.tech/tags/research/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://whitematter.tech/categories/research/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>science</title>
+      <link>https://whitematter.tech/tags/science/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>science</title>
+      <link>https://whitematter.tech/categories/science/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>https://whitematter.tech/tags/tutorials/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>business</title>
+      <link>https://whitematter.tech/categories/business/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</guid>
-      <description>Interestingly, after my previous post describing how to route Docker containers through VPN on Unraid, I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
-This post will assume you have read my post on how to route Docker containers through VPN on Unraid or that you already know how to accomplish this.</description>
+      <guid>https://whitematter.tech/categories/business/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How To Do An In-Place Upgrade To Windows Server 2022</title>
-      <link>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/how-to-do-an-in-place-upgrade-to-windows-server-2022/</link>
+      <title>docker</title>
+      <link>https://whitematter.tech/tags/docker/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/how-to-do-an-in-place-upgrade-to-windows-server-2022/</guid>
-      <description>I recently had to upgrade two domain controllers to Windows Server 2022. The main controller was still on Windows Server 2016 while the secondary was Windows Server 2019. Both in-place upgrades went without issue.
-Both servers were running Hyper-V, Bitlocker, and AD Controller. The 2019 server had an SMTP server that it was running, but Microsoft has deprecated the SMTP stack and associated management tools, including the IIS tools. There very well may be other deprecated software or tools, and I highly recommend searching for specific functionality you utilize on your Win Servers before attempting the upgrade.</description>
+      <guid>https://whitematter.tech/tags/docker/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Route Any Docker Container Through VPN in Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
+      <title>docker</title>
+      <link>https://whitematter.tech/categories/docker/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://whitematter.tech/categories/security/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>server</title>
+      <link>https://whitematter.tech/tags/server/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>https://whitematter.tech/categories/tips/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twitter</title>
+      <link>https://whitematter.tech/tags/twitter/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>upgrade</title>
+      <link>https://whitematter.tech/tags/upgrade/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/upgrade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://whitematter.tech/tags/windows/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpn</title>
+      <link>https://whitematter.tech/tags/vpn/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
-      <description>Today&amp;rsquo;s post will cover how you can route any Docker container through a VPN.
-There are many reasons you might want to route a Docker container through a VPN. Some common considerations are privacy, anonymity, and security.
-I always recommend a VPN provider that values privacy, and in your search, you should consider providers that do not keep access logs that can be tied back to you (I use Private Internet Access [PIA]).</description>
+      <guid>https://whitematter.tech/tags/vpn/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>The Ultimate Coffee Gear List for WFH</title>
-      <link>https://whitematter.tech/posts/coffee-gear/coffee-gear/</link>
+      <title>coffee</title>
+      <link>https://whitematter.tech/tags/coffee/</link>
       <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/coffee-gear/coffee-gear/</guid>
-      <description>Many of us have had the pleasure (or the curse) of working from home (better known as WFH on social media or your company Teams chat) over the COVID-19 pandemic. I, for one, welcomed the increased WFH time, but the lack of open and available coffee shops over the time was definitely a bummer (among other things, obviously).
-While designing cloud architecture or developing organizational NIST-compliant security policies, I require the aromatic scent of freshly ground espresso or single-origin coffee beans followed by an exquisitely crafted cortado or glass of nitro cold brew.</description>
+      <guid>https://whitematter.tech/tags/coffee/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Run a Locally Hosted Docker Registry GUI with Harbor</title>
-      <link>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</link>
+      <title>coffee</title>
+      <link>https://whitematter.tech/categories/coffee/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/coffee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>espresso</title>
+      <link>https://whitematter.tech/tags/espresso/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/espresso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>https://whitematter.tech/tags/docker-compose/</link>
       <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</guid>
-      <description>For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
-Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
-tar -xzf harbor-offline-installer-v2.3.1.tgz\
-cd harbor/
-Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.</description>
+      <guid>https://whitematter.tech/tags/docker-compose/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
+      <title>harbor</title>
+      <link>https://whitematter.tech/tags/harbor/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/harbor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>registry</title>
+      <link>https://whitematter.tech/tags/registry/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/registry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://whitematter.tech/categories/networking/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
-      <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
-OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
+      <guid>https://whitematter.tech/categories/networking/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Usability Evaluations: Findability</title>
-      <link>https://whitematter.tech/posts/usability-evaluations-findability/usability-evaluations-findability/</link>
+      <title>ossim</title>
+      <link>https://whitematter.tech/tags/ossim/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/ossim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://whitematter.tech/tags/security/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>siem</title>
+      <link>https://whitematter.tech/tags/siem/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/siem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>findability</title>
+      <link>https://whitematter.tech/tags/findability/</link>
       <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/usability-evaluations-findability/usability-evaluations-findability/</guid>
-      <description>Abstract This review investigated findability and its relationship to usability and usability evaluations. Definitions of usability, findability, usability evaluations, and other sub-components of these terms including navigability are discussed, and the importance of research studies using similar terminologies is considered. A series of six usability evaluation studies is presented, and the terminologies presented in each are described. Goals, findings, and conclusions of each study are considered, and applications from the conclusions are drawn.</description>
+      <guid>https://whitematter.tech/tags/findability/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>A Quick Note on Leading Geographically Dispersed Teams</title>
-      <link>https://whitematter.tech/posts/a-quick-note-on-leading-geographically-dispersed-teams/a-quick-note-on-leading-geographically-dispersed-teams/</link>
+      <title>usability</title>
+      <link>https://whitematter.tech/tags/usability/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/usability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>usability</title>
+      <link>https://whitematter.tech/categories/usability/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/usability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leadership</title>
+      <link>https://whitematter.tech/tags/leadership/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/a-quick-note-on-leading-geographically-dispersed-teams/a-quick-note-on-leading-geographically-dispersed-teams/</guid>
-      <description>The ability for geographically dispersed teams to interact, engage, and collaborate effectively is a concern for increasing numbers of corporations, teams, and leadership, especially in the post-COVID-19 era workplace. Adoption of technological solutions for computer-mediated communication can mitigate some of the inherent complexities and difficulties of the geographical dispersion problem, and research teams have increased efforts to both understand the problem and design groupware solutions to support virtual team collaboration (Morrison-Smith &amp;amp; Ruiz, 2020).</description>
+      <guid>https://whitematter.tech/tags/leadership/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Connect to Your Unifi Dream Machine or UNVR with SSL from Let&#39;s Encrypt</title>
-      <link>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</link>
+      <title>leadership</title>
+      <link>https://whitematter.tech/categories/leadership/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/leadership/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>remote</title>
+      <link>https://whitematter.tech/tags/remote/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/remote/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teams</title>
+      <link>https://whitematter.tech/tags/teams/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/teams/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://whitematter.tech/tags/network/</link>
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
-      <description>Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.&amp;rdquo;
-For some reason, at the time of this writing, there is still no official/built-in way to generate a cert for your device, though some interesting GitHub projects exist that claim to allow this functionality if you&amp;rsquo;re feeling lucky.</description>
+      <guid>https://whitematter.tech/tags/network/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Easily Run A Reverse Proxy using Docker</title>
-      <link>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</link>
+      <title>unifi</title>
+      <link>https://whitematter.tech/tags/unifi/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/unifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webhost</title>
+      <link>https://whitematter.tech/tags/webhost/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/webhost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webhosting</title>
+      <link>https://whitematter.tech/categories/webhosting/</link>
       <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</guid>
-      <description>Reverse proxies are powerful tools used typically to forward client traffic to a server. In contrast to a forward proxy, a reverse proxy sits in front of web servers or other servers and forwards client traffic to the appropriate server. In this post, I will show you how to easily setup a reverse proxy using Docker, forward the necessary ports to the reverse proxy, and configure the reverse proxy to forward traffic to various servers on your network.</description>
+      <guid>https://whitematter.tech/categories/webhosting/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Live Better with Circadian Lighting</title>
-      <link>https://whitematter.tech/posts/live-better-with-circadian-lighting/live-better-with-circadian-lighting/</link>
+      <title>wordpress</title>
+      <link>https://whitematter.tech/tags/wordpress/</link>
+      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>health</title>
+      <link>https://whitematter.tech/tags/health/</link>
       <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/live-better-with-circadian-lighting/live-better-with-circadian-lighting/</guid>
-      <description>A Little Background and Some Thoughts
-With today&amp;rsquo;s technology, we are constantly bombarded with High Energy Visible (HEV) blue light from our screens as well as inconsistent lighting throughout the day within our homes and workplaces. Like all mammalian species, we humans have our own circadian rhythms which occur naturally and are vitally important to our health and well-being. Rather than writing an essay on the importance of our natural circadian rhythms, check out the educational write-up from the NIH here.</description>
+      <guid>https://whitematter.tech/tags/health/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi</title>
-      <link>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</link>
+      <title>home-automation</title>
+      <link>https://whitematter.tech/tags/home-automation/</link>
+      <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/home-automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>home-automation</title>
+      <link>https://whitematter.tech/categories/home-automation/</link>
+      <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/home-automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>https://whitematter.tech/tags/iot/</link>
+      <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open-source</title>
+      <link>https://whitematter.tech/tags/open-source/</link>
+      <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hardening</title>
+      <link>https://whitematter.tech/tags/hardening/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</guid>
-      <description>IoT Overview The smart world of Internet-of-Things (IoT) devices is ever growing. From everyday lightbulbs to the sprinkler out front, just about every household appliance and utility has a smart-counterpart. For example, my smart home is fully Apple HomeKit compatible and consists of a Hue bridge with lightbulbs, Lutron Caseta smart dimmers/switches, Eve Aqua outdoor water hose control, iSmartGate garage door opener, Schlage deadbolt, Eve motion sensor, Sonos speakers throughout the house, a Vocolinc oil diffuser, Vocolionc power strip, a couple iRobot Roomba vacuum cleaners, some Vocolinc pluggable outlets, an Ecobee thermostat to replace each analog thermostat in the house, and a Unifi G4 Doorbell (the doorbell is not technically compatible with HomeKit, but I added support with a third-party tool known as &amp;ldquo;Homebridge&amp;rdquo;).</description>
+      <guid>https://whitematter.tech/tags/hardening/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Harden Your Network Security for Your In-Home Web Hosting</title>
-      <link>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      <title>vlan</title>
+      <link>https://whitematter.tech/tags/vlan/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</guid>
-      <description>Overview The purpose of this post is to provide some tips to address some network security concerns when hosting an externally-facing web server from a device within your home network. For this post, I will be using Unifi networking gear. My screenshots will be of the Unifi controller on my Unifi Dream Machine Pro (UDMP), but I will do my best to overview the concepts so you can replicate with your own networking gear.</description>
+      <guid>https://whitematter.tech/tags/vlan/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic</title>
-      <link>https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</link>
+      <title>pfsense</title>
+      <link>https://whitematter.tech/tags/pfsense/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</guid>
-      <description>This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client&amp;rsquo;s physical port to that VLAN.</description>
+      <guid>https://whitematter.tech/tags/pfsense/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Host Your Own Free Wordpress Site with Traefik and Docker</title>
-      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</link>
+      <title>portainer</title>
+      <link>https://whitematter.tech/tags/portainer/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</guid>
-      <description>My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).</description>
+      <guid>https://whitematter.tech/tags/portainer/</guid>
+      <description></description>
     </item>
     
+    <item>
+      <title>traefik</title>
+      <link>https://whitematter.tech/tags/traefik/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/traefik/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>ubuntu</title>
+      <link>https://whitematter.tech/tags/ubuntu/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Series</title>
+      <link>https://whitematter.tech/series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/series/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

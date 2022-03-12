@@ -1,10 +1,10 @@
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 25,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 500
       }
     },
     "color": {
@@ -29,7 +29,7 @@ particlesJS("particles-js", {
       "random": false,
       "anim": {
         "enable": false,
-        "speed": 1,
+        "speed": 0.5,
         "opacity_min": 0.1,
         "sync": false
       }
@@ -39,7 +39,7 @@ particlesJS("particles-js", {
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 1,
+        "speed": 0.5,
         "size_min": 0.1,
         "sync": false
       }
@@ -124,4 +124,3 @@ update = function() {
   requestAnimationFrame(update);
 };
 requestAnimationFrame(update);;
-
