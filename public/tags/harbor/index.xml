@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>harbor on WhiteMatterTech</title>
+    <link>https://whitematter.tech/tags/harbor/</link>
+    <description>Recent content in harbor on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/harbor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Run a Locally Hosted Docker Registry GUI with Harbor</title>
+      <link>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</guid>
+      <description>For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
+Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
+tar -xzf harbor-offline-installer-v2.3.1.tgz\
+cd harbor/
+Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.</description>
+    </item>
+    
+  </channel>
+</rss>

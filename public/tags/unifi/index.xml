@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>unifi on WhiteMatterTech</title>
+    <link>https://whitematter.tech/tags/unifi/</link>
+    <description>Recent content in unifi on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 22 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/unifi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Connect to Your Unifi Dream Machine or UNVR with SSL from Let&#39;s Encrypt</title>
+      <link>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
+      <description>Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.&amp;rdquo;
+For some reason, at the time of this writing, there is still no official/built-in way to generate a cert for your device, though some interesting GitHub projects exist that claim to allow this functionality if you&amp;rsquo;re feeling lucky.</description>
+    </item>
+    
+    <item>
+      <title>How to Easily Run A Reverse Proxy using Docker</title>
+      <link>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</link>
+      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</guid>
+      <description>Reverse proxies are powerful tools used typically to forward client traffic to a server. In contrast to a forward proxy, a reverse proxy sits in front of web servers or other servers and forwards client traffic to the appropriate server. In this post, I will show you how to easily setup a reverse proxy using Docker, forward the necessary ports to the reverse proxy, and configure the reverse proxy to forward traffic to various servers on your network.</description>
+    </item>
+    
+    <item>
+      <title>How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic</title>
+      <link>https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</guid>
+      <description>This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client&amp;rsquo;s physical port to that VLAN.</description>
+    </item>
+    
+  </channel>
+</rss>

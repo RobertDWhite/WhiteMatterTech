@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>security on WhiteMatterTech</title>
+    <link>https://whitematter.tech/tags/security/</link>
+    <description>Recent content in security on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
+      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
+      <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
+OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
+    </item>
+    
+    <item>
+      <title>How to Connect to Your Unifi Dream Machine or UNVR with SSL from Let&#39;s Encrypt</title>
+      <link>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
+      <description>Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.&amp;rdquo;
+For some reason, at the time of this writing, there is still no official/built-in way to generate a cert for your device, though some interesting GitHub projects exist that claim to allow this functionality if you&amp;rsquo;re feeling lucky.</description>
+    </item>
+    
+    <item>
+      <title>How to Harden Your Network Security for Your In-Home Web Hosting</title>
+      <link>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</guid>
+      <description>Overview The purpose of this post is to provide some tips to address some network security concerns when hosting an externally-facing web server from a device within your home network. For this post, I will be using Unifi networking gear. My screenshots will be of the Unifi controller on my Unifi Dream Machine Pro (UDMP), but I will do my best to overview the concepts so you can replicate with your own networking gear.</description>
+    </item>
+    
+  </channel>
+</rss>

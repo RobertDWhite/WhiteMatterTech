@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>iot on WhiteMatterTech</title>
+    <link>https://whitematter.tech/tags/iot/</link>
+    <description>Recent content in iot on WhiteMatterTech</description>
+    <image>
+      <url>https://whitematter.tech/brain.jpg</url>
+      <link>https://whitematter.tech/brain.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 25 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/iot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Live Better with Circadian Lighting</title>
+      <link>https://whitematter.tech/posts/live-better-with-circadian-lighting/live-better-with-circadian-lighting/</link>
+      <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/live-better-with-circadian-lighting/live-better-with-circadian-lighting/</guid>
+      <description>A Little Background and Some Thoughts
+With today&amp;rsquo;s technology, we are constantly bombarded with High Energy Visible (HEV) blue light from our screens as well as inconsistent lighting throughout the day within our homes and workplaces. Like all mammalian species, we humans have our own circadian rhythms which occur naturally and are vitally important to our health and well-being. Rather than writing an essay on the importance of our natural circadian rhythms, check out the educational write-up from the NIH here.</description>
+    </item>
+    
+    <item>
+      <title>How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi</title>
+      <link>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</guid>
+      <description>IoT Overview The smart world of Internet-of-Things (IoT) devices is ever growing. From everyday lightbulbs to the sprinkler out front, just about every household appliance and utility has a smart-counterpart. For example, my smart home is fully Apple HomeKit compatible and consists of a Hue bridge with lightbulbs, Lutron Caseta smart dimmers/switches, Eve Aqua outdoor water hose control, iSmartGate garage door opener, Schlage deadbolt, Eve motion sensor, Sonos speakers throughout the house, a Vocolinc oil diffuser, Vocolionc power strip, a couple iRobot Roomba vacuum cleaners, some Vocolinc pluggable outlets, an Ecobee thermostat to replace each analog thermostat in the house, and a Unifi G4 Doorbell (the doorbell is not technically compatible with HomeKit, but I added support with a third-party tool known as &amp;ldquo;Homebridge&amp;rdquo;).</description>
+    </item>
+    
+  </channel>
+</rss>

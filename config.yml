@@ -41,12 +41,19 @@ outputs:
         - JSON
 
 params:
+#    profileMode:
+#      enabled: true
+#      title: "Robert D. White" # optional default will be site title
+#      subtitle: "Enterprise Services Engineer @ Tanium // Consultant"
+#      imageUrl: "profile/rdw.jpg" # optional
+#      imageWidth: 120 # custom size
+#      imageHeight: 120 # custom size
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     #description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
     author: Robert D. White
     # author: ["Me", "You"] # multiple authors
-    defaultTheme: auto
-    # disableThemeToggle: true
+    defaultTheme: dark
+    disableThemeToggle: true
     ShowShareButtons: true
     ShowReadingTime: true
     # disableSpecial1stPost: true
@@ -60,15 +67,15 @@ params:
     logo:
       logoHomeLink: "/"
       logoMark: ">"
-      logoText: "$ sudo ./whitematter.tech"
+      logoText: "sudo ./whitematter.tech"
       logoCursorDisabled: false
       logoCursorAnimate: "2s"
       logoCursorColor: "#67a2c9"
     homeInfoParams:
         Title: "Robert D. White"
         Content: >
-            Enterprise Services Engineer @ Tanium // Consultant
-        imageUrl: "profile/rdw.jpg"
+            Enterprise Services Engineer @ Tanium // Consultant 
+        imageUrl: "profile/rdw.png"
 
     socialIcons:
         - name: github

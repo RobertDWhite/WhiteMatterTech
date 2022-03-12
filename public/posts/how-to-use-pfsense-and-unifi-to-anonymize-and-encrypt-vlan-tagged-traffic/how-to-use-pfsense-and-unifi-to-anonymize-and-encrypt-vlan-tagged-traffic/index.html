@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic | WhiteMatterTech</title>
+<meta name="keywords" content="anonymous, encrypt, network, pfsense, unifi, vlan" />
+<meta name="description" content="This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client&rsquo;s physical port to that VLAN.">
+<meta name="author" content="Robert D. White">
+<link rel="canonical" href="https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.d15de49c11ffd395ee3ed4ee5174b5b86d66a7692bfdf48f1a9c29c125edc3ea.css" integrity="sha256-0V3knBH/05XuPtTuUXS1uG1mp2kr/fSPGpwpwSXtw&#43;o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://whitematter.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://whitematter.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://whitematter.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://whitematter.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="https://whitematter.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic" />
+<meta property="og:description" content="This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client&rsquo;s physical port to that VLAN." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/" />
+<meta property="og:image" content="https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-05T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-05T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic.png" />
+<meta name="twitter:title" content="How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic"/>
+<meta name="twitter:description" content="This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client&rsquo;s physical port to that VLAN."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://whitematter.tech/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic",
+      "item": "https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic",
+  "name": "How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic",
+  "description": "This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client\u0026rsquo;s physical port to that VLAN.",
+  "keywords": [
+    "anonymous", "encrypt", "network", "pfsense", "unifi", "vlan"
+  ],
+  "articleBody": "This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway [in my case, the gateway is the Unifi Dream Machine Pro (hereafter referred to as UDMP)]. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client’s physical port to that VLAN. This VLAN will be tied to a subnet that sends data through the pfSense machine which is acting as a VPN client (I use Private Internet Access). This method allows the UDMP to continue to act as the DHCP server for these clients while allowing pfSense to anonymize and encrypt the data of the clients in question.\nAs an Amazon Associate, I earn from qualifying purchases. Thank you for supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!\nThis post assumes that you have the following: a Unifi Gateway device (e.g., UDMP, Unifi Security Gateway, etc.), a pfSense machine/VM, Unifi wireless APs (only if you want to add wireless devices to the VPN), and Unifi switches (only if you want to tag specific switch ports to the VPN). This post also assumes you have access to or a subscription to a VPN service. In this post, all references to VPN use will be specific to PIA. This guide may or may not work with other VPN providers initially. However, I am confident that, if you can initialize the client connection to your VPN provider from pfSense, you will be able to successfully use the tutorial to anonymous traffic with Unifi VLANs. We will first look at the pfSense setup and VPN configuration. After, we will explore the Unifi setup and configuration.\npfSense Setup and Configuration I built a custom pfSense machine with the following components: Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz, GIGABYTE B365M DS3H, Corsair Vengeance LPX 16GB, Thermaltake Smart 500W Power Supply, and a 4-Port PCI-E Network Interface Card.\nSelect a PIA Server First, we need to select a server that works best. This likely will be mainly determined by your country and geographical area. With your acount username and password for PIA, you will be able to see a complete list of servers here: https://www.privateinternetaccess.com/pages/ovpn-config-generator\nTo import the certificate needed, choose the 1198 port option, and click “Generate”.\nOnce the file is downloaded, open it in your favorite text editor (e.g., Atom, Notepad++, etc.). Copy the portion -—-BEGIN CERTIFICATE—– all the way through -—-END CERTIFICATE—– as shown in the image below.\nCreate a Certificate Authority in pfSense In pfSense, navigate to System  Cert Manager and click on the “+ ADD” Button. Change the “Method” to “Import an existing certificate authority” and paste the copied certificate text into the box. It should look like below:\nClick Save.\nYou should now see the certificate listed:\nConfigure OpenVPN Client Now we have the certificate listed, navigate to VPN  OpenVPN, then click Clients and finally click ADD.\nSee the following images about changes to make in. your configuration. It should match mine with replacement of the Server Host and your PIA Username and Password. You will find the server host in the .ovpn file you downloaded earlier from PIA. Here is the info needed to copy+paste into the “Custom options” box toward the end of the configuration page:\nremote-cert-tls server\npfSense Gateway and Interface Assignment Now, we move to the complicated part. For this step, we will need to create a Gateway on pfSense for the traffic to use. I will detail this more later, but my setup contains a WAN (corresponding to a 10.99.1.0/24 subnet on Unifi), LAN (corresponding to a 10.99.2.0/24 subnet on Unifi), VLAN500 (which is the VLAN tag on my Unifi setup) and PIA interface. I will detail the setup of each, which will move us to the Unifi setup.\nConfigure the Gateway\nFirst, go to System  Routing  Gateways and click \"+ Add\" to add a Gateway for this setup. Add the Gateway IP from your Unifi Gateway, which, in my case, the Gateway IP is 10.99.1.1 corresponding to the Unifi UDMP’s address in that subnet (subnet is 10.99.1.0/24, named pfSense WAN on Unifi). Save and continue.\nInterface Assignments\nNow go to Interfaces  Assignments. If a WAN interface is already assigned, great! Edit to ensure it looks similar to below (I chose 10.99.1.15 for my static WAN IP because it was easy to remember. You can use any address in the 10.99.1.0/24 subnet EXCEPT for the Gateway, 10.99.1.1). Be sure the IPv4 Upstream gateway is set to the Gateway we just made. Additionally, check “Block bogon networks” at the bottom of the configuration page.\nLikewise, check your existing LAN interface, if it exists, or create one as follows below. The LAN interface corresponds to the 10.99.2.0/24 subnet, where devices tagged with the VLAN 500 will go and retrieve their DHCP lease on Unifi. Again, I set my LAN interface IP to 10.99.2.15 because it seemed easy to remember for me. Make sure the IPv4 Upstream gateway is set to “None.” DO NOT block bogon networks on the LAN interface.\nAdd a PIA Interface\nOn the dropdown for “Available Network Ports” you should see your PIA VPN listed. Select your PIA VPN, and click add.\nNow that the interface has been added, click on the interface name (it will likely be something like OPT2 or OPT3, but yours may be different…it should be at the bottom of the list). Now you can check the box to enable the interface and give it a better name, I called mine PIA_Netherlands. Also, make sure the reserved network checkboxes are unchecked.\nFinally, go to Interfaces  VLANs and add a VLAN. Here, choose your previously configured LAN interface as the parent interface, and choose a VLAN tag between 1 and 4094. This tag will be used in Unifi. I chose 500.\nFinally, you will need to plug in both physical interfaces corresponding to your WAN and LAN interfaces. If you have only two NICs on your pfSense box, you should easily be able to figure out which port corresponds to which interface. If you have more than two NICs, it may be more difficult. You need to know which port is which because you will need to tag the LAN interface with the VLAN 500 in Unifi (you can do this now, but we will cover it shortly).\nOutbound NAT Rules Select Firewall  NAT, and click Outbound.\nClick the radio button to change the outbound NAT mode to Hybrid, and click Save.\nYou will need to make rules for the traffic that will need to reach the VPN, which will be the subnet from Unifi that you will add (e.g., in my case, 10.99.2.0/24 is the PIA Subnet). The rules are as follows (see the image below): Localhost to PIA rule, ISAKMP Localhost to PIA rule, LAN (Subnet) to PIA rule, ISAKMP LAN (Subnet) to PIA rule.\nOutbound NAT Rules\nBelow, I will show the settings page for each of the rules that I needed. If you have more interfaces or subnets, you will need to create your own rules to match. Just replace my values with your own.\nYour “localhost” and “127.0.0.0” information will be the same as mine. You will just need to replace the PIA_CHICAGO with your own PIA Interface you created earlier along with your intended subnet to be created in Unifi (e.g., 10.99.2.0/24).\nISAKMP - localhost to WAN\nISAKMP - localhost to WAN\nlocalhost to WAN\nlocalhost to WAN\nISAKMP - LAN (Subnet) to WAN\nISAKMP - LAN (Subnet) to WAN\nLAN to WAN\nLAN to WAN\n This concludes our setup of pfSense.\nWe can now head over to Unifi!\n Unifi Setup and Configuration In our Unifi Settings page, we will create two Corporate LAN networks: one will be for the pfSense WAN, and the other will be for the pfSense LAN. As shown in the image below, the subnets correspond to the subnets we mentioned and configured for pfSense above.\npfSense WAN on Unifi\nMake a new Corporate LAN on Unifi for your pfSense WAN, and match the options to the options in the image below. Make sure your subnet matches the subnet added to pfSense earlier for the WAN interface.\npfSense LAN on Unifi\nMake another Corporate LAN in Unifi. Below is my settings page for the pfSense LAN. You can match your settings to mine. Be sure to set the DHCP Gateway IP to the static IP address you gave to the pfSense LAN Interface earlier (e.g., 10.99.2.15). Also be sure to add THE SAME VLAN as you did in pfSense earlier (e.g., VLAN 500).\nFinally for the Unifi LAN, you will need your pfSense physical port (the one corresponding to the LAN interface) plugged into Unifi, and you will need to manually set the port to use the VLAN you set up.\nTagging Ports on Unifi Switches\nFrom your Unifi clients page, select a client you want to add to pfSense. Under the overview of the client, select the Port it is plugged into (e.g., Family Room - UniFi Switch 8 POE-60W #7 as shown below).\nThis should bring up a page that allows you to specifically override the configuration of that port. At this point, select the new pfSense (500) Port Profile (if the Port Profile is not here, please skip to the end of the article to find out how to add the profile). Once you apply the configuration, your device will obtain a new DHCP lease from Unifi in the new pfSense subnet. Then, your wired device will be sending its traffic through PIA.\nAdding Wireless Clients to pfSense on Unifi APs\nGo to Settings  Wireless Networks and click “CREATE NEW WIRELESS NETWORK.” You can mimic the setup from the image below, but the important aspect here is to select pfSense as the Network with which the WLAN is associated (see pic below). Now, any devices connected to this Wireless network will have their traffic sent through PIA! Verify this is working by going to “whatismyip.com” on a mobile device or some other device on this WLAN.\n END\n Congratulations if you made it this far and everything is working!\nI hope this tutorial aids you in your endeavors to anonymize certain portions of your network. If you have any questions or need assistance, please let me know in the comments!\nTROUBLESHOOTING Adding Missing Port Profiles\nIf for some reason the Port Profile was not made automatically when you created your respective networks, you may need to go to Settings  Profiles in the Unifi dashboard. On this page, switch from RADIUS to SWITCH PORTS. Click “ADD NEW PORT PROFILE.” Name the Profile and then click Native Network, and assign the pfSense network to this profile as shown below. Once selected, click Save/Apply. You can return to the assignment area and assign ports appropriately to use the pfSense VPN.\n",
+  "wordCount" : "1865",
+  "inLanguage": "en",
+  "image":"https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic.png","datePublished": "2021-04-05T00:00:00Z",
+  "dateModified": "2021-04-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Robert D. White"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WhiteMatterTech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://whitematter.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">sudo ./whitematter.tech</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#67a2c9;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+            <span class="logo-switches">
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://whitematter.tech/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://whitematter.tech/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://whitematter.tech/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://whitematter.tech/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+  </header>
+<div id="particles-js"></div>
+ <div class="site-wrapper">
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://whitematter.tech">Home</a>&nbsp;»&nbsp;<a href="https://whitematter.tech/posts/">Posts</a></div>
+    <h1 class="post-title">
+      How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic
+    </h1>
+    <div class="post-meta"><span title='2021-04-05 00:00:00 +0000 UTC'>April 5, 2021</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Robert D. White&nbsp;|&nbsp;<a href="https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content//posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic.md" rel="noopener noreferrer" target="_blank">Suggest Changes @ GitHub</a>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic.png" alt="pfSense, Unifi, &amp; PIA Graphic">
+        <p><!-- raw HTML omitted --></p>
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#pfsense-setup-and-configuration" aria-label="pfSense Setup and Configuration">pfSense Setup and Configuration</a></li>
+                <li>
+                    <a href="#select-a-pia-server" aria-label="Select a PIA Server">Select a PIA Server</a></li>
+                <li>
+                    <a href="#create-a-certificate-authority-in-pfsense" aria-label="Create a Certificate Authority in pfSense">Create a Certificate Authority in pfSense</a></li>
+                <li>
+                    <a href="#configure-openvpn-client" aria-label="Configure OpenVPN Client">Configure OpenVPN Client</a></li>
+                <li>
+                    <a href="#pfsense-gateway-and-interface-assignment" aria-label="pfSense Gateway and Interface Assignment">pfSense Gateway and Interface Assignment</a></li>
+                <li>
+                    <a href="#outbound-nat-rules" aria-label="Outbound NAT Rules">Outbound NAT Rules</a></li>
+                <li>
+                    <a href="#unifi-setup-and-configuration" aria-label="Unifi Setup and Configuration">Unifi Setup and Configuration</a></li>
+                <li>
+                    <a href="#troubleshooting" aria-label="TROUBLESHOOTING">TROUBLESHOOTING</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway <em>[in my case, the gateway is the <a href="https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B086967C9X&amp;linkCode=as2&amp;tag=whitematter-20&amp;linkId=4fc0624a437d4bfe761f2ebb02ca61bd">Unifi Dream Machine Pro</a> (hereafter referred to as UDMP)]</em>. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client&rsquo;s physical port to that VLAN. This VLAN will be tied to a subnet that sends data through the pfSense machine which is acting as a VPN client <em>(I use <a href="http://www.privateinternetaccess.com/pages/buy-a-vpn/1218buyavpn?invite=U2FsdGVkX19vJeCiFLTHejdg7_UKL-kbJpMDRcdZ8ZM%2CwwbqkM0Pr8u1JywwOJHsqq-mX14">Private Internet Access</a>)</em>. This method allows the UDMP to continue to act as the DHCP server for these clients while allowing pfSense to anonymize and encrypt the data of the clients in question.</p>
+<p><em>As an Amazon Associate, I earn from qualifying purchases.</em> Thank you for <em>supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!</em></p>
+<p>This post assumes that you have the following: a Unifi Gateway device (e.g., <a href="https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B086967C9X&amp;linkCode=as2&amp;tag=whitematter-20&amp;linkId=4fc0624a437d4bfe761f2ebb02ca61bd">UDMP</a>, Unifi Security Gateway, etc.), a pfSense machine/VM, Unifi wireless APs (only if you want to add wireless devices to the VPN), and Unifi switches (only if you want to tag specific switch ports to the VPN). This post also assumes you have access to or a subscription to a VPN service. In this post, all references to VPN use will be specific to PIA. This guide may or may not work with other VPN providers initially. However, I am confident that, if you can initialize the client connection to your VPN provider from pfSense, you will be able to successfully use the tutorial to anonymous traffic with Unifi VLANs. We will first look at the pfSense setup and VPN configuration. After, we will explore the Unifi setup and configuration.</p>
+<h2 id="pfsense-setup-and-configuration">pfSense Setup and Configuration<a hidden class="anchor" aria-hidden="true" href="#pfsense-setup-and-configuration">#</a></h2>
+<p>I built a custom pfSense machine with the following components: <a href="https://www.amazon.com/gp/product/B0759FGJ3Q/ref=as_li_tl?ie=UTF8&amp;tag=whitematter-20&amp;camp=1789&amp;creative=9325&amp;linkCode=as2&amp;creativeASIN=B0759FGJ3Q&amp;linkId=4867310b8da8586d142f13325ea48c62">Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz</a>, <a href="https://www.amazon.com/gp/product/B07T6N8N56/ref=as_li_tl?ie=UTF8&amp;tag=whitematter-20&amp;camp=1789&amp;creative=9325&amp;linkCode=as2&amp;creativeASIN=B07T6N8N56&amp;linkId=790c04299d5dccec41764ccf5a8b1050">GIGABYTE B365M DS3H</a>, <a href="https://www.amazon.com/gp/product/B0143UM4TC/ref=as_li_tl?ie=UTF8&amp;tag=whitematter-20&amp;camp=1789&amp;creative=9325&amp;linkCode=as2&amp;creativeASIN=B0143UM4TC&amp;linkId=b021ad78bd94c0b12c1d29dd3e2d5dcf">Corsair Vengeance LPX 16GB</a>, <a href="https://www.amazon.com/gp/product/B014W3EM2W/ref=as_li_tl?ie=UTF8&amp;tag=whitematter-20&amp;camp=1789&amp;creative=9325&amp;linkCode=as2&amp;creativeASIN=B014W3EM2W&amp;linkId=c417280f78f0257d9a06afa4a36d3c24">Thermaltake Smart 500W Power Supply</a>, and a <a href="https://www.amazon.com/gp/product/B07R7GLN6H/ref=as_li_tl?ie=UTF8&amp;tag=whitematter-20&amp;camp=1789&amp;creative=9325&amp;linkCode=as2&amp;creativeASIN=B07R7GLN6H&amp;linkId=1a3b9783e3fbfbb9c0f3e06eea4c0c42">4-Port PCI-E Network Interface Card</a>.</p>
+<h2 id="select-a-pia-server">Select a PIA Server<a hidden class="anchor" aria-hidden="true" href="#select-a-pia-server">#</a></h2>
+<p>First, we need to select a server that works best. This likely will be mainly determined by your country and geographical area. With your acount username and password for PIA, you will be able to see a complete list of servers here: <a href="https://www.privateinternetaccess.com/pages/ovpn-config-generator">https://www.privateinternetaccess.com/pages/ovpn-config-generator</a></p>
+<p>To import the certificate needed, choose the 1198 port option, and click &ldquo;Generate&rdquo;.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.38.10-AM-1024x612.png" alt=""  />
+</p>
+<p>Once the file is downloaded, open it in your favorite text editor (e.g., <strong>Atom</strong>, Notepad++, etc.). Copy the portion <strong>-&mdash;-BEGIN CERTIFICATE&mdash;&ndash;</strong> all the way through <strong>-&mdash;-END CERTIFICATE&mdash;&ndash;</strong> as shown in the image below.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic-4.jpg" alt=""  />
+</p>
+<h2 id="create-a-certificate-authority-in-pfsense">Create a Certificate Authority in pfSense<a hidden class="anchor" aria-hidden="true" href="#create-a-certificate-authority-in-pfsense">#</a></h2>
+<p>In pfSense, navigate to <strong>System &gt; Cert Manager</strong> and click on the &ldquo;<strong><em>+ ADD</em></strong>&rdquo; Button. Change the &ldquo;<em>Method</em>&rdquo; to &ldquo;<em>Import an existing certificate authority</em>&rdquo; and paste the copied certificate text into the box. It should look like below:</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/2019-01-01-12_16_57.png" alt=""  />
+</p>
+<p>Click <em>Save</em>.</p>
+<p>You should now see the certificate listed:</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/2019-01-01-12_18_57.png" alt=""  />
+</p>
+<h2 id="configure-openvpn-client">Configure OpenVPN Client<a hidden class="anchor" aria-hidden="true" href="#configure-openvpn-client">#</a></h2>
+<p>Now we have the certificate listed, navigate to <strong>VPN &gt; OpenVPN</strong>, then click <em><strong>Clients</strong></em> and finally click <em><strong>ADD</strong>.</em></p>
+<p>See the following images about changes to make in. your configuration. It should match mine with replacement of the Server Host and your PIA Username and Password. You will find the server host in the <em>.ovpn</em> file you downloaded earlier from PIA. Here is the info needed to copy+paste into the &ldquo;<em>Custom options</em>&rdquo; box toward the end of the configuration page:</p>
+<p>remote-cert-tls server</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.33.00-PM-1024x754.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.31.44-PM-1-1024x653.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.33.28-PM-907x1024.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.33.43-PM-826x1024.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.34.01-PM-842x1024.png" alt=""  />
+</p>
+<h2 id="pfsense-gateway-and-interface-assignment">pfSense Gateway and Interface Assignment<a hidden class="anchor" aria-hidden="true" href="#pfsense-gateway-and-interface-assignment">#</a></h2>
+<p>Now, we move to the complicated part. For this step, we will need to create a Gateway on pfSense for the traffic to use. I will detail this more later, but my setup contains a WAN (corresponding to a 10.99.1.0/24 subnet on Unifi), LAN (corresponding to a 10.99.2.0/24 subnet on Unifi), VLAN500 (which is the VLAN tag on my Unifi setup) and PIA interface. I will detail the setup of each, which will move us to the Unifi setup.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-2.17.23-PM-1024x211.png" alt=""  />
+</p>
+<p><strong>Configure the Gateway</strong></p>
+<p>First, go to <strong>System &gt; Routing &gt; Gateways</strong> and click <strong>&quot;<em>+ Add</em>&quot;</strong> to add a Gateway for this setup. Add the Gateway IP from your Unifi Gateway, which, in my case, the Gateway IP is 10.99.1.1 corresponding to the Unifi UDMP&rsquo;s address in that subnet (subnet is 10.99.1.0/24, named pfSense WAN on Unifi). Save and continue.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-2.25.35-PM-1024x772.png" alt=""  />
+</p>
+<p><strong>Interface Assignments</strong></p>
+<p>Now go to <strong>Interfaces &gt; Assignments</strong>. If a WAN interface is already assigned, great! Edit to ensure it looks similar to below (I chose 10.99.1.15 for my static WAN IP because it was easy to remember. You can use any address in the 10.99.1.0/24 subnet EXCEPT for the Gateway, 10.99.1.1). Be sure the IPv4 Upstream gateway is set to the Gateway we just made. Additionally, check &ldquo;<strong><em>Block bogon networks</em></strong>&rdquo; at the bottom of the configuration page.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-2.28.38-PM-1024x667.png" alt=""  />
+</p>
+<p>Likewise, check your existing LAN interface, if it exists, or create one as follows below. The LAN interface corresponds to the 10.99.2.0/24 subnet, where devices tagged with the VLAN 500 will go and retrieve their DHCP lease on Unifi. Again, I set my LAN interface IP to 10.99.2.15 because it seemed easy to remember for me. Make sure the IPv4 Upstream gateway is set to &ldquo;None.&rdquo; DO NOT block bogon networks on the LAN interface.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-2.39.39-PM-1024x677.png" alt=""  />
+</p>
+<p><strong>Add a PIA Interface</strong></p>
+<p>On the dropdown for &ldquo;<strong><em>Available Network Ports</em></strong>&rdquo; you should see your PIA VPN listed. Select your PIA VPN, and click add.</p>
+<p>Now that the interface has been added, click on the interface name (it will likely be something like OPT2 or OPT3, but yours may be different&hellip;it should be at the bottom of the list). Now you can check the box to enable the interface and give it a better name, I called mine <em>PIA_Netherlands</em>. Also, make sure the reserved network checkboxes are unchecked.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-2.55.27-PM-1024x735.png" alt=""  />
+</p>
+<p>Finally, go to <strong>Interfaces &gt; VLANs</strong> and add a VLAN. Here, choose your previously configured LAN interface as the parent interface, and choose a VLAN tag between 1 and 4094. This tag will be used in Unifi. I chose 500.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-3.11.51-PM-1024x363.png" alt=""  />
+</p>
+<p>Finally, you will need to plug in both physical interfaces corresponding to your WAN and LAN interfaces. If you have only two NICs on your pfSense box, you should easily be able to figure out which port corresponds to which interface. If you have more than two NICs, it may be more difficult. You need to know which port is which because you will need to tag the LAN interface with the VLAN 500 in Unifi (you can do this now, but we will cover it shortly).</p>
+<h2 id="outbound-nat-rules">Outbound NAT Rules<a hidden class="anchor" aria-hidden="true" href="#outbound-nat-rules">#</a></h2>
+<p>Select <strong>Firewall &gt; NAT</strong>, and click <strong>Outbound</strong>.</p>
+<p>Click the radio button to change the outbound <em>NAT mode</em> to <strong>Hybrid</strong>, and click <strong><em>Save</em></strong>.</p>
+<p>You will need to make rules for the traffic that will need to reach the VPN, which will be the subnet from Unifi that you will add (e.g., in my case, 10.99.2.0/24 is the PIA Subnet). The rules are as follows (see the image below): <strong>Localhost to PIA rule</strong>, <strong>ISAKMP Localhost to PIA rule</strong>, <strong>LAN (Subnet) to PIA rule</strong>, <strong>ISAKMP LAN (Subnet) to PIA rule</strong>.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/image-3-1024x436.png" alt=""  />
+</p>
+<p>Outbound NAT Rules</p>
+<p><strong>Below, I will show the settings page for each of the rules that I needed. If you have more interfaces or subnets, you will need to create your own rules to match. Just replace my values with your own.</strong></p>
+<p>Your &ldquo;localhost&rdquo; and &ldquo;127.0.0.0&rdquo; information will be the same as mine. You will just need to replace the PIA_CHICAGO with your own PIA Interface you created earlier along with your intended subnet to be created in Unifi (e.g., 10.99.2.0/24).</p>
+<p><strong>ISAKMP - localhost to WAN</strong></p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/image-4-1024x552.png" alt=""  />
+</p>
+<p>ISAKMP - localhost to WAN</p>
+<p><strong>localhost to WAN</strong></p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/image-5-1024x543.png" alt=""  />
+</p>
+<p>localhost to WAN</p>
+<p><strong>ISAKMP - LAN (Subnet) to WAN</strong></p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/image-6-1024x551.png" alt=""  />
+</p>
+<p>ISAKMP - LAN (Subnet) to WAN</p>
+<p><strong>LAN to WAN</strong></p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/image-7-1024x548.png" alt=""  />
+</p>
+<p>LAN to WAN</p>
+<blockquote>
+<p>This concludes our setup of pfSense.</p>
+<p>We can now head over to Unifi!</p>
+</blockquote>
+<h2 id="unifi-setup-and-configuration">Unifi Setup and Configuration<a hidden class="anchor" aria-hidden="true" href="#unifi-setup-and-configuration">#</a></h2>
+<p>In our <strong>Unifi Settings</strong> page, we will create two Corporate LAN networks: one will be for the <strong><em>pfSense WAN</em></strong>, and the other will be for the <strong><em>pfSense LAN</em></strong>. As shown in the image below, the subnets correspond to the subnets we mentioned and configured for pfSense above.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.39.20-PM-1024x73.png" alt=""  />
+</p>
+<p><strong>pfSense WAN on Unifi</strong></p>
+<p>Make a new Corporate LAN on Unifi for your <strong>pfSense WAN</strong>, and match the options to the options in the image below. Make sure your subnet matches the subnet added to pfSense earlier for the WAN interface.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.40.54-PM-1024x929.png" alt=""  />
+</p>
+<p><strong>pfSense LAN on Unifi</strong></p>
+<p>Make another Corporate LAN in Unifi. Below is my settings page for the <strong>pfSense LAN</strong>. You can match your settings to mine. <strong><em>Be sure to set the DHCP Gateway IP to the static IP address you gave to the pfSense LAN Interface earlier (e.g., 10.99.2.15)</em></strong>. <strong><em>Also be sure to add THE SAME VLAN as you did in pfSense earlier (e.g., VLAN 500).</em></strong></p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.44.51-PM-1024x806.png" alt=""  />
+</p>
+<p>Finally for the Unifi LAN, you will need your pfSense physical port (the one corresponding to the LAN interface) plugged into Unifi, and you will need to manually set the port to use the VLAN you set up.</p>
+<p><strong>Tagging Ports on Unifi Switches</strong></p>
+<p>From your Unifi clients page, select a client you want to add to pfSense. Under the overview of the client, select the Port it is plugged into (<em>e.g., Family Room - UniFi Switch 8 POE-60W #7</em> as shown below).</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.49.20-PM.png" alt=""  />
+</p>
+<p>This should bring up a page that allows you to specifically override the configuration of that port. At this point, select the new pfSense (500) Port Profile <em>(if the Port Profile is not here, please skip to the end of the article to find out how to add the profile).</em> Once you apply the configuration, your device will obtain a new DHCP lease from Unifi in the new pfSense subnet. Then, your wired device will be sending its traffic through PIA.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.48.17-PM-717x1024.png" alt=""  />
+</p>
+<p><strong>Adding Wireless Clients to pfSense on Unifi APs</strong></p>
+<p>Go to <strong>Settings &gt; Wireless Networks</strong> and click &ldquo;<em>CREATE NEW WIRELESS NETWORK</em>.&rdquo; You can mimic the setup from the image below, but the important aspect here is to select <strong>pfSense</strong> as the Network with which the WLAN is associated (see pic below). Now, any devices connected to this Wireless network will have their traffic sent through PIA! Verify this is working by going to &ldquo;whatismyip.com&rdquo; on a mobile device or some other device on this WLAN.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-03-at-12.01.14-AM-1024x968.png" alt=""  />
+</p>
+<blockquote>
+<p><strong>END</strong></p>
+</blockquote>
+<p><strong>Congratulations</strong> if you made it this far and everything is working!</p>
+<p>I hope this tutorial aids you in your endeavors to anonymize certain portions of your network. If you have any questions or need assistance, please let me know in the comments!</p>
+<h2 id="troubleshooting">TROUBLESHOOTING<a hidden class="anchor" aria-hidden="true" href="#troubleshooting">#</a></h2>
+<p><strong>Adding Missing Port Profiles</strong></p>
+<p>If for some reason the Port Profile was not made automatically when you created your respective networks, you may need to go to Settings &gt; Profiles in the Unifi dashboard. On this page, switch from RADIUS to SWITCH PORTS. Click &ldquo;ADD NEW PORT PROFILE.&rdquo; Name the Profile and then click Native Network, and assign the pfSense network to this profile as shown below. Once selected, click Save/Apply. You can return to the assignment area and assign ports appropriately to use the pfSense VPN.</p>
+<p><img loading="lazy" src="/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.53.29-PM-1024x541.png" alt=""  />
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://whitematter.tech/tags/anonymous/">anonymous</a></li>
+      <li><a href="https://whitematter.tech/tags/encrypt/">encrypt</a></li>
+      <li><a href="https://whitematter.tech/tags/network/">network</a></li>
+      <li><a href="https://whitematter.tech/tags/pfsense/">pfsense</a></li>
+      <li><a href="https://whitematter.tech/tags/unifi/">unifi</a></li>
+      <li><a href="https://whitematter.tech/tags/vlan/">vlan</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>How to Harden Your Network Security for Your In-Home Web Hosting</span>
+  </a>
+  <a class="next" href="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Host Your Own Free Wordpress Site with Traefik and Docker</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic on twitter"
+        href="https://twitter.com/intent/tweet/?text=How%20to%20Use%20pfSense%20and%20Unifi%20to%20Anonymize%20and%20Encrypt%20VLAN%20Tagged%20Traffic&amp;url=https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f&amp;hashtags=anonymous%2cencrypt%2cnetwork%2cpfsense%2cunifi%2cvlan">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f&amp;title=How%20to%20Use%20pfSense%20and%20Unifi%20to%20Anonymize%20and%20Encrypt%20VLAN%20Tagged%20Traffic&amp;summary=How%20to%20Use%20pfSense%20and%20Unifi%20to%20Anonymize%20and%20Encrypt%20VLAN%20Tagged%20Traffic&amp;source=https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f&title=How%20to%20Use%20pfSense%20and%20Unifi%20to%20Anonymize%20and%20Encrypt%20VLAN%20Tagged%20Traffic">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic on whatsapp"
+        href="https://api.whatsapp.com/send?text=How%20to%20Use%20pfSense%20and%20Unifi%20to%20Anonymize%20and%20Encrypt%20VLAN%20Tagged%20Traffic%20-%20https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic on telegram"
+        href="https://telegram.me/share/url?text=How%20to%20Use%20pfSense%20and%20Unifi%20to%20Anonymize%20and%20Encrypt%20VLAN%20Tagged%20Traffic&amp;url=https%3a%2f%2fwhitematter.tech%2fposts%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2fhow-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://whitematter.tech">WhiteMatterTech</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+
+
+</footer>
+</div>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script type="text/javascript" src="https://whitematter.techjs/jquery.js"></script>
+<script type="text/javascript" src="https://whitematter.techjs/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://whitematter.techjs/index.js"></script>
+<script src="https://whitematter.techjs/particles.min.js"></script>
+<script src="https://whitematter.techjs/particles.js"></script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
