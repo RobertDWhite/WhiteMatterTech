@@ -3,69 +3,58 @@ title: "Privacy Policy"
 date: "2022-03-10"
 ---
 
-Last updated: \[wpautoterms last\_updated\_date\]
+										<h1>Privacy Policy for WhiteMatterTech</h1>
 
-\[wpautoterms company\_name\] ("us", "we", or "our") operates the \[wpautoterms site\_name\] website (the "Service").
+<p>At WhiteMatterTech, accessible from https://whitematter.tech, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by WhiteMatterTech and how we use it.</p>
 
-This page informs you of our policies regarding the collection, use and disclosure of Personal Information when you use our Service.
+<p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
 
-We will not use or share your information with anyone except as described in this Privacy Policy.
+<h2>Log Files</h2>
 
-We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at \[wpautoterms site\_url\]
+<p>WhiteMatterTech follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information. Our Privacy Policy was created with the help of the <a href="https://www.privacypolicygenerator.org">Privacy Policy Generator</a>.</p>
 
-## Information Collection And Use
+<h2>Cookies and Web Beacons</h2>
 
-While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information ("Personal Information") may include, but is not limited to:
+<p>Like any other website, WhiteMatterTech uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
 
-- Name
-- Email address
+<p>For more general information on cookies, please read <a href="https://www.generateprivacypolicy.com/#cookies">"Cookies" article from the Privacy Policy Generator</a>.</p>
 
-## Log Data
 
-We collect information that your browser sends whenever you visit our Service ("Log Data"). This Log Data may include information such as your computer's Internet Protocol ("IP") address, browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages and other statistics.
+<h2>Our Advertising Partners</h2>
 
-## Google AdSense & DoubleClick Cookie
+<p>Some of advertisers on our site may use cookies and web beacons. Our advertising partners are listed below. Each of our advertising partners has their own Privacy Policy for their policies on user data. For easier access, we hyperlinked to their Privacy Policies below.</p>
 
-Google, as a third party vendor, uses cookies to serve ads on our Service.
+<ul>
+    <li>
+        <p>Google</p>
+        <p><a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a></p>
+    </li>
+</ul>
 
-## Cookies
+<h2>Privacy Policies</h2>
 
-Cookies are files with small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a web site and stored on your computer's hard drive.
+<P>You may consult this list to find the Privacy Policy for each of the advertising partners of WhiteMatterTech.</p>
 
-We use "cookies" to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
+<p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on WhiteMatterTech, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
 
-## Service Providers
+<p>Note that WhiteMatterTech has no access to or control over these cookies that are used by third-party advertisers.</p>
 
-We may employ third party companies and individuals to facilitate our Service, to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.
+<h2>Third Party Privacy Policies</h2>
 
-These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
+<p>WhiteMatterTech's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. </p>
 
-## Security
+<p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
 
-The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.
+<h2>Children's Information</h2>
 
-## Links To Other Sites
+<p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
 
-Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.
+<p>WhiteMatterTech does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
 
-We have no control over, and assume no responsibility for the content, privacy policies or practices of any third party sites or services.
+<h2>Online Privacy Policy Only</h2>
 
-## Children's Privacy
+<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in WhiteMatterTech. This policy is not applicable to any information collected offline or via channels other than this website.</p>
 
-Our Service does not address anyone under the age of 18 ("Children").
+<h2>Consent</h2>
 
-We do not knowingly collect personally identifiable information from children under 18. If you are a parent or guardian and you are aware that your child has provided us with Personal Information, please contact us. If we discover that a child under 18 has provided us with Personal Information, we will delete such information from our servers immediately.
-
-## Compliance With Laws
-
-We will disclose your Personal Information where required to do so by law or subpoena.
-
-## Changes To This Privacy Policy
-
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
-
-You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
-
-## Contact Us
-
-If you have any questions about this Privacy Policy, please contact us.
+<p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>									
