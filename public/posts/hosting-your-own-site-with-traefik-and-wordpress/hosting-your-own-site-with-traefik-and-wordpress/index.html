@@ -10,7 +10,8 @@
 <meta name="description" content="My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).">
 <meta name="author" content="Robert D. White">
 <link rel="canonical" href="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.3ae54dfe2e263eb8c8b03b2a1ed683472c043055f1171c627c02f3b488b612ac.css" integrity="sha256-OuVN/i4mPrjIsDsqHtaDRywEMFXxFxxifALztIi2Eqw=" rel="preload stylesheet" as="style">
+<meta name="google-site-verification" content="UA-193676598-1" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.9ff7ed83d7ba11858eeb135a47c2f44cfe19b464363569d7f1de51147f03f6f9.css" integrity="sha256-n/ftg9e6EYWO6xNaR8L0TP4ZtGQ2NWnX8d5RFH8D9vk=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://whitematter.tech/favicon.ico">
@@ -28,7 +29,15 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Host Your Own Free Wordpress Site with Traefik and Docker" />
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193676598-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193676598-1');
+</script><meta property="og:title" content="Host Your Own Free Wordpress Site with Traefik and Docker" />
 <meta property="og:description" content="My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/" />
@@ -141,10 +150,9 @@
             </li>
         </ul>
     </nav>
-
   </header>
-<div id="particles-js"></div>
- <div class="site-wrapper">
+  <div class="site-wrapper">
+     <div id="particles-js"></div>
 <main class="main">
 
 <article class="post-single">
@@ -566,16 +574,13 @@ php_value max_input_time 1000
     <span>&copy; 2022 <a href="https://whitematter.tech">WhiteMatterTech</a></span>
     <span>
     </span>
+
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a><script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="s/index.js"></script>
-<script src="js/particles.min.js"></script>
-<script src="js/particles.js"></script>
+</a>
 
 <script>
     let menu = document.getElementById('menu')
@@ -666,6 +671,11 @@ php_value max_input_time 1000
         }
     });
 </script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/particles.js"></script>
 </body>
 
 </html>

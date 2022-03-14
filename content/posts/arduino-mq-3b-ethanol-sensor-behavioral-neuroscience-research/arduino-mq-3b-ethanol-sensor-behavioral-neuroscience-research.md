@@ -16,6 +16,9 @@ cover:
     alt: "Image of Completed Sensor"
 #   caption: "Completed Sensor with Readout: Volts = 4.91"
     relative: true
+aliases:
+    - /posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/
+    - /2021/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/
 ---
 
 # Introduction
