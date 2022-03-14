@@ -1,0 +1,25 @@
+
+
+{{- with $.Site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+  <!-- particles.js container -->
+  {{- if .imageUrl -}}
+  <center><img src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}"
+      height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" /></center>
+  {{- end }}
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+
+    <section class="entry-content">
+        <p><b>{{ .Content | markdownify }}</b></p>
+    </section>
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" $.Site.Params.socialIcons }}
+    </footer>
+
+    <section class="entry-content">
+      The main job of <b>white matter</b> is to convey information, under the form of electrical impulses, from one part of the brain to the other. <b>White matter</b> therefore connects different parts of the brain and cerebellum, and it is at the foundation of the relevant notion of “connectivity”.
+</section>
+</article>
+{{- end -}}

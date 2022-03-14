@@ -1,0 +1,43 @@
+.logo {
+	 display: flex;
+	 align-items: center;
+	 text-decoration: none;
+	 font-weight: bold;
+	 font-display: auto;
+	 font-family: monospace, monospace;
+}
+ .logo img {
+	 height: 44px;
+}
+ .logo__mark {
+	 margin-right: 5px;
+}
+ .logo__text {
+	 font-size: 1.125rem;
+}
+ .logo__cursor {
+	 display: inline-block;
+	 width: 10px;
+	 height: 1rem;
+	 background: #fe5186;
+	 margin-left: 5px;
+	 border-radius: 1px;
+	 animation: cursor 1s infinite;
+}
+ @media (prefers-reduced-motion: reduce) {
+	 .logo__cursor {
+		 animation: none;
+	}
+}
+ @keyframes cursor {
+	 0% {
+		 opacity: 0;
+	}
+	 50% {
+		 opacity: 1;
+	}
+	 100% {
+		 opacity: 0;
+	}
+}
+ 
