@@ -38,7 +38,10 @@ OSSIM is available for download for free at the following link: [https://cyberse
 
 Alternatively, you can SSH into your Unraid or you can use Unraid's built-in Terminal to run the following command to download the ISO (be sure to **_cd_** into a share directory prior to downloading, for example, _/mnt/user/iso_):
 
-`wget https://dlcdn.alienvault.com/AlienVault_OSSIM_64bits.iso`
+```
+wget https://dlcdn.alienvault.com/AlienVault_OSSIM_64bits.iso
+```
+
 
 ## Prepare Unraid
 
