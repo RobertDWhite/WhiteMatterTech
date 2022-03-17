@@ -20,12 +20,13 @@ For this post, I will show you how to easily run a Docker Registry GUI with Harb
 
 ## Download and Expand the Harbor Installer
 
-`wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz`
+```
+wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
 
-`tar -xzf harbor-offline-installer-v2.3.1.tgz`\\
+tar -xzf harbor-offline-installer-v2.3.1.tgz
 
-`cd harbor/`
-
+cd harbor/
+```
 ## Generate SSL Certs - INTERNAL ONLY
 
 These steps should only be taken if you plan to use your registry internally. If you plan to host your registry for external access, you should obtain certs from a trusted CA to use. With that said, these steps will work on a Linux host only (if you are using Windows, you could use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to follow these steps).
@@ -36,67 +37,21 @@ Additionally, pay specific attention to the **_cat_** command where **_\[alt\_na
 
 Once the certs are created, save them so that you can add the certs as **_"trusted"_** on whatever machines you plan to use to access the registry.
 
-```
-openssl genrsa -out ca.key 4096
-
-
-openssl req -x509 -new -nodes -sha512 -days 3650 \
- -subj "C=US/ST=STATE/L=LOCATION/O=ORGANIZATION/OU=Dev/CN=registry" \
- -key ca.key \
- -out ca.crt
-
-
-openssl genrsa -out ORGNAME.com.key 4096
-
-
-openssl req -sha512 -new \
- -subj "C=US/ST=STATE/L=LOCATION/O=ORGANIZATION/OU=Dev/CN=registry" \
- -key ORGNAME.com.key \
- -out ORGNAME.com.csr
-
-
-cat > v3.ext <<-EOF
-     authorityKeyIdentifier=keyid,issuer
-     basicConstraints=CA:FALSE
-     keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-     extendedKeyUsage = serverAuth
-     subjectAltName = @alt_names
-
-     [alt_names]
-     DNS.1=hostname.ORGNAME.com
-     DNS.2=hostname.ORGNAME.local
-     DNS.3=hostname
-     EOF
-
-
-openssl x509 -req -sha512 -days 3650 \
-    -extfile v3.ext \
-    -CA ca.crt -CAkey ca.key -CAcreateserial \
-    -in ORGNAME.com.csr \
-    -out ORGNAME.com.crt
-
-
-sudo cp ORGNAME.com.crt /data/cert/
-sudo cp ORGNAME.com.key /data/cert/
-
-
-openssl x509 -inform PEM -in ORGNAME.com.crt -out ORGNAME.com.cert
-
-
-sudo cp ORGNAME.com.cert /etc/docker/certs.d/ORGNAME.com/
-sudo cp ORGNAME.com.key /etc/docker/certs.d/ORGNAME.com/
-sudo cp ca.crt /etc/docker/certs.d/ORGNAME.com/
-```
+{{< gist RobertDWhite 2bc7ca378480bd141a72f7f19993cc20 >}}
 
 ## Preparing for Install
 
 To simplify your install, I have hosted the [docker-compose.yml](https://github.com/RobertDWhite/harbor-registry) I use to deploy my registry and harbor: [GitHub](https://github.com/RobertDWhite/harbor-registry). The [docker-compose.yml](https://github.com/RobertDWhite/harbor-registry) file should go in the harbor directory created above. If you followed my commands above, your Terminal should already be in the correct directory. You can easily pull this [docker-compose.yml](https://github.com/RobertDWhite/harbor-registry) with cURL or wget by running the commands below:
 
-`curl -LJO [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](http://curl -LJO https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml "https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml")`
+```
+curl -LJO [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](http://curl -LJO https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml "https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml")
+```
 
 OR
 
-`wget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml)`
+```
+wget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml)
+```
 
 If you prefer to create your [docker-compose.yml](https://github.com/RobertDWhite/harbor-registry "https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml") file yourself, make a file named “[docker-compose.yml](https://github.com/RobertDWhite/harbor-registry)” and add the contents of the [GitHub](https://github.com/RobertDWhite/harbor-registry) link to the file.
 
@@ -104,7 +59,9 @@ If you prefer to create your [docker-compose.yml](https://github.com/RobertDWhi
 
 Now, everything should be in place to run docker-compose and build-out successfully. To do this, run the following:
 
-`docker-compose up -d`
+```
+docker-compose up -d
+```
 
 This may take a few minutes, but when you are finished, you should have successfully running containers for your Docker Registry and Harbor (the registry GUI). You should now be able to access the Harbor GUI from a web browser at https://hostname, https://hostname.local, or https://IP\_OF\_HOST if you have the SSL certs **_"trusted."_**
 

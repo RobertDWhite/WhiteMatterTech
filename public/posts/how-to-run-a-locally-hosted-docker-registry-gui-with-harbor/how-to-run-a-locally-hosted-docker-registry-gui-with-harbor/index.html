@@ -8,10 +8,7 @@
 <title>How to Run a Locally Hosted Docker Registry GUI with Harbor | WhiteMatterTech</title>
 <meta name="keywords" content="docker, docker-compose, harbor, registry" />
 <meta name="description" content="For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
-Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
-tar -xzf harbor-offline-installer-v2.3.1.tgz\
-cd harbor/
-Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.">
+Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz tar -xzf harbor-offline-installer-v2.3.1.tgz cd harbor/ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.">
 <meta name="author" content="Robert D. White">
 <link rel="canonical" href="https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/" />
 <meta name="google-site-verification" content="UA-193676598-1" />
@@ -43,10 +40,7 @@ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan 
   gtag('config', 'UA-193676598-1');
 </script><meta property="og:title" content="How to Run a Locally Hosted Docker Registry GUI with Harbor" />
 <meta property="og:description" content="For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
-Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
-tar -xzf harbor-offline-installer-v2.3.1.tgz\
-cd harbor/
-Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally." />
+Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz tar -xzf harbor-offline-installer-v2.3.1.tgz cd harbor/ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/" />
 <meta property="og:image" content="https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/harbor.png" /><meta property="article:section" content="posts" />
@@ -57,10 +51,7 @@ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan 
 <meta name="twitter:image" content="https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/harbor.png" />
 <meta name="twitter:title" content="How to Run a Locally Hosted Docker Registry GUI with Harbor"/>
 <meta name="twitter:description" content="For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
-Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
-tar -xzf harbor-offline-installer-v2.3.1.tgz\
-cd harbor/
-Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally."/>
+Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz tar -xzf harbor-offline-installer-v2.3.1.tgz cd harbor/ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally."/>
 
 
 <script type="application/ld+json">
@@ -89,12 +80,12 @@ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan 
   "@type": "BlogPosting",
   "headline": "How to Run a Locally Hosted Docker Registry GUI with Harbor",
   "name": "How to Run a Locally Hosted Docker Registry GUI with Harbor",
-  "description": "For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.\nDownload and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz\ntar -xzf harbor-offline-installer-v2.3.1.tgz\\\ncd harbor/\nGenerate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.",
+  "description": "For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.\nDownload and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz tar -xzf harbor-offline-installer-v2.3.1.tgz cd harbor/ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.",
   "keywords": [
     "docker", "docker-compose", "harbor", "registry"
   ],
-  "articleBody": "For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.\nDownload and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz\ntar -xzf harbor-offline-installer-v2.3.1.tgz\\\ncd harbor/\nGenerate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally. If you plan to host your registry for external access, you should obtain certs from a trusted CA to use. With that said, these steps will work on a Linux host only (if you are using Windows, you could use WSL to follow these steps).\nOpen up a Terminal and copy+paste the following commands. Be sure to replace all the red text with your own organization’s name and information.\nAdditionally, pay specific attention to the cat command where [alt_names] occurs. You will need to replace DNS.1, DNS.2, and DNS.3 to match the local IP or FQDN of the host machine. For example, if your machine’s name is “hostname” and your network domain is “.local,” you would want to use hostname.local and hostname as your DNS entries. If the machine’s IP is static, you could also include the IP. If you do not need all three DNS entries, you can delete whichever are not needed. Note: If you have trouble successfully generating the harbor/v3.txt file with the cat command for some reason, you can download a pre-created file at GitHub.\nOnce the certs are created, save them so that you can add the certs as “trusted” on whatever machines you plan to use to access the registry.\nopenssl genrsa -out ca.key 4096 openssl req -x509 -new -nodes -sha512 -days 3650 \\ -subj \"C=US/ST=STATE/L=LOCATION/O=ORGANIZATION/OU=Dev/CN=registry\" \\ -key ca.key \\ -out ca.crt openssl genrsa -out ORGNAME.com.key 4096 openssl req -sha512 -new \\ -subj \"C=US/ST=STATE/L=LOCATION/O=ORGANIZATION/OU=Dev/CN=registry\" \\ -key ORGNAME.com.key \\ -out ORGNAME.com.csr cat  v3.ext Preparing for Install To simplify your install, I have hosted the docker-compose.yml I use to deploy my registry and harbor: GitHub. The docker-compose.yml file should go in the harbor directory created above. If you followed my commands above, your Terminal should already be in the correct directory. You can easily pull this docker-compose.yml with cURL or wget by running the commands below:\ncurl -LJO [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](http://curl -LJO https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml \"https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml\")\nOR\nwget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml)\nIf you prefer to create your docker-compose.yml file yourself, make a file named “docker-compose.yml” and add the contents of the GitHub link to the file.\nInstalling the Registry and Harbor Now, everything should be in place to run docker-compose and build-out successfully. To do this, run the following:\ndocker-compose up -d\nThis may take a few minutes, but when you are finished, you should have successfully running containers for your Docker Registry and Harbor (the registry GUI). You should now be able to access the Harbor GUI from a web browser at https://hostname, https://hostname.local, or https://IP_OF_HOST if you have the SSL certs “trusted.”\nAdministrating Harbor I will not go into detail about the administration of Harbor, but I will point you to Harbor’s official documentation which contains a wealth of knowledge: https://goharbor.io/docs/2.3.0/administration/\nWrapping-Up If you were able to make it through all the steps above, you should be able to push to and pull from your registry. You will definitely want to look up information about how to tag images and containers in Docker.\n As always, if you have any questions, feel free to post below and share your successes or frustrations! You can also reach out to me at robert@whitematter.tech.\nThanks for reading!\n ",
-  "wordCount" : "680",
+  "articleBody": "For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.\nDownload and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz tar -xzf harbor-offline-installer-v2.3.1.tgz cd harbor/ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally. If you plan to host your registry for external access, you should obtain certs from a trusted CA to use. With that said, these steps will work on a Linux host only (if you are using Windows, you could use WSL to follow these steps).\nOpen up a Terminal and copy+paste the following commands. Be sure to replace all the red text with your own organization’s name and information.\nAdditionally, pay specific attention to the cat command where [alt_names] occurs. You will need to replace DNS.1, DNS.2, and DNS.3 to match the local IP or FQDN of the host machine. For example, if your machine’s name is “hostname” and your network domain is “.local,” you would want to use hostname.local and hostname as your DNS entries. If the machine’s IP is static, you could also include the IP. If you do not need all three DNS entries, you can delete whichever are not needed. Note: If you have trouble successfully generating the harbor/v3.txt file with the cat command for some reason, you can download a pre-created file at GitHub.\nOnce the certs are created, save them so that you can add the certs as “trusted” on whatever machines you plan to use to access the registry.\n Preparing for Install To simplify your install, I have hosted the docker-compose.yml I use to deploy my registry and harbor: GitHub. The docker-compose.yml file should go in the harbor directory created above. If you followed my commands above, your Terminal should already be in the correct directory. You can easily pull this docker-compose.yml with cURL or wget by running the commands below:\ncurl -LJO [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](http://curl -LJO https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml \"https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml\") OR\nwget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml) If you prefer to create your docker-compose.yml file yourself, make a file named “docker-compose.yml” and add the contents of the GitHub link to the file.\nInstalling the Registry and Harbor Now, everything should be in place to run docker-compose and build-out successfully. To do this, run the following:\ndocker-compose up -d This may take a few minutes, but when you are finished, you should have successfully running containers for your Docker Registry and Harbor (the registry GUI). You should now be able to access the Harbor GUI from a web browser at https://hostname, https://hostname.local, or https://IP_OF_HOST if you have the SSL certs “trusted.”\nAdministrating Harbor I will not go into detail about the administration of Harbor, but I will point you to Harbor’s official documentation which contains a wealth of knowledge: https://goharbor.io/docs/2.3.0/administration/\nWrapping-Up If you were able to make it through all the steps above, you should be able to push to and pull from your registry. You will definitely want to look up information about how to tag images and containers in Docker.\n As always, if you have any questions, feel free to post below and share your successes or frustrations! You can also reach out to me at robert@whitematter.tech.\nThanks for reading!\n ",
+  "wordCount" : "568",
   "inLanguage": "en",
   "image":"https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/harbor.png","datePublished": "2021-10-04T00:00:00Z",
   "dateModified": "2021-10-04T00:00:00Z",
@@ -173,7 +164,7 @@ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan 
     <h1 class="post-title">
       How to Run a Locally Hosted Docker Registry GUI with Harbor
     </h1>
-    <div class="post-meta"><span title='2021-10-04 00:00:00 +0000 UTC'>October 4, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Robert D. White&nbsp;|&nbsp;<a href="https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content//posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor.md" rel="noopener noreferrer" target="_blank">Suggest Changes @ GitHub</a>
+    <div class="post-meta"><span title='2021-10-04 00:00:00 +0000 UTC'>October 4, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Robert D. White&nbsp;|&nbsp;<a href="https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content//posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor.md" rel="noopener noreferrer" target="_blank">Suggest Changes @ GitHub</a>
 
 </div>
   </header> 
@@ -206,73 +197,28 @@ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan 
 
   <div class="post-content"><p>For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.</p>
 <h2 id="download-and-expand-the-harbor-installer">Download and Expand the Harbor Installer<a hidden class="anchor" aria-hidden="true" href="#download-and-expand-the-harbor-installer">#</a></h2>
-<p><code>wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz</code></p>
-<p><code>tar -xzf harbor-offline-installer-v2.3.1.tgz</code>\</p>
-<p><code>cd harbor/</code></p>
-<h2 id="generate-ssl-certs---internal-only">Generate SSL Certs - INTERNAL ONLY<a hidden class="anchor" aria-hidden="true" href="#generate-ssl-certs---internal-only">#</a></h2>
+<pre tabindex="0"><code>wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz
+
+tar -xzf harbor-offline-installer-v2.3.1.tgz
+
+cd harbor/
+</code></pre><h2 id="generate-ssl-certs---internal-only">Generate SSL Certs - INTERNAL ONLY<a hidden class="anchor" aria-hidden="true" href="#generate-ssl-certs---internal-only">#</a></h2>
 <p>These steps should only be taken if you plan to use your registry internally. If you plan to host your registry for external access, you should obtain certs from a trusted CA to use. With that said, these steps will work on a Linux host only (if you are using Windows, you could use <a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL</a> to follow these steps).</p>
 <p>Open up a Terminal and copy+paste the following commands. Be sure to replace all the red text with your own organization&rsquo;s name and information.</p>
 <p>Additionally, pay specific attention to the <strong><em>cat</em></strong> command where <strong><em>[alt_names]</em></strong> occurs. You will need to replace DNS.1, DNS.2, and DNS.3 to match the local IP or FQDN of the host machine. For example, if your machine&rsquo;s name is &ldquo;<em>hostname</em>&rdquo; and your network domain is &ldquo;<em>.local</em>,&rdquo; you would want to use <em>hostname.local</em> and <em>hostname</em> as your DNS entries. If the machine&rsquo;s IP is static, you could also include the IP. If you do not need all three DNS entries, you can delete whichever are not needed. <em>Note:</em> If you have trouble successfully generating the harbor/v3.txt file with the cat command for some reason, you can download a pre-created file at <a href="https://github.com/RobertDWhite/harbor-registry/blob/main/v3.ext">GitHub</a>.</p>
 <p>Once the certs are created, save them so that you can add the certs as <strong><em>&ldquo;trusted&rdquo;</em></strong> on whatever machines you plan to use to access the registry.</p>
-<pre tabindex="0"><code>openssl genrsa -out ca.key 4096
+<script type="application/javascript" src="https://gist.github.com/RobertDWhite/2bc7ca378480bd141a72f7f19993cc20.js"></script>
 
-
-openssl req -x509 -new -nodes -sha512 -days 3650 \
- -subj &#34;C=US/ST=STATE/L=LOCATION/O=ORGANIZATION/OU=Dev/CN=registry&#34; \
- -key ca.key \
- -out ca.crt
-
-
-openssl genrsa -out ORGNAME.com.key 4096
-
-
-openssl req -sha512 -new \
- -subj &#34;C=US/ST=STATE/L=LOCATION/O=ORGANIZATION/OU=Dev/CN=registry&#34; \
- -key ORGNAME.com.key \
- -out ORGNAME.com.csr
-
-
-cat &gt; v3.ext &lt;&lt;-EOF
-     authorityKeyIdentifier=keyid,issuer
-     basicConstraints=CA:FALSE
-     keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-     extendedKeyUsage = serverAuth
-     subjectAltName = @alt_names
-
-     [alt_names]
-     DNS.1=hostname.ORGNAME.com
-     DNS.2=hostname.ORGNAME.local
-     DNS.3=hostname
-     EOF
-
-
-openssl x509 -req -sha512 -days 3650 \
-    -extfile v3.ext \
-    -CA ca.crt -CAkey ca.key -CAcreateserial \
-    -in ORGNAME.com.csr \
-    -out ORGNAME.com.crt
-
-
-sudo cp ORGNAME.com.crt /data/cert/
-sudo cp ORGNAME.com.key /data/cert/
-
-
-openssl x509 -inform PEM -in ORGNAME.com.crt -out ORGNAME.com.cert
-
-
-sudo cp ORGNAME.com.cert /etc/docker/certs.d/ORGNAME.com/
-sudo cp ORGNAME.com.key /etc/docker/certs.d/ORGNAME.com/
-sudo cp ca.crt /etc/docker/certs.d/ORGNAME.com/
-</code></pre><h2 id="preparing-for-install">Preparing for Install<a hidden class="anchor" aria-hidden="true" href="#preparing-for-install">#</a></h2>
+<h2 id="preparing-for-install">Preparing for Install<a hidden class="anchor" aria-hidden="true" href="#preparing-for-install">#</a></h2>
 <p>To simplify your install, I have hosted the <a href="https://github.com/RobertDWhite/harbor-registry">docker-compose.yml</a> I use to deploy my registry and harbor: <a href="https://github.com/RobertDWhite/harbor-registry">GitHub</a>. The <a href="https://github.com/RobertDWhite/harbor-registry">docker-compose.yml</a> file should go in the harbor directory created above. If you followed my commands above, your Terminal should already be in the correct directory. You can easily pull this <a href="https://github.com/RobertDWhite/harbor-registry">docker-compose.yml</a> with cURL or wget by running the commands below:</p>
-<p><code>curl -LJO [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](http://curl -LJO https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml &quot;https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml&quot;)</code></p>
-<p>OR</p>
-<p><code>wget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml)</code></p>
-<p>If you prefer to create your <a href="https://github.com/RobertDWhite/harbor-registry" title="https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml">docker-compose.yml</a> file yourself, make a file named “<a href="https://github.com/RobertDWhite/harbor-registry">docker-compose.yml</a>” and add the contents of the <a href="https://github.com/RobertDWhite/harbor-registry">GitHub</a> link to the file.</p>
+<pre tabindex="0"><code>curl -LJO [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](http://curl -LJO https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml &#34;https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml&#34;)
+</code></pre><p>OR</p>
+<pre tabindex="0"><code>wget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml](https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml)
+</code></pre><p>If you prefer to create your <a href="https://github.com/RobertDWhite/harbor-registry" title="https://raw.githubusercontent.com/RobertDWhite/harbor-registry/main/docker-compose.yml">docker-compose.yml</a> file yourself, make a file named “<a href="https://github.com/RobertDWhite/harbor-registry">docker-compose.yml</a>” and add the contents of the <a href="https://github.com/RobertDWhite/harbor-registry">GitHub</a> link to the file.</p>
 <h2 id="installing-the-registry-and-harbor">Installing the Registry and Harbor<a hidden class="anchor" aria-hidden="true" href="#installing-the-registry-and-harbor">#</a></h2>
 <p>Now, everything should be in place to run docker-compose and build-out successfully. To do this, run the following:</p>
-<p><code>docker-compose up -d</code></p>
-<p>This may take a few minutes, but when you are finished, you should have successfully running containers for your Docker Registry and Harbor (the registry GUI). You should now be able to access the Harbor GUI from a web browser at https://hostname, <a href="https://hostname.local">https://hostname.local</a>, or https://IP_OF_HOST if you have the SSL certs <strong><em>&ldquo;trusted.&rdquo;</em></strong></p>
+<pre tabindex="0"><code>docker-compose up -d
+</code></pre><p>This may take a few minutes, but when you are finished, you should have successfully running containers for your Docker Registry and Harbor (the registry GUI). You should now be able to access the Harbor GUI from a web browser at https://hostname, <a href="https://hostname.local">https://hostname.local</a>, or https://IP_OF_HOST if you have the SSL certs <strong><em>&ldquo;trusted.&rdquo;</em></strong></p>
 <h2 id="administrating-harbor">Administrating Harbor<a hidden class="anchor" aria-hidden="true" href="#administrating-harbor">#</a></h2>
 <p>I will not go into detail about the administration of Harbor, but I will point you to Harbor&rsquo;s official documentation which contains a wealth of knowledge: <a href="https://goharbor.io/docs/2.3.0/administration/">https://goharbor.io/docs/2.3.0/administration/</a></p>
 <h2 id="wrapping-up">Wrapping-Up<a hidden class="anchor" aria-hidden="true" href="#wrapping-up">#</a></h2>

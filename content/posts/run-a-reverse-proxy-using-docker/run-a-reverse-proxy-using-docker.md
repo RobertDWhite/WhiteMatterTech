@@ -30,23 +30,53 @@ For tips on running a self-hosted WordPress site, which will be referenced in th
 
 To simplify your install, I have hosted the [docker-compose.yml](https://github.com/robertomano24/nginx-proxy-manager/blob/main/docker-compose.yml) I use to deploy my Nginx Proxy Manager: [GitHub](https://github.com/robertomano24/nginx-proxy-manager). You can easily pull this [docker-compose.yml](https://github.com/robertomano24/nginx-proxy-manager/blob/main/docker-compose.yml) with cURL or wget by running the commands below:
 
-`curl -LJO [https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml](https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml)`
+```
+curl -LJO [https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml](https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml)
+```
 
 OR
 
-`wget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml](https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml)`
+```
+wget --no-check-certificate --content-disposition [https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml](https://raw.githubusercontent.com/robertomano24/nginx-proxy-manager/main/docker-compose.yml)
+```
 
 If you prefer to create your [docker-compose.yml](https://github.com/robertomano24/nginx-proxy-manager/blob/main/docker-compose.yml) file yourself, make a file named "[docker-compose.yml](https://github.com/robertomano24/nginx-proxy-manager/blob/main/docker-compose.yml)" and add the following to the file:
-
+```
 version: '3'
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
-    `restart: unless-stopped     ports:       - '80:80'       - '81:81'       - '443:443'     environment:       DB_MYSQL_HOST: "db"       DB_MYSQL_PORT: 3306       DB_MYSQL_USER: "npm"       DB_MYSQL_PASSWORD: "npm"       DB_MYSQL_NAME: "npm"     volumes:       - ./data:/data       - ./letsencrypt:/etc/letsencrypt   db:     image: 'jc21/mariadb-aria:latest'     restart: unless-stopped     environment:       MYSQL_ROOT_PASSWORD: 'npm'       MYSQL_DATABASE: 'npm'       MYSQL_USER: 'npm'       MYSQL_PASSWORD: 'npm'     volumes:       - ./data/mysql:/var/lib/mysql`
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    environment:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+```
 
 Once you have either downloaded the file or created your own, build your containers by issuing the following command:
 
-`docker-compose up -d`
+```
+docker-compose up -d
+```
 
 If all goes well, you should now have Nginx Proxy Manager and MariaDB (for the reverse proxy database) running successfully.
 
