@@ -92,7 +92,7 @@ params:
           url: "index.xml"
 
     editPost:
-        URL: "https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content/"
+        URL: "https:///github.com/RobertDWhite/WhiteMatterTech/edit/main/content"
         Text: "Suggest Changes @ GitHub" # edit text
         appendFilePath: true # to append file path to Edit link
 
