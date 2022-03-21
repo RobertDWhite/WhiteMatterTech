@@ -9,13 +9,23 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from Wordpress to Hugo</title>
+      <link>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</guid>
+      <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides Wordpress at the time, and I was bent on getting Wordpress self-hosted with Docker.
+This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for Wordpress and Traefik.</description>
+    </item>
+    
     <item>
       <title>Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research</title>
-      <link>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</link>
+      <link>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</link>
       <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</guid>
+      <guid>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</guid>
       <description>Introduction Recently, I had the opportunity to collaborate with a university research lab to build some vapor sensors to roughly measure ethanol (EtOH) vapor within an operant chamber. This project was a lot of fun.
 With extremely limited circuit documentation on the web and never having personally used Arduino before, there were a lot of interesting hiccups I ran into. Overall, this project was a bit out of my wheelhouse, but with much determination, the finished product turned out rather nicely.</description>
     </item>

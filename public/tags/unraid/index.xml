@@ -12,10 +12,10 @@
     <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/unraid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tails OS with Encrypted Persistence on Unraid as a VM</title>
-      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
+      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
+      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
       <description>This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
 Running Tails as a VM is not recommended generally as it defeats many of the security features in Tails. For example, virtualization requires that you trust the hypervisor host, as the hypervisor has extra privileges over a VM that can reduce security and privacy of the VM.
 I recommend reading Tails&amp;rsquo;s official documentation about virtualization considerations before continuing: https://tails.</description>
@@ -23,20 +23,20 @@ I recommend reading Tails&amp;rsquo;s official documentation about virtualizatio
     
     <item>
       <title>How to Access Twitter Without an Account, Anonymously</title>
-      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</link>
+      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</guid>
+      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
       <description>Interestingly, after my previous post describing how to route Docker containers through VPN on Unraid, I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
 This post will assume you have read my post on how to route Docker containers through VPN on Unraid or that you already know how to accomplish this.</description>
     </item>
     
     <item>
       <title>How to Route Any Docker Container Through VPN in Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
+      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
+      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
       <description>Today&amp;rsquo;s post will cover how you can route any Docker container through a VPN.
 There are many reasons you might want to route a Docker container through a VPN. Some common considerations are privacy, anonymity, and security.
 I always recommend a VPN provider that values privacy, and in your search, you should consider providers that do not keep access logs that can be tied back to you (I use Private Internet Access [PIA]).</description>
@@ -44,10 +44,10 @@ I always recommend a VPN provider that values privacy, and in your search, you s
     
     <item>
       <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
+      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
+      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
       <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
 OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
     </item>

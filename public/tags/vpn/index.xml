@@ -12,10 +12,10 @@
     <lastBuildDate>Wed, 17 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Route Any Docker Container Through VPN in Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
+      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
+      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
       <description>Today&amp;rsquo;s post will cover how you can route any Docker container through a VPN.
 There are many reasons you might want to route a Docker container through a VPN. Some common considerations are privacy, anonymity, and security.
 I always recommend a VPN provider that values privacy, and in your search, you should consider providers that do not keep access logs that can be tied back to you (I use Private Internet Access [PIA]).</description>

@@ -12,19 +12,19 @@
     <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/hardening/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi</title>
-      <link>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</link>
+      <link>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</guid>
+      <guid>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</guid>
       <description>IoT Overview The smart world of Internet-of-Things (IoT) devices is ever growing. From everyday lightbulbs to the sprinkler out front, just about every household appliance and utility has a smart-counterpart. For example, my smart home is fully Apple HomeKit compatible and consists of a Hue bridge with lightbulbs, Lutron Caseta smart dimmers/switches, Eve Aqua outdoor water hose control, iSmartGate garage door opener, Schlage deadbolt, Eve motion sensor, Sonos speakers throughout the house, a Vocolinc oil diffuser, Vocolionc power strip, a couple iRobot Roomba vacuum cleaners, some Vocolinc pluggable outlets, an Ecobee thermostat to replace each analog thermostat in the house, and a Unifi G4 Doorbell (the doorbell is not technically compatible with HomeKit, but I added support with a third-party tool known as &amp;ldquo;Homebridge&amp;rdquo;).</description>
     </item>
     
     <item>
       <title>How to Harden Your Network Security for Your In-Home Web Hosting</title>
-      <link>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</link>
+      <link>https://whitematter.tech/posts/network-hardening-webhosting/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</guid>
+      <guid>https://whitematter.tech/posts/network-hardening-webhosting/</guid>
       <description>Overview The purpose of this post is to provide some tips to address some network security concerns when hosting an externally-facing web server from a device within your home network. For this post, I will be using Unifi networking gear. My screenshots will be of the Unifi controller on my Unifi Dream Machine Pro (UDMP), but I will do my best to overview the concepts so you can replicate with your own networking gear.</description>
     </item>
     
