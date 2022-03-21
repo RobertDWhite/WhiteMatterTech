@@ -12,10 +12,10 @@
     <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Access Twitter Without an Account, Anonymously</title>
-      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</link>
+      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</guid>
+      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
       <description>Interestingly, after my previous post describing how to route Docker containers through VPN on Unraid, I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
 This post will assume you have read my post on how to route Docker containers through VPN on Unraid or that you already know how to accomplish this.</description>
     </item>

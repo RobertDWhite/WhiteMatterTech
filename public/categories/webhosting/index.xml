@@ -9,31 +9,41 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/webhosting/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/webhosting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from Wordpress to Hugo</title>
+      <link>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</guid>
+      <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides Wordpress at the time, and I was bent on getting Wordpress self-hosted with Docker.
+This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for Wordpress and Traefik.</description>
+    </item>
+    
     <item>
       <title>How to Easily Run A Reverse Proxy using Docker</title>
-      <link>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</link>
+      <link>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/</link>
       <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</guid>
+      <guid>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/</guid>
       <description>Reverse proxies are powerful tools used typically to forward client traffic to a server. In contrast to a forward proxy, a reverse proxy sits in front of web servers or other servers and forwards client traffic to the appropriate server. In this post, I will show you how to easily setup a reverse proxy using Docker, forward the necessary ports to the reverse proxy, and configure the reverse proxy to forward traffic to various servers on your network.</description>
     </item>
     
     <item>
       <title>How to Harden Your Network Security for Your In-Home Web Hosting</title>
-      <link>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</link>
+      <link>https://whitematter.tech/posts/network-hardening-webhosting/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/network-hardening-webhosting/network-hardening-webhosting/</guid>
+      <guid>https://whitematter.tech/posts/network-hardening-webhosting/</guid>
       <description>Overview The purpose of this post is to provide some tips to address some network security concerns when hosting an externally-facing web server from a device within your home network. For this post, I will be using Unifi networking gear. My screenshots will be of the Unifi controller on my Unifi Dream Machine Pro (UDMP), but I will do my best to overview the concepts so you can replicate with your own networking gear.</description>
     </item>
     
     <item>
       <title>Host Your Own Free Wordpress Site with Traefik and Docker</title>
-      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</link>
+      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</guid>
+      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</guid>
       <description>My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).</description>
     </item>
     

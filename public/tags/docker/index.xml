@@ -12,20 +12,20 @@
     <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Access Twitter Without an Account, Anonymously</title>
-      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</link>
+      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/how-to-access-twitter-without-an-account-anonymously/</guid>
+      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
       <description>Interestingly, after my previous post describing how to route Docker containers through VPN on Unraid, I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
 This post will assume you have read my post on how to route Docker containers through VPN on Unraid or that you already know how to accomplish this.</description>
     </item>
     
     <item>
       <title>How to Route Any Docker Container Through VPN in Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
+      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
+      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
       <description>Today&amp;rsquo;s post will cover how you can route any Docker container through a VPN.
 There are many reasons you might want to route a Docker container through a VPN. Some common considerations are privacy, anonymity, and security.
 I always recommend a VPN provider that values privacy, and in your search, you should consider providers that do not keep access logs that can be tied back to you (I use Private Internet Access [PIA]).</description>
@@ -33,29 +33,29 @@ I always recommend a VPN provider that values privacy, and in your search, you s
     
     <item>
       <title>How to Run a Locally Hosted Docker Registry GUI with Harbor</title>
-      <link>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</link>
+      <link>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</link>
       <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</guid>
+      <guid>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</guid>
       <description>For this post, I will show you how to easily run a Docker Registry GUI with Harbor. I am running Docker on a Ubuntu VM. Therefore, my registry will be run through Docker, and the container will reside on a Ubuntu VM. This tutorial will use docker-compose to build the required containers.
 Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor/releases/download/v2.3.1/harbor-offline-installer-v2.3.1.tgz tar -xzf harbor-offline-installer-v2.3.1.tgz cd harbor/ Generate SSL Certs - INTERNAL ONLY These steps should only be taken if you plan to use your registry internally.</description>
     </item>
     
     <item>
       <title>How to Easily Run A Reverse Proxy using Docker</title>
-      <link>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</link>
+      <link>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/</link>
       <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/run-a-reverse-proxy-using-docker/</guid>
+      <guid>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/</guid>
       <description>Reverse proxies are powerful tools used typically to forward client traffic to a server. In contrast to a forward proxy, a reverse proxy sits in front of web servers or other servers and forwards client traffic to the appropriate server. In this post, I will show you how to easily setup a reverse proxy using Docker, forward the necessary ports to the reverse proxy, and configure the reverse proxy to forward traffic to various servers on your network.</description>
     </item>
     
     <item>
       <title>Host Your Own Free Wordpress Site with Traefik and Docker</title>
-      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</link>
+      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/</guid>
+      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</guid>
       <description>My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).</description>
     </item>
     

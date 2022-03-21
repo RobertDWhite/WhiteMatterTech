@@ -9,13 +9,22 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tutorials</title>
       <link>https://whitematter.tech/categories/tutorials/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webhosting</title>
+      <link>https://whitematter.tech/categories/webhosting/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/webhosting/</guid>
       <description></description>
     </item>
     
@@ -142,15 +151,6 @@
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/categories/leadership/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>webhosting</title>
-      <link>https://whitematter.tech/categories/webhosting/</link>
-      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/webhosting/</guid>
       <description></description>
     </item>
     

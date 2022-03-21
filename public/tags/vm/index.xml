@@ -12,10 +12,10 @@
     <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/vm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tails OS with Encrypted Persistence on Unraid as a VM</title>
-      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
+      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
+      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
       <description>This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
 Running Tails as a VM is not recommended generally as it defeats many of the security features in Tails. For example, virtualization requires that you trust the hypervisor host, as the hypervisor has extra privileges over a VM that can reduce security and privacy of the VM.
 I recommend reading Tails&amp;rsquo;s official documentation about virtualization considerations before continuing: https://tails.</description>
@@ -23,10 +23,10 @@ I recommend reading Tails&amp;rsquo;s official documentation about virtualizatio
     
     <item>
       <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
+      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
+      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
       <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
 OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
     </item>
