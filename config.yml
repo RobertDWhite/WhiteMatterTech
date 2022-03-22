@@ -9,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-googleAnalytics: UA-193676598-1
+googleAnalytics: "UA-193676598-1"
 
 minify:
     disableXML: true
@@ -62,7 +62,7 @@ params:
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
     ShowToc: true
-    # comments: false
+    comments: false
     images: ["brain.jpg"]
     logo:
       logoHomeLink: "/"
@@ -105,13 +105,12 @@ params:
         google:
            SiteVerificationTag: "gtag('config', 'UA-193676598-1')"
 
-    # assets:
-    #     favicon: "<link / abs url>"
-    #     favicon16x16: "<link / abs url>"
-    #     favicon32x32: "<link / abs url>"
-    #     apple_touch_icon: "<link / abs url>"
-    #     safari_pinned_tab: "<link / abs url>"
-
+assets:
+    favicon: "/favicon.ico"
+    favicon16x16:  "/favicon-16x16.png"
+    favicon32x32:  "/favicon-32x32.png"
+    apple_touch_icon:  "/apple-touch-icon.png"
+    safari_pinned_tab:  "/safari-pinned-tab.svg"
     # cover:
     #     hidden: true # hide everywhere but not in structured data
     #     hiddenInList: true # hide on list pages and home
