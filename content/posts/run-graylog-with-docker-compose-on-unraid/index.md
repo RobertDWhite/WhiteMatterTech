@@ -13,7 +13,7 @@ tags:
   - "tutorials"
   - "unraid"
 cover:
-    image: "/posts/run-graylog-with-docker-compose-on-unraid/images/graylog-and-unraid.png"
+    image: "/posts/run-graylog-with-docker-compose-on-unraid/graylog-and-unraid.png"
     alt: "Graylog & Unraid Logo"
     caption: "<text>"
     relative: true
