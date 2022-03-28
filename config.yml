@@ -14,7 +14,8 @@ googleAnalytics: "UA-193676598-1"
 minify:
     disableXML: true
     # minifyOutput: true
-
+#
+#
 languages:
     en:
         languageName: "English"
@@ -100,7 +101,7 @@ params:
     #     text: "Home"
     #     icon: icon.png
     #     iconHeight: 35
-
+    #
     analytics:
         google:
            SiteVerificationTag: "gtag('config', 'UA-193676598-1')"
