@@ -9,7 +9,17 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 25 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run Graylog with Docker Compose on Unraid</title>
+      <link>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</guid>
+      <description>Introduction Logging and traffic monitoring are of utmost importance in information security. Having searchable stored logs can allow visibility into a variety of critical activities related to a data breach.
+For example, individual computer event logs can provide insight into an attacker&amp;rsquo;s lateral movement within an environment. Active Directory authentication logs can provide more detail into this lateral movement and even help to establish a timeline of this movement. Firewall logs can provide insight into an attacker&amp;rsquo;s first contact or the first time an attacker utilized a particular command or control domain.</description>
+    </item>
+    
     <item>
       <title>Live Better with Circadian Lighting</title>
       <link>https://whitematter.tech/posts/live-better-with-circadian-lighting/</link>

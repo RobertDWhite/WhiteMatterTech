@@ -16,12 +16,12 @@ cover:
     relative: true
 ---
 # Introduction
-When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn't experienced any other decent blogging platform besides Wordpress at the time, and I was bent on getting Wordpress self-hosted with Docker.
+When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn't experienced any other decent blogging platform besides WordPress at the time, and I was bent on getting WordPress self-hosted with Docker.
 
-This goal was achieved, and [my first public post](https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/) details how I used docker-compose to deploy my blog using containers for Wordpress and Traefik.
+This goal was achieved, and [my first public post](https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/hosting-your-own-site-with-traefik-and-wordpress/) details how I used docker-compose to deploy my blog using containers for WordPress and Traefik.
 
 # My Reasons For Leaving WordPress
-The Wordpress container setup was successful and effective for the better part of a year, but as I gained readers, I also gained an exorbitant amount of spam inundating my WordPress Dashboard. This quickly became an unworkable solution, even with the copious number of spam blocker plugins enabled like Akismet.
+The WordPress container setup was successful and effective for the better part of a year, but as I gained readers, I also gained an exorbitant amount of spam inundating my WordPress Dashboard. This quickly became an unworkable solution, even with the copious number of spam blocker plugins enabled like Akismet.
 
 My reasons for leaving are no different than the rest of the random posts you can find on the issue throughout the Internet. Specifically, I attribute my exodus to the following: **Speed, Security, and Spam.**
 

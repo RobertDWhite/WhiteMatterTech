@@ -12,9 +12,99 @@
     <item>
       <title>Categories</title>
       <link>https://whitematter.tech/categories/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/categories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://whitematter.tech/tags/docker/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://whitematter.tech/categories/docker/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open-source</title>
+      <link>https://whitematter.tech/tags/open-source/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://whitematter.tech/tags/security/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://whitematter.tech/categories/security/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>https://whitematter.tech/tags/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>https://whitematter.tech/tags/tutorials/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>https://whitematter.tech/categories/tutorials/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unraid</title>
+      <link>https://whitematter.tech/tags/unraid/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/tags/unraid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unraid</title>
+      <link>https://whitematter.tech/categories/unraid/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/categories/unraid/</guid>
       <description></description>
     </item>
     
@@ -24,33 +114,6 @@
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>https://whitematter.tech/tags/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorials</title>
-      <link>https://whitematter.tech/tags/tutorials/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/tags/tutorials/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorials</title>
-      <link>https://whitematter.tech/categories/tutorials/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/tutorials/</guid>
       <description></description>
     </item>
     
@@ -105,24 +168,6 @@
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/tags/tails/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unraid</title>
-      <link>https://whitematter.tech/tags/unraid/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/tags/unraid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unraid</title>
-      <link>https://whitematter.tech/categories/unraid/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/unraid/</guid>
       <description></description>
     </item>
     
@@ -222,33 +267,6 @@
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/categories/business/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://whitematter.tech/tags/docker/</link>
-      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://whitematter.tech/categories/docker/</link>
-      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://whitematter.tech/categories/security/</link>
-      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/security/</guid>
       <description></description>
     </item>
     
@@ -379,15 +397,6 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://whitematter.tech/tags/security/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>siem</title>
       <link>https://whitematter.tech/tags/siem/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
@@ -510,15 +519,6 @@
       <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/tags/iot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>open-source</title>
-      <link>https://whitematter.tech/tags/open-source/</link>
-      <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/tags/open-source/</guid>
       <description></description>
     </item>
     

@@ -9,15 +9,25 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run Graylog with Docker Compose on Unraid</title>
+      <link>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</guid>
+      <description>Introduction Logging and traffic monitoring are of utmost importance in information security. Having searchable stored logs can allow visibility into a variety of critical activities related to a data breach.
+For example, individual computer event logs can provide insight into an attacker&amp;rsquo;s lateral movement within an environment. Active Directory authentication logs can provide more detail into this lateral movement and even help to establish a timeline of this movement. Firewall logs can provide insight into an attacker&amp;rsquo;s first contact or the first time an attacker utilized a particular command or control domain.</description>
+    </item>
+    
     <item>
       <title>Migrating from Wordpress to Hugo</title>
       <link>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</guid>
-      <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides Wordpress at the time, and I was bent on getting Wordpress self-hosted with Docker.
-This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for Wordpress and Traefik.</description>
+      <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides WordPress at the time, and I was bent on getting WordPress self-hosted with Docker.
+This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for WordPress and Traefik.</description>
     </item>
     
     <item>

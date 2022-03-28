@@ -3,7 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whitematter.tech/categories/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/tags/docker/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/categories/docker/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/tags/open-source/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/posts/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/tags/security/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/categories/security/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/tags/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/tags/tutorials/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/categories/tutorials/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/tags/unraid/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/categories/unraid/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://whitematter.tech/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/hugo/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
@@ -11,25 +50,10 @@
     <loc>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/tutorials/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/categories/tutorials/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://whitematter.tech/tags/webhost/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/categories/webhosting/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/wordpress/</loc>
@@ -54,12 +78,6 @@
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</loc>
-    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/unraid/</loc>
-    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/categories/unraid/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/vm/</loc>
@@ -101,19 +119,10 @@
     <loc>https://whitematter.tech/categories/business/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/docker/</loc>
-    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/categories/docker/</loc>
-    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</loc>
-    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/categories/security/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/server/</loc>
@@ -168,9 +177,6 @@
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/ossim/</loc>
-    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/security/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/siem/</loc>
@@ -228,9 +234,6 @@
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/posts/live-better-with-circadian-lighting/</loc>
-    <lastmod>2021-05-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/open-source/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://whitematter.tech/tags/hardening/</loc>

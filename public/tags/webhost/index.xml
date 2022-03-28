@@ -16,8 +16,8 @@
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</guid>
-      <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides Wordpress at the time, and I was bent on getting Wordpress self-hosted with Docker.
-This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for Wordpress and Traefik.</description>
+      <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides WordPress at the time, and I was bent on getting WordPress self-hosted with Docker.
+This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for WordPress and Traefik.</description>
     </item>
     
     <item>
