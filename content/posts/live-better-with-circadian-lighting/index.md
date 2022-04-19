@@ -92,3 +92,10 @@ Thanks for reading!
 ![](/posts/live-better-with-circadian-lighting/images/Screen-Shot-2021-05-24-at-11.09.04-PM.png)
 
 CL Switches on Home Assistant Dashboard
+
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

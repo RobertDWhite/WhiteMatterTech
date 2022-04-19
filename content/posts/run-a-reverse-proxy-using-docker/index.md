@@ -122,6 +122,10 @@ Finally, under **_SSL,_** you can easily configure a LetsEncrypt certificate for
 
 Once your host is added, you can add more following similar guidelines! The config may change slightly or substantially depending on your end goal, but the endless possibilities cannot be covered in a single post. However, I use this reverse proxy setup to add SSL for my connection to my  _[Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_ _(UDMP)_. This entails forwarding ports 443 to the UDMP and adding the following Location: "**/\***". This is one of many neat applications of this reverse proxy setup.
 
-Please feel free to reach out to me if you have any questions or if this post was helpful! I love to hear how people are running their homelabs or offices. Comment below or shoot me an email to [robert@whitematter.tech](mailto:robert@whitematter.tech). Thanks for reading!
+Please feel free to reach out to me if you have any questions or if this post was helpful! I love to hear how people are running their homelabs or offices. 
 
-[](https://github.com/robertomano24/nginx-proxy-manager#wget-docker-compose)
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

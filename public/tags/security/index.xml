@@ -9,11 +9,21 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manage Linux Logs on AlienVault OSSIM</title>
+      <link>https://whitematter.tech/posts/managing-linux-logs-ossim/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/managing-linux-logs-ossim/</guid>
+      <description>Introduction OSSIM is a powerful open source security information and event management (SIEM) operating system. AlienVault OSSIM is the open source version of AlienVault, which is sold by AT&amp;amp;T.
+I have used OSSIM in professional deployments in the past, and I currently use OSSIM for vulnerability scanning, asset management, and security alerts. OSSIM can often be overly complicated to set up and install, and the documentation available for troubleshooting is sparse.</description>
+    </item>
+    
     <item>
       <title>Run Graylog with Docker Compose on Unraid</title>
       <link>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</link>
-      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</guid>
       <description>Introduction Logging and traffic monitoring are of utmost importance in information security. Having searchable stored logs can allow visibility into a variety of critical activities related to a data breach.

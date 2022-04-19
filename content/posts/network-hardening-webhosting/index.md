@@ -93,3 +93,9 @@ In your **Settings > Threat Management** page, I recommend choosing IPS for your
 > Network security is an important topic to discuss in general, but the benefits of taking security seriously when WebHosting on a device at home cannot be overstated.
 
 I implore you to consider implementing the above outlined security measures regardless of your WebHosting status, but it should really not even be an option if you do indeed have a WebHost. Go ahead and get your isolated network prepared and enable IPS on your _[Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_ or other _[Unifi Gateway device](https://www.amazon.com/gp/product/B019PBEI5W/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B019PBEI5W&linkCode=as2&tag=whitematter-20&linkId=6c6cfd4f08014ed587a37392b9bb957f)._
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

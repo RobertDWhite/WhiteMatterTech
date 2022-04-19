@@ -66,6 +66,12 @@ Once the above is completed, you can use your new user to join your chat in your
 
 ## Conclusion
 
-**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to improve your social gaming experience. If you have any questions or need assistance, please let me know in the comments or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech) !
+**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to improve your social gaming experience.
 
-Special thanks to Samuel Wallace for dreaming with me and making the ins-and-outs of this project work.
+Special thanks to [Samuel Wallace](https://wallacelabs.tech) for dreaming with me and making the ins-and-outs of this project work.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

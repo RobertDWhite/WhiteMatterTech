@@ -9,7 +9,17 @@
       <link>https://whitematter.tech/brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/ossim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/ossim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manage Linux Logs on AlienVault OSSIM</title>
+      <link>https://whitematter.tech/posts/managing-linux-logs-ossim/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://whitematter.tech/posts/managing-linux-logs-ossim/</guid>
+      <description>Introduction OSSIM is a powerful open source security information and event management (SIEM) operating system. AlienVault OSSIM is the open source version of AlienVault, which is sold by AT&amp;amp;T.
+I have used OSSIM in professional deployments in the past, and I currently use OSSIM for vulnerability scanning, asset management, and security alerts. OSSIM can often be overly complicated to set up and install, and the documentation available for troubleshooting is sparse.</description>
+    </item>
+    
     <item>
       <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
       <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>

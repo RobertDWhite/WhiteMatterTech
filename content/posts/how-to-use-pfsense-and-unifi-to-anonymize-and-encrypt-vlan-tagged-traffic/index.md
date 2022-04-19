@@ -194,7 +194,13 @@ Go to **Settings > Wireless Networks** and click "_CREATE NEW WIRELESS NETWORK_.
 
 **Congratulations** if you made it this far and everything is working!
 
-I hope this tutorial aids you in your endeavors to anonymize certain portions of your network. If you have any questions or need assistance, please let me know in the comments!
+I hope this tutorial aids you in your endeavors to anonymize certain portions of your network.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert
 
 ## TROUBLESHOOTING
 

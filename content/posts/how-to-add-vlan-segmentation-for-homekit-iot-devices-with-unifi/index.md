@@ -78,4 +78,10 @@ Next, let's check **LAN LOCAL** rules These rule is concerned with allowing [mul
 
 ## Wrapping Up
 
-There you have it! You now have a fully-functional HomeKit setup enabled with extra security practices to prevent mischief from poorly-secured IoT devices reaching your internal LAN. It is clear this does not mitigate 100% of the risk since we're allowing traffic to flow in opposite direction. You can lock your subnets down even more by experimenting with fully blocking your traffic from your LAN to your IoT network but ONLY allowing instead your HomeKit controller (e.g., Apple TV, Homepod, etc.). These rules can and probably should be tweaked to fit your environment, but the rules described above will at least get you started. If you have any specific issues or have an IoT device not functioning properly, please reach out in the comments or shoot me an email!
+There you have it! You now have a fully-functional HomeKit setup enabled with extra security practices to prevent mischief from poorly-secured IoT devices reaching your internal LAN. It is clear this does not mitigate 100% of the risk since we're allowing traffic to flow in opposite direction. You can lock your subnets down even more by experimenting with fully blocking your traffic from your LAN to your IoT network but ONLY allowing instead your HomeKit controller (e.g., Apple TV, Homepod, etc.). These rules can and probably should be tweaked to fit your environment, but the rules described above will at least get you started.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert
