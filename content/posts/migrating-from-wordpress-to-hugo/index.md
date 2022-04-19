@@ -108,6 +108,10 @@ If you choose to host your site from within your network, I recommend taking a l
 
 # Wrapping Up
 
-I hope this post was helpful getting WordPress migrated to Hugo. If you have any issues, questions, or something was not clear in this post, email me at [robert@whitematter.tech,](mailto:robert@whitematter.tech "mailto:robert@whitematter.tech") or make an ["Issue" on GitHub or start a "Discussion" on GitHub](https://github.com/RobertDWhite/WhiteMatterTech).
+I hope this post was helpful getting WordPress migrated to Hugo.
 
-**Thanks for reading!**
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

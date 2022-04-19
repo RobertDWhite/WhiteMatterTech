@@ -38,6 +38,3 @@ Morrison-Smith, S., & Ruiz, J. (2020). Challenges and barriers in virtual teams:
 Newman, S. A., Ford, R. C., & Marshall, G. W. (2020). Virtual team leader communication: Employee perception and organizational reality. International Journal of Business Communication, 57(4), 452-473.
 
 Zakaria, N., & Yusof, S. A. M. (2020). Crossing cultural boundaries using the internet: Toward building a model of swift trust formation in global virtual teams. Journal of International Management, 26(1), 100654.
-
-
-<a href='{{ . }}{{ $.Scratch.Get "FilePath" }}' class="btn">Edit this page on GitHub</a>

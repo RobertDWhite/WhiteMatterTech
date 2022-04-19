@@ -1,6 +1,6 @@
 ---
 title: "Run Graylog with Docker Compose on Unraid"
-date: "2022-03-28"
+date: "2022-03-27"
 categories:
   - "docker"
   - "security"
@@ -194,4 +194,10 @@ Scroll to the bottom of the container config and click **SAVE**. If all goes wel
 
 
 # Wrapping Up
-I hope this post was helpful getting Graylog running on Unraid. If you have any issues, questions, or something was not clear in this post, please comment below, email me at [robert@whitematter.tech,](mailto:robert@whitematter.tech "mailto:robert@whitematter.tech") or make an "Issue" on [GitHub](https://github.com/RobertDWhite/WhiteMatterTech).
+I hope this post was helpful getting Graylog running on Unraid.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

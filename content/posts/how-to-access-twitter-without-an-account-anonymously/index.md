@@ -65,4 +65,10 @@ I would **highly recommend** setting up HTTP auth via your reverse proxy if you 
 
 ## Conclusion
 
-**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to anonymize your access to Twitter while substantially enhancing the privacy and preventing tracking of your personal data. If you have any questions or need assistance, please let me know in the comments or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech) !
+**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to anonymize your access to Twitter while substantially enhancing the privacy and preventing tracking of your personal data.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

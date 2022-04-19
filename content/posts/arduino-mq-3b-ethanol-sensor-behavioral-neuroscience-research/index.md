@@ -142,7 +142,13 @@ Broken Backpack Potentiometer
 
 # Wrapping Up
 
-**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors and can be a positive contribution to your research or personal projects. If you have any questions or need assistance, please let me know in the comments or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech) !
+**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors and can be a positive contribution to your research or personal projects.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert
 
 ![](/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/images/IMG_0825-min-768x1024.jpeg)
 

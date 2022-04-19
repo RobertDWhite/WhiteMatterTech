@@ -112,4 +112,10 @@ That siphon does a great job, but there are siphons that look a lot cooler. For 
 
 Clearly, there are a lot of different ways to brew coffee at home. I hope some of this list inspires you to try some new methods in your own home for yourself or your friends/family.
 
-Please share your experiences with any of the products I have listed in this post or mention your favorite alternatives. I am always looking for better alternatives! Share your favorite method below, or shoot me an email at [robert@whitematter.tech](mailto:robert@whitematter.tech). Thanks for reading!
+Please share your experiences with any of the products I have listed in this post or mention your favorite alternatives. I am always looking for better alternatives!
+
+> As always, if you have any questions or want to share your favorite coffee brewing methods, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

@@ -51,6 +51,8 @@ This solution is nice to me because you only have to remember your subdomain ins
 
 Like mentioned above, anytime you make services available to the world, you should protect your resources with strong passwords. I recommend a password manager to help with this. I use [1Password](https://1password.com/) and a [Yubikey](https://www.amazon.com/Yubico-Authentication-Security-Supported-Accounts/dp/B08DHL1YDL/ref=sr_1_4?dchild=1&keywords=yubikey&qid=1632281315&sr=8-4).
 
-> As always, if you have any questions, feel free to post below or reach out to me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!
+>
+> Robert

@@ -66,4 +66,10 @@ To do this, go to your VPN container's settings. In settings, add your ports to 
 
 Once your container settings are saved, you will be able to access the GUI of your container, but the container traffic will be routed through your VPN! This will provide extra security, privacy, and anonymity for your data.
 
-**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to anonymize certain portions of your network. If you have any questions or need assistance, please let me know in the comments or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech) !
+**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to anonymize certain portions of your network.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

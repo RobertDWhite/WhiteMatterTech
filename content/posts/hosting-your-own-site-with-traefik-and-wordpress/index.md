@@ -434,3 +434,10 @@ To add a blog post, click “Posts” and then “Add New”. A new, blank blog 
 ![](/posts/hosting-your-own-site-with-traefik-and-wordpress/images/blogpost-1024x665.png)
 
 After creating your post using the block editor, click “Publish” and then “Publish” again to make the post available. Navigate to the address shown on the “Post address”. Your blog post will look something like this. You can customize your site by changing settings or adding plug-ins.
+
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

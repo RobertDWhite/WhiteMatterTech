@@ -76,6 +76,8 @@ I will not go into detail about the administration of Harbor, but I will point y
 
 If you were able to make it through all the steps above, you should be able to push to and pull from your registry. You will definitely want to look up information about how to tag images and containers in Docker.
 
-> As always, if you have any questions, feel free to post below and share your successes or frustrations! You can also reach out to me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!
+>
+> Robert

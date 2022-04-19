@@ -84,4 +84,10 @@ Once Tails has booted again, you will be presented with the same wlecome screen 
 
 ## Wrapping Up
 
-**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to use Tails as a VM. If you have any questions or need assistance, please let me know in the comments!
+**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to use Tails as a VM. 
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert

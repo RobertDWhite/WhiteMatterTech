@@ -45,4 +45,10 @@ The in-place upgrade starts and presents the _Upgrading Windows_ screen showing 
 
 It can certainly be intimidating to make these upgrades on production machines that your teams or business rely on daily, but Microsoft made this particular upgrade path pretty straightforward. As always, be sure you have a backup of your server before attempting such an upgrade. Nonetheless, you likely will not need it.
 
-**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to upgrade your servers to Windows Server 2022. If you have any questions or need assistance, please let me know in the comments or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech) !
+**Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to upgrade your servers to Windows Server 2022.
+
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert
