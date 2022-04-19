@@ -99,7 +99,9 @@ y OR blank
 # 3.4 - Do you want to enable active response? (y/n) [y]: y
 y OR blank
 ```
+
 Once the script is finished, assuming you do not hit any interesting errors, the HIDS agent should be installed on youyr endpoint. Troubleshooting this process is a bit out of the scope of the post, but I have had general success with it. Feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions) to chat more about this process if you hit any errors.
+
 --------------------------------------------------
 # Configuring OSSEC HIDS
 Configuring OSSEC HIDS should be the same regardless of the Linux distro, as mentioned above. All of my screenshots will be from SSH connections to Ubuntu endpoints using [RoyalTS](https://royalapps.com/ts/win/features).
@@ -148,4 +150,8 @@ Congratulations if you made it this far! After a few minutes, your endpoint will
 
 OSSIM is extremely powerful and can be complicated to use. If you are not already familiar with OSSIM, I recommend doing some intense Google searching about SIEM tools in general and specifically about configuration recommendations for OSSIM. It may be a little overkill for your Home Lab, but it is a valuable tool to be comfortable with for any security practitioner.
 
-10.100.0.30
+> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+>
+> Thanks for reading!
+>
+> Robert
