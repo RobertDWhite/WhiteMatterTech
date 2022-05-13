@@ -2,285 +2,312 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://whitematter.tech/categories/</loc>
+    <loc>/posts/https-for-homelab-internal-resources/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/dns/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/docker/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/homelab/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/internal/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/letsencrypt/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/networking/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/networking/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/nginx/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/pihole/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/proxy/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/security/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/tutorials/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/unraid/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/managing-linux-logs-ossim/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/managing-linux-logs-ossim/</loc>
+    <loc>/categories/open-source/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/open-source/</loc>
+    <loc>/tags/ossim/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/ossim/</loc>
+    <loc>/categories/ossim/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/ossim/</loc>
+    <loc>/tags/security/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/</loc>
+    <loc>/tags/siem/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/security/</loc>
+    <loc>/tags/vm/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/security/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/siem/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/categories/tutorials/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/vm/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/docker/</loc>
+    <loc>/categories/docker/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/docker/</loc>
+    <loc>/tags/open-source/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/open-source/</loc>
+    <loc>/posts/run-graylog-with-docker-compose-on-unraid/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</loc>
+    <loc>/tags/tutorials/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/tutorials/</loc>
+    <loc>/categories/unraid/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/unraid/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/categories/unraid/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/</loc>
+    <loc>/posts/migrating-from-wordpress-to-hugo/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/webhost/</loc>
+    <loc>/tags/webhost/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/webhosting/</loc>
+    <loc>/categories/webhosting/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/wordpress/</loc>
+    <loc>/tags/wordpress/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/privacy-policy/</loc>
+    <loc>/privacy-policy/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/terms-and-conditions/</loc>
+    <loc>/terms-and-conditions/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/recommended-products/</loc>
+    <loc>/recommended-products/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/anonymous/</loc>
+    <loc>/tags/anonymous/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/encrypt/</loc>
+    <loc>/tags/encrypt/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/tails/</loc>
+    <loc>/tags/tails/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</loc>
+    <loc>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/vm/</loc>
+    <loc>/categories/vm/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/gaming/</loc>
+    <loc>/tags/gaming/</loc>
     <lastmod>2022-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/windows/</loc>
+    <loc>/categories/windows/</loc>
     <lastmod>2022-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/</loc>
+    <loc>/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/</loc>
     <lastmod>2022-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/arduino/</loc>
+    <loc>/tags/arduino/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/arduino/</loc>
+    <loc>/categories/arduino/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</loc>
+    <loc>/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/research/</loc>
+    <loc>/tags/research/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/research/</loc>
+    <loc>/categories/research/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/science/</loc>
+    <loc>/tags/science/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/science/</loc>
+    <loc>/categories/science/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/business/</loc>
+    <loc>/categories/business/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</loc>
+    <loc>/posts/how-to-access-twitter-without-an-account-anonymously/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</loc>
+    <loc>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/server/</loc>
+    <loc>/tags/server/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/tips/</loc>
+    <loc>/categories/tips/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/twitter/</loc>
+    <loc>/tags/twitter/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/upgrade/</loc>
+    <loc>/tags/upgrade/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/windows/</loc>
+    <loc>/tags/windows/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</loc>
+    <loc>/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</loc>
     <lastmod>2021-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/vpn/</loc>
+    <loc>/tags/vpn/</loc>
     <lastmod>2021-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/coffee/</loc>
+    <loc>/tags/coffee/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/coffee/</loc>
+    <loc>/categories/coffee/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/espresso/</loc>
+    <loc>/tags/espresso/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/coffee-gear/</loc>
+    <loc>/posts/coffee-gear/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/docker-compose/</loc>
+    <loc>/tags/docker-compose/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/harbor/</loc>
+    <loc>/tags/harbor/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</loc>
+    <loc>/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/registry/</loc>
+    <loc>/tags/registry/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</loc>
+    <loc>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/networking/</loc>
-    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://whitematter.tech/tags/findability/</loc>
+    <loc>/tags/findability/</loc>
     <lastmod>2021-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/usability/</loc>
+    <loc>/tags/usability/</loc>
     <lastmod>2021-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/usability/</loc>
+    <loc>/categories/usability/</loc>
     <lastmod>2021-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/usability-evaluations-findability/</loc>
+    <loc>/posts/usability-evaluations-findability/</loc>
     <lastmod>2021-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/a-quick-note-on-leading-geographically-dispersed-teams/</loc>
+    <loc>/posts/a-quick-note-on-leading-geographically-dispersed-teams/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/leadership/</loc>
+    <loc>/tags/leadership/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/leadership/</loc>
+    <loc>/categories/leadership/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/remote/</loc>
+    <loc>/tags/remote/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/teams/</loc>
+    <loc>/tags/teams/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</loc>
+    <loc>/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/network/</loc>
+    <loc>/tags/network/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/unifi/</loc>
+    <loc>/tags/unifi/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/</loc>
+    <loc>/posts/run-a-reverse-proxy-using-docker/</loc>
     <lastmod>2021-08-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/health/</loc>
+    <loc>/tags/health/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/home-automation/</loc>
+    <loc>/tags/home-automation/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/categories/home-automation/</loc>
+    <loc>/categories/home-automation/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/iot/</loc>
+    <loc>/tags/iot/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/live-better-with-circadian-lighting/</loc>
+    <loc>/posts/live-better-with-circadian-lighting/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/hardening/</loc>
+    <loc>/tags/hardening/</loc>
     <lastmod>2021-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</loc>
+    <loc>/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</loc>
     <lastmod>2021-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/vlan/</loc>
+    <loc>/tags/vlan/</loc>
     <lastmod>2021-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/network-hardening-webhosting/</loc>
+    <loc>/posts/network-hardening-webhosting/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</loc>
+    <loc>/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</loc>
     <lastmod>2021-04-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/pfsense/</loc>
+    <loc>/tags/pfsense/</loc>
     <lastmod>2021-04-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</loc>
+    <loc>/posts/hosting-your-own-site-with-traefik-and-wordpress/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/portainer/</loc>
+    <loc>/tags/portainer/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/traefik/</loc>
+    <loc>/tags/traefik/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/tags/ubuntu/</loc>
+    <loc>/tags/ubuntu/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://whitematter.tech/index.html</loc>
+    <loc>/index.html</loc>
   </url><url>
-    <loc>https://whitematter.tech/archives/</loc>
+    <loc>/archives/</loc>
   </url><url>
-    <loc>https://whitematter.tech/search/</loc>
+    <loc>/search/</loc>
   </url><url>
-    <loc>https://whitematter.tech/series/</loc>
+    <loc>/series/</loc>
   </url>
 </urlset>

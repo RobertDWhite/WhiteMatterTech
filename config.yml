@@ -1,4 +1,4 @@
-baseURL: "https://whitematter.tech"
+ubaseURL: "https://whitematter.tech"
 title: WhiteMatterTech
 paginate: 5
 theme: PaperMod
@@ -34,6 +34,11 @@ languages:
                 - name: Categories
                   url: categories/
                   weight: 10
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 outputs:
     home:

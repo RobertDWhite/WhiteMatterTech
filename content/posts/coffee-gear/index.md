@@ -114,7 +114,7 @@ Clearly, there are a lot of different ways to brew coffee at home. I hope some o
 
 Please share your experiences with any of the products I have listed in this post or mention your favorite alternatives. I am always looking for better alternatives!
 
-> As always, if you have any questions or want to share your favorite coffee brewing methods, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+> As always, if you have any questions or want to share your favorite coffee , feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!
 >

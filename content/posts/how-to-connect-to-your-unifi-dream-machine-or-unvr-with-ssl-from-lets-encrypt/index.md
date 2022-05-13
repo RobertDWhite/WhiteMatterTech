@@ -20,6 +20,10 @@ aliases:
     - /posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/
     - /2021/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/
 ---
+> **Update 05/09/2022**:
+> The conclusions of this post will route your traffic externally, requiring your local devices to reach external DNS servers (e.g., in my case, CloudFlare) in order to resolve your Unifi Gateway address. If you want to handle all of this completely locally/internally, check out my newer post: [HTTPS for Internal Resources](https://whitematter.tech/2022/05/001)
+
+--------------------------------------------------------------------------------------------------
 
 Alright, if you have a Unifi device like a [_Dream Machine_](https://amzn.to/3zvS2nd), _[Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_, _[UNVR](https://amzn.to/3Cze3TN "https://amzn.to/3Cze3TN")_, _[CloudKey](https://amzn.to/2W1CZUz "https://amzn.to/2W1CZUz")_, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, "**Your** **connection is not private**."
 
@@ -33,7 +37,7 @@ This particular configuration assumes that you have forwarded your subdomain (e.
 
 _As an Amazon Associate, I earn from qualifying purchases._ Thank you for _supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!_
 
-> Configure the Reverse Proxy for Unifi Devices
+# Configure the Reverse Proxy for Unifi Devices
 
 The config is relatively simple at this point. Check out the image below to see what the config should look like. Under "Domain Names," add your domain (e.g., unifi.whitematter.tech). The "**Scheme**" should be "**https**" and the "**Forward Hostname / IP**" should be the local IP of your Unifi Dream Machine or other Unifi device (e.g., 192.168.1.1, 10.0.0.1). The "**Forward Port**" should be 443. I always check "**Cache Assets**." Since Unifi devices are protected with Unifi account, I leave the "**Access List**" public. You can protect it with a username/password, but I recommend instead using a strong Unifi password, which is better in the long run anyway.
 

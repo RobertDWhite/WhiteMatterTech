@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>upgrade on WhiteMatterTech</title>
-    <link>https://whitematter.tech/tags/upgrade/</link>
+    <link>/tags/upgrade/</link>
     <description>Recent content in upgrade on WhiteMatterTech</description>
     <image>
-      <url>https://whitematter.tech/brain.jpg</url>
-      <link>https://whitematter.tech/brain.jpg</link>
+      <url>brain.jpg</url>
+      <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/upgrade/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/upgrade/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Do An In-Place Upgrade To Windows Server 2022</title>
-      <link>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</link>
+      <link>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</guid>
+      <guid>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</guid>
       <description>I recently had to upgrade two domain controllers to Windows Server 2022. The main controller was still on Windows Server 2016 while the secondary was Windows Server 2019. Both in-place upgrades went without issue.
 Both servers were running Hyper-V, Bitlocker, and AD Controller. The 2019 server had an SMTP server that it was running, but Microsoft has deprecated the SMTP stack and associated management tools, including the IIS tools. There very well may be other deprecated software or tools, and I highly recommend searching for specific functionality you utilize on your Win Servers before attempting the upgrade.</description>
     </item>

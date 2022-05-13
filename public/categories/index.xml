@@ -2,182 +2,191 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on WhiteMatterTech</title>
-    <link>https://whitematter.tech/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on WhiteMatterTech</description>
     <image>
-      <url>https://whitematter.tech/brain.jpg</url>
-      <link>https://whitematter.tech/brain.jpg</link>
+      <url>brain.jpg</url>
+      <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>open source</title>
-      <link>https://whitematter.tech/categories/open-source/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <title>homelab</title>
+      <link>/categories/homelab/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/categories/open-source/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ossim</title>
-      <link>https://whitematter.tech/categories/ossim/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/ossim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://whitematter.tech/categories/security/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorials</title>
-      <link>https://whitematter.tech/categories/tutorials/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/tutorials/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://whitematter.tech/categories/docker/</link>
-      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unraid</title>
-      <link>https://whitematter.tech/categories/unraid/</link>
-      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/unraid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>webhosting</title>
-      <link>https://whitematter.tech/categories/webhosting/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/webhosting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vm</title>
-      <link>https://whitematter.tech/categories/vm/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/vm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>windows</title>
-      <link>https://whitematter.tech/categories/windows/</link>
-      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>arduino</title>
-      <link>https://whitematter.tech/categories/arduino/</link>
-      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/arduino/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>research</title>
-      <link>https://whitematter.tech/categories/research/</link>
-      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>science</title>
-      <link>https://whitematter.tech/categories/science/</link>
-      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>business</title>
-      <link>https://whitematter.tech/categories/business/</link>
-      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/business/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tips</title>
-      <link>https://whitematter.tech/categories/tips/</link>
-      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coffee</title>
-      <link>https://whitematter.tech/categories/coffee/</link>
-      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://whitematter.tech/categories/coffee/</guid>
+      <guid>/categories/homelab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>networking</title>
-      <link>https://whitematter.tech/categories/networking/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      <link>/categories/networking/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/categories/networking/</guid>
+      <guid>/categories/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>/categories/security/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>/categories/tutorials/</link>
+      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open source</title>
+      <link>/categories/open-source/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ossim</title>
+      <link>/categories/ossim/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/ossim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>/categories/docker/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unraid</title>
+      <link>/categories/unraid/</link>
+      <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/unraid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webhosting</title>
+      <link>/categories/webhosting/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/webhosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vm</title>
+      <link>/categories/vm/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/vm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>/categories/windows/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arduino</title>
+      <link>/categories/arduino/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/arduino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>/categories/research/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>science</title>
+      <link>/categories/science/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>business</title>
+      <link>/categories/business/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/business/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>/categories/tips/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coffee</title>
+      <link>/categories/coffee/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/coffee/</guid>
       <description></description>
     </item>
     
     <item>
       <title>usability</title>
-      <link>https://whitematter.tech/categories/usability/</link>
+      <link>/categories/usability/</link>
       <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/categories/usability/</guid>
+      <guid>/categories/usability/</guid>
       <description></description>
     </item>
     
     <item>
       <title>leadership</title>
-      <link>https://whitematter.tech/categories/leadership/</link>
+      <link>/categories/leadership/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/categories/leadership/</guid>
+      <guid>/categories/leadership/</guid>
       <description></description>
     </item>
     
     <item>
       <title>home-automation</title>
-      <link>https://whitematter.tech/categories/home-automation/</link>
+      <link>/categories/home-automation/</link>
       <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/categories/home-automation/</guid>
+      <guid>/categories/home-automation/</guid>
       <description></description>
     </item>
     

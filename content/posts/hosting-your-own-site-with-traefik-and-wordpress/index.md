@@ -22,6 +22,11 @@ aliases:
     - /2021/hosting-your-own-site-with-traefik-and-wordpress/
 ---
 
+> **Update 03/20/2022**:
+> I no longer host my site with Traefik, and my site is no longer built on WordPress. I now host my site internally using an Nginx proxy hosted in Docker. My site is built with Hugo. Learn more about my transition from WordPress to Hugo on my post here: [Migrating from WordPress to Hugo](https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/)
+
+-----------------------------------------------------------------------------------------------------------------------
+
 My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a _[Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_ . You can use a VPS or an OS on bare-metal capable of running Docker _(for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu)._ Check out [this project's GitHub page](https://github.com/robertomano24/WhiteMatterWP) for examples and help.
 
 _As an Amazon Associate, I earn from qualifying purchases._ Thank you for _supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!_
@@ -34,7 +39,7 @@ One reason I am using Ubuntu to host this Docker setup is because of the ability
 
 For your domain, you will need to add DNS records pointing your domain, for example, whitematter.tech, to the public IP address of your server _(if you are using a bare-metal install on your home network, this would be the public IP your ISP provides you, which can be determined at [whatismyip.com](http://whatismyip.com))_. I personally prefer a Dynamic DNS solution like [duckdns.org](http://duckdns.org "duckdns.org"), which allows me to automatically keep updated with my changing public IP since I do not have a static address from my ISP _(for tips on exploring duckdns for your setup, check out [this video](https://www.youtube.com/watch?v=bVmUV1G5wpI) on YouTube)._ The image below shows what CloudFlare looks like for my domain being pointed to my duckdns address _(if you do not have duckdns, "Content" would be your public-facing IP, like 177.99.88.10)_.
 
-![](/posts/images/Screen-Shot-2021-04-01-at-8.15.44-PM.jpg)
+![](/posts/hosting-your-own-site-with-traefik-and-wordpress/images/Screen-Shot-2021-04-01-at-8.15.44-PM.jpg)
 
 ## **Set Environment Variables**
 
