@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>unraid on WhiteMatterTech</title>
-    <link>https://whitematter.tech/categories/unraid/</link>
+    <link>/categories/unraid/</link>
     <description>Recent content in unraid on WhiteMatterTech</description>
     <image>
-      <url>https://whitematter.tech/brain.jpg</url>
-      <link>https://whitematter.tech/brain.jpg</link>
+      <url>brain.jpg</url>
+      <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/unraid/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/unraid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Run Graylog with Docker Compose on Unraid</title>
-      <link>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</link>
+      <link>/posts/run-graylog-with-docker-compose-on-unraid/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/run-graylog-with-docker-compose-on-unraid/</guid>
+      <guid>/posts/run-graylog-with-docker-compose-on-unraid/</guid>
       <description>Introduction Logging and traffic monitoring are of utmost importance in information security. Having searchable stored logs can allow visibility into a variety of critical activities related to a data breach.
 For example, individual computer event logs can provide insight into an attacker&amp;rsquo;s lateral movement within an environment. Active Directory authentication logs can provide more detail into this lateral movement and even help to establish a timeline of this movement. Firewall logs can provide insight into an attacker&amp;rsquo;s first contact or the first time an attacker utilized a particular command or control domain.</description>
     </item>
     
     <item>
       <title>Tails OS with Encrypted Persistence on Unraid as a VM</title>
-      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
+      <link>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
+      <guid>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
       <description>This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
 Running Tails as a VM is not recommended generally as it defeats many of the security features in Tails. For example, virtualization requires that you trust the hypervisor host, as the hypervisor has extra privileges over a VM that can reduce security and privacy of the VM.
 I recommend reading Tails&amp;rsquo;s official documentation about virtualization considerations before continuing: https://tails.</description>
@@ -33,20 +33,20 @@ I recommend reading Tails&amp;rsquo;s official documentation about virtualizatio
     
     <item>
       <title>How to Access Twitter Without an Account, Anonymously</title>
-      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</link>
+      <link>/posts/how-to-access-twitter-without-an-account-anonymously/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
+      <guid>/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
       <description>Interestingly, after my previous post describing how to route Docker containers through VPN on Unraid, I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
 This post will assume you have read my post on how to route Docker containers through VPN on Unraid or that you already know how to accomplish this.</description>
     </item>
     
     <item>
       <title>How to Route Any Docker Container Through VPN in Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
+      <link>/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
+      <guid>/posts/how-to-route-any-docker-container-through-vpn-in-unraid/</guid>
       <description>Today&amp;rsquo;s post will cover how you can route any Docker container through a VPN.
 There are many reasons you might want to route a Docker container through a VPN. Some common considerations are privacy, anonymity, and security.
 I always recommend a VPN provider that values privacy, and in your search, you should consider providers that do not keep access logs that can be tied back to you (I use Private Internet Access [PIA]).</description>
@@ -54,10 +54,10 @@ I always recommend a VPN provider that values privacy, and in your search, you s
     
     <item>
       <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
+      <link>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
+      <guid>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
       <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
 OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
     </item>

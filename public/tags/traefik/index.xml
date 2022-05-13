@@ -2,21 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>traefik on WhiteMatterTech</title>
-    <link>https://whitematter.tech/tags/traefik/</link>
+    <link>/tags/traefik/</link>
     <description>Recent content in traefik on WhiteMatterTech</description>
     <image>
-      <url>https://whitematter.tech/brain.jpg</url>
-      <link>https://whitematter.tech/brain.jpg</link>
+      <url>brain.jpg</url>
+      <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Host Your Own Free Wordpress Site with Traefik and Docker</title>
-      <link>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</link>
+      <link>/posts/hosting-your-own-site-with-traefik-and-wordpress/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/hosting-your-own-site-with-traefik-and-wordpress/</guid>
-      <description>My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)! For this setup, I am using a Ubuntu bare-metal machine behind a Unifi Dream Machine Pro . You can use a VPS or an OS on bare-metal capable of running Docker (for this tutorial though, we will use tools only applicable to Ubuntu, but you can make adjustments where necessary if you are familiar with Docker and choose not to use Ubuntu).</description>
+      <guid>/posts/hosting-your-own-site-with-traefik-and-wordpress/</guid>
+      <description>Update 03/20/2022: I no longer host my site with Traefik, and my site is no longer built on WordPress. I now host my site internally using an Nginx proxy hosted in Docker. My site is built with Hugo. Learn more about my transition from WordPress to Hugo on my post here: Migrating from WordPress to Hugo
+  My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)!</description>
     </item>
     
   </channel>

@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>tips on WhiteMatterTech</title>
-    <link>https://whitematter.tech/categories/tips/</link>
+    <link>/categories/tips/</link>
     <description>Recent content in tips on WhiteMatterTech</description>
     <image>
-      <url>https://whitematter.tech/brain.jpg</url>
-      <link>https://whitematter.tech/brain.jpg</link>
+      <url>brain.jpg</url>
+      <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Access Twitter Without an Account, Anonymously</title>
-      <link>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</link>
+      <link>/posts/how-to-access-twitter-without-an-account-anonymously/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
+      <guid>/posts/how-to-access-twitter-without-an-account-anonymously/</guid>
       <description>Interestingly, after my previous post describing how to route Docker containers through VPN on Unraid, I received a substantial lot of questions via email about my hints at accessing Twitter anonymously. This post is my response to those questions, and I will describe my workflow to access Twitter feeds anonymously, without an account.
 This post will assume you have read my post on how to route Docker containers through VPN on Unraid or that you already know how to accomplish this.</description>
     </item>
     
     <item>
       <title>How To Do An In-Place Upgrade To Windows Server 2022</title>
-      <link>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</link>
+      <link>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</guid>
+      <guid>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</guid>
       <description>I recently had to upgrade two domain controllers to Windows Server 2022. The main controller was still on Windows Server 2016 while the secondary was Windows Server 2019. Both in-place upgrades went without issue.
 Both servers were running Hyper-V, Bitlocker, and AD Controller. The 2019 server had an SMTP server that it was running, but Microsoft has deprecated the SMTP stack and associated management tools, including the IIS tools. There very well may be other deprecated software or tools, and I highly recommend searching for specific functionality you utilize on your Win Servers before attempting the upgrade.</description>
     </item>
     
     <item>
       <title>How to Connect to Your Unifi Dream Machine or UNVR with SSL from Let&#39;s Encrypt</title>
-      <link>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</link>
+      <link>/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</link>
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
-      <description>Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.&amp;rdquo;
-For some reason, at the time of this writing, there is still no official/built-in way to generate a cert for your device, though some interesting GitHub projects exist that claim to allow this functionality if you&amp;rsquo;re feeling lucky.</description>
+      <guid>/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
+      <description>Update 05/09/2022: The conclusions of this post will route your traffic externally, requiring your local devices to reach external DNS servers (e.g., in my case, CloudFlare) in order to resolve your Unifi Gateway address. If you want to handle all of this completely locally/internally, check out my newer post: HTTPS for Internal Resources
+  Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.</description>
     </item>
     
     <item>
       <title>How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi</title>
-      <link>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</link>
+      <link>/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</guid>
+      <guid>/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</guid>
       <description>IoT Overview The smart world of Internet-of-Things (IoT) devices is ever growing. From everyday lightbulbs to the sprinkler out front, just about every household appliance and utility has a smart-counterpart. For example, my smart home is fully Apple HomeKit compatible and consists of a Hue bridge with lightbulbs, Lutron Caseta smart dimmers/switches, Eve Aqua outdoor water hose control, iSmartGate garage door opener, Schlage deadbolt, Eve motion sensor, Sonos speakers throughout the house, a Vocolinc oil diffuser, Vocolionc power strip, a couple iRobot Roomba vacuum cleaners, some Vocolinc pluggable outlets, an Ecobee thermostat to replace each analog thermostat in the house, and a Unifi G4 Doorbell (the doorbell is not technically compatible with HomeKit, but I added support with a third-party tool known as &amp;ldquo;Homebridge&amp;rdquo;).</description>
     </item>
     
     <item>
       <title>How to Harden Your Network Security for Your In-Home Web Hosting</title>
-      <link>https://whitematter.tech/posts/network-hardening-webhosting/</link>
+      <link>/posts/network-hardening-webhosting/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/network-hardening-webhosting/</guid>
+      <guid>/posts/network-hardening-webhosting/</guid>
       <description>Overview The purpose of this post is to provide some tips to address some network security concerns when hosting an externally-facing web server from a device within your home network. For this post, I will be using Unifi networking gear. My screenshots will be of the Unifi controller on my Unifi Dream Machine Pro (UDMP), but I will do my best to overview the concepts so you can replicate with your own networking gear.</description>
     </item>
     

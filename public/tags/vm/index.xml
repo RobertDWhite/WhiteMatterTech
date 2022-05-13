@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>vm on WhiteMatterTech</title>
-    <link>https://whitematter.tech/tags/vm/</link>
+    <link>/tags/vm/</link>
     <description>Recent content in vm on WhiteMatterTech</description>
     <image>
-      <url>https://whitematter.tech/brain.jpg</url>
-      <link>https://whitematter.tech/brain.jpg</link>
+      <url>brain.jpg</url>
+      <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://whitematter.tech/tags/vm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manage Linux Logs on AlienVault OSSIM</title>
-      <link>https://whitematter.tech/posts/managing-linux-logs-ossim/</link>
+      <link>/posts/managing-linux-logs-ossim/</link>
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/managing-linux-logs-ossim/</guid>
+      <guid>/posts/managing-linux-logs-ossim/</guid>
       <description>Introduction OSSIM is a powerful open source security information and event management (SIEM) operating system. AlienVault OSSIM is the open source version of AlienVault, which is sold by AT&amp;amp;T.
 I have used OSSIM in professional deployments in the past, and I currently use OSSIM for vulnerability scanning, asset management, and security alerts. OSSIM can often be overly complicated to set up and install, and the documentation available for troubleshooting is sparse.</description>
     </item>
     
     <item>
       <title>Tails OS with Encrypted Persistence on Unraid as a VM</title>
-      <link>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
+      <link>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
+      <guid>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
       <description>This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
 Running Tails as a VM is not recommended generally as it defeats many of the security features in Tails. For example, virtualization requires that you trust the hypervisor host, as the hypervisor has extra privileges over a VM that can reduce security and privacy of the VM.
 I recommend reading Tails&amp;rsquo;s official documentation about virtualization considerations before continuing: https://tails.</description>
@@ -33,10 +33,10 @@ I recommend reading Tails&amp;rsquo;s official documentation about virtualizatio
     
     <item>
       <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
-      <link>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
+      <link>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://whitematter.tech/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
+      <guid>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
       <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
 OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
     </item>
