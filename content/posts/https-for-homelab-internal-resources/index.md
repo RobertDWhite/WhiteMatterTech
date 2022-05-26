@@ -106,6 +106,12 @@ Now, if we do a dig on _cyberchef.white.fm_, we see that we are resolving to the
 
 ![](/posts/https-for-homelab-internal-resources/images/dig_cyberchef.png)
 
+Finally, if we attempt to sniff the data transmitting over HTTPS, we can see that the data are encrypted. In the screenshot below, you will see WireShark's capture of data I sent from my PC to an InfluxDB instance on my network via this method. All communications to InfluxDB are now done over HTTPS. I have a large handful of data sources transmitting to InfluxDB such as Unifi Poller, Varken, and Home Assistant. Each of these sources now send the data over HTTPS as well. _See the image below_.
+
+![](/posts/https-for-homelab-internal-resources/images/encrypted-data.png)
+
+While the method of adding HTTPS support around your network described in this post is not a perfect solution for security in general, it certainly adds some privacy to the environment, decreasing the likelihood that a bad actor on your network would be able to find or see anything useful.
+
 **Great job!** You have successfully configured the first half of your "split-brain DNS". Now, you can repeat the steps above to add all of your hosts to both Nginx Proxy Manager and PiHole. You can even add the Nginx Proxy Manager web page, your Unifi router, your PiHole web interface, an ESXi server, a Proxmox server, or any Docker container you might be running on Unraid or any other host. The possibilities are as confined as your imagination.
 
 --------------------------------------------------------
