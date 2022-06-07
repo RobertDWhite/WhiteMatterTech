@@ -1,6 +1,7 @@
 ---
 title: "How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi"
 date: "2021-04-09"
+lastmod: "2022-06-07"
 categories:
   - "networking"
   - "security"
@@ -27,12 +28,14 @@ The smart world of Internet-of-Things (IoT) devices is ever growing. From everyd
 
 _As an Amazon Associate, I earn from qualifying purchases._ Thank you for _supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!_
 
+---------------------------------------------------------------------------------------------------------
 If you're reading this, you may not have quite that many devices, but you are probably either looking to invest in some smart home devices or you have already started the process of converting your home to the world of IoT. Either way, it is important to consider the security implications of adding these devices to your network. For example, some smart switches have such poor encryption that they are easily compromised and can be [overpowered to catch on fire](https://www.komando.com/security-privacy/smart-plugs-hacked/757290/). While none of the devices in my home have this sort of vulnerability that has been publicized, the possibility exists nonetheless that these devices could be used by nefarious actors to cause ruckus in my home or attempt to gain access to other devices on my network.
 
 IoT devices continue to improve their security mechanisms (mostly), and IoT is certainly not going away anytime soon. Because of this, prudent users, like you, should consider how to best protect their internal resources. One recommended method of securing your network containing IoT devices is to segment your network with VLANs. I will show you how to segment your home network from your IoT devices with VLANs, including how to create subnets, VLANs, firewall rules, and how to enable IPS/IDS for good measure. To follow along, your network will need to be comprised of Unifi networking gear. My gateway and Unifi controller is the _[Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)_, though you could use any Unifi gateway + controller combination. Additionally, many other network providers besides Unifi will have similar functionality, and you will likely be able to accomplish some of these tasks with other gear.
 
 _Check out a community ports list for IoT on GitHub here: [https://github.white.fm](https://github.com/RobertDWhite/IoT-ports)_
 
+----------------------------------------------------------------
 ## **Creating VLANs and Segmenting the Network**
 
 The first step is creating a VLAN for your IoT network. The easiest way to accomplish this task is to create a new subnet for your IoT network. For example, if you currently just have a single network for all of your Internet-connected devices, including your personal computers, phones, etc, you probably have a single subnet that looks something like this: 192.168.1.1/24. This is seen on your Unifi Controller by going to **Settings > Networks** (on the old GUI). I recommend you next click **_"Create New Network,_"** and name the network something like _"IoT"_. Specifically select _"Corporate"_ for the _"Purpose."_ It makes it easy to remember if you set the Gateway IP/Subnet 1 number off from your default network (e.g., set it to something like 192.168.2.1/24 or 192.168.10.1/24). Below, you will see my settings. Notice my Gateway is 10.100.1.1. My default subnet is 10.100.0.1, in contrast. For simplicity, I have _IGMP snooping_ and _UPNP_ enabled. This might help down the road for certain smart components like Home Assistant. For _VLAN_, set any number from _2-4018_. I set my _DHCP range_ to only include x.101-x.254 because I wanted to reserve the first 100 IPs in this subnet for static addressing. If you want all your devices to be DHCP, you do not need to modify this option. Go ahead and save this network.
@@ -49,6 +52,7 @@ Continue through the setup screen to _"Advanced Options."_ Here, I specifically 
 
 ![](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/images/Screen-Shot-2021-04-08-at-3.15.50-PM-869x1024.png)
 
+----------------------------------------------------
 ## **Blocking Traffic Between Subnets/VLANs**
 
 The next part of this process will be setting up the Firewall to block traffic between the subnets/VLANs. Go to **Settings > Routing & Firewall > Firewall**. I will assume you are only using IPv4, and we will therefore only look at IPv4 rules. For a detailed definition of the _**WAN IN, WAN OUT, WAN LOCAL**_, etc. options, I will recommend you search the Internet. This part can be pretty confusing, and the definition of these options is outside the scope of this post. We will focus on **LAN IN** and **LAN LOCAL** for our purposes.
@@ -67,15 +71,28 @@ Next, let's check out Rule 2012. Create a new rule and match to the image below.
 
 ![](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/images/Screen-Shot-2021-04-08-at-4.00.57-PM-1013x1024.png)
 
-**  
-LAN LOCAL**
+**LAN LOCAL**
 
 ![](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/images/Screen-Shot-2021-04-08-at-3.44.52-PM-1024x209.png)
 
-Next, let's check **LAN LOCAL** rules These rule is concerned with allowing [multicast DNS](https://www.ionos.com/digitalguide/server/know-how/multicast-dns/) traffic and with allowing HomeKit-specific ports to receive data as needed. I have a _Port Group_ with ports 51826 and 51827 for HomeKit. Make your own rules and match your settings to the image below. For the sake of space, I will show one image. All you will need to do is change your _source/destination_ like in the image above (Rules 2000-2003). You are targeting specific ports. One rule will allow ANY:5353 -> ANY:ANY, one will allow ANY:ANY -> ANY:5353, one will allow ANY:51826-7 -> ANY:ANY, and finally one will allow ANY:ANY -> ANY:51826-7. Make and save your rules!
+Next, let's check **LAN LOCAL** rules These rule is concerned with allowing [multicast DNS (mDNS)](https://www.ionos.com/digitalguide/server/know-how/multicast-dns/) traffic and with allowing HomeKit-specific ports to receive data as needed.
+
+***mDNS***
+For mDSN, we are only concerned with a single port: 5353. You will need two allow rules for mDNS: 1) source=_ANY:5353_ -> destination=_ANY:ANY_, and 2) source=_ANY:ANY_ -> destination=_ANY:5353_. See an example of the first rule in the image below.
 
 ![](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/images/Screen-Shot-2021-04-08-at-4.09.28-PM-1024x884.png)
 
+***HomeKit***
+I have a _Port Group_ with ports 51826 and 51827 for HomeKit. Make your own rules and match your settings to the image below. All you will need to do is change your _source/destination_ like in the image below (Rules 2000-2003) to allow HomeKit communications. You can more finely tune this particular rule by granularly allowing different _source/destination_ combos (e.g., source: IoT, destination: home), but I am currently simply allowing any _source/destination_ combo to communicate over HomeKit ports.
+
+![](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/images/Screen-Shot-2021-04-08-at-3.44.52-PM-1024x209.png)
+
+
+**In summary**, one rule will allow ANY:5353 -> ANY:ANY, one will allow ANY:ANY -> ANY:5353, one will allow ANY:51826-7 -> ANY:ANY, and finally one will allow ANY:ANY -> ANY:51826-7. Make and save your rules!
+
+
+
+--------------------------------------------------------------
 ## Wrapping Up
 
 There you have it! You now have a fully-functional HomeKit setup enabled with extra security practices to prevent mischief from poorly-secured IoT devices reaching your internal LAN. It is clear this does not mitigate 100% of the risk since we're allowing traffic to flow in opposite direction. You can lock your subnets down even more by experimenting with fully blocking your traffic from your LAN to your IoT network but ONLY allowing instead your HomeKit controller (e.g., Apple TV, Homepod, etc.). These rules can and probably should be tweaked to fit your environment, but the rules described above will at least get you started.
