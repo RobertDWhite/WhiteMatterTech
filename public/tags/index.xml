@@ -9,11 +9,11 @@
       <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>dns</title>
       <link>/tags/dns/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/dns/</guid>
       <description></description>
@@ -22,7 +22,7 @@
     <item>
       <title>docker</title>
       <link>/tags/docker/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/docker/</guid>
       <description></description>
@@ -31,7 +31,7 @@
     <item>
       <title>internal</title>
       <link>/tags/internal/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/internal/</guid>
       <description></description>
@@ -40,7 +40,7 @@
     <item>
       <title>letsencrypt</title>
       <link>/tags/letsencrypt/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/letsencrypt/</guid>
       <description></description>
@@ -49,7 +49,7 @@
     <item>
       <title>networking</title>
       <link>/tags/networking/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/networking/</guid>
       <description></description>
@@ -58,9 +58,18 @@
     <item>
       <title>nginx</title>
       <link>/tags/nginx/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxy</title>
+      <link>/tags/proxy/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/proxy/</guid>
       <description></description>
     </item>
     
@@ -70,15 +79,6 @@
       <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/pihole/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>proxy</title>
-      <link>/tags/proxy/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/proxy/</guid>
       <description></description>
     </item>
     

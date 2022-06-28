@@ -12,7 +12,7 @@
     <item>
       <title>Categories</title>
       <link>/categories/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/</guid>
       <description></description>
@@ -21,7 +21,7 @@
     <item>
       <title>dns</title>
       <link>/tags/dns/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/dns/</guid>
       <description></description>
@@ -30,7 +30,7 @@
     <item>
       <title>docker</title>
       <link>/tags/docker/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/docker/</guid>
       <description></description>
@@ -39,7 +39,7 @@
     <item>
       <title>homelab</title>
       <link>/categories/homelab/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/homelab/</guid>
       <description></description>
@@ -48,7 +48,7 @@
     <item>
       <title>internal</title>
       <link>/tags/internal/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/internal/</guid>
       <description></description>
@@ -57,7 +57,7 @@
     <item>
       <title>letsencrypt</title>
       <link>/tags/letsencrypt/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/letsencrypt/</guid>
       <description></description>
@@ -66,7 +66,7 @@
     <item>
       <title>networking</title>
       <link>/tags/networking/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/networking/</guid>
       <description></description>
@@ -75,7 +75,7 @@
     <item>
       <title>networking</title>
       <link>/categories/networking/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/networking/</guid>
       <description></description>
@@ -84,9 +84,45 @@
     <item>
       <title>nginx</title>
       <link>/tags/nginx/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxy</title>
+      <link>/tags/proxy/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/proxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>/categories/security/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>/tags/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>/categories/tutorials/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tutorials/</guid>
       <description></description>
     </item>
     
@@ -96,42 +132,6 @@
       <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/pihole/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>proxy</title>
-      <link>/tags/proxy/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/proxy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>/categories/security/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>/tags/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorials</title>
-      <link>/categories/tutorials/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/tutorials/</guid>
       <description></description>
     </item>
     

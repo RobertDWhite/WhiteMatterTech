@@ -127,6 +127,21 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="/posts/cloudflare-tunneling/logo.png" alt="Cloudflare Tunnel">
+</figure>
+  <header class="entry-header">
+    <h2>Cloudflare Tunneling to Internal Resources with Cloudflared
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Introduction This post will cover how to set up a Docker container of Cloudflared on your internal network to provide a private tunnel from Cloudflare to your internal resources. After setting up the Cloudflared tunnels, you will no longer need to expose ports 80 and 443.
+This post assumes you currently have a vibrant and functioning internal network with a reverse proxy (in my case, Nginx Proxy Manager) already configured....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-06-27 00:00:00 +0000 UTC'>June 27, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Robert D. White</footer>
+  <a class="entry-link" aria-label="post link to Cloudflare Tunneling to Internal Resources with Cloudflared" href="/posts/cloudflare-tunneling/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="/posts/https-for-homelab-internal-resources/logo.jpg" alt="OSSIM Logo">
 </figure>
   <header class="entry-header">
@@ -164,7 +179,7 @@ OSSIM’s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates w
   </header>
   <section class="entry-content">
     <p>Update 05/09/2022: The conclusions of this post will route your traffic externally, requiring your local devices to reach external DNS servers (e.g., in my case, CloudFlare) in order to resolve your Unifi Gateway address. If you want to handle all of this completely locally/internally, check out my newer post: HTTPS for Internal Resources
-  Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, “Your connection is not private....</p>
+Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, “Your connection is not private....</p>
   </section>
   <footer class="entry-footer"><span title='2021-09-22 00:00:00 +0000 UTC'>September 22, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Robert D. White</footer>
   <a class="entry-link" aria-label="post link to How to Connect to Your Unifi Dream Machine or UNVR with SSL from Let&#39;s Encrypt" href="/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/"></a>
@@ -182,20 +197,6 @@ OSSIM’s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates w
   </section>
   <footer class="entry-footer"><span title='2021-08-17 00:00:00 +0000 UTC'>August 17, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Robert D. White</footer>
   <a class="entry-link" aria-label="post link to How to Easily Run A Reverse Proxy using Docker" href="/posts/run-a-reverse-proxy-using-docker/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/header_how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi.jpg" alt="IoT Graphic">
-</figure>
-  <header class="entry-header">
-    <h2>How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>IoT Overview The smart world of Internet-of-Things (IoT) devices is ever growing. From everyday lightbulbs to the sprinkler out front, just about every household appliance and utility has a smart-counterpart. For example, my smart home is fully Apple HomeKit compatible and consists of a Hue bridge with lightbulbs, Lutron Caseta smart dimmers/switches, Eve Aqua outdoor water hose control, iSmartGate garage door opener, Schlage deadbolt, Eve motion sensor, Sonos speakers throughout the house, a Vocolinc oil diffuser, Vocolionc power strip, a couple iRobot Roomba vacuum cleaners, some Vocolinc pluggable outlets, an Ecobee thermostat to replace each analog thermostat in the house, and a Unifi G4 Doorbell (the doorbell is not technically compatible with HomeKit, but I added support with a third-party tool known as “Homebridge”)....</p>
-  </section>
-  <footer class="entry-footer"><span title='2021-04-09 00:00:00 +0000 UTC'>April 9, 2021</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Robert D. White</footer>
-  <a class="entry-link" aria-label="post link to How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi" href="/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
