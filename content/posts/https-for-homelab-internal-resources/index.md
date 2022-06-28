@@ -22,10 +22,10 @@ cover:
     caption: "<text>"
     relative: true
 aliases:
-    - /posts/https-for-homelab-internal-resources/---
-    - /2022/---
+    - /posts/https-for-homelab-internal-resources/https-for-homelab-internal-resources
+    - /2022/https-for-homelab-internal-resources
     - /2022/05/001
-    - /2022/05/---
+    - /2022/05/https-for-homelab-internal-resources
 ---
 
 --------------------------------------------------
