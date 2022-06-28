@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: "Cloudflare Static Site Hosting"
 date: "2022-06-27"
@@ -29,6 +28,8 @@ aliases:
 In [this previous post](https://whitematter.tech/posts/migrating-from-wordpress-to-hugo/), I detailed my transition from WordPress to Hugo static sites. This post discussed hosting the site locally in a Docker container web server and exposing ports 80 and 443 to a reverse proxy on my DMZ network. Today, I will show you how you can host your Hugo static site on Cloudflare--**FREE**. This will absolve your responsibility to host the site, expose ports to the public, and deal with SSL certs. Cloudflare will automatically take care of all of this for you, and Clouflare will even automatically build your site from a Git repo when changes are pushed.
 
 This post assumes you already have a Git repo with your Hugo static site (built and verified working) (e.g., [https://github.com/RobertDWhite/WhiteMatterTech](https://github.com/RobertDWhite/WhiteMatterTech)) and a Cloudflare account with the ability to modify DNS records on your custom domain (although, you technically do not need to own your own domain as Cloudflare will generate a custom dev URL for you).
+
+--------------------------------------------------
 
 # Cloudflare Setup
 
