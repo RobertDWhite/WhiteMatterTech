@@ -9,7 +9,17 @@
       <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Tunneling to Internal Resources with Cloudflared</title>
+      <link>/posts/cloudflare-tunneling/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/cloudflare-tunneling/</guid>
+      <description>Introduction This post will cover how to set up a Docker container of Cloudflared on your internal network to provide a private tunnel from Cloudflare to your internal resources. After setting up the Cloudflared tunnels, you will no longer need to expose ports 80 and 443.
+This post assumes you currently have a vibrant and functioning internal network with a reverse proxy (in my case, Nginx Proxy Manager) already configured.</description>
+    </item>
+    
     <item>
       <title>&#39;Split-Brain DNS&#39; for Internal HTTPS with Let&#39;s Encrypt</title>
       <link>/posts/https-for-homelab-internal-resources/</link>
@@ -76,7 +86,7 @@ Download and Expand the Harbor Installer wget https://github.com/goharbor/harbor
       
       <guid>/posts/hosting-your-own-site-with-traefik-and-wordpress/</guid>
       <description>Update 03/20/2022: I no longer host my site with Traefik, and my site is no longer built on WordPress. I now host my site internally using an Nginx proxy hosted in Docker. My site is built with Hugo. Learn more about my transition from WordPress to Hugo on my post here: Migrating from WordPress to Hugo
-  My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)!</description>
+My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)!</description>
     </item>
     
   </channel>

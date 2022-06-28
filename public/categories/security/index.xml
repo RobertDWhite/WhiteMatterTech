@@ -9,7 +9,17 @@
       <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Tunneling to Internal Resources with Cloudflared</title>
+      <link>/posts/cloudflare-tunneling/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/cloudflare-tunneling/</guid>
+      <description>Introduction This post will cover how to set up a Docker container of Cloudflared on your internal network to provide a private tunnel from Cloudflare to your internal resources. After setting up the Cloudflared tunnels, you will no longer need to expose ports 80 and 443.
+This post assumes you currently have a vibrant and functioning internal network with a reverse proxy (in my case, Nginx Proxy Manager) already configured.</description>
+    </item>
+    
     <item>
       <title>&#39;Split-Brain DNS&#39; for Internal HTTPS with Let&#39;s Encrypt</title>
       <link>/posts/https-for-homelab-internal-resources/</link>
@@ -77,7 +87,7 @@ OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM inte
       
       <guid>/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
       <description>Update 05/09/2022: The conclusions of this post will route your traffic externally, requiring your local devices to reach external DNS servers (e.g., in my case, CloudFlare) in order to resolve your Unifi Gateway address. If you want to handle all of this completely locally/internally, check out my newer post: HTTPS for Internal Resources
-  Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.</description>
+Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.</description>
     </item>
     
     <item>

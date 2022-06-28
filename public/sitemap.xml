@@ -2,58 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/https-for-homelab-internal-resources/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/cloudflare-tunneling/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/dns/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/docker/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/homelab/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/internal/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/letsencrypt/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/networking/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/networking/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/nginx/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/proxy/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/security/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/tutorials/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/https-for-homelab-internal-resources/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/pihole/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/proxy/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/security/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/tutorials/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/unraid/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/managing-linux-logs-ossim/</loc>
@@ -174,7 +177,7 @@
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/tips/</loc>
-    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/twitter/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
@@ -249,7 +252,7 @@
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/network/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/unifi/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
@@ -267,19 +270,19 @@
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/iot/</loc>
-    <lastmod>2021-05-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/live-better-with-circadian-lighting/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/hardening/</loc>
-    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</loc>
-    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/vlan/</loc>
-    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/network-hardening-webhosting/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>

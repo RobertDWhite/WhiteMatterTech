@@ -9,11 +9,11 @@
       <link>brain.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>homelab</title>
       <link>/categories/homelab/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/homelab/</guid>
       <description></description>
@@ -22,7 +22,7 @@
     <item>
       <title>networking</title>
       <link>/categories/networking/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/networking/</guid>
       <description></description>
@@ -31,7 +31,7 @@
     <item>
       <title>security</title>
       <link>/categories/security/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/security/</guid>
       <description></description>
@@ -40,7 +40,7 @@
     <item>
       <title>tutorials</title>
       <link>/categories/tutorials/</link>
-      <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/tutorials/</guid>
       <description></description>

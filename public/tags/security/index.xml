@@ -47,7 +47,7 @@ OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM inte
       
       <guid>/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</guid>
       <description>Update 05/09/2022: The conclusions of this post will route your traffic externally, requiring your local devices to reach external DNS servers (e.g., in my case, CloudFlare) in order to resolve your Unifi Gateway address. If you want to handle all of this completely locally/internally, check out my newer post: HTTPS for Internal Resources
-  Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.</description>
+Alright, if you have a Unifi device like a Dream Machine, Dream Machine Pro, UNVR, CloudKey, or other device, you likely have been met with the dreaded red triangle followed by the tedious words, &amp;ldquo;Your connection is not private.</description>
     </item>
     
     <item>
