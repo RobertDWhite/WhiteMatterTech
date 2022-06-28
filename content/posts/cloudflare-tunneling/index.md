@@ -38,9 +38,9 @@ This post assumes you currently have a vibrant and functioning internal network 
 --------------------------------------------------------
 # The Cloudflared project
 
-For this project, I am running Docker-Compose and Docker on a Ubuntu-VM. When I first started this project, I used my Unraid system and followed these instructions using the **aeleos/cloudflared** container: [https://github.com/aeleos/cloudflared](https://github.com/aeleos/cloudflared). I since have moved to Ubuntu to keep my hosting and my site independent from Unraid, but if you're using Unraid, I recommend that link.
+For this project, I am running Docker-Compose and Docker on a Ubuntu-VM. When I first started this project, I used my Unraid system and followed these instructions using the **_aeleos/cloudflared_** container: [https://github.com/aeleos/cloudflared](https://github.com/aeleos/cloudflared). I since have moved to Ubuntu to keep my hosting and my site independent from Unraid, but if you're using Unraid, I recommend that link.
 
-For simplicity, I will be storing the necessary files at **/docker-host/cloudflared-whitemattertech/**. If you have more than one domain you would like to tunnel internally, I recommend creating separate folders for those such as **/docker-host/cloudflared-domain2/** and **/docker-host/cloudflared-domain3/**. Each step will need to be run separately for each separate domain.
+For simplicity, I will be storing the necessary files at **_/docker-host/cloudflared-whitemattertech/_**. If you have more than one domain you would like to tunnel internally, I recommend creating separate folders for those such as **_/docker-host/cloudflared-domain2/_** and **_/docker-host/cloudflared-domain3/_**. Each step will need to be run separately for each separate domain.
 
 First: login to Cloudflare. To do this, in terminal, paste the following:
 ```
@@ -61,12 +61,12 @@ docker run --rm -v /docker-host/cloudflared-whitemattertech/.cloudflared:/home/n
 ```
 Copy the tunnel ID from that command for use later.
 
-Now, we need to create and modify a **config.yaml**:
+Now, we need to create and modify a **_config.yaml_**:
 ```
 touch /docker-host/cloudflared-whitemattertech/.cloudflared/config.yaml
 nano /docker-host/cloudflared-whitemattertech/.cloudflared/config.yaml
 ```
-In the config.yaml, paste the following, replacing the **"xxx..."** with your tunnel ID copied from earlier.
+In the config.yaml, paste the following, replacing the **_xxx..._** with your tunnel ID copied from earlier.
 
 ```
 tunnel: xxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -139,10 +139,10 @@ docker-compose up -d
 
 Replace any A record you might have with a CNAME record where the **Name** points to the domain root (@). For the content **Value**, you need to add TUNID.cfargotunnel.com (inserting your tunnel ID that was copied earlier).
 
-For subdomains, create a CNAME record for each subdomain where **Name** is the subdomian value (e.g., **auth**, **plex**, **unraid**, etc.), and **Value** is "**@**". As an FYI, once you save your CNAME record for your subdomain, the "**@**" will change to the root domain name. See the image below:
+For subdomains, create a CNAME record for each subdomain where **Name** is the subdomian value (e.g., **auth**, **plex**, **unraid**, etc.), and **Value** is "**_@_**". As an FYI, once you save your CNAME record for your subdomain, the "**_@_**" will change to the root domain name. See the image below:
 ![](/posts/cloudflare-tunneling/images/cloudflare-cname.png)
 
-Once saved, your internal self-hosted apps should be accessible via your Cloudflare tunnel. You can safely remove your port forwards for ports 80 and 443 to your reverse proxy now. If you do a **dig** against your domain or a subdomain, you will also notice that your services are no longer pointing to your external IP, which provides enhanced privacy for your self-hosted apps or sites.
+Once saved, your internal self-hosted apps should be accessible via your Cloudflare tunnel. You can safely remove your port forwards for ports 80 and 443 to your reverse proxy now. If you do a **_dig_** against your domain or a subdomain, you will also notice that your services are no longer pointing to your external IP, which provides enhanced privacy for your self-hosted apps or sites.
 
 --------------------------------------------------------
 # Wrapping Up
