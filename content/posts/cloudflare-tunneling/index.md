@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: "Cloudflare Tunneling to Internal Resources with Cloudflared"
 date: "2022-06-27"
@@ -312,4 +311,3 @@ I hope this post was helpful to you in setting up your own Cloudflare tunnel.
 > Thanks for reading!
 >
 > Robert
->>>>>>> da2257a590e27d64603e2712c23133846c9950a8
