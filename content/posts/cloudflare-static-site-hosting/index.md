@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: "Cloudflare Static Site Hosting"
 date: "2022-06-27"
@@ -114,4 +113,3 @@ I hope this post was helpful to you in setting up your own static site hosting w
 > Thanks for reading!
 >
 > Robert
->>>>>>> 1eef8fa6ef475fafc4a4714cfee1c5e8e2710b3f
