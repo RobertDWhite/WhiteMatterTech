@@ -151,6 +151,8 @@ Finally, go to **Settings > Traffic Management**. Under **Routes**, click **Crea
 
 ![](/posts/vpn-policy-based-routing-with-unifi-and-pia/images/post6.png)
 
+All the traffic routed through WAN2 should now be encrypted via your VPN client.
+
 --------------------------------------------------------------------
 
 > **END**
