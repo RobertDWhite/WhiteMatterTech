@@ -151,6 +151,8 @@ Finally, go to **Settings > Traffic Management**. Under **Routes**, click **Crea
 
 ![](/posts/vpn-policy-based-routing-with-unifi-and-pia/images/post6.png)
 
+--------------------------------------------------------------------
+
 > **END**
 
 **Congratulations** if you made it this far and everything is working!
