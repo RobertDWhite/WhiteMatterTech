@@ -1,6 +1,6 @@
 ---
 title: "How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic"
-date: "2021-04-05"
+date: "2022-11-05"
 categories:
   - "networking"
   - "security"
@@ -22,23 +22,52 @@ aliases:
 
 ---
 
+--------------------------------------------------------------------
+# #UPDATE 11/05/2022
+
+Original post date: 2021-04-05
+
+This update contains specific configuration options to use ***4096 bit RSA keys***, ***SHA256 Auth digest algorithm***, and ***AES256 encryption***. The original post used the default key length of 2048 from PIA, SHA1, and allowed for AES128.
+
+Throughout the post, I will tag updated information with ***#Update***.
+
+--------------------------------------------------------------------
+
+# Introduction
+
 This post aims to show you how to use pfSense within a Unifi network behind a Unifi Gateway _\[in my case, the gateway is the [Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd) (hereafter referred to as UDMP)\]_. I will explain my current network configuration including applicable subnets, VLANs, and wireless SSIDs needed to make this setup successful. The end goal is to be able to add a client on my Unifi network to a particular VLAN either by joining this client wirelessly to a particular SSID or by tagging the client's physical port to that VLAN. This VLAN will be tied to a subnet that sends data through the pfSense machine which is acting as a VPN client _(I use [Private Internet Access](http://www.privateinternetaccess.com/pages/buy-a-vpn/1218buyavpn?invite=U2FsdGVkX19vJeCiFLTHejdg7_UKL-kbJpMDRcdZ8ZM%2CwwbqkM0Pr8u1JywwOJHsqq-mX14))_. This method allows the UDMP to continue to act as the DHCP server for these clients while allowing pfSense to anonymize and encrypt the data of the clients in question.
+
+--------------------------------------------------------------------
 
 _As an Amazon Associate, I earn from qualifying purchases._ Thank you for _supporting the maintenance of this blog. The pricing will be the same for you regardless if you use my links or not! Thanks for your support!_
 
+--------------------------------------------------------------------
+
 This post assumes that you have the following: a Unifi Gateway device (e.g., [UDMP](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd), Unifi Security Gateway, etc.), a pfSense machine/VM, Unifi wireless APs (only if you want to add wireless devices to the VPN), and Unifi switches (only if you want to tag specific switch ports to the VPN). This post also assumes you have access to or a subscription to a VPN service. In this post, all references to VPN use will be specific to PIA. This guide may or may not work with other VPN providers initially. However, I am confident that, if you can initialize the client connection to your VPN provider from pfSense, you will be able to successfully use the tutorial to anonymous traffic with Unifi VLANs. We will first look at the pfSense setup and VPN configuration. After, we will explore the Unifi setup and configuration.
+
+--------------------------------------------------------------------
 
 ## pfSense Setup and Configuration
 
-I built a custom pfSense machine with the following components: [Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz](https://www.amazon.com/gp/product/B0759FGJ3Q/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0759FGJ3Q&linkId=4867310b8da8586d142f13325ea48c62), [GIGABYTE B365M DS3H](https://www.amazon.com/gp/product/B07T6N8N56/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07T6N8N56&linkId=790c04299d5dccec41764ccf5a8b1050), [Corsair Vengeance LPX 16GB](https://www.amazon.com/gp/product/B0143UM4TC/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0143UM4TC&linkId=b021ad78bd94c0b12c1d29dd3e2d5dcf), [Thermaltake Smart 500W Power Supply](https://www.amazon.com/gp/product/B014W3EM2W/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B014W3EM2W&linkId=c417280f78f0257d9a06afa4a36d3c24), and a [4-Port PCI-E Network Interface Card](https://www.amazon.com/gp/product/B07R7GLN6H/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07R7GLN6H&linkId=1a3b9783e3fbfbb9c0f3e06eea4c0c42).
+I built a custom baremetal pfSense machine with the following components: [Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz](https://www.amazon.com/gp/product/B0759FGJ3Q/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0759FGJ3Q&linkId=4867310b8da8586d142f13325ea48c62), [GIGABYTE B365M DS3H](https://www.amazon.com/gp/product/B07T6N8N56/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07T6N8N56&linkId=790c04299d5dccec41764ccf5a8b1050), [Corsair Vengeance LPX 16GB](https://www.amazon.com/gp/product/B0143UM4TC/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0143UM4TC&linkId=b021ad78bd94c0b12c1d29dd3e2d5dcf), [Thermaltake Smart 500W Power Supply](https://www.amazon.com/gp/product/B014W3EM2W/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B014W3EM2W&linkId=c417280f78f0257d9a06afa4a36d3c24), and a [4-Port PCI-E Network Interface Card](https://www.amazon.com/gp/product/B07R7GLN6H/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07R7GLN6H&linkId=1a3b9783e3fbfbb9c0f3e06eea4c0c42).
+
+
 
 ## Select a PIA Server
 
-First, we need to select a server that works best. This likely will be mainly determined by your country and geographical area. With your acount username and password for PIA, you will be able to see a complete list of servers here: [https://www.privateinternetaccess.com/pages/ovpn-config-generator](https://www.privateinternetaccess.com/pages/ovpn-config-generator)
+First, we need to select a server that works best. This likely will be mainly determined by your country and geographical area. With your account username and password for PIA, you will be able to see a complete list of servers here: [https://www.privateinternetaccess.com/pages/ovpn-config-generator](https://www.privateinternetaccess.com/pages/ovpn-config-generator)
 
 To import the certificate needed, choose the 1198 port option, and click "Generate".
 
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.38.10-AM-1024x612.png)
+
+--------------------------------------------------------------------
+
+### #UPDATE
+
+If you prefer to use the more secure 4096 RSA cert, grab the .CRT from here: [https://www.privateinternetaccess.com/openvpn/ca.rsa.4096.crt](https://www.privateinternetaccess.com/openvpn/ca.rsa.4096.crt)
+
+--------------------------------------------------------------------
 
 Once the file is downloaded, open it in your favorite text editor (e.g., **Atom**, Notepad++, etc.). Copy the portion **\-----BEGIN CERTIFICATE-----** all the way through **\-----END CERTIFICATE-----** as shown in the image below.
 
@@ -62,15 +91,62 @@ Now we have the certificate listed, navigate to **VPN > OpenVPN**, then click 
 
 See the following images about changes to make in. your configuration. It should match mine with replacement of the Server Host and your PIA Username and Password. You will find the server host in the _.ovpn_ file you downloaded earlier from PIA. Here is the info needed to copy+paste into the "_Custom options_" box toward the end of the configuration page:
 
+```
 remote-cert-tls server
+```
+--------------------------------------------------------------------
+
+### #UPDATE
+
+If you prefer to using the more secure 4096 key and want SHA256 as well as AES256 encryption, you must paste the below into the "_Custom options_" box toward the end of the configuration page, rather than what is stated above.
+
+```
+remote-cert-tls server;
+persist-key;
+persist-tun;
+```
+--------------------------------------------------------------------
+
+### #UPDATE
+
+If you prefer to using the more secure 4096 key and want SHA256 as well as AES256 encryption, you must use **Port 1197** _instead of_ the **Port 1198** shown in the image below.
+
+--------------------------------------------------------------------
 
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.33.00-PM-1024x754.png)
 
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.31.44-PM-1-1024x653.png)
 
+--------------------------------------------------------------------
+
+### #UPDATE
+
+If you prefer to using the more secure 4096 key and want SHA256 as well as AES256 encryption, in the image below, **ONLY** select **AES-256-CBC** under "_Data Encryption Algorithms_".
+
+Under "_Fallback Data Encryption Algorithm_", select **AES-256-CBC (256 bit key, 128 bit block)**.
+
+Under "_Auth digest algorithm_", select **SHA256 (256-bit)**.
+
+With the greater encryption, I highly recommend enabling "_Hardware Crypto_" if possible. My selection is **Intel RDRAND engine - RAND***.
+
+--------------------------------------------------------------------
+
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.33.28-PM-907x1024.png)
 
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.33.43-PM-826x1024.png)
+
+--------------------------------------------------------------------
+
+### #UPDATE
+
+If you prefer to using the more secure 4096 key and want SHA256 as well as AES256 encryption, you must paste the below into the "_Custom options_" box, rather than what is shown
+
+```
+remote-cert-tls server;
+persist-key;
+persist-tun;
+```
+--------------------------------------------------------------------
 
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-1.34.01-PM-842x1024.png)
 
@@ -194,7 +270,7 @@ Go to **Settings > Wireless Networks** and click "_CREATE NEW WIRELESS NETWORK_.
 
 **Congratulations** if you made it this far and everything is working!
 
-I hope this tutorial aids you in your endeavors to anonymize certain portions of your network.
+I hope this tutorial aids you in your endeavors to anonymize certain portions of your network. This post will be a pre-requisite for a following post, (Policy Based Routing with Unifi, PIA, and pfSense: How I route my IoT External Traffic through PIA VPN)(https://whitematter.tech/posts/VPN-policy-based-routing-with-unifi-and-PIA)
 
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
