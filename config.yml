@@ -92,6 +92,8 @@ params:
           url: "https://twitter.white.fm"
         - name: googlescholar
           url: "https://scholar.white.fm"
+        - name: matrix
+          url: "https://matrix.to/#/#whitematter:white.fm"
         - name: email
           url: "mailto:robert@whitematter.tech"
         - name: RsS
