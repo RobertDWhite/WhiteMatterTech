@@ -80,7 +80,7 @@ params:
     homeInfoParams:
         Title: "Robert D. White"
         Content: >
-            Enterprise Services Engineer @ Tanium // Consultant
+            IT & Cybersecurity Professional // Consultant
         imageUrl: "profile/rdw.png"
 
     socialIcons:
@@ -90,6 +90,8 @@ params:
           url: "https://linkedin.white.fm"
         - name: twitter
           url: "https://twitter.white.fm"
+        - name: mastodon
+          url: "https://robertwhite.social"
         - name: googlescholar
           url: "https://scholar.white.fm"
         - name: matrix
