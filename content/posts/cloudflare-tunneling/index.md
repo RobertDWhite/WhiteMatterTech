@@ -33,8 +33,27 @@ This post will cover how to set up a Docker container of Cloudflared on your int
 
 This post assumes you currently have a vibrant and functioning internal network with a reverse proxy (in my case, [Nginx Proxy Manager](https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/)) already configured. Additionally, this post assumes you have a Cloudflare account with the ability to modify DNS records for your domain(s).
 
+--------------------------------------------------------
 
+## UPDATE 04/17/2023
 
+A lot of the nonsense below can be avoided with a relatively new way to run Cloudflared containers. The config can be stored all in the cloud via Cloudflare, meaning you no longer need to mess with credentials files or any of the other things. All you need is a tunnel token from the Cloudflare interface. 
+
+The necessary tunnel can be built locally fully with docker-compose now. Here is the updated docker-compose.yml, bypassing most of the work detailed below. Simply replace **YOUR_TOKEN_FROM_CLOUDFLARE** once you build your tunnel in the Cloudflare Zero-Trust dashboard:
+
+```
+version: '3'
+services:
+  cloudflared-tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    environment:
+      - TZ=America/New_York
+      - TUNNEL_TOKEN=YOUR_TOKEN_FROM_CLOUDFLARE
+    restart: always
+    command: tunnel run
+    network_mode: "host"
+```
 --------------------------------------------------------
 # The Cloudflared project
 
