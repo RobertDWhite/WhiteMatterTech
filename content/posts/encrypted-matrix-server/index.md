@@ -142,6 +142,8 @@ If you have followed all the steps above, you should be ready to start the conta
 docker-compose up -d
 ``` 
 
+--------------------------------------------------------
+  
 # Configure Cloudflare
 
 ## The Cloudflared Tunnel
@@ -227,6 +229,8 @@ yourdomain.tld/.well-known/matrix/matrix
 ```
 ![](/posts/encrypted-matrix-server/images/worker9.png)
 
+--------------------------------------------------------
+  
 # (Optional) Nginx Proxy Manager (NPM) Configuration
 
 The [NPM](https://whitematter.tech/posts/run-a-reverse-proxy-using-docker/) configuration is optional if you are running [split-brain DNS](https://whitematter.tech/posts/https-for-homelab-internal-resources/) and plan to access the Matrix Server locally. If you already have a NPM instance running, point **matrix.yourdomain.tld** and **element.yourdomain.tld** to your NPM instance via your DNS servers. 
@@ -272,6 +276,8 @@ maubot.yourdomain.tld : http://IP:29316 (e.g., http://10.99.100.50:29316)
 webhooks.yourdomain.tld : http://IP:80000 (e.g., http://10.99.100.50:8000)
 ```
 
+--------------------------------------------------------
+
 # Accessing Your Server
 
 If all went according to plan, at this point, you should be able to access **element.yourdomain.tld**. Go there, and click *Edit* next to the auto-populated server name.
@@ -286,6 +292,8 @@ At this point, yuo should be able to click *Sign in* and use the admin user and 
 
 If everything went according to plan, again, you should be successfully logged in to Element and interfacing with your Matrix Server!
 
+--------------------------------------------------------
+  
 # Wrapping Up
 
 Clearly, there are a lot of moving parts with this tutorial. Hosting your own Matrix Server is no small feat, and the possibilities are endless with what you can do. 
