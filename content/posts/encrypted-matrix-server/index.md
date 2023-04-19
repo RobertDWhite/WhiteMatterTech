@@ -2,10 +2,15 @@
 title: "My Encrypted Matrix Server with Docker-Compose"
 date: "2023-04-16"
 categories:
-  - "encryption"
+  - "docker"
+  - "homelab"
+  - "tutorials"
+  - "security"
 tags:
-  - "encryption"
+  - "encrypt"
   - "privacy"
+  - "docker-compose"
+  - "docker"
 cover:
     image: "posts/encrypted-matrix-server/splash.jpg"
     alt: "Matrix Server Logo"
@@ -18,8 +23,15 @@ aliases:
 
 # Overview
 
-In this post, I will detail how I run my Matrix Server with Docker-Compose, how I use my Matrix Server as an encrypted notifications hub, and how I federate my Matrix Server over a Cloudflare tunnel (using Cloudflare's Zero Trust interface).
+In this post, I will detail how I run my Matrix Server with Docker-Compose, how I use my Matrix Server as an encrypted notifications hub, and how I federate my Matrix Server over a Cloudflare tunnel (using Cloudflare's Zero Trust interface). 
 
+--------------------------------------------------------
+
+### Short Cybersecurity Note
+Matrix Servers can be a part of your cybersecurity stack in your homelab or business. The component pertinent to cybersecurity related to Matrix Servers is **encryption**. If you're pursuing a CISSP, you will want to be highly familiar with encryption and the process by which it is achieved.
+
+Encryption is a process of encoding information in such a way that only authorized parties can access and read it. It protects the **_C_** from the **_CIA_** triad, **confidentiality**, by transforming plaintext (readable data) into ciphertext (unreadable data) using a mathematical algorithm and a secret key. Without the key, the ciphertext cannot be decrypted and remains unreadable, ensuring that only those who have the key can access the original data. Encryption is widely used in various applications, including email, online banking, and file sharing, to ensure that sensitive information is kept confidential and secure.
+  
 --------------------------------------------------------
 
 ## What is a Matrix Server?
