@@ -38,13 +38,14 @@
 {{- $reset := (resources.Get "css/core/reset.css") }}
 {{- $media := (resources.Get "css/core/zmedia.css") }}
 {{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
+{{- $particles := (resources.Get "css/particles/particles.css") }}
 
 {{- /* include `an-old-hope` if hljs is on */}}
 {{- $isHLJSdisabled := (.Site.Params.assets.disableHLJS | default false) }}
 {{- $hljs := (cond ($isHLJSdisabled) (" " | resources.FromString "assets/css/hljs-blank.css") (resources.Get "css/hljs/an-old-hope.min.css")) }}
 
 {{- /* order is important */}}
-{{- $core := (slice $theme_vars $reset $common $hljs $media) | resources.Concat "assets/css/core.css" }}
+{{- $core := (slice $theme_vars $reset $common $hljs $media $particles) | resources.Concat "assets/css/core.css" }}
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
 
 {{- /* bundle all required css */}}
@@ -160,6 +161,5 @@
 {{- template "partials/templates/opengraph.html" . }}
 {{- template "partials/templates/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
-{{- $particles := (resources.Get "css/particles/particles.css") }}
 
 {{- end -}}
