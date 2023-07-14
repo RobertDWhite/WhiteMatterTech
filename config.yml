@@ -34,9 +34,6 @@ languages:
                 - name: Categories
                   url: categories/
                   weight: 10
-                - name: W3RDW
-                  url: https://w3rdw.radio
-                  weight: 10
 
 markup:
   goldmark:
