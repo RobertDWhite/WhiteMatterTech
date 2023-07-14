@@ -38,7 +38,6 @@
 {{- $reset := (resources.Get "css/core/reset.css") }}
 {{- $media := (resources.Get "css/core/zmedia.css") }}
 {{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
-{{- $particles := (resources.Get "css/particles/particles.css") }}
 
 {{- /* include `an-old-hope` if hljs is on */}}
 {{- $isHLJSdisabled := (.Site.Params.assets.disableHLJS | default false) }}
@@ -161,4 +160,6 @@
 {{- template "partials/templates/opengraph.html" . }}
 {{- template "partials/templates/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
+{{- $particles := (resources.Get "css/particles/particles.css") }}
+
 {{- end -}}
