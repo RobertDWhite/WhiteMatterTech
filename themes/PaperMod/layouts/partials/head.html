@@ -45,12 +45,12 @@
 {{- $hljs := (cond ($isHLJSdisabled) (" " | resources.FromString "assets/css/hljs-blank.css") (resources.Get "css/hljs/an-old-hope.min.css")) }}
 
 {{- /* order is important */}}
-{{- $core := (slice $theme_vars $reset $common $hljs $media) | resources.Concat "assets/css/core.css" }}
+{{- $core := (slice $theme_vars $reset $common $hljs $media $particles) | resources.Concat "assets/css/core.css" }}
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
 
 {{- /* bundle all required css */}}
 {{- /* Add extended css after theme style */ -}}
-{{- $stylesheet := (slice $core $extended $particles) | resources.Concat "assets/css/stylesheet.css" | minify }}
+{{- $stylesheet := (slice $core $extended) | resources.Concat "assets/css/stylesheet.css" | minify }}
 
 {{- if not .Site.Params.assets.disableFingerprinting }}
 {{- $stylesheet := $stylesheet | fingerprint }}
