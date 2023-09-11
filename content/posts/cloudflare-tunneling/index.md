@@ -54,6 +54,8 @@ services:
     command: tunnel run
     network_mode: "host"
 ```
+If you still want to build the tunnel the more manual way, continue to read the article below. I will try to get a more detailed tutorial going over the method above at some point, but until then, best of luck!
+
 --------------------------------------------------------
 # The Cloudflared project
 
