@@ -1,6 +1,6 @@
 ---
 title: "A Roadmap to a Rewarding Career in Cybersecurity: A Guide for Beginners"
-date: "2023-09-12"
+date: "2023-09-11"
 categories:
   - "business"
   - "cybersecurity"
