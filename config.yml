@@ -99,6 +99,8 @@ params:
           url: "https://scholar.white.fm"
         - name: matrix
           url: "https://matrix.to/#/#whitematter:white.fm"
+        - name: telegram
+          url: "https://t.me/+xaDqeY0b0CRjZWUx"
         - name: email
           url: "mailto:robert@whitematter.tech"
         - name: RsS
