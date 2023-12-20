@@ -9,7 +9,7 @@ tags:
   - "security"
   - "NTLM"
 cover:
-    image: "/posts/ntlm-lookup-api/pth.png"
+    image: "/posts/ntlm-lookup-api/cli.png"
     alt: "NTLM"
     caption: "<text>"
 aliases:
