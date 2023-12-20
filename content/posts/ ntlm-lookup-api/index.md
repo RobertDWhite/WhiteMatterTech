@@ -12,7 +12,6 @@ cover:
     image: "/posts/ntlm-lookup-api/pth.png"
     alt: "NTLM"
     caption: "<text>"
-    relative: false
 aliases:
     - /posts/ntlm-lookup-api/ntlm-lookup-api/
     - /2023/ntlm-lookup-api/
