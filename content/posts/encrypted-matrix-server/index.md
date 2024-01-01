@@ -36,7 +36,7 @@ Encryption is a process of encoding information in such a way that only authoriz
 
 ## What is a Matrix Server?
 
-A Matrix server is a communication protocol that enables chat and other real-time communication applications to be decentralized and federated. It provides a secure and flexible messaging platform that allows users to communicate with each other regardless of their choice of application, device, or service provider.
+Matrix is a communication protocol that enables chat and other real-time communication applications to be decentralized and federated. It provides a secure and flexible messaging platform that allows users to communicate with each other regardless of their choice of application, device, or service provider.
 
 Matrix servers operate by creating a decentralized network of interconnected servers that use a common set of standards and protocols to exchange messages. This means that users on one Matrix server can communicate with users on another Matrix server, regardless of which application they are using or which service provider they are subscribed to. This is known as "federation."
 
@@ -46,7 +46,7 @@ Matrix servers can be self-hosted or hosted by third-party service providers, an
 
 ## What is a "Cloudflared" Tunnel?
 
-Cloudflared tunnel is a command-line tool developed by Cloudflare that provides a secure way to expose HTTP and HTTPS services running on a server to the Internet. Cloudflared tunnels work by creating a secure, encrypted tunnel between the server and Cloudflare's edge network, which acts as a reverse proxy for the service.
+A Cloudflared tunnel is a command-line tool developed by Cloudflare that provides a secure way to expose HTTP and HTTPS services running on a server to the Internet. Cloudflared tunnels work by creating a secure, encrypted tunnel between the server and Cloudflare's edge network, which acts as a reverse proxy for the service.
 
 With a Cloudflared tunnel, users can access a service on a private network using a public URL, without the need to expose the service directly to the Internet. This provides an added layer of security, as the service is only accessible through the encrypted tunnel, and not directly over the public Internet.
 
@@ -66,7 +66,7 @@ Cloudflare's ZTA interface also includes advanced monitoring and analytics capab
 
 For this project, I am using an overprovisioned (4core/4GB) Ubuntu 22.10 VM on an ESXi server. The Matrix server stack includes a *Synapse* container (the Matrix server), a *Postgres DB* container for a more powerful Matrix installation, an *Element* container (the frontend application), a *Webhooks* container (for receiving webhooks to specified channels), a *Maubot* container (for GitHub and RSS integrations), a *Postgres DB* container for Maubot, an *Nginx Proxy Manager* container and required DB container, and a *Postfix* container (to send emails from the Matrix server through GMail SMTP). 
 
-Technically, the only required containers for a successful install is the *Synapse* container. You also need an application to interface with the server such as *Element,* but the Matrix server will run regardless. The rest of the containers are personal preferences. All of the required files are tailored to my stack though, and using different containers will require you to tweak the environment to match your stack respectively. 
+Technically, the only required container for a successful install is the *Synapse* container. You also need an application to interface with the server such as *Element,* but the Matrix server will run regardless. The rest of the containers are personal preferences. All of the required files are tailored to my stack though, and using different containers will require you to tweak the environment to match your stack respectively. 
 
 ## Requirements
 - A [Ubuntu](https://ubuntu.com/download/desktop/thank-you?version=22.10&architecture=amd64) Host
@@ -76,7 +76,7 @@ Technically, the only required containers for a successful install is the *Synap
 - A working, routable Cloudflare tunnel (see [my previous post](https://whitematter.tech/posts/cloudflare-tunneling/))
 
 
-For simplicity and convenience, I have compiled the required files and secrets directory you will need on [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server). Download the files and the Secrets directory all to the same directory on your Ubuntu host (e.g., /home/username/docker).
+For simplicity and convenience, I have compiled the required files and secrets directory you will need on [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server). Download the *files* and the *secrets* directory all to the same directory on your Ubuntu host (e.g., /home/*username*/docker).
 
 Throughout the tutorial, you will be required to generate and use secure passwords. *I strongly recommend using a password manager (I use [1Password](https://1password.com/)) to generate a high bit-count password to use in these steps.*
 
@@ -96,7 +96,7 @@ If using postfix to send mail through a SMTP relay, you will need to edit *Lines
 
 The Webhooks container cannot be configured quite yet as you will need IDs for the channels you wish to send webhooks. Skip this for now.
 
-Comment out or delete any of the containers you do not want to use, and your docker-compose.yml file is complete for now. Save and exit.
+Comment out or delete any of the containers you do not want to use, and your docker-compose.yml file is complete for now. Save, and exit.
 
 ## Modify the element-config.json
 
@@ -104,7 +104,7 @@ The only lines needing edited in this file are *Lines 4 and 5*. Replace **YOURDO
 
 ## Modify the homeserver.yaml
 
-This file is the most complicated of the whole stack. The settings in my homeserver.yaml file are extremely personalized, and you may want to personalize your file as well. Unfortunately, due to the complexity of the file and the endless possibilities, I will only be able to cover my settings.
+This file is the most complicated of the whole stack. The settings in my homeserver.yaml file are extremely personalized, and you may want to personalize your file as well. Unfortunately, due to the complexity of the file and the endless possibilities, I will only cover my settings.
 
 **YOURDOMAIN.COM** needs replaced (e.g., with your domain such as **whitematter.tech**) on *Lines 4, 5, 72, 75, 76, 92, and 95*. 
 
@@ -118,16 +118,16 @@ You can safely save and exit.
 
 ## Modify secrets/matrix_admin_pass.txt
 
-In the *secrets* directory your retrieved from [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server), edit the "matrix_admin_pass.txt" file. Simply replace **YOUR_VERY_SECURE_PASSWORD** with a very secure password.
+In the *secrets* directory you retrieved from [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server), edit the "matrix_admin_pass.txt" file. Simply replace **YOUR_VERY_SECURE_PASSWORD** with a very secure password.
 
 ## Modify secrets/synapse_secrets.env
 
-In the *secrets* directory your retrieved from [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server), edit the "synapse_secrets.env" file.
+In the *secrets* directory you retrieved from [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server), edit the "synapse_secrets.env" file.
 Simply replace **YOURDOMAIN.COM** with your domain (e.g., such as **whitematter.tech**).
 
 ## Modify maubot/config.yaml
 
-In the *maubot* directory your retrieved from [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server), go to *Line 6* and replace the text **THEPOSTGRESDB_PASSWORD_FROM_DOCKERCOMPOSE** with the postgres DB password you generated for the Maubot Postgres database (this is the password you needed to keep handy from *Line 108* in the docker-compose.yml file).
+In the *maubot* directory you retrieved from [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server), go to *Line 6* and replace the text **THEPOSTGRESDB_PASSWORD_FROM_DOCKERCOMPOSE** with the postgres DB password you generated for the Maubot Postgres database (this is the password you needed to keep handy from *Line 108* in the docker-compose.yml file).
 
 Edit *Lines 63, 72, and 75* with strong random passwords.
 
@@ -148,9 +148,9 @@ docker-compose up -d
 
 ## The Cloudflared Tunnel
 
-As mentioned in the requirements, you will need a working, routable Cloudflare tunnel (see [my previous post, updated](https://whitematter.tech/posts/cloudflare-tunneling/)). The following steps will assume you have one working.
+As mentioned in the requirements, you will need a working, routable Cloudflare tunnel (for help setting up a tunnel, see [my previous post, updated](https://whitematter.tech/posts/cloudflare-tunneling/)). The following steps will assume you have one working.
 
-The tunnel I am using is a full cloud tunnel. My description and screenshots will reflect that, but the concepts will apply to you if you use the local routing configuration for your tunnel.
+The tunnel I am using is a full cloud tunnel. My description and screenshots will reflect that, but the concepts will also apply to you if you use the local routing configuration for your tunnel.
 
 Go to [Cloudflare's Zero Trust Dashboard](https://one.dash.cloudflare.com/) and click **Access > Tunnels** in the left navigation pane. Select the tunnel you will be using, and click **Configure**.
 
@@ -192,7 +192,7 @@ On the subsequent screen, click **Quick edit** in the top right.
 
 ![](/posts/encrypted-matrix-server/images/worker2.png)
 
-Past the following code to replace the pre-filled code (and be sure to replace **matrix.yourdomain.tld** with your actual domain):
+Paste the following code to replace the pre-filled code (and be sure to replace **matrix.yourdomain.tld** with your actual domain):
 
 ```
 addEventListener('fetch', event => {
@@ -288,7 +288,7 @@ Next, input **matrix.yourdomain.tld** and click *Continue*.
 
 ![](/posts/encrypted-matrix-server/images/element2.png)
 
-At this point, yuo should be able to click *Sign in* and use the admin user and password you defined in the *docker-compose.yml* file and */synapse-secrets/matrix_admin_pass.txt*. The user is defined on *Line 23* and defaults to *admin*. Locate your password from */synapse-secrets/matrix_admin_pass.txt* and login with those credentials.
+At this point, you should be able to click *Sign in* and use the admin user and password you defined in the *docker-compose.yml* file and */synapse-secrets/matrix_admin_pass.txt*. The user is defined on *Line 23* and defaults to *admin*. Locate your password from */synapse-secrets/matrix_admin_pass.txt* and login with those credentials.
 
 If everything went according to plan, again, you should be successfully logged in to Element and interfacing with your Matrix Server!
 
