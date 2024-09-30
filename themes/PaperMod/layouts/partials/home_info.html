@@ -2,7 +2,6 @@
 
 {{- with $.Site.Params.homeInfoParams }}
 <article class="first-entry home-info">
-  <!-- particles.js container -->
   {{- if .imageUrl -}}
   <center><img src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}"
       height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" /></center>
