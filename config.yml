@@ -93,8 +93,6 @@ params:
           url: "https://linkedin.white.fm"
         - name: twitter
           url: "https://twitter.white.fm"
- #       - name: mastodon
- #         url: "https://robertwhite.social"
         - name: googlescholar
           url: "https://scholar.white.fm"
         - name: matrix
