@@ -37,7 +37,7 @@ features = [
   "scroll-to-top",
   "search"
 ]
-min_version = "0.83.0"
+min_version = "0.112.4"
 
 [author]
   name = "Aditya Telange"
@@ -49,10 +49,3 @@ min_version = "0.83.0"
   author = "nanxiaobei"
   homepage = "https://github.com/nanxiaobei"
   repo = "https://github.com/nanxiaobei/hugo-paper/"
-  
-  
-#####Same ReadMe generally as https://github.com/adityatelange/hugo-PaperMod
-
-#####Added Particles.JS as well as flashing cursor from https://github.com/rhazdon/hugo-theme-hello-friend-ng
-
-#####See example at my site https://whitematter.tech
