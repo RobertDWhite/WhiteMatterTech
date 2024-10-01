@@ -57,7 +57,7 @@ To get started with ODoH on your UniFi network, follow the steps below. We'll co
 
    Once your configuration is saved, if your device is using you Unifi gateway for DNS, you can run a [DNS leak test](https://www.dnsleaktest.com/) to ensure you have the settings correct. If you used the Montreal server mentioned above, the DNS leak test results should show the server you selected as originating in Montreal, Canada.
 
-![Montreal](/posts/odoh-unifi/images/odoh_montreal.jpg)
+![Montreal](/posts/odoh-unifi/images/odoh_montreal.png)
 
 ### Where to Find Additional Resolvers
 
