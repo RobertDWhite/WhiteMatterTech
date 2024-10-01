@@ -10,6 +10,8 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 googleAnalytics: "UA-193676598-1"
+pygmentsUseClasses: true
+mainsections: ["posts", "papermod"]
 
 minify:
     disableXML: true
@@ -70,9 +72,13 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
+    ShowRssButtonInSectionTermList: true
+    ShowAllPagesInArchive: true
+    ShowPageNums: true
     ShowToc: true
     comments: false
     images: ["brain.jpg"]
+
     logo:
       logoHomeLink: "/"
       logoMark: ">#"
@@ -140,12 +146,18 @@ assets:
 
 
 
-taxonomies:
-    category: categories
-    tag: tags
-    series: series
+#taxonomies:
+ #   category: categories
+  #  tag: tags
+   # series: series
 
-    twitter:
-        disabled: false
-        enableDNT: true
-        simple: true
+#    twitter:
+ #       disabled: false
+  #      enableDNT: true
+   #     simple: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true
