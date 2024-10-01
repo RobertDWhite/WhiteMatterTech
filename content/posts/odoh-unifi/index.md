@@ -1,6 +1,6 @@
 ---
 title: "Host Your Own Free Wordpress Site with Traefik and Docker"
-date: "2021-04-02"
+date: "2024-09-30"
 categories:
   - "networking"
   - "tutorials"
