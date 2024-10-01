@@ -65,7 +65,7 @@ If you’d like to use a different ODoH server, you can find a full list of DNSC
 
 [Public DNSCrypt Resolvers List](https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md)
 
-Be aware of the different features each server. Some servers on this list may log your queries, may not support DNSSEC, or may censor content. This repository also includes many options from different regions, so you can pick one that best fits your needs. 
+Be aware of the different features of each server. Some servers on this list may log your queries, may not support DNSSEC, or may censor content. This repository also includes many options from different regions, so you can pick one that best fits your needs. 
 
 ## Conclusion
 
