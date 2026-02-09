@@ -103,11 +103,13 @@ params:
           url: "https://scholar.white.fm"
         - name: matrix
           url: "https://matrix.to/#/#whitematter:white.fm"
+        - name: mastodon
+          url: "https://mastodon.whitematter.tech"
         - name: telegram
           url: "https://t.me/+xaDqeY0b0CRjZWUx"
         - name: email
           url: "mailto:robert@whitematter.tech"
-        - name: RsS
+        - name: RSS
           url: "index.xml"
 
     editPost:
