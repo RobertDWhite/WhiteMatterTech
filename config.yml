@@ -1,6 +1,7 @@
 ubaseURL: "https://whitematter.tech"
 title: WhiteMatterTech
-paginate: 5
+pagination:
+    pagerSize: 5
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -72,9 +73,6 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
-    ShowRssButtonInSectionTermList: true
-    ShowAllPagesInArchive: true
-    ShowPageNums: true
     ShowToc: true
     comments: false
     images: ["brain.jpg"]
@@ -146,8 +144,7 @@ assets:
     #     minMatchCharLength: 0
     #     keys: ["title", "permalink", "summary", "content"]
 
-services:
-  instagram:
-    disableInlineCSS: true
-  twitter:
-    disableInlineCSS: true
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
