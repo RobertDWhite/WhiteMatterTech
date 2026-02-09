@@ -103,8 +103,8 @@ params:
           url: "https://scholar.white.fm"
         - name: matrix
           url: "https://matrix.to/#/#whitematter:white.fm"
-        - name: mastodon
-          url: "https://mastodon.whitematter.tech"
+#        - name: mastodon
+#          url: "https://mastodon.whitematter.tech"
         - name: telegram
           url: "https://t.me/+xaDqeY0b0CRjZWUx"
         - name: email
@@ -145,18 +145,6 @@ assets:
     #     threshold: 0.4
     #     minMatchCharLength: 0
     #     keys: ["title", "permalink", "summary", "content"]
-
-
-
-#taxonomies:
- #   category: categories
-  #  tag: tags
-   # series: series
-
-#    twitter:
- #       disabled: false
-  #      enableDNT: true
-   #     simple: true
 
 services:
   instagram:
