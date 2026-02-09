@@ -1,5 +1,6 @@
 ubaseURL: "https://whitematter.tech"
 title: WhiteMatterTech
+copyright: "© 2026 WhiteMatterTech"
 pagination:
     pagerSize: 5
 theme: PaperMod
