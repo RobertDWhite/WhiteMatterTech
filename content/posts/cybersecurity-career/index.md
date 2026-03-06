@@ -36,6 +36,16 @@ Certifications are your ticket to demonstrating your expertise to potential empl
 
 In the world of cybersecurity, hands-on experience is king. Create a home lab, set up virtual environments, and experiment with various security tools and techniques. Practical skills are essential in this field, and having a well-equipped home lab can set you apart from other candidates. I personally attribute part of my success to my extensive home lab setup, including standing out from other applicants.
 
+### Suggested Home Lab Starter Gear
+
+{{< amazon-disclosure >}}
+
+- [Mini PC / Refurb Workstation Options](https://www.amazon.com/s?k=mini+pc+for+homelab&tag=whitematter-20)
+- [32GB DDR4 RAM Kit](https://www.amazon.com/s?k=32gb+ddr4+ram+kit&tag=whitematter-20)
+- [Portable USB SSD Options](https://www.amazon.com/s?k=portable+usb+ssd&tag=whitematter-20)
+- [Managed Switch with VLAN Support](https://www.amazon.com/s?k=managed+gigabit+switch+vlan&tag=whitematter-20)
+- [YubiKey Hardware Security Key](https://www.amazon.com/Yubico-Authentication-Security-Supported-Accounts/dp/B08DHL1YDL/ref=sr_1_4?dchild=1&keywords=yubikey&qid=1632281315&sr=8-4&tag=whitematter-20)
+
 ## 4. Stay Informed and Network
 
 Cybersecurity is a field that's always evolving. Stay up-to-date with industry news, blogs, and forums. Engaging with cybersecurity communities and attending events, conferences, and meetups will help you build a professional network, which is crucial in this field. Joining organizations like Infragard can provide you with valuable connections and mentorship opportunities. Create and maintain your [LinkedIn](https://linkedin.white.fm) and grow your network with likeminded professionals, industry recruiters, and industry leaders.

@@ -29,6 +29,9 @@ languages:
                 - name: Posts
                   url: posts
                   weight: 5
+                - name: Gear & Tools
+                  url: recommended-products/
+                  weight: 7
                 - name: Search
                   url: search/
                   weight: 10

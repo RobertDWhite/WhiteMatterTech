@@ -36,6 +36,8 @@ If you simply want to run Tails with no Persistence, you can certainly skip this
 
 You can find documentation about writing the OS to a USB stick from Tails's official site: [](https://tails.boum.org/install/index.en.html)[https://tails.boum.org/install/index.en.html](https://tails.boum.org/install/index.en.html)
 
+{{< amazon-disclosure >}}
+
 I am using [this Sony USB stick from Amazon](https://amzn.to/3tQsAtl "this Sony USB stick from Amazon"). I am also using this USB stick for my Unraid OS because it is [on the recommended USB stick list by the Unraid develope](https://wiki.unraid.net/USB_Flash_Drive_Preparation "on the recommended USB stick list by the Unraid develope")[rs.](https://wiki.unraid.net/USB_Flash_Drive_Preparation "rs.")
 
 **_At the time of the writing of the post, I am using Tails 4.26._**

@@ -29,6 +29,8 @@ For this setup, I am using a Ubuntu bare-metal machine behind a _[Unifi Dream M
 
 For tips on running a self-hosted WordPress site, which will be referenced in this post, check out [this tutorial](https://whitematter.tech/2021/hosting-your-own-site-with-traefik-and-wordpress/). You could run your WordPress site from the same machine/VM running your reverse proxy, but you will likely have to edit some docker-compose files. I may follow up with a post about that later, but until then, I suggest separate devices/VMs.
 
+{{< amazon-disclosure >}}
+
 > Installing Nginx Proxy Manager
 
 To simplify your install, I have hosted the [docker-compose.yml](https://github.com/robertomano24/nginx-proxy-manager/blob/main/docker-compose.yml) I use to deploy my Nginx Proxy Manager: [GitHub](https://github.com/robertomano24/nginx-proxy-manager). You can easily pull this [docker-compose.yml](https://github.com/robertomano24/nginx-proxy-manager/blob/main/docker-compose.yml) with cURL or wget by running the commands below:

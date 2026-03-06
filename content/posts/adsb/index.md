@@ -41,7 +41,7 @@ _As an Amazon Associate, I earn from qualifying purchases. **Thank you** for s
 - [RTL SDR (Kit)](https://amzn.to/3QjXSlU)
 - [RTL SDR USB Dongle (Standalone)](https://amzn.to/3Qi3OMg)
 - [Optional SMA Extension Cable](https://amzn.to/3QK0vyP)
-- [Recommended ADS-B Antenna](https://www.nooelec.com/store/sdr/sdr-addons/antennas/1090mhz-ads-b-antenna-5dbi-sma.html)
+- [Recommended ADS-B Antenna Options](https://www.amazon.com/s?k=1090mhz+ads-b+antenna+sma&tag=whitematter-20)
 - Ubuntu machine (physical or virtual)
 - Basic knowledge of Docker and terminal commands
 
