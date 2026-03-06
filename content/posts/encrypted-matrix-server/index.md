@@ -75,6 +75,16 @@ Technically, the only required container for a successful install is the *Synaps
 - A [Cloudflare instance](https://dash.cloudflare.com/)
 - A working, routable Cloudflare tunnel (see [my previous post](https://whitematter.tech/posts/cloudflare-tunneling/))
 
+## Recommended Gear and Tools
+
+{{< amazon-disclosure >}}
+
+- [Mini PC / Low-Power Host Options](https://www.amazon.com/s?k=mini+pc+intel+n100&tag=whitematter-20)
+- [32GB DDR4 RAM Kit](https://www.amazon.com/s?k=32gb+ddr4+ram+kit&tag=whitematter-20)
+- [1TB NVMe SSD](https://www.amazon.com/s?k=1tb+nvme+ssd&tag=whitematter-20)
+- [Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)
+- [YubiKey Hardware Security Key](https://www.amazon.com/Yubico-Authentication-Security-Supported-Accounts/dp/B08DHL1YDL/ref=sr_1_4?dchild=1&keywords=yubikey&qid=1632281315&sr=8-4&tag=whitematter-20)
+
 
 For simplicity and convenience, I have compiled the required files and secrets directory you will need on [GitHub](https://github.com/RobertDWhite/encrypted-matrix-server). Download the *files* and the *secrets* directory all to the same directory on your Ubuntu host (e.g., /home/*username*/docker).
 

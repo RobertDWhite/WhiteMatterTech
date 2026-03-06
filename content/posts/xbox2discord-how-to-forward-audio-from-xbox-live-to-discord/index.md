@@ -26,6 +26,16 @@ This post will show you how to configure a setup to forward audio from an Xbox p
 
 I am running this setup on a Windows 10 VM on Unraid. I recommend using a VM on another PC or server that you are not gaming on for this setup.
 
+## Recommended Gear and Tools
+
+{{< amazon-disclosure >}}
+
+- [USB Audio Interface Options](https://www.amazon.com/s?k=usb+audio+interface+windows&tag=whitematter-20)
+- [3.5mm Ground Loop Isolator](https://www.amazon.com/s?k=3.5mm+ground+loop+isolator&tag=whitematter-20)
+- [3.5mm TRS Audio Cable Options](https://www.amazon.com/s?k=3.5mm+trs+audio+cable&tag=whitematter-20)
+- [USB Microphone Options](https://www.amazon.com/s?k=usb+microphone+streaming&tag=whitematter-20)
+- [Closed-Back Gaming Headset Options](https://www.amazon.com/s?k=closed+back+gaming+headset&tag=whitematter-20)
+
 ## The Virtual Audio Cable
 
 The [Virtual Audio Cable](https://vac.muzychenko.net/en/) (VAC) is the magic sauce for this setup. The biggest bummer with the VAC is that a home license is a $30 one time purchase. I went ahead and purchased the VAC because it is super useful in other applications too.

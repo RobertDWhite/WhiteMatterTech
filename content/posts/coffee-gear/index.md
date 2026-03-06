@@ -28,7 +28,7 @@ _As an Amazon Associate, I earn from qualifying purchases. **Thank you** for s
 
 # Espresso
 
-First up is my **espresso machine**. I chose this specific machine because I wanted to retain some manual control of both pulling the shot and tamping, the machine has a decent grinder attached, and the machine is relatively cheap in its particular class.[](https://www.amazon.com/Breville-BES870XL-Barista-Express-Espresso/dp/B00CH9QWOU?crid=TKOXQPESA3YS&dchild=1&keywords=breville+barista+express&qid=1634191857&sprefix=breville+barista%2Caps%2C176&sr=8-1&linkCode=li2&tag=whitemattertech-20&linkId=79c88c2a6dfb61500948537d52d9aa46&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitemattertech-20&language=en_US&l=li2&o=1&a=B00CH9QWOU)
+First up is my **espresso machine**. I chose this specific machine because I wanted to retain some manual control of both pulling the shot and tamping, the machine has a decent grinder attached, and the machine is relatively cheap in its particular class.[](https://www.amazon.com/Breville-BES870XL-Barista-Express-Espresso/dp/B00CH9QWOU?crid=TKOXQPESA3YS&dchild=1&keywords=breville+barista+express&qid=1634191857&sprefix=breville+barista%2Caps%2C176&sr=8-1&linkCode=li2&tag=whitematter-20&linkId=79c88c2a6dfb61500948537d52d9aa46&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitematter-20&language=en_US&l=li2&o=1&a=B00CH9QWOU)
 
 [![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00CH9QWOU&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitematter-20&language=en_US)](https://www.amazon.com/Breville-BES870XL-Barista-Express-Espresso/dp/B00CH9QWOU?crid=283CMZDDB33X&dchild=1&keywords=breville+barista+express&qid=1634192884&sprefix=breville+ba%2Caps%2C205&sr=8-1&linkCode=li2&tag=whitematter-20&linkId=5eb6bd59af15e53e4f99d4da3466b903&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitematter-20&language=en_US&l=li2&o=1&a=B00CH9QWOU)
 
@@ -36,11 +36,11 @@ With this **Breville espresso machine**, I can quickly grind my favorite espress
 
 While making these perfect drinks, the process can get a little messy, and I prefer a **rubber tamper mat** to help keep the counter clean. The tamper mat is extremely easy to clean, and it saves quite the hassle of cleanup after a messy creation. Check that out below:
 
-[![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07YDCC5MF&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitemattertech-20&language=en_US)](https://www.amazon.com/gp/product/B07YDCC5MF?ie=UTF8&psc=1&linkCode=li2&tag=whitemattertech-20&linkId=6ab1f63ca3f53cb26fa11ef40c61b803&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitemattertech-20&language=en_US&l=li2&o=1&a=B07YDCC5MF)
+[![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07YDCC5MF&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitematter-20&language=en_US)](https://www.amazon.com/gp/product/B07YDCC5MF?ie=UTF8&psc=1&linkCode=li2&tag=whitematter-20&linkId=6ab1f63ca3f53cb26fa11ef40c61b803&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitematter-20&language=en_US&l=li2&o=1&a=B07YDCC5MF)
 
 A great use of your spent ground espresso (and coffee) is to fertilize plants (no, really!). I drink enough coffee and espresso to avoid purchasing fertilizer every year. Since using grounds as fertilizer, our plants are doing much better than before, as we have pretty bad soil overall. A great way to save the espresso puck specifically is a **coffee knock box**. I found a decent and cheap one here:
 
-[![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B083TQ7LPR&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitemattertech-20&language=en_US)](https://www.amazon.com/gp/product/B083TQ7LPR?ie=UTF8&psc=1&linkCode=li2&tag=whitemattertech-20&linkId=6ce7373c0c030226ffbbaaf7d6c066dd&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitemattertech-20&language=en_US&l=li2&o=1&a=B083TQ7LPR)
+[![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B083TQ7LPR&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitematter-20&language=en_US)](https://www.amazon.com/gp/product/B083TQ7LPR?ie=UTF8&psc=1&linkCode=li2&tag=whitematter-20&linkId=6ce7373c0c030226ffbbaaf7d6c066dd&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitematter-20&language=en_US&l=li2&o=1&a=B083TQ7LPR)
 
 # Coffee
 
@@ -60,7 +60,7 @@ The **electric kettle** below is my second choice because I am also an avid tea 
 
 For pour over coffee, it is extremely important to get your measurements correct. A decent and affordable **scale** that was recommended to me by a barista and good friend from [Three Ships Coffee](https://threeshipscoffee.com/) in Virginia Beach is the model at the following link:
 
-[![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07JG1PXLC&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitemattertech-20&language=en_US)](https://www.amazon.com/gp/product/B07JG1PXLC?ie=UTF8&psc=1&linkCode=li2&tag=whitemattertech-20&linkId=829d2a7086f47a3cb7de70401f8a818f&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitemattertech-20&language=en_US&l=li2&o=1&a=B07JG1PXLC)
+[![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07JG1PXLC&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=whitematter-20&language=en_US)](https://www.amazon.com/gp/product/B07JG1PXLC?ie=UTF8&psc=1&linkCode=li2&tag=whitematter-20&linkId=829d2a7086f47a3cb7de70401f8a818f&language=en_US&ref_=as_li_ss_il)![](https://ir-na.amazon-adsystem.com/e/ir?t=whitematter-20&language=en_US&l=li2&o=1&a=B07JG1PXLC)
 
 ### Vietnamese Coffee
 

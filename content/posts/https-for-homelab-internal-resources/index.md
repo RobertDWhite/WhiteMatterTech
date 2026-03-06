@@ -69,6 +69,16 @@ As alluded to above, PiHole will be set up to resolve internal resource requests
 
 Similarly to PiHole, there are other reverse proxies that may be usable to achieve our goal. I use Nginx Proxy Manager because of its simplicity.
 
+### Recommended Gear and Tools
+
+{{< amazon-disclosure >}}
+
+- [Unifi Dream Machine Pro](https://www.amazon.com/gp/product/B086967C9X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B086967C9X&linkCode=as2&tag=whitematter-20&linkId=4fc0624a437d4bfe761f2ebb02ca61bd)
+- [Raspberry Pi](https://amzn.to/34hK0kB)
+- [Managed Switch with VLAN Support](https://www.amazon.com/s?k=managed+gigabit+switch+vlan&tag=whitematter-20)
+- [Mini PC for Nginx Proxy Manager / DNS Services](https://www.amazon.com/s?k=mini+pc+intel+n100&tag=whitematter-20)
+- [UPS Battery Backup for Homelab Gear](https://www.amazon.com/s?k=ups+battery+backup&tag=whitematter-20)
+
 --------------------------------------------------------
 # Internal Routing
 Alright! Let's get to the fun part.

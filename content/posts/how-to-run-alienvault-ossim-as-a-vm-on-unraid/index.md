@@ -35,6 +35,16 @@ I accidentally recently botched my OSSIM bare-metal install that was running on 
 
 This time, I was able to find the correct combination of settings in the Unraid VM options to successfully load, install, and post-install boot the OSSIM OS. Maybe, overall, it was a lot easier than I made it originally, but I thought that documenting it would be beneficial, as I was unable to find any walkthroughs or tutorials for this specific setup.
 
+## Recommended Gear and Tools
+
+{{< amazon-disclosure >}}
+
+- [Intel Core i5-8500](https://www.amazon.com/gp/product/B0759FGJ3Q/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0759FGJ3Q&linkId=4867310b8da8586d142f13325ea48c62)
+- [GIGABYTE B365M DS3H](https://www.amazon.com/gp/product/B07T6N8N56/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07T6N8N56&linkId=790c04299d5dccec41764ccf5a8b1050)
+- [Corsair Vengeance LPX 16GB](https://www.amazon.com/gp/product/B0143UM4TC/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0143UM4TC&linkId=b021ad78bd94c0b12c1d29dd3e2d5dcf)
+- [4-Port PCI-E Network Interface Card](https://www.amazon.com/gp/product/B07R7GLN6H/ref=as_li_tl?ie=UTF8&tag=whitematter-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07R7GLN6H&linkId=1a3b9783e3fbfbb9c0f3e06eea4c0c42)
+- [1TB SATA SSD Options](https://www.amazon.com/s?k=1tb+sata+ssd&tag=whitematter-20)
+
 ## **Download OSSIM**
 
 OSSIM is available for download for free at the following link: [https://cybersecurity.att.com/products/ossim/download](https://cybersecurity.att.com/products/ossim/download). OSSIM is free and open-source. If you download from the link, you will get an ISO that you can use to install your VM.
