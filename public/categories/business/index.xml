@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>business on WhiteMatterTech</title>
+    <title>Business on WhiteMatterTech</title>
     <link>/categories/business/</link>
-    <description>Recent content in business on WhiteMatterTech</description>
+    <description>Recent content in Business on WhiteMatterTech</description>
     <image>
-      <url>brain.jpg</url>
-      <link>brain.jpg</link>
+      <title>WhiteMatterTech</title>
+      <url>/brain.jpg</url>
+      <link>/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.124.1</generator>
+    <language>en</language>
+    <copyright>2026 WhiteMatterTech</copyright>
+    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Roadmap to a Rewarding Career in Cybersecurity: A Guide for Beginners</title>
+      <link>/posts/cybersecurity-career/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/cybersecurity-career/</guid>
+      <description>Introduction Are you considering a career in cybersecurity? That&amp;rsquo;s a fantastic choice! The world of cybersecurity is dynamic, challenging, and highly rewarding. Whether you&amp;rsquo;re a recent graduate or someone looking to make a career change, there&amp;rsquo;s a place for you in this ever-evolving field.
+A cybersecurity bootcamp student recently reached out to me on LinkedIn to ask exactly how to do this. In this post, I will share some of my advice in a more blog-friendly format.</description>
+    </item>
+    <item>
+      <title>Unlocking Digital Transformation: The Crucial Role of IT Services</title>
+      <link>/posts/digital-transformation/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/digital-transformation/</guid>
+      <description>Introduction In today&amp;rsquo;s rapidly evolving business landscape, digital transformation has become more than just a buzzword—it&amp;rsquo;s a strategic imperative. Organizations worldwide are harnessing technology to enhance processes, elevate customer experiences, and stay ahead in the competitive race. Amid this digital revolution, IT services emerge as indispensable allies, guiding and empowering organizations in their transformative journey. Let&amp;rsquo;s explore how IT services play a pivotal role in driving this essential shift.
+1. Technology Assessment and Planning IT services providers begin by meticulously evaluating your existing IT infrastructure, systems, and processes.</description>
+    </item>
     <item>
       <title>How To Do An In-Place Upgrade To Windows Server 2022</title>
       <link>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/</guid>
       <description>I recently had to upgrade two domain controllers to Windows Server 2022. The main controller was still on Windows Server 2016 while the secondary was Windows Server 2019. Both in-place upgrades went without issue.
 Both servers were running Hyper-V, Bitlocker, and AD Controller. The 2019 server had an SMTP server that it was running, but Microsoft has deprecated the SMTP stack and associated management tools, including the IIS tools. There very well may be other deprecated software or tools, and I highly recommend searching for specific functionality you utilize on your Win Servers before attempting the upgrade.</description>
     </item>
-    
     <item>
       <title>A Quick Note on Leading Geographically Dispersed Teams</title>
       <link>/posts/a-quick-note-on-leading-geographically-dispersed-teams/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/a-quick-note-on-leading-geographically-dispersed-teams/</guid>
       <description>The ability for geographically dispersed teams to interact, engage, and collaborate effectively is a concern for increasing numbers of corporations, teams, and leadership, especially in the post-COVID-19 era workplace. Adoption of technological solutions for computer-mediated communication can mitigate some of the inherent complexities and difficulties of the geographical dispersion problem, and research teams have increased efforts to both understand the problem and design groupware solutions to support virtual team collaboration (Morrison-Smith &amp;amp; Ruiz, 2020).</description>
     </item>
-    
   </channel>
 </rss>

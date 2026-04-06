@@ -2,19 +2,175 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/graflens/</loc>
+    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/graflens/privacy/</loc>
+    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/graflens/support/</loc>
+    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/graflens/terms/</loc>
+    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/adsb/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/adsb/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/adsb-kubernetes/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/antenna/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/antenna/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/kubernetes/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/kubernetes/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tutorials/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/tutorials/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ntlm/</loc>
+    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/pentesting/</loc>
+    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/pentesting/</loc>
+    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/security/</loc>
+    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/security/</loc>
+    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/ntlm-lookup-api/</loc>
+    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/adsb/</loc>
+    <lastmod>2023-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/docker/</loc>
+    <lastmod>2023-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/docker/</loc>
+    <lastmod>2023-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/cybersecurity-career/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/business/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/business/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cybersecurity/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/cybersecurity/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/leadership/</loc>
+    <lastmod>2023-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/leadership/</loc>
+    <lastmod>2023-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/digital-transformation/</loc>
+    <lastmod>2023-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/docker-compose/</loc>
+    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/encrypt/</loc>
+    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/homelab/</loc>
+    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/encrypted-matrix-server/</loc>
+    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/privacy/</loc>
+    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/anonymous/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/network/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/networking/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/pfsense/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/policy/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/vpn-policy-based-routing-with-unifi-and-pia/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/unifi/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/vlan/</loc>
+    <lastmod>2022-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</loc>
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/run-dockerized-macos-on-unraid/</loc>
+    <lastmod>2022-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/macos/</loc>
+    <lastmod>2022-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/unraid/</loc>
+    <lastmod>2022-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/unraid/</loc>
+    <lastmod>2022-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cdn/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cloudflare/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/cloudflare-static-site-hosting/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/cloudflare-tunneling/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/dns/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/docker/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/homelab/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/internal/</loc>
@@ -26,37 +182,22 @@
     <loc>/tags/networking/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/networking/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/nginx/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/proxy/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/security/</loc>
+    <loc>/tags/webhost/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/tutorials/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/</loc>
+    <loc>/categories/webhosting/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/https-for-homelab-internal-resources/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/pihole/</loc>
-    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/unraid/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/managing-linux-logs-ossim/</loc>
@@ -71,17 +212,11 @@
     <loc>/categories/ossim/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/security/</loc>
-    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/siem/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/vm/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/docker/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/open-source/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
@@ -89,22 +224,10 @@
     <loc>/posts/run-graylog-with-docker-compose-on-unraid/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/tutorials/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/unraid/</loc>
-    <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/hugo/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/migrating-from-wordpress-to-hugo/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/webhost/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/webhosting/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/wordpress/</loc>
@@ -118,12 +241,6 @@
   </url><url>
     <loc>/recommended-products/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/anonymous/</loc>
-    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/encrypt/</loc>
-    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/tails/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
@@ -164,9 +281,6 @@
     <loc>/categories/science/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/business/</loc>
-    <lastmod>2021-11-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/posts/how-to-access-twitter-without-an-account-anonymously/</loc>
     <lastmod>2021-11-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -206,9 +320,6 @@
     <loc>/posts/coffee-gear/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/docker-compose/</loc>
-    <lastmod>2021-10-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/harbor/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -236,12 +347,6 @@
     <loc>/posts/a-quick-note-on-leading-geographically-dispersed-teams/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/leadership/</loc>
-    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/leadership/</loc>
-    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/remote/</loc>
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
@@ -249,12 +354,6 @@
     <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/network/</loc>
-    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/unifi/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/run-a-reverse-proxy-using-docker/</loc>
@@ -281,17 +380,8 @@
     <loc>/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/</loc>
     <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/vlan/</loc>
-    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/posts/network-hardening-webhosting/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/</loc>
-    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/pfsense/</loc>
-    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/hosting-your-own-site-with-traefik-and-wordpress/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
@@ -304,8 +394,6 @@
   </url><url>
     <loc>/tags/ubuntu/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/index.html</loc>
   </url><url>
     <loc>/archives/</loc>
   </url><url>

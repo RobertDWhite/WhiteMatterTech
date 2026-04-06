@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>tails on WhiteMatterTech</title>
+    <title>Tails on WhiteMatterTech</title>
     <link>/tags/tails/</link>
-    <description>Recent content in tails on WhiteMatterTech</description>
+    <description>Recent content in Tails on WhiteMatterTech</description>
     <image>
-      <url>brain.jpg</url>
-      <link>brain.jpg</link>
+      <title>WhiteMatterTech</title>
+      <url>/brain.jpg</url>
+      <link>/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tails/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.124.1</generator>
+    <language>en</language>
+    <copyright>2026 WhiteMatterTech</copyright>
+    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/tails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tails OS with Encrypted Persistence on Unraid as a VM</title>
       <link>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/</guid>
       <description>This post will show you how to run Tails OS as a VM with the Persistence feature enabled.
 Running Tails as a VM is not recommended generally as it defeats many of the security features in Tails. For example, virtualization requires that you trust the hypervisor host, as the hypervisor has extra privileges over a VM that can reduce security and privacy of the VM.
 I recommend reading Tails&amp;rsquo;s official documentation about virtualization considerations before continuing: https://tails.</description>
     </item>
-    
   </channel>
 </rss>

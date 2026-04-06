@@ -1,52 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>webhosting on WhiteMatterTech</title>
+    <title>Webhosting on WhiteMatterTech</title>
     <link>/categories/webhosting/</link>
-    <description>Recent content in webhosting on WhiteMatterTech</description>
+    <description>Recent content in Webhosting on WhiteMatterTech</description>
     <image>
-      <url>brain.jpg</url>
-      <link>brain.jpg</link>
+      <title>WhiteMatterTech</title>
+      <url>/brain.jpg</url>
+      <link>/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/webhosting/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.124.1</generator>
+    <language>en</language>
+    <copyright>2026 WhiteMatterTech</copyright>
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/webhosting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Static Site Hosting</title>
+      <link>/posts/cloudflare-static-site-hosting/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>/posts/cloudflare-static-site-hosting/</guid>
+      <description>Introduction In this previous post, I detailed my transition from WordPress to Hugo static sites. This post discussed hosting the site locally in a Docker container web server and exposing ports 80 and 443 to a reverse proxy on my DMZ network. Today, I will show you how you can host your Hugo static site on Cloudflare&amp;ndash;FREE. This will absolve your responsibility to host the site, expose ports to the public, and deal with SSL certs.</description>
+    </item>
     <item>
       <title>Migrating from Wordpress to Hugo</title>
       <link>/posts/migrating-from-wordpress-to-hugo/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/migrating-from-wordpress-to-hugo/</guid>
       <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides WordPress at the time, and I was bent on getting WordPress self-hosted with Docker.
 This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for WordPress and Traefik.</description>
     </item>
-    
     <item>
       <title>How to Easily Run A Reverse Proxy using Docker</title>
       <link>/posts/run-a-reverse-proxy-using-docker/</link>
       <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/run-a-reverse-proxy-using-docker/</guid>
       <description>Reverse proxies are powerful tools used typically to forward client traffic to a server. In contrast to a forward proxy, a reverse proxy sits in front of web servers or other servers and forwards client traffic to the appropriate server. In this post, I will show you how to easily setup a reverse proxy using Docker, forward the necessary ports to the reverse proxy, and configure the reverse proxy to forward traffic to various servers on your network.</description>
     </item>
-    
     <item>
       <title>How to Harden Your Network Security for Your In-Home Web Hosting</title>
       <link>/posts/network-hardening-webhosting/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/network-hardening-webhosting/</guid>
       <description>Overview The purpose of this post is to provide some tips to address some network security concerns when hosting an externally-facing web server from a device within your home network. For this post, I will be using Unifi networking gear. My screenshots will be of the Unifi controller on my Unifi Dream Machine Pro (UDMP), but I will do my best to overview the concepts so you can replicate with your own networking gear.</description>
     </item>
-    
     <item>
       <title>Host Your Own Free Wordpress Site with Traefik and Docker</title>
       <link>/posts/hosting-your-own-site-with-traefik-and-wordpress/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/hosting-your-own-site-with-traefik-and-wordpress/</guid>
       <description>Update 03/20/2022: I no longer host my site with Traefik, and my site is no longer built on WordPress. I now host my site internally using an Nginx proxy hosted in Docker. My site is built with Hugo. Learn more about my transition from WordPress to Hugo on my post here: Migrating from WordPress to Hugo
 My first post will, appropriately, show you how to build your own self-hosted Wordpress site utilizing Docker (just like this site)!</description>
     </item>
-    
   </channel>
 </rss>

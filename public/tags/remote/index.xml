@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>remote on WhiteMatterTech</title>
+    <title>Remote on WhiteMatterTech</title>
     <link>/tags/remote/</link>
-    <description>Recent content in remote on WhiteMatterTech</description>
+    <description>Recent content in Remote on WhiteMatterTech</description>
     <image>
-      <url>brain.jpg</url>
-      <link>brain.jpg</link>
+      <title>WhiteMatterTech</title>
+      <url>/brain.jpg</url>
+      <link>/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/remote/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.124.1</generator>
+    <language>en</language>
+    <copyright>2026 WhiteMatterTech</copyright>
+    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/remote/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Quick Note on Leading Geographically Dispersed Teams</title>
       <link>/posts/a-quick-note-on-leading-geographically-dispersed-teams/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/a-quick-note-on-leading-geographically-dispersed-teams/</guid>
       <description>The ability for geographically dispersed teams to interact, engage, and collaborate effectively is a concern for increasing numbers of corporations, teams, and leadership, especially in the post-COVID-19 era workplace. Adoption of technological solutions for computer-mediated communication can mitigate some of the inherent complexities and difficulties of the geographical dispersion problem, and research teams have increased efforts to both understand the problem and design groupware solutions to support virtual team collaboration (Morrison-Smith &amp;amp; Ruiz, 2020).</description>
     </item>
-    
   </channel>
 </rss>
