@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>siem on WhiteMatterTech</title>
+    <title>Siem on WhiteMatterTech</title>
     <link>/tags/siem/</link>
-    <description>Recent content in siem on WhiteMatterTech</description>
+    <description>Recent content in Siem on WhiteMatterTech</description>
     <image>
-      <url>brain.jpg</url>
-      <link>brain.jpg</link>
+      <title>WhiteMatterTech</title>
+      <url>/brain.jpg</url>
+      <link>/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/siem/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.124.1</generator>
+    <language>en</language>
+    <copyright>2026 WhiteMatterTech</copyright>
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/siem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manage Linux Logs on AlienVault OSSIM</title>
       <link>/posts/managing-linux-logs-ossim/</link>
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/managing-linux-logs-ossim/</guid>
       <description>Introduction OSSIM is a powerful open source security information and event management (SIEM) operating system. AlienVault OSSIM is the open source version of AlienVault, which is sold by AT&amp;amp;T.
 I have used OSSIM in professional deployments in the past, and I currently use OSSIM for vulnerability scanning, asset management, and security alerts. OSSIM can often be overly complicated to set up and install, and the documentation available for troubleshooting is sparse.</description>
     </item>
-    
     <item>
       <title>How to Run AlienVault OSSIM as a VM on Unraid</title>
       <link>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/</guid>
       <description>Introduction For this post, I will show you how to setup Unraid to run AlienVault OSSIM as a VM. OSSIM is a powerful open-source SIEM that you can leverage on your network for free. I use OSSIM for network-wide vulnerability scanning and endpoint host intrusion detection.
 OSSIM&amp;rsquo;s integrated HIDS is a fork from OSSEC. Additionally, OSSIM integrates with Open Threat Exchange (OTX), which can be installed on Windows, Mac, and Linux endpoints and servers for an up-to-date, open-source vulnerability scanning tool.</description>
     </item>
-    
   </channel>
 </rss>

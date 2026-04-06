@@ -1,44 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>tutorials on WhiteMatterTech</title>
+    <title>Tutorials on WhiteMatterTech</title>
     <link>/tags/tutorials/</link>
-    <description>Recent content in tutorials on WhiteMatterTech</description>
+    <description>Recent content in Tutorials on WhiteMatterTech</description>
     <image>
-      <url>brain.jpg</url>
-      <link>brain.jpg</link>
+      <title>WhiteMatterTech</title>
+      <url>/brain.jpg</url>
+      <link>/brain.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.124.1</generator>
+    <language>en</language>
+    <copyright>2026 WhiteMatterTech</copyright>
+    <lastBuildDate>Sun, 08 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ADSB on Kubernetes</title>
+      <link>/posts/adsb-kubernetes/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>/posts/adsb-kubernetes/</guid>
+      <description>Setting Up an ADS‑B Flight Tracker with a Cheap Antenna on Kubernetes (RKE2 and ArgoCD) This is the Kubernetes version of my earlier Docker‑based ADS‑B guide. In this setup, everything is defined in YAML and deployed via ArgoCD, and changes are tracked in Git and synced automatically to the cluster. Access is handled through an NGINX Ingress with TLS from cert‑manager, which is how I publish the ADS‑B UI at adsb.</description>
+    </item>
+    <item>
+      <title>ADSB</title>
+      <link>/posts/adsb/</link>
+      <pubDate>Sun, 22 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/adsb/</guid>
+      <description>W3RDW Blog - First Post This post is copied from a separate site where I plan to document content related to one of my hobbies, HAM radio. This post is the first post I shared on my other site, https://w3rdw.radio. In the future, I plan to only post HAM radio content on the W3RDW site. You can find a link in the top right corner of my WhiteMatterTech site.
+Setting Up an ADS-B Flight Tracker with a Cheap Antenna and Docker on Ubuntu In this tutorial, I&amp;rsquo;ll walk you through the process of setting up an ADS-B flight tracker using a cheap antenna and Docker on Ubuntu.</description>
+    </item>
+    <item>
+      <title>Cloudflare Static Site Hosting</title>
+      <link>/posts/cloudflare-static-site-hosting/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>/posts/cloudflare-static-site-hosting/</guid>
+      <description>Introduction In this previous post, I detailed my transition from WordPress to Hugo static sites. This post discussed hosting the site locally in a Docker container web server and exposing ports 80 and 443 to a reverse proxy on my DMZ network. Today, I will show you how you can host your Hugo static site on Cloudflare&amp;ndash;FREE. This will absolve your responsibility to host the site, expose ports to the public, and deal with SSL certs.</description>
+    </item>
     <item>
       <title>Run Graylog with Docker Compose on Unraid</title>
       <link>/posts/run-graylog-with-docker-compose-on-unraid/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/run-graylog-with-docker-compose-on-unraid/</guid>
       <description>Introduction Logging and traffic monitoring are of utmost importance in information security. Having searchable stored logs can allow visibility into a variety of critical activities related to a data breach.
 For example, individual computer event logs can provide insight into an attacker&amp;rsquo;s lateral movement within an environment. Active Directory authentication logs can provide more detail into this lateral movement and even help to establish a timeline of this movement. Firewall logs can provide insight into an attacker&amp;rsquo;s first contact or the first time an attacker utilized a particular command or control domain.</description>
     </item>
-    
     <item>
       <title>Migrating from Wordpress to Hugo</title>
       <link>/posts/migrating-from-wordpress-to-hugo/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/migrating-from-wordpress-to-hugo/</guid>
       <description>Introduction When I initially began posting publicly on this site, my goal was to be able to host my site fully with Docker for containerization. I hadn&amp;rsquo;t experienced any other decent blogging platform besides WordPress at the time, and I was bent on getting WordPress self-hosted with Docker.
 This goal was achieved, and my first public post details how I used docker-compose to deploy my blog using containers for WordPress and Traefik.</description>
     </item>
-    
     <item>
       <title>Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research</title>
       <link>/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</link>
       <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/</guid>
       <description>Introduction Recently, I had the opportunity to collaborate with a university research lab to build some vapor sensors to roughly measure ethanol (EtOH) vapor within an operant chamber. This project was a lot of fun.
 With extremely limited circuit documentation on the web and never having personally used Arduino before, there were a lot of interesting hiccups I ran into. Overall, this project was a bit out of my wheelhouse, but with much determination, the finished product turned out rather nicely.</description>
     </item>
-    
   </channel>
 </rss>
