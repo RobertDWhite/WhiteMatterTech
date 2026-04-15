@@ -28,7 +28,7 @@ aliases:
 
 After approximately three years of development, I am pleased to announce that **Sola Coffea** is now available on the App Store. It is a native iOS application constructed for individuals who approach their coffee with deliberation, whether you are cataloguing single-origin beans, calibrating espresso extractions, or discovering new establishments while traveling.
 
-This project has been one of the most ambitious I have undertaken. What originated as a simple coffee logging concept evolved into a comprehensive platform encompassing brew analytics, social features, shop discovery, and a dedicated business tier for roasters and cafe proprietors.
+What originated as a simple coffee logging concept evolved into a comprehensive platform encompassing brew analytics, social features (coming in V2), shop discovery, and a dedicated business tier for roasters and cafe proprietors.
 
 - [**Sola Coffea on the App Store**](https://apps.apple.com/us/app/sola-coffea/id6737065958)
 
@@ -36,9 +36,7 @@ This project has been one of the most ambitious I have undertaken. What originat
 
 ## Why I Built It
 
-I required a single application that could supplant the dispersed notes, spreadsheets, and half-forgotten mental records I was maintaining about coffees I had encountered. Every existing option felt either too rudimentary or excessively cluttered. I wanted something that presented well, synchronized across devices, and could mature alongside my coffee knowledge.
-
-Sola Coffea was constructed entirely from scratch as a native SwiftUI application with CoreData and CloudKit. No web views, no cross-platform frameworks. Every screen, animation, and interaction was designed specifically for iOS.
+I love trying new coffees and wanted a single application that could supplant the dispersed notes, spreadsheets, and half-forgotten mental records I was maintaining about coffees I had encountered. Every existing option felt either too rudimentary or excessively cluttered. I wanted something that presented well, synchronized across devices, and could mature alongside my coffee knowledge.
 
 ---
 
@@ -48,7 +46,7 @@ Sola Coffea was constructed entirely from scratch as a native SwiftUI applicatio
 
 ![Sola Coffea Home](/posts/sola-coffea/images/home.png)
 
-Catalogue every coffee you encounter. Record the roaster, origin, producer, variety, process method, altitude, tasting notes, and additional attributes. Rate coffees, attach photographs, and cultivate a personal library that expands over time.
+Catalog every coffee you encounter. Record the roaster, origin, producer, variety, process method, altitude, tasting notes, and additional attributes. Rate coffees, attach photographs, and cultivate a personal library that expands over time.
 
 ### Coffee Detail & Brew Logging
 
@@ -130,7 +128,7 @@ Sola Coffea is available as a complimentary download with core tracking features
 
 ---
 
-Three years of early mornings, late evenings, and a considerable quantity of coffee contributed to this application. It has been one of the most rewarding projects I have worked on, and I am genuinely proud of the result. I hope it becomes a valuable companion for your own coffee journey.
+Three years of late evenings and a considerable quantity of coffee contributed to this application. It has been one of the more rewarding projects I have worked on, and I am genuinely excited about the result. I hope it becomes a valuable companion for your own coffee journey.
 
 > As always, if you have any questions, feel free to reach out at [support@solacoffea.app](mailto:support@solacoffea.app) or contact me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
