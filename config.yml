@@ -29,6 +29,9 @@ languages:
                 - name: Posts
                   url: posts
                   weight: 5
+                - name: Apps
+                  url: apps/
+                  weight: 6
                 - name: Gear & Tools
                   url: recommended-products/
                   weight: 7
