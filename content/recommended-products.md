@@ -52,6 +52,41 @@ Related tutorials:
 Related tutorial:
 - [Xbox2Discord Audio Forwarding Setup](/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/)
 
+## Amateur Radio and SDR
+
+Equipment used in the [always-on SDR research stack](/posts/sdr-research-stack/).
+
+### SDR Receivers
+
+- [RTL-SDR Blog V4 Dongle Only](https://www.amazon.com/dp/B0CD745394?tag=whitematter-20): The current best RTL-SDR. 1 PPM TCXO, SMA connector, HF-capable via direct sampling. ~$35.
+- [RTL-SDR Blog V4 Kit with Dipole Antenna](https://www.amazon.com/dp/B0CD7558GT?tag=whitematter-20): Same dongle with a telescoping dipole kit included. ~$40.
+- [RX888 MkII HF SDR Receiver (1 kHz–64 MHz)](https://www.amazon.com/dp/B09FB425CQ?tag=whitematter-20): Wideband HF with 16-bit ADC. Required for FT8/WSPR/HFDL. ~$160.
+- [Airspy Mini (24–1700 MHz, 12-bit ADC)](https://airspy.com/airspy-mini/): Best performer for 2m. No stable Amazon listing; order direct (~$99).
+
+### Antennas
+
+- [Diamond X50A 144/440 MHz Dual-Band Base Antenna](https://www.amazon.com/dp/B00AR0AFCG?tag=whitematter-20): 5.6 ft fiberglass, solid gain across 2m and 70cm. ~$100.
+- [Nagoya NL-770S 144/430 MHz Dual-Band Antenna](https://www.amazon.com/dp/B0936XF4BZ?tag=whitematter-20): Smaller alternative for limited mounting. ~$35.
+- [MFJ-1984MP End-Fed Half-Wave HF Wire Antenna (40–10m)](https://www.amazon.com/dp/B06ZYDMCPX?tag=whitematter-20): Compact end-fed, no tuner needed on resonant bands. ~$65.
+- [1090 MHz ADS-B Antenna](https://www.amazon.com/dp/B07X3RL3GL?tag=whitematter-20): Dedicated antenna for ADS-B flight tracking. ~$45.
+
+### Cables and Adapters
+
+- [SMA Extension Cable, SMA Male to SMA Female, 3 ft](https://www.amazon.com/dp/B07TCLCVRR?tag=whitematter-20): Positions the dongle away from USB noise. ~$15.
+- [SMA Female to BNC Male Adapter (2-pack)](https://www.amazon.com/dp/B09P4YSHVC?tag=whitematter-20): Connects RTL-SDR to BNC-terminated antennas or test gear. ~$9.
+- [SMA Female to PL-259 (UHF Male) Adapter](https://www.amazon.com/dp/B00CVQRJG4?tag=whitematter-20): Connects RTL-SDR directly to SO-239 base antennas. ~$8.
+- [RG-8X Coax with PL-259 Connectors, 50 ft](https://www.amazon.com/dp/B004EFNHXE?tag=whitematter-20): Low-loss flexible coax for antenna runs. ~$38.
+
+### Accessories
+
+- [Nooelec LaNA Ultra Low-Noise Amplifier (20 MHz–4 GHz)](https://www.amazon.com/dp/B07XNLJ9X2?tag=whitematter-20): Preamp for VHF/UHF on long antenna runs. Bias-tee powered. ~$35.
+- [SMA Lightning Surge Protector / Arrestor (0–6 GHz)](https://www.amazon.com/dp/B07K25Y1JW?tag=whitematter-20): Inline protection between feedline and dongle. ~$18.
+- [Anker 7-Port Powered USB 3.0 Hub](https://www.amazon.com/dp/B014ZQ07NE?tag=whitematter-20): Required when running multiple dongles; bus-powered hubs cause sample drops. ~$30.
+
+Related tutorials:
+- [Always-On SDR: Multi-Band Radio Intelligence Platform on Kubernetes](/posts/sdr-research-stack/)
+- [ADSB on Kubernetes](/posts/adsb-kubernetes/)
+
 ## Cybersecurity Home Lab Starter Gear
 
 - [Raspberry Pi](https://amzn.to/34hK0kB)
