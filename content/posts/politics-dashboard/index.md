@@ -19,7 +19,7 @@ tags:
   - "self-hosted"
   - "ghcr"
 cover:
-  image: "cover.jpg"
+  image: "cover.png"
   alt: "Politics Dashboard screenshot"
   caption: ""
   relative: true
