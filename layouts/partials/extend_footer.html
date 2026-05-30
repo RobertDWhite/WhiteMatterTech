@@ -1,0 +1,7 @@
+{{- /* Subtle, always-safe link to the onion info page (/onion/), which explains
+       the Tor mirror and shows the address. Works for everyone — clearnet users
+       get the explainer, Tor users get a working link there. Per-page onion
+       deep-linking is handled automatically by Onion-Location (extend_head). */ -}}
+<div class="onion-note" style="text-align:center;font-size:.75rem;opacity:.6;margin:1.5rem 0 .5rem;">
+  <a href="{{ "onion/" | relURL }}" title="How to read this site over Tor">Available as a Tor onion service</a>
+</div>
