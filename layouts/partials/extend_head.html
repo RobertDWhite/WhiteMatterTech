@@ -1,0 +1,5 @@
+{{- /* Onion-Location: advertise the matching .onion page so Tor Browser shows a
+       ".onion available" button — a seamless clearnet<->Tor experience. Mapped
+       per-page via .RelPermalink so every post points at its onion twin. Only
+       honored over HTTPS / .onion, so it is inert on plain HTTP. */ -}}
+<meta http-equiv="onion-location" content="http://geum4af5dyfmyiagbablqyixvwcjlo7zvwgmyebcsg7qmnbucignomqd.onion{{ .RelPermalink }}">
