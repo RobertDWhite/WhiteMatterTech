@@ -19,7 +19,7 @@ tags:
   - "self-hosted"
   - "ghcr"
 cover:
-  image: "cover.jpg"
+  image: "cover.png"
   alt: "Weather Dashboard screenshot"
   caption: ""
   relative: true
