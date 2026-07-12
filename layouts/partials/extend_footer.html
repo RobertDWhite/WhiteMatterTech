@@ -5,3 +5,11 @@
 <div class="onion-note" style="text-align:center;font-size:.75rem;opacity:.6;margin:1.5rem 0 .5rem;">
   <a href="{{ "onion/" | relURL }}" title="How to read this site over Tor">Available as a Tor onion service</a>
 </div>
+
+{{- /* particles.js background network (the WhiteMatter neuron nodes). These scripts
+       live in the theme's own extend_footer partial, but this project-level partial
+       overrides that one wholesale, so they were dropped when the onion note was
+       added. Re-include them here, with root-absolute paths (relURL) so the
+       animation loads on every page and not only the homepage. */ -}}
+<script src="{{ "js/particles.min.js" | relURL }}" defer></script>
+<script src="{{ "js/particles.js" | relURL }}" defer></script>
