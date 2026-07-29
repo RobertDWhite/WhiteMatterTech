@@ -1,82 +1,141 @@
 # Portfolio content. Kept as data rather than markup so the page can be
-# reordered or re-skinned without touching layout, and so nothing here has to
-# be duplicated in HTML.
+# reordered or re-skinned without touching layout.
+#
+# Source: the 28 role-tailored resumes in ~/Documents/personas/Job Search,
+# not any single one of them. Those resumes target five distinct tracks — AI
+# enablement/transformation, security and CISO, CIO and IT leadership, customer
+# success and services, and TPM/Field CTO — so the page leads with domains
+# rather than with one function. Titles follow the resumes, which are
+# consistent across all 28.
 #
 # PUBLIC PAGE — deliberately excludes phone number and street-level location.
-# Titles mirror what is publicly verifiable on LinkedIn.
 
 positioning: >
-  Customer Success and Services leader who both builds and operates. I stand up
-  professional services and enablement functions from scratch, take over existing
-  CS and Support teams and drive measurable gains in retention and quality, and
-  own outcomes across the customer lifecycle. CISSP-level fluency in SOC 2,
-  ISO 27001, HIPAA and NIST — translated into customer-facing delivery rather
-  than left in a policy document.
+  Technology leader with 12+ years turning emerging technology — AI, security,
+  cloud — into governed, measurable outcomes in regulated, mission-critical
+  environments. I build functions from zero, enable the people who run them,
+  and ship the systems myself rather than only delegating. Equally at home
+  setting strategy with a board and in a terminal at 1am.
 
 location: "Cincinnati, OH · Remote (US)"
+clearance: "Active U.S. DoD Secret Clearance"
 
-# Quantified outcomes. Each is a personal or program result rather than an
-# internal company figure.
 signals:
+  - value: "1,000+"
+    label: "users, enterprise AI rollout"
+    note: "Claude / Cowork, led end to end"
+  - value: "20%"
+    label: "measured productivity gain"
+    note: "sustained after launch by a certification program"
   - value: "80%"
     label: "churn reduction"
     note: "strategic portfolio, Tanium"
-  - value: "+20%"
-    label: "accounts per engineer"
-    note: "within three months, via AI-enabled workflows"
-  - value: "1,000+"
-    label: "user genAI rollout"
-    note: "led end to end"
-  - value: "20"
-    label: "direct reports"
-    note: "plus 200+ supporting personnel"
+  - value: "12+"
+    label: "years"
+    note: "DoD, Fortune 20 and regulated enterprise"
 
-lenses:
-  - id: operate
-    kicker: "lens 01"
-    title: "Operate"
+# The four practice areas the resumes actually span. Customer Success is one of
+# them, not the frame around the others.
+domains:
+  - id: ai
+    title: "AI Enablement & Transformation"
     blurb: >
-      Building and running the customer-facing side of a security platform —
-      services, support, enablement, and the numbers they answer to.
-  - id: build
-    kicker: "lens 02"
-    title: "Build"
+      Taking AI from executive intent to governed production use — the use-case
+      roadmap, the integration layer, the guardrails, and the enablement that
+      makes adoption outlive the launch.
+    proof:
+      - "Company-wide generative-AI rollout to 1,000+ employees on Claude / Cowork"
+      - "Built the connector and MCP integration layer into core systems of record"
+      - "Agents and a reusable skill library, plus an academy and certification track"
+      - "Scoped-role and SSO governance; responsible-AI guardrails"
+    chips: ["applied AI", "agents & MCP", "governance", "change management", "FinOps"]
+
+  - id: security
+    title: "Security & Compliance"
     blurb: >
-      The same person, in a terminal. Everything below is running software, most
-      of it on a self-hosted Kubernetes cluster, all of it public source.
+      Building and maturing security programs in environments where the audit is
+      real — government, defense, healthcare and regulated SaaS — and translating
+      technical risk into decisions a board can act on.
+    proof:
+      - "CISSP; active U.S. DoD Secret clearance"
+      - "Programs aligned to NIST 800-53, CSF, RMF, CMMC and zero-trust — the control families under CJIS, FedRAMP, SOC 2, ISO 27001 and HIPAA"
+      - "Stood up penetration-testing, incident-response and GRC practices from scratch"
+      - "Incident response for state critical infrastructure; government cloud (GCC-High)"
+    chips: ["CISSP", "GRC", "zero-trust", "incident response", "DSPM"]
+
+  - id: platform
+    title: "Infrastructure & Platform"
+    blurb: >
+      Secure, automated infrastructure across multi-cloud and on-prem — set as
+      strategy, and still built with my own hands. The cluster running the
+      projects below is the working proof.
+    proof:
+      - "Multi-cloud across AWS, Azure and GCP; IAM and identity"
+      - "Terraform, CI/CD, containerisation and Kubernetes in production"
+      - "Secure DevOps, endpoint and DLP, developer self-service"
+      - "A self-hosted RKE2 cluster running every project in the next section"
+    chips: ["kubernetes", "terraform", "CI/CD", "multi-cloud", "GitOps"]
+
+  - id: cs
+    title: "Customer Success & Services"
+    blurb: >
+      Standing up professional services and enablement from nothing, taking over
+      existing CS and support teams, and owning the retention and quality numbers
+      they answer to.
+    proof:
+      - "Built a company's first onboarding, enablement, training and certification programs from the ground up"
+      - "Delivery methodology, service offerings and segmented packages reaching hundreds of companies and thousands of users"
+      - "Reduced churn 80% across a strategic portfolio by improving time-to-value and adoption"
+      - "Executive escalation point; advises C-suite and boards"
+    chips: ["NRR & expansion", "onboarding", "enablement", "services P&L", "CSAT & SLAs"]
+
+build_blurb: >
+  The claims above are not only on a resume. Everything here is running software,
+  most of it on the self-hosted Kubernetes cluster mentioned in Infrastructure,
+  all of it public source.
 
 roles:
   - org: "Cyera"
-    title: "Manager, Customer Success Engineering"
+    title: "Director, Customer Success"
     period: "2024 — present"
     context: "Data security posture management platform"
     current: true
     points:
-      - "Own the largest region and a portfolio spanning SMB through enterprise, accountable for net revenue retention, expansion, and customer outcomes."
-      - "Built the company's first onboarding, enablement, in-person training and Credly certification programs from the ground up — delivery methodology, service offerings, and repeatable segmented packages now reaching hundreds of companies and thousands of users."
-      - "Recruited and mentored the team that now runs those programs self-sufficiently."
-      - "Led a 1,000+ user generative-AI rollout and built AI-enabled workflows and reusable skills that raised accounts handled per engineer 20% in three months."
+      # The resumes say "~20% of total company ARR". Held back from the public
+      # page: it is a specific disclosure about a current employer's revenue
+      # distribution, and this page is indexed. Restore if you want it.
+      - "Own the largest region, accountable for net revenue retention, expansion and customer outcomes from SMB through enterprise."
+      - "Led a company-wide generative-AI rollout to 1,000+ employees — use-case strategy, the connector and MCP integration layer to core systems of record, scoped-role and SSO governance — delivering a measured 20% productivity gain."
+      - "Built the company's first onboarding, enablement, in-person training and certification programs from the ground up, now reaching hundreds of companies and thousands of users through a team I recruited and mentored."
       - "Lead customer-facing security reviews; translate SOC 2, ISO 27001 and NIST into delivery strategy. Executive escalation point, advising C-suite and boards."
-    tags: ["DSPM", "AI security", "NRR", "enablement"]
+    tags: ["applied AI", "DSPM", "NRR", "enablement"]
 
   - org: "Tanium"
-    title: "Enterprise Services Engineer"
+    title: "Cybersecurity Domain Architect / Enterprise Services Engineer"
     period: "2022 — 2024"
     context: "Fortune 20, hospital and government customers"
     points:
-      - "Led enterprise implementations, onboarding and support escalations; reduced churn 80% across a strategic portfolio by improving time-to-value, quality and adoption."
+      - "Led enterprise implementations, onboarding and escalations; reduced churn 80% across a strategic portfolio by improving time-to-value, quality and adoption."
       - "Codified repeatable delivery practice and enabled technical and non-technical teams as a Certified Instructor."
       - "Trusted advisor to CISOs and boards on security and compliance outcomes."
-    tags: ["implementation", "escalations", "instruction"]
+    tags: ["endpoint security", "implementation", "instruction"]
 
   - org: "Matrix Research"
-    title: "Systems Engineer"
+    title: "Lead Security & Systems Engineer"
     period: "2020 — 2022"
-    context: "Defense research"
+    context: "Defense research · DoD"
     points:
       - "Owned compliance and security programs aligned to NIST 800-series, CMMC and RMF — the control foundations underlying SOC 2, ISO 27001 and HIPAA."
-      - "Secured cloud and CI/CD environments across AWS and Azure, including IAM."
-    tags: ["NIST 800", "CMMC", "RMF"]
+      - "Secured cloud and CI/CD environments across AWS and Azure, including IAM and government cloud."
+    tags: ["NIST 800", "CMMC", "RMF", "GCC-High"]
+
+  - org: "computerDNA"
+    title: "Operational Systems Lead"
+    period: "2019 — 2020"
+    context: "Managed services"
+    points:
+      - "Ran systems and endpoint operations across a multi-client managed-services book, standardising delivery and tooling."
+    tags: ["systems", "endpoint", "MSP"]
 
   - org: "Towne Church"
     title: "Director of Technology"
@@ -95,7 +154,7 @@ service:
   - org: "Ohio Cyber Reserve"
     title: "Deputy Group Lead, Cincinnati Region"
     period: "2023 — 2025"
-    note: "Volunteer reservist. Team captain at the National Cyber Exercise and Competition — 1st in Ohio, 8th nationally."
+    note: "Volunteer reservist supporting incident response for state critical infrastructure. Team captain at the National Cyber Exercise and Competition — 1st in Ohio, 8th nationally."
 
 # Public repositories only. Private work is described but never linked.
 projects:
@@ -104,6 +163,11 @@ projects:
     blurb: "GitOps monorepo for a self-hosted RKE2 Kubernetes cluster — the platform every project below actually runs on."
     url: "https://github.com/RobertDWhite/whitehouse-rke2"
     tags: ["kubernetes", "gitops", "homelab"]
+  - name: "MCP server suite"
+    lang: "Python"
+    blurb: "Model Context Protocol servers exposing self-hosted services to AI agents — Search Console, Google News, FreshRSS, Monica, Jetlog and Congress data. The same integration pattern used at enterprise scale."
+    url: "https://github.com/RobertDWhite?tab=repositories&q=mcp"
+    tags: ["MCP", "agents", "ghcr"]
   - name: "weather-dashboard"
     lang: "TypeScript"
     blurb: "Self-hosted, NWS-grade weather operations console. VTEC alert parsing, NEXRAD and MRMS radar with playback, SPC severe products, aviation and marine feeds. Speaks CAP 1.2."
@@ -111,9 +175,14 @@ projects:
     tags: ["fastapi", "react", "CAP 1.2"]
   - name: "GrafLens"
     lang: "Swift"
-    blurb: "Native iOS viewer for Grafana. Dashboards, alerts, annotations, snapshots, and home-screen widgets for any panel. No ads, no tracking."
+    blurb: "Native iOS viewer for Grafana. Dashboards, alerts, annotations, snapshots and home-screen widgets for any panel. No ads, no tracking."
     url: "https://github.com/whitematter-tech/graflens"
     tags: ["iOS", "widgets", "open source"]
+  - name: "pages-mcp"
+    lang: "Python"
+    blurb: "Static-site host with an MCP upload tool, so an agent can publish an artifact and get back a URL."
+    url: "https://github.com/RobertDWhite/pages-mcp"
+    tags: ["MCP", "hosting"]
   - name: "congress-trades"
     lang: "Python"
     blurb: "Congressional trade tracker — disclosure ingestion, normalisation and a React front end."
@@ -124,16 +193,6 @@ projects:
     blurb: "Astronomy and space-weather dashboard: real-time solar imagery, geomagnetic conditions and sky data."
     url: "https://github.com/RobertDWhite/astronomy"
     tags: ["fastapi", "react"]
-  - name: "MCP server suite"
-    lang: "Python"
-    blurb: "Model Context Protocol servers exposing self-hosted services to AI agents — Search Console, Google News, FreshRSS, Monica, Jetlog and Congress data."
-    url: "https://github.com/RobertDWhite?tab=repositories&q=mcp"
-    tags: ["MCP", "agents", "ghcr"]
-  - name: "pages-mcp"
-    lang: "Python"
-    blurb: "Static-site host with an MCP upload tool, so an agent can publish an artifact and get back a URL."
-    url: "https://github.com/RobertDWhite/pages-mcp"
-    tags: ["MCP", "hosting"]
   - name: "home-assistant"
     lang: "YAML"
     blurb: "Home automation config covering circadian lighting, VLAN-segmented IoT and presence."
@@ -144,6 +203,7 @@ certifications:
   primary: "CISSP"
   items:
     - "CISSP"
+    - "Active U.S. DoD Secret Clearance"
     - "Certified AI Trust Practitioner"
     - "Certified DSPM Architect"
     - "Certified Security for AI Fundamentals"

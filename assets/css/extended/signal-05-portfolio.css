@@ -1,9 +1,9 @@
 /* ============================================================================
    SIGNAL — portfolio
    ----------------------------------------------------------------------------
-   Two lenses on the same person: what he runs, and what he builds. Roles are
-   drawn as nodes on a link line so the page uses the same graph vocabulary as
-   the backdrop rather than inventing a second one.
+   Four practice areas given equal weight, then experience, shipped work and
+   credentials. Roles are drawn as nodes on a link line so the page uses the
+   same graph vocabulary as the backdrop rather than inventing a second one.
    ========================================================================== */
 
 /* The portfolio needs more room than the reading measure. Scoped with :has()
@@ -46,6 +46,18 @@
     font-size: 0.78rem;
     color: var(--wm-dim);
     margin: 0 0 18px;
+}
+
+/* clearance reads as a credential badge, not as body text */
+.portfolio-clearance {
+    display: inline-block;
+    margin-inline-start: 6px;
+    padding: 2px 8px;
+    border: 1px solid var(--wm-signal-dim);
+    border-radius: 3px;
+    background: var(--wm-signal-haze);
+    color: var(--wm-signal);
+    font-size: 0.72rem;
 }
 
 .portfolio-positioning {
@@ -442,4 +454,79 @@
     font-size: 0.72rem;
     letter-spacing: 0.04em;
     color: var(--wm-faint);
+}
+
+/* --- domain cards -------------------------------------------------------------
+   The four practice areas. Given equal visual weight on purpose: the work spans
+   all of them and no single one is the frame around the others. */
+.domain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 14px;
+}
+
+.domain-card {
+    position: relative;
+    padding: 22px 24px 20px;
+    background: color-mix(in srgb, var(--wm-panel) 88%, transparent);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease;
+}
+
+.domain-card::before {
+    content: "";
+    position: absolute;
+    inset-block: -1px;
+    inset-inline-start: -1px;
+    width: 2px;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background: var(--wm-signal-dim);
+}
+
+.domain-card:hover { border-color: var(--wm-signal-ghost); }
+
+.domain-card__title {
+    margin: 0 0 8px;
+    font-size: 1.14rem;
+    letter-spacing: -0.015em;
+    color: var(--wm-head);
+}
+
+.domain-card__blurb {
+    margin: 0 0 14px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--wm-dim);
+}
+
+.domain-card__proof {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.domain-card__proof li {
+    position: relative;
+    padding-inline-start: 18px;
+    margin-bottom: 7px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--wm-text);
+}
+
+/* a link stub rather than a bullet, matching the graph vocabulary */
+.domain-card__proof li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.62em;
+    width: 9px;
+    height: 1px;
+    background: var(--wm-signal);
+    opacity: 0.55;
+}
+
+@media (max-width: 520px) {
+    .domain-grid { grid-template-columns: 1fr; }
 }

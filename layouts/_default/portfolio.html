@@ -6,7 +6,10 @@
   <header class="portfolio-head">
     <p class="portfolio-kicker">// portfolio</p>
     <h1 class="post-title">{{ site.Params.homeInfoParams.Title }}</h1>
-    <p class="portfolio-role">{{ $p.location }}</p>
+    <p class="portfolio-role">
+      {{ $p.location }}
+      {{- with $p.clearance }} <span class="portfolio-clearance">{{ . }}</span>{{ end }}
+    </p>
     <p class="portfolio-positioning">{{ $p.positioning }}</p>
     <p class="portfolio-actions">
       <a class="portfolio-btn portfolio-btn--primary" href="mailto:robert@whitematter.tech">Get in touch</a>
@@ -15,7 +18,8 @@
     </p>
   </header>
 
-  {{- /* Quantified outcomes, read as instrument tiles rather than prose. */}}
+  {{- /* Quantified outcomes, read as instruments rather than prose. Chosen to
+         span domains rather than to sit inside any one of them. */}}
   <section class="signal-tiles" aria-label="Selected outcomes">
     {{- range $p.signals }}
     <div class="signal-tile">
@@ -26,16 +30,42 @@
     {{- end }}
   </section>
 
-  {{- /* ---- lens 01: operate ------------------------------------------- */}}
-  {{- $operate := index (where $p.lenses "id" "operate") 0 }}
-  <section class="lens" id="operate">
+  {{- /* ---- 01 domains --------------------------------------------------
+         The page leads with practice areas because the work spans several and
+         no single one of them is the whole picture. */}}
+  <section class="lens" id="domains">
     <div class="lens-head">
-      <span class="lens-kicker">{{ $operate.kicker }}</span>
-      <h2 class="lens-title">{{ $operate.title }}</h2>
-      <p class="lens-blurb">{{ $operate.blurb }}</p>
+      <span class="lens-kicker">01</span>
+      <h2 class="lens-title">Domains</h2>
+      <p class="lens-blurb">Four practice areas, one through-line: take something complex or new and make it operational, governed, and owned by the people who have to live with it.</p>
     </div>
 
-    {{- /* Roles as nodes on a link line — the same graph idea as the backdrop. */}}
+    <div class="domain-grid">
+      {{- range $p.domains }}
+      <section class="domain-card" id="{{ .id }}">
+        <h3 class="domain-card__title">{{ .title }}</h3>
+        <p class="domain-card__blurb">{{ .blurb }}</p>
+        <ul class="domain-card__proof">
+          {{- range .proof }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{- with .chips }}
+        <ul class="chip-row chip-row--sm">
+          {{- range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{- end }}
+      </section>
+      {{- end }}
+    </div>
+  </section>
+
+  {{- /* ---- 02 experience -------------------------------------------------
+         Roles as nodes on a link line — the same graph idea as the backdrop. */}}
+  <section class="lens" id="experience">
+    <div class="lens-head">
+      <span class="lens-kicker">02</span>
+      <h2 class="lens-title">Experience</h2>
+    </div>
+
     <ol class="track">
       {{- range $p.roles }}
       <li class="track-node{{ if .current }} track-node--live{{ end }}">
@@ -71,13 +101,12 @@
     </div>
   </section>
 
-  {{- /* ---- lens 02: build ---------------------------------------------- */}}
-  {{- $build := index (where $p.lenses "id" "build") 0 }}
+  {{- /* ---- 03 build ------------------------------------------------------ */}}
   <section class="lens" id="build">
     <div class="lens-head">
-      <span class="lens-kicker">{{ $build.kicker }}</span>
-      <h2 class="lens-title">{{ $build.title }}</h2>
-      <p class="lens-blurb">{{ $build.blurb }}</p>
+      <span class="lens-kicker">03</span>
+      <h2 class="lens-title">Build</h2>
+      <p class="lens-blurb">{{ $p.build_blurb }}</p>
     </div>
 
     <div class="card-grid">
@@ -96,10 +125,10 @@
     </div>
   </section>
 
-  {{- /* ---- credentials -------------------------------------------------- */}}
+  {{- /* ---- 04 credentials ------------------------------------------------ */}}
   <section class="lens" id="credentials">
     <div class="lens-head">
-      <span class="lens-kicker">lens 03</span>
+      <span class="lens-kicker">04</span>
       <h2 class="lens-title">Credentials</h2>
     </div>
 
