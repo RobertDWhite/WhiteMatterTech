@@ -10,7 +10,10 @@
     <p class="portfolio-positioning">{{ $p.positioning }}</p>
     <p class="portfolio-actions">
       <a class="portfolio-btn portfolio-btn--primary" href="mailto:robert@whitematter.tech">Get in touch</a>
-      <a class="portfolio-btn" href="https://linkedin.white.fm" rel="noopener noreferrer">LinkedIn</a>
+      {{- /* Canonical URL rather than the linkedin.white.fm vanity redirect, which
+             currently 404s. A dead LinkedIn link on a job-search page is the one
+             broken link that cannot be tolerated. */}}
+      <a class="portfolio-btn" href="https://www.linkedin.com/in/robertdylanwhite/" rel="noopener noreferrer">LinkedIn</a>
       <a class="portfolio-btn" href="https://github.white.fm" rel="noopener noreferrer">GitHub</a>
     </p>
   </header>
