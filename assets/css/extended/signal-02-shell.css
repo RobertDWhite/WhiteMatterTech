@@ -204,22 +204,30 @@ body {
     z-index: 1;
     max-width: calc(var(--nav-width) + var(--gap) * 2);
     margin-inline: auto;
-    padding: 12px var(--gap) 4px;
+    padding: 12px var(--gap) 6px;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 18px;
+    gap: 6px 10px;
     font-family: var(--wm-mono);
-    font-size: 0.66rem;
+    font-size: 0.7rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--wm-faint);
 }
 
+/* Each item carries its own surface. The plate behind the rail is at its
+   brightest right here, and unbacked text at this size disappears into it. */
 .wm-rail span {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     white-space: nowrap;
+    padding: 3px 9px;
+    border-radius: 3px;
+    color: var(--wm-dim);
+    background: color-mix(in srgb, var(--wm-void) 62%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    text-shadow: 0 1px 4px var(--wm-void);
 }
 
 .wm-rail span::before {
