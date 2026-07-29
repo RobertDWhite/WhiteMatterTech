@@ -1,4 +1,4 @@
-ubaseURL: "https://whitematter.tech"
+baseURL: "https://whitematter.tech/"
 title: WhiteMatterTech
 copyright: "© 2026 WhiteMatterTech"
 pagination:
