@@ -1,0 +1,26 @@
+{{- /* SIGNAL backdrop stack. Overrides the theme partial of the same name.
+
+       Two fixes carried in here on top of the new layers:
+         1. the theme's version opened <div class="site-wrapper"> and never
+            closed it, leaving the browser to auto-repair the document;
+         2. #particles-js was absolutely positioned, so the network stopped at
+            the first viewport. It is fixed now (see signal-02-shell.css).
+
+       Order matters — these are all z-index:0 and stack by document order:
+       plate (texture) → grid (structure) → particles (the network) →
+       veil (grade) → scan (sweep). */ -}}
+<div class="wm-plate" aria-hidden="true"></div>
+<div class="wm-grid" aria-hidden="true"></div>
+<div id="particles-js"></div>
+<div class="wm-veil" aria-hidden="true"></div>
+<div class="wm-scan" aria-hidden="true"></div>
+
+{{- /* Telemetry rail: how this page is actually served. Every claim is true of
+       the deployment — TLS at the edge, an advertised onion mirror, a live
+       feed, and a public source tree. */ -}}
+<div class="wm-rail" aria-hidden="true">
+  <span>tls: enforced</span>
+  <span>onion: advertised</span>
+  <span>feed: live</span>
+  <span>source: public</span>
+</div>

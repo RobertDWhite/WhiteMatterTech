@@ -1,0 +1,536 @@
+/* ============================================================================
+   SIGNAL — content: hero, entries, post pages, taxonomy, code
+   ========================================================================== */
+
+/* --- shared panel treatment ------------------------------------------------
+   Every card is a node on the board: hairline box, dark fill, an accent rail
+   on the leading edge that lights when you address it, and HUD corner ticks. */
+.post-entry,
+.first-entry,
+.home-info,
+.tag-entry,
+.paginav,
+#searchResults .post-entry {
+    position: relative;
+    background: color-mix(in srgb, var(--wm-panel) 88%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+    box-shadow: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-entry::before {
+    content: "";
+    position: absolute;
+    inset-block: -1px;
+    inset-inline-start: -1px;
+    width: 2px;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background: var(--wm-line-hi);
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* corner ticks, drawn with a single conic-free border trick on ::after */
+.post-entry::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: var(--wm-tick);
+    height: var(--wm-tick);
+    border-top: 1px solid var(--wm-line-hi);
+    border-right: 1px solid var(--wm-line-hi);
+    transition: border-color 0.2s ease;
+}
+
+.post-entry:hover,
+.tag-entry:hover {
+    border-color: var(--wm-signal-ghost);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -18px var(--wm-signal),
+                0 0 0 1px var(--wm-signal-haze);
+}
+
+.post-entry:hover::before {
+    background: var(--wm-signal);
+    box-shadow: 0 0 12px var(--wm-signal-dim);
+}
+
+.post-entry:hover::after {
+    border-color: var(--wm-signal);
+}
+
+.post-entry:hover .entry-header h2 {
+    color: var(--wm-head);
+}
+
+/* --- home hero ------------------------------------------------------------- */
+.home-info {
+    text-align: center;
+    padding: 40px var(--gap) 32px;
+    overflow: hidden;
+}
+
+.home-info img[src*="profile"] {
+    border-radius: 50%;
+    border: 1px solid var(--wm-line-hi);
+    padding: 3px;
+    background: var(--wm-void);
+    box-shadow: 0 0 0 1px var(--wm-signal-ghost),
+                0 0 42px -6px var(--wm-signal-dim);
+}
+
+.home-info .entry-header h1 {
+    font-size: 2.35rem;
+    letter-spacing: -0.025em;
+    margin: 18px 0 6px;
+    color: var(--wm-head);
+}
+
+/* kicker above the name, in the same register as the logo */
+.home-info .entry-header::before {
+    content: "// node: whitematter.tech";
+    display: block;
+    font-family: var(--wm-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wm-signal);
+    opacity: 0.75;
+    margin-top: 14px;
+}
+
+.home-info > .entry-content {
+    font-family: var(--wm-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--wm-dim);
+}
+
+.home-info .entry-footer {
+    margin-top: 4px;
+}
+
+/* the white-matter definition, framed as a spec block rather than a paragraph */
+.home-info > section.entry-content {
+    font-family: inherit;
+    position: relative;
+    max-width: 62ch;
+    margin: 26px auto 4px;
+    padding: 16px 20px;
+    text-align: start;
+    font-size: 0.95rem;
+    line-height: 1.62;
+    color: var(--wm-text);
+    background: color-mix(in srgb, var(--wm-signal) 3%, transparent);
+    border: 1px solid var(--wm-line);
+    border-inline-start: 2px solid var(--wm-signal);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.home-info > section.entry-content b {
+    color: var(--wm-signal);
+    font-weight: 600;
+}
+
+/* --- list entries ---------------------------------------------------------- */
+.post-entry {
+    padding: 22px 24px;
+}
+
+.entry-header h2 {
+    font-size: 1.35rem;
+    line-height: 1.28;
+    letter-spacing: -0.015em;
+    color: var(--wm-head);
+    transition: color 0.16s ease;
+}
+
+.entry-content {
+    color: var(--wm-dim);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.entry-footer,
+.post-meta,
+.archive-meta,
+.breadcrumbs,
+.archive-count,
+.pagination a {
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--wm-faint);
+}
+
+.entry-cover {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--wm-line);
+}
+
+.entry-cover img {
+    display: block;
+    filter: saturate(0.85) contrast(1.05);
+}
+
+/* --- post page -------------------------------------------------------------
+   Long-form reading gets its own surface. The backdrop is deliberately busy
+   on this site, and body copy should never have to compete with it. */
+.post-single {
+    position: relative;
+    margin-top: 22px;
+    padding: 10px 34px 34px;
+    background: color-mix(in srgb, var(--wm-panel) 93%, transparent);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+}
+
+@media (max-width: 640px) {
+    .post-single { padding: 6px 18px 24px; }
+}
+
+.page-header {
+    position: relative;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--wm-line);
+}
+
+.page-header h1 {
+    letter-spacing: -0.02em;
+}
+
+.page-header h1::before {
+    content: "// ";
+    font-family: var(--wm-mono);
+    font-size: 0.7em;
+    color: var(--wm-signal);
+    opacity: 0.8;
+}
+
+.breadcrumbs a {
+    color: var(--wm-faint);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover { color: var(--wm-signal); }
+
+.post-header {
+    position: relative;
+    margin: 26px auto var(--content-gap);
+}
+
+/* mono kicker rule above every post title */
+.post-header::before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 2px;
+    margin-bottom: 16px;
+    background: var(--wm-signal);
+    box-shadow: 0 0 12px var(--wm-signal-dim);
+}
+
+.post-title {
+    font-size: 2.15rem;
+    line-height: 1.16;
+    letter-spacing: -0.028em;
+    color: var(--wm-head);
+    margin-bottom: 10px;
+}
+
+.post-content {
+    color: var(--wm-text);
+    line-height: 1.72;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    color: var(--wm-head);
+    letter-spacing: -0.015em;
+}
+
+/* markdown-level heading markers in the gutter — the ">#" motif again, and a
+   quiet visual outline of the page. Only where there is room for it. */
+@media (min-width: 1180px) {
+    .post-content h2,
+    .post-content h3 {
+        position: relative;
+    }
+
+    .post-content h2::before,
+    .post-content h3::before {
+        position: absolute;
+        inset-inline-end: calc(100% + 14px);
+        white-space: nowrap;
+        font-family: var(--wm-mono);
+        font-weight: 400;
+        font-size: 0.9em;
+        color: var(--wm-signal);
+        opacity: 0.32;
+        line-height: inherit;
+    }
+
+    .post-content h2::before { content: "##"; }
+    .post-content h3::before { content: "###"; }
+}
+
+.post-content a {
+    color: var(--wm-signal);
+    box-shadow: none;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--wm-signal-dim);
+    transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.post-content a:hover {
+    border-bottom: 1px solid var(--wm-signal);
+    background: var(--wm-signal-haze);
+}
+
+.post-content blockquote {
+    border-inline-start: 2px solid var(--wm-signal);
+    background: color-mix(in srgb, var(--wm-signal) 4%, transparent);
+    padding: 12px 18px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--wm-text);
+    font-style: normal;
+}
+
+.post-content img {
+    border-radius: var(--radius);
+    border: 1px solid var(--wm-line);
+}
+
+.post-content table th {
+    font-family: var(--wm-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--wm-dim);
+    border-bottom: 1px solid var(--wm-line-hi);
+}
+
+.post-content hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right,
+        var(--wm-signal-ghost), var(--wm-line), transparent);
+}
+
+/* --- code ------------------------------------------------------------------
+   Terminal chrome: a labelled bar with a prompt glyph instead of the usual
+   three fake traffic-light dots. */
+.post-content div.highlight,
+.post-content pre {
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+}
+
+.post-content div.highlight {
+    padding-top: 30px;
+    background: var(--code-block-bg);
+}
+
+.post-content div.highlight::before {
+    content: "$";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    color: var(--wm-signal);
+    background: var(--wm-panel);
+    border-bottom: 1px solid var(--wm-line);
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.post-content div.highlight pre {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+}
+
+.post-content .copy-code {
+    top: 3px;
+    right: 4px;
+    font-family: var(--wm-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--wm-faint);
+    background: transparent;
+    opacity: 1;
+}
+
+.post-content .copy-code:hover { color: var(--wm-signal); }
+
+.post-content code:not(.post-content div.highlight code) {
+    font-family: var(--wm-mono);
+    color: var(--wm-signal-2);
+    background: var(--code-bg);
+    border: 1px solid var(--wm-line);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 0.86em;
+}
+
+/* --- toc ------------------------------------------------------------------- */
+.toc {
+    background: color-mix(in srgb, var(--wm-panel) 86%, transparent);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+    backdrop-filter: blur(6px);
+}
+
+.toc details summary {
+    font-family: var(--wm-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wm-dim);
+    cursor: pointer;
+}
+
+.toc .inner a {
+    color: var(--wm-dim);
+    text-decoration: none;
+}
+
+.toc .inner a:hover { color: var(--wm-signal); }
+
+/* --- tags ------------------------------------------------------------------
+   Bracketed mono chips, read like labels on a case file rather than pills. */
+.post-tags li a,
+.terms-tags a {
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--wm-dim);
+    /* the backdrop shows through the taxonomy pages, so chips carry their own
+       surface — otherwise labels land on top of bright plate strands */
+    background: color-mix(in srgb, var(--wm-panel) 78%, transparent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--wm-line-hi);
+    border-radius: 3px;
+    padding: 3px 9px;
+    box-shadow: none;
+    transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.post-tags li a::before,
+.terms-tags a::before {
+    content: "#";
+    color: var(--wm-faint);
+    margin-inline-end: 2px;
+}
+
+.post-tags li a:hover,
+.terms-tags a:hover {
+    color: var(--wm-signal);
+    border-color: var(--wm-signal-dim);
+    background: var(--wm-signal-haze);
+}
+
+/* the two tags that are the site's spine get the hot treatment */
+.post-tags li a[href*="cybersecurity"],
+.post-tags li a[href*="security"],
+.terms-tags a[href*="cybersecurity"],
+.terms-tags a[href*="security"] {
+    color: var(--wm-crit);
+    border-color: color-mix(in srgb, var(--wm-crit) 35%, transparent);
+}
+
+.post-tags li a[href*="cybersecurity"]:hover,
+.post-tags li a[href*="security"]:hover,
+.terms-tags a[href*="cybersecurity"]:hover,
+.terms-tags a[href*="security"]:hover {
+    background: color-mix(in srgb, var(--wm-crit) 10%, transparent);
+    border-color: var(--wm-crit);
+}
+
+/* --- pagination / paginav --------------------------------------------------- */
+.pagination a,
+.paginav a {
+    font-family: var(--wm-mono);
+    color: var(--wm-dim);
+    background: var(--wm-panel);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+}
+
+.pagination a:hover,
+.paginav a:hover {
+    color: var(--wm-signal);
+    border-color: var(--wm-signal-dim);
+}
+
+.paginav { border: 0; }
+.paginav .title {
+    font-family: var(--wm-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--wm-faint);
+}
+
+/* --- search ---------------------------------------------------------------- */
+#searchbox input {
+    font-family: var(--wm-mono);
+    background: var(--wm-panel);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+    color: var(--wm-text);
+    padding: 12px 14px;
+}
+
+#searchbox input:focus {
+    outline: none;
+    border-color: var(--wm-signal-dim);
+    box-shadow: 0 0 0 3px var(--wm-signal-haze);
+}
+
+#searchResults li:active,
+#searchResults li:focus,
+#searchResults li:hover {
+    background: var(--wm-signal-haze);
+}
+
+/* --- archive / terms -------------------------------------------------------- */
+.archive-year,
+.archive-month {
+    border-bottom: 1px solid var(--wm-line);
+}
+
+.archive-month-header,
+.archive-year-header {
+    font-family: var(--wm-mono);
+}
+
+.archive-entry-title { color: var(--wm-text); }
+.archive-entry:hover .archive-entry-title { color: var(--wm-signal); }
+
+.tag-entry { padding: 16px 18px; }
+.tag-entry .entry-header h2 { font-size: 1.05rem; }
+
+/* --- focus ring (keyboard) --------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--wm-signal);
+    outline-offset: 2px;
+    border-radius: 2px;
+}

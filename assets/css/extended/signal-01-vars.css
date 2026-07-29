@@ -1,0 +1,79 @@
+/* ============================================================================
+   SIGNAL — theme layer for WhiteMatterTech
+   ----------------------------------------------------------------------------
+   Keeps the white-matter idea (nodes, links, conveyed impulses) but reads it
+   through a security-operations lens: near-black canvas, hairline structure,
+   monospace telemetry, one signal colour doing all the talking.
+
+   Layered on top of PaperMod via assets/css/extended/*.css. The vendored theme
+   in themes/PaperMod is not modified, so this whole look reverts by deleting
+   the signal-*.css files and the two partial overrides.
+
+   ACCENT SWAP: every accent in the system derives from --wm-signal and
+   --wm-signal-2. Change those two lines to retheme the entire site.
+   ========================================================================== */
+
+:root {
+    /* --- surfaces ------------------------------------------------------- */
+    --wm-void: #06080c;
+    --wm-deep: #0a0e15;
+    --wm-panel: #0e131b;
+    --wm-panel-hi: #131a24;
+    --wm-line: #1c2531;
+    --wm-line-hi: #2a3648;
+
+    /* --- ink ------------------------------------------------------------ */
+    --wm-text: #c6d2e0;
+    --wm-head: #e8eef6;
+    --wm-dim: #78889c;
+    --wm-faint: #4a5768;
+
+    /* --- signal --------------------------------------------------------- */
+    --wm-signal: #35e0d0;   /* primary: links, focus, active, packets       */
+    --wm-signal-2: #67a2c9; /* heritage blue, carried over from the logo    */
+    --wm-warn: #ffb454;
+    --wm-crit: #ff5c78;
+
+    /* derived — do not hand-edit */
+    --wm-signal-dim: color-mix(in srgb, var(--wm-signal) 55%, transparent);
+    --wm-signal-ghost: color-mix(in srgb, var(--wm-signal) 14%, transparent);
+    --wm-signal-haze: color-mix(in srgb, var(--wm-signal) 7%, transparent);
+
+    /* --- type ----------------------------------------------------------- */
+    /* No webfont on purpose: an .onion mirror should not need a third-party
+       font request to render correctly. System mono is sharp everywhere. */
+    --wm-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+               "Liberation Mono", monospace;
+
+    /* --- geometry ------------------------------------------------------- */
+    --radius: 4px;
+    --wm-tick: 7px;
+}
+
+/* PaperMod is hard-pinned to dark here (defaultTheme: dark + toggle disabled),
+   so we re-point its own variables rather than fighting them selector-by-
+   selector. Everything the upstream theme styles inherits the new palette. */
+:root,
+.dark {
+    --theme: var(--wm-void);
+    --entry: var(--wm-panel);
+    --primary: var(--wm-head);
+    --secondary: var(--wm-dim);
+    --tertiary: var(--wm-line);
+    --content: var(--wm-text);
+    --code-block-bg: #080c12;
+    --code-bg: #121924;
+    --border: var(--wm-line);
+}
+
+/* The base colour lives on <html>, not <body>. The backdrop layers sit between
+   the two, and a painted <body> background would cover them on list pages. */
+html {
+    background-color: var(--wm-void);
+}
+
+body,
+.dark.list,
+.list {
+    background: transparent;
+}
