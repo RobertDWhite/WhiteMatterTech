@@ -1,0 +1,169 @@
+# Portfolio content. Kept as data rather than markup so the page can be
+# reordered or re-skinned without touching layout, and so nothing here has to
+# be duplicated in HTML.
+#
+# PUBLIC PAGE — deliberately excludes phone number and street-level location.
+# Titles mirror what is publicly verifiable on LinkedIn.
+
+positioning: >
+  Customer Success and Services leader who both builds and operates. I stand up
+  professional services and enablement functions from scratch, take over existing
+  CS and Support teams and drive measurable gains in retention and quality, and
+  own outcomes across the customer lifecycle. CISSP-level fluency in SOC 2,
+  ISO 27001, HIPAA and NIST — translated into customer-facing delivery rather
+  than left in a policy document.
+
+location: "Cincinnati, OH · Remote (US)"
+
+# Quantified outcomes. Each is a personal or program result rather than an
+# internal company figure.
+signals:
+  - value: "80%"
+    label: "churn reduction"
+    note: "strategic portfolio, Tanium"
+  - value: "+20%"
+    label: "accounts per engineer"
+    note: "within three months, via AI-enabled workflows"
+  - value: "1,000+"
+    label: "user genAI rollout"
+    note: "led end to end"
+  - value: "20"
+    label: "direct reports"
+    note: "plus 200+ supporting personnel"
+
+lenses:
+  - id: operate
+    kicker: "lens 01"
+    title: "Operate"
+    blurb: >
+      Building and running the customer-facing side of a security platform —
+      services, support, enablement, and the numbers they answer to.
+  - id: build
+    kicker: "lens 02"
+    title: "Build"
+    blurb: >
+      The same person, in a terminal. Everything below is running software, most
+      of it on a self-hosted Kubernetes cluster, all of it public source.
+
+roles:
+  - org: "Cyera"
+    title: "Manager, Customer Success Engineering"
+    period: "2024 — present"
+    context: "Data security posture management platform"
+    current: true
+    points:
+      - "Own the largest region and a portfolio spanning SMB through enterprise, accountable for net revenue retention, expansion, and customer outcomes."
+      - "Built the company's first onboarding, enablement, in-person training and Credly certification programs from the ground up — delivery methodology, service offerings, and repeatable segmented packages now reaching hundreds of companies and thousands of users."
+      - "Recruited and mentored the team that now runs those programs self-sufficiently."
+      - "Led a 1,000+ user generative-AI rollout and built AI-enabled workflows and reusable skills that raised accounts handled per engineer 20% in three months."
+      - "Lead customer-facing security reviews; translate SOC 2, ISO 27001 and NIST into delivery strategy. Executive escalation point, advising C-suite and boards."
+    tags: ["DSPM", "AI security", "NRR", "enablement"]
+
+  - org: "Tanium"
+    title: "Enterprise Services Engineer"
+    period: "2022 — 2024"
+    context: "Fortune 20, hospital and government customers"
+    points:
+      - "Led enterprise implementations, onboarding and support escalations; reduced churn 80% across a strategic portfolio by improving time-to-value, quality and adoption."
+      - "Codified repeatable delivery practice and enabled technical and non-technical teams as a Certified Instructor."
+      - "Trusted advisor to CISOs and boards on security and compliance outcomes."
+    tags: ["implementation", "escalations", "instruction"]
+
+  - org: "Matrix Research"
+    title: "Systems Engineer"
+    period: "2020 — 2022"
+    context: "Defense research"
+    points:
+      - "Owned compliance and security programs aligned to NIST 800-series, CMMC and RMF — the control foundations underlying SOC 2, ISO 27001 and HIPAA."
+      - "Secured cloud and CI/CD environments across AWS and Azure, including IAM."
+    tags: ["NIST 800", "CMMC", "RMF"]
+
+  - org: "Towne Church"
+    title: "Director of Technology"
+    period: "2013 — 2019"
+    context: "Non-profit"
+    points:
+      - "Built and led cross-functional teams of up to 20 direct reports and 200+ supporting personnel."
+      - "Owned budgets, vendor relationships and service delivery standards."
+    tags: ["team building", "budget", "vendor"]
+
+service:
+  - org: "Point University · Defiance College"
+    title: "Adjunct Professor — IT, AI & Cybersecurity"
+    period: "2024 — present"
+    note: "Curriculum in AI-enabled operations, cloud and security. Courses taught include Operating System Security and Ethical Hacking."
+  - org: "Ohio Cyber Reserve"
+    title: "Deputy Group Lead, Cincinnati Region"
+    period: "2023 — 2025"
+    note: "Volunteer reservist. Team captain at the National Cyber Exercise and Competition — 1st in Ohio, 8th nationally."
+
+# Public repositories only. Private work is described but never linked.
+projects:
+  - name: "whitehouse-rke2"
+    lang: "Python"
+    blurb: "GitOps monorepo for a self-hosted RKE2 Kubernetes cluster — the platform every project below actually runs on."
+    url: "https://github.com/RobertDWhite/whitehouse-rke2"
+    tags: ["kubernetes", "gitops", "homelab"]
+  - name: "weather-dashboard"
+    lang: "TypeScript"
+    blurb: "Self-hosted, NWS-grade weather operations console. VTEC alert parsing, NEXRAD and MRMS radar with playback, SPC severe products, aviation and marine feeds. Speaks CAP 1.2."
+    url: "https://github.com/RobertDWhite/weather-dashboard"
+    tags: ["fastapi", "react", "CAP 1.2"]
+  - name: "GrafLens"
+    lang: "Swift"
+    blurb: "Native iOS viewer for Grafana. Dashboards, alerts, annotations, snapshots, and home-screen widgets for any panel. No ads, no tracking."
+    url: "https://github.com/whitematter-tech/graflens"
+    tags: ["iOS", "widgets", "open source"]
+  - name: "congress-trades"
+    lang: "Python"
+    blurb: "Congressional trade tracker — disclosure ingestion, normalisation and a React front end."
+    url: "https://github.com/RobertDWhite/congress-trades"
+    tags: ["fastapi", "react", "data"]
+  - name: "astronomy"
+    lang: "TypeScript"
+    blurb: "Astronomy and space-weather dashboard: real-time solar imagery, geomagnetic conditions and sky data."
+    url: "https://github.com/RobertDWhite/astronomy"
+    tags: ["fastapi", "react"]
+  - name: "MCP server suite"
+    lang: "Python"
+    blurb: "Model Context Protocol servers exposing self-hosted services to AI agents — Search Console, Google News, FreshRSS, Monica, Jetlog and Congress data."
+    url: "https://github.com/RobertDWhite?tab=repositories&q=mcp"
+    tags: ["MCP", "agents", "ghcr"]
+  - name: "pages-mcp"
+    lang: "Python"
+    blurb: "Static-site host with an MCP upload tool, so an agent can publish an artifact and get back a URL."
+    url: "https://github.com/RobertDWhite/pages-mcp"
+    tags: ["MCP", "hosting"]
+  - name: "home-assistant"
+    lang: "YAML"
+    blurb: "Home automation config covering circadian lighting, VLAN-segmented IoT and presence."
+    url: "https://github.com/RobertDWhite/home-assistant"
+    tags: ["automation", "iot"]
+
+certifications:
+  primary: "CISSP"
+  items:
+    - "CISSP"
+    - "Certified AI Trust Practitioner"
+    - "Certified DSPM Architect"
+    - "Certified Security for AI Fundamentals"
+    - "Microsoft AZ-900"
+    - "Microsoft SC-900"
+    - "Tanium Certified Instructor (TCO, TCA, TCSCD, TCP)"
+    - "Apple Certified Support Professional"
+    - "Deep Instinct Certified Engineer"
+    - "MDM Certified (Jamf, Mosyle)"
+    - "FCC Amateur Radio — W3RDW"
+
+education:
+  - degree: "M.S. Information Technology"
+    school: "University of the Cumberlands"
+    year: "2022"
+  - degree: "B.A. Psychology"
+    school: "Miami University"
+    year: "2015"
+
+affiliations:
+  - "Center for Internet Security (CIS)"
+  - "InfraGard"
+  - "Microsoft Partner Network"

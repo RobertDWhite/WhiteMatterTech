@@ -1,0 +1,130 @@
+{{- define "main" }}
+{{- $p := site.Data.portfolio }}
+
+<article class="post-single portfolio">
+
+  <header class="portfolio-head">
+    <p class="portfolio-kicker">// portfolio</p>
+    <h1 class="post-title">{{ site.Params.homeInfoParams.Title }}</h1>
+    <p class="portfolio-role">{{ $p.location }}</p>
+    <p class="portfolio-positioning">{{ $p.positioning }}</p>
+    <p class="portfolio-actions">
+      <a class="portfolio-btn portfolio-btn--primary" href="mailto:robert@whitematter.tech">Get in touch</a>
+      <a class="portfolio-btn" href="https://linkedin.white.fm" rel="noopener noreferrer">LinkedIn</a>
+      <a class="portfolio-btn" href="https://github.white.fm" rel="noopener noreferrer">GitHub</a>
+    </p>
+  </header>
+
+  {{- /* Quantified outcomes, read as instrument tiles rather than prose. */}}
+  <section class="signal-tiles" aria-label="Selected outcomes">
+    {{- range $p.signals }}
+    <div class="signal-tile">
+      <span class="signal-tile__value">{{ .value }}</span>
+      <span class="signal-tile__label">{{ .label }}</span>
+      <span class="signal-tile__note">{{ .note }}</span>
+    </div>
+    {{- end }}
+  </section>
+
+  {{- /* ---- lens 01: operate ------------------------------------------- */}}
+  {{- $operate := index (where $p.lenses "id" "operate") 0 }}
+  <section class="lens" id="operate">
+    <div class="lens-head">
+      <span class="lens-kicker">{{ $operate.kicker }}</span>
+      <h2 class="lens-title">{{ $operate.title }}</h2>
+      <p class="lens-blurb">{{ $operate.blurb }}</p>
+    </div>
+
+    {{- /* Roles as nodes on a link line — the same graph idea as the backdrop. */}}
+    <ol class="track">
+      {{- range $p.roles }}
+      <li class="track-node{{ if .current }} track-node--live{{ end }}">
+        <div class="track-node__meta">
+          <span class="track-node__period">{{ .period }}</span>
+        </div>
+        <div class="track-node__body">
+          <h3 class="track-node__title">{{ .title }}</h3>
+          <p class="track-node__org">{{ .org }}{{ with .context }} <span>· {{ . }}</span>{{ end }}</p>
+          <ul class="track-node__points">
+            {{- range .points }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{- with .tags }}
+          <ul class="chip-row">
+            {{- range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{- end }}
+        </div>
+      </li>
+      {{- end }}
+    </ol>
+
+    <h3 class="sub-head">Teaching &amp; service</h3>
+    <div class="card-grid card-grid--two">
+      {{- range $p.service }}
+      <div class="mini-card">
+        <p class="mini-card__period">{{ .period }}</p>
+        <h4 class="mini-card__title">{{ .title }}</h4>
+        <p class="mini-card__org">{{ .org }}</p>
+        <p class="mini-card__note">{{ .note }}</p>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+
+  {{- /* ---- lens 02: build ---------------------------------------------- */}}
+  {{- $build := index (where $p.lenses "id" "build") 0 }}
+  <section class="lens" id="build">
+    <div class="lens-head">
+      <span class="lens-kicker">{{ $build.kicker }}</span>
+      <h2 class="lens-title">{{ $build.title }}</h2>
+      <p class="lens-blurb">{{ $build.blurb }}</p>
+    </div>
+
+    <div class="card-grid">
+      {{- range $p.projects }}
+      <a class="repo-card" href="{{ .url }}" rel="noopener noreferrer">
+        <span class="repo-card__lang" data-lang="{{ .lang }}">{{ .lang }}</span>
+        <h3 class="repo-card__name">{{ .name }}</h3>
+        <p class="repo-card__blurb">{{ .blurb }}</p>
+        {{- with .tags }}
+        <ul class="chip-row chip-row--sm">
+          {{- range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{- end }}
+      </a>
+      {{- end }}
+    </div>
+  </section>
+
+  {{- /* ---- credentials -------------------------------------------------- */}}
+  <section class="lens" id="credentials">
+    <div class="lens-head">
+      <span class="lens-kicker">lens 03</span>
+      <h2 class="lens-title">Credentials</h2>
+    </div>
+
+    <ul class="chip-row chip-row--wide">
+      {{- range $p.certifications.items }}
+      <li{{ if eq . $p.certifications.primary }} class="chip--primary"{{ end }}>{{ . }}</li>
+      {{- end }}
+    </ul>
+
+    <div class="card-grid card-grid--two">
+      {{- range $p.education }}
+      <div class="mini-card">
+        <p class="mini-card__period">{{ .year }}</p>
+        <h4 class="mini-card__title">{{ .degree }}</h4>
+        <p class="mini-card__org">{{ .school }}</p>
+      </div>
+      {{- end }}
+    </div>
+
+    <p class="affiliations">
+      {{- range $i, $a := $p.affiliations }}{{ if $i }} · {{ end }}{{ $a }}{{ end -}}
+    </p>
+  </section>
+
+  {{- with .Content }}<div class="post-content">{{ . }}</div>{{ end }}
+
+</article>
+{{- end }}

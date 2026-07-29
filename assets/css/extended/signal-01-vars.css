@@ -48,6 +48,11 @@
     /* --- geometry ------------------------------------------------------- */
     --radius: 4px;
     --wm-tick: 7px;
+
+    /* Nine top-level nav items in a monospace face no longer fit beside the
+       logo at the theme's 1024px. Widening the bar keeps the type scale
+       instead of shrinking the labels to fit. */
+    --nav-width: 1100px;
 }
 
 /* PaperMod is hard-pinned to dark here (defaultTheme: dark + toggle disabled),

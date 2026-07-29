@@ -1,0 +1,445 @@
+/* ============================================================================
+   SIGNAL — portfolio
+   ----------------------------------------------------------------------------
+   Two lenses on the same person: what he runs, and what he builds. Roles are
+   drawn as nodes on a link line so the page uses the same graph vocabulary as
+   the backdrop rather than inventing a second one.
+   ========================================================================== */
+
+/* The portfolio needs more room than the reading measure. Scoped with :has()
+   so no other page is affected; without :has() support it simply stays at the
+   default width and the grids collapse to one column. */
+.main:has(.portfolio) {
+    max-width: calc(1040px + var(--gap) * 2);
+}
+
+.portfolio {
+    padding: 10px 38px 40px;
+}
+
+@media (max-width: 700px) {
+    .portfolio { padding: 6px 18px 28px; }
+}
+
+/* --- head ------------------------------------------------------------------ */
+.portfolio-head {
+    padding: 18px 0 30px;
+    border-bottom: 1px solid var(--wm-line);
+}
+
+.portfolio-kicker {
+    font-family: var(--wm-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wm-signal);
+    margin: 0 0 10px;
+}
+
+.portfolio .post-title {
+    margin: 0 0 8px;
+    font-size: 2.4rem;
+}
+
+.portfolio-role {
+    font-family: var(--wm-mono);
+    font-size: 0.78rem;
+    color: var(--wm-dim);
+    margin: 0 0 18px;
+}
+
+.portfolio-positioning {
+    max-width: 74ch;
+    margin: 0 0 22px;
+    padding-inline-start: 16px;
+    border-inline-start: 2px solid var(--wm-signal);
+    font-size: 1rem;
+    line-height: 1.68;
+    color: var(--wm-text);
+}
+
+.portfolio-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+}
+
+.portfolio-btn {
+    font-family: var(--wm-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    padding: 8px 16px;
+    border: 1px solid var(--wm-line-hi);
+    border-radius: var(--radius);
+    color: var(--wm-dim);
+    text-decoration: none;
+    transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.portfolio-btn:hover {
+    color: var(--wm-signal);
+    border-color: var(--wm-signal-dim);
+    background: var(--wm-signal-haze);
+}
+
+.portfolio-btn--primary {
+    color: var(--wm-void);
+    background: var(--wm-signal);
+    border-color: var(--wm-signal);
+    font-weight: 600;
+}
+
+.portfolio-btn--primary:hover {
+    color: var(--wm-void);
+    background: color-mix(in srgb, var(--wm-signal) 82%, #ffffff);
+    border-color: var(--wm-signal);
+}
+
+/* --- signal tiles ----------------------------------------------------------- */
+.signal-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 26px 0 8px;
+}
+
+.signal-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 16px 16px 14px;
+    background: color-mix(in srgb, var(--wm-signal) 4%, transparent);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+}
+
+.signal-tile::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: var(--wm-tick);
+    height: var(--wm-tick);
+    border-top: 1px solid var(--wm-signal-ghost);
+    border-right: 1px solid var(--wm-signal-ghost);
+}
+
+.signal-tile__value {
+    font-family: var(--wm-mono);
+    font-size: 1.85rem;
+    line-height: 1.05;
+    color: var(--wm-signal);
+    letter-spacing: -0.02em;
+}
+
+.signal-tile__label {
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wm-text);
+}
+
+.signal-tile__note {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--wm-faint);
+}
+
+/* --- lens sections ---------------------------------------------------------- */
+.lens {
+    margin-top: 46px;
+    scroll-margin-top: 90px;
+}
+
+.lens-head {
+    margin-bottom: 22px;
+}
+
+.lens-kicker {
+    display: block;
+    font-family: var(--wm-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wm-faint);
+}
+
+.lens-title {
+    margin: 4px 0 8px;
+    font-size: 1.65rem;
+    letter-spacing: -0.02em;
+    color: var(--wm-head);
+}
+
+.lens-title::before {
+    content: "// ";
+    font-family: var(--wm-mono);
+    font-size: 0.72em;
+    color: var(--wm-signal);
+}
+
+.lens-blurb {
+    max-width: 70ch;
+    margin: 0;
+    color: var(--wm-dim);
+    line-height: 1.62;
+}
+
+.sub-head {
+    margin: 38px 0 16px;
+    font-family: var(--wm-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--wm-dim);
+}
+
+/* --- role track (nodes on a link line) --------------------------------------- */
+.track {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.track-node {
+    position: relative;
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 30px;
+    padding: 0 0 30px 0;
+}
+
+/* the link line, drawn between node dots */
+.track-node::before {
+    content: "";
+    position: absolute;
+    left: 132px;
+    top: 14px;
+    bottom: -6px;
+    width: 1px;
+    background: linear-gradient(to bottom,
+        var(--wm-line-hi), color-mix(in srgb, var(--wm-line-hi) 20%, transparent));
+}
+
+.track-node:last-child::before { display: none; }
+
+/* the node itself */
+.track-node::after {
+    content: "";
+    position: absolute;
+    left: 129px;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--wm-panel);
+    border: 1px solid var(--wm-line-hi);
+}
+
+.track-node--live::after {
+    background: var(--wm-signal);
+    border-color: var(--wm-signal);
+    box-shadow: 0 0 12px var(--wm-signal);
+}
+
+.track-node__meta {
+    text-align: end;
+    padding-top: 2px;
+}
+
+.track-node__period {
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    color: var(--wm-faint);
+    white-space: nowrap;
+}
+
+
+.track-node__title {
+    margin: 0;
+    font-size: 1.12rem;
+    color: var(--wm-head);
+    letter-spacing: -0.01em;
+}
+
+.track-node__org {
+    margin: 3px 0 12px;
+    font-family: var(--wm-mono);
+    font-size: 0.76rem;
+    color: var(--wm-signal-2);
+}
+
+.track-node__org span { color: var(--wm-faint); }
+
+.track-node__points {
+    margin: 0;
+    padding-inline-start: 18px;
+    color: var(--wm-text);
+}
+
+.track-node__points li {
+    margin-bottom: 7px;
+    line-height: 1.6;
+    font-size: 0.94rem;
+}
+
+.track-node__points li::marker { color: var(--wm-signal-dim); }
+
+@media (max-width: 700px) {
+    .track-node { grid-template-columns: 1fr; gap: 6px; }
+    .track-node::before,
+    .track-node::after { display: none; }
+    .track-node__meta { text-align: start; }
+    .track-node__body { padding-inline-start: 0; }
+}
+
+/* --- chips ------------------------------------------------------------------- */
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+}
+
+.chip-row li {
+    font-family: var(--wm-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    color: var(--wm-dim);
+    background: color-mix(in srgb, var(--wm-panel-hi) 80%, transparent);
+    border: 1px solid var(--wm-line);
+    border-radius: 3px;
+    padding: 3px 8px;
+}
+
+.chip-row--sm li { font-size: 0.64rem; padding: 2px 7px; }
+
+.chip-row--wide { margin: 0 0 26px; gap: 8px; }
+.chip-row--wide li { padding: 5px 11px; font-size: 0.72rem; }
+
+.chip-row .chip--primary {
+    color: var(--wm-signal);
+    border-color: var(--wm-signal-dim);
+    background: var(--wm-signal-haze);
+    font-weight: 600;
+}
+
+/* --- card grids --------------------------------------------------------------- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 14px;
+}
+
+.card-grid--two {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-top: 14px;
+}
+
+.repo-card {
+    position: relative;
+    display: block;
+    padding: 18px 18px 16px;
+    background: color-mix(in srgb, var(--wm-panel) 88%, transparent);
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.repo-card:hover {
+    border-color: var(--wm-signal-ghost);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px -18px var(--wm-signal);
+}
+
+.repo-card__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--wm-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wm-faint);
+}
+
+.repo-card__lang::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--wm-faint);
+}
+
+.repo-card__lang[data-lang="Python"]::before     { background: #4b8bbe; }
+.repo-card__lang[data-lang="TypeScript"]::before { background: #3178c6; }
+.repo-card__lang[data-lang="Swift"]::before      { background: #f05138; }
+.repo-card__lang[data-lang="YAML"]::before       { background: #9ae08a; }
+
+.repo-card__name {
+    margin: 8px 0 6px;
+    font-family: var(--wm-mono);
+    font-size: 1rem;
+    color: var(--wm-head);
+    letter-spacing: -0.01em;
+}
+
+.repo-card:hover .repo-card__name { color: var(--wm-signal); }
+
+.repo-card__blurb {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--wm-dim);
+}
+
+/* --- mini cards ---------------------------------------------------------------- */
+.mini-card {
+    padding: 16px 18px;
+    background: color-mix(in srgb, var(--wm-panel) 82%, transparent);
+    border: 1px solid var(--wm-line);
+    border-inline-start: 2px solid var(--wm-signal-dim);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.mini-card__period {
+    margin: 0 0 6px;
+    font-family: var(--wm-mono);
+    font-size: 0.68rem;
+    color: var(--wm-faint);
+}
+
+.mini-card__title {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--wm-head);
+}
+
+.mini-card__org {
+    margin: 3px 0 8px;
+    font-family: var(--wm-mono);
+    font-size: 0.74rem;
+    color: var(--wm-signal-2);
+}
+
+.mini-card__note {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--wm-dim);
+}
+
+.affiliations {
+    margin: 22px 0 0;
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--wm-faint);
+}
