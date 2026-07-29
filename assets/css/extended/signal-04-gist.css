@@ -1,0 +1,83 @@
+/* ============================================================================
+   SIGNAL — embedded GitHub gists
+   ----------------------------------------------------------------------------
+   The gist shortcode injects GitHub's embed script, which writes its markup
+   straight into the document and pulls in a light-mode stylesheet. On a dark
+   site that leaves a white slab in the middle of long posts — several of the
+   homelab write-ups are mostly gist.
+
+   The embed is same-document (not an iframe), so it can simply be restyled.
+   GitHub's rules are two classes deep; scoping through .post-content wins on
+   specificity without needing !important, and without touching the shortcode.
+   ========================================================================== */
+
+.post-content .gist {
+    margin: var(--content-gap) 0;
+}
+
+.post-content .gist .gist-file {
+    border: 1px solid var(--wm-line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.post-content .gist .gist-data {
+    background-color: var(--code-block-bg);
+    border-bottom: 1px solid var(--wm-line);
+}
+
+.post-content .gist .highlight,
+.post-content .gist .blob-wrapper {
+    background-color: var(--code-block-bg);
+}
+
+.post-content .gist .blob-num {
+    color: var(--wm-faint);
+    background-color: transparent;
+    border-color: var(--wm-line);
+}
+
+.post-content .gist .blob-code,
+.post-content .gist .blob-code-inner {
+    color: var(--wm-text);
+    background-color: transparent;
+}
+
+.post-content .gist tr:nth-child(even) .blob-code,
+.post-content .gist tr:nth-child(even) .blob-num {
+    background-color: transparent;
+}
+
+/* footer bar: "hosted with ♥ by GitHub / view raw" */
+.post-content .gist .gist-meta {
+    background-color: var(--wm-panel);
+    color: var(--wm-dim);
+    border-top: 0;
+    font-family: var(--wm-mono);
+    font-size: 0.7rem;
+}
+
+.post-content .gist .gist-meta a {
+    color: var(--wm-signal);
+    border-bottom: 0;
+}
+
+/* --- syntax tokens ---------------------------------------------------------
+   GitHub's primer prefixes. Mapped onto the signal palette so gists read the
+   same as Hugo-highlighted blocks rather than as a foreign object. */
+.post-content .gist .pl-c,
+.post-content .gist .pl-c span { color: var(--wm-faint); font-style: italic; }
+
+.post-content .gist .pl-k        { color: #ff7ba8; }
+.post-content .gist .pl-s,
+.post-content .gist .pl-pds,
+.post-content .gist .pl-s .pl-pse .pl-s1 { color: var(--wm-signal); }
+.post-content .gist .pl-c1,
+.post-content .gist .pl-s .pl-v  { color: var(--wm-warn); }
+.post-content .gist .pl-en,
+.post-content .gist .pl-e        { color: var(--wm-signal-2); }
+.post-content .gist .pl-v,
+.post-content .gist .pl-smi,
+.post-content .gist .pl-vpf      { color: var(--wm-text); }
+.post-content .gist .pl-ent      { color: #9ae08a; }

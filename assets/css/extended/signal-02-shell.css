@@ -1,0 +1,314 @@
+/* ============================================================================
+   SIGNAL — shell: backdrop, header, nav, footer
+   ========================================================================== */
+
+body {
+    color: var(--wm-text);
+}
+
+/* --- backdrop --------------------------------------------------------------
+   The five fixed layers below all sit at z-index 0; document order stacks
+   them. Content is lifted to z-index 1. Nothing uses a negative z-index, so
+   the layers stay visible regardless of what paints a background on <body>.
+
+   Upstream put #particles-js at position:absolute with height:100%, which
+   resolves against the initial containing block — so the neuron field only
+   ever covered the first viewport and every page went flat below the fold.
+   Fixed positioning makes it a true backdrop and costs less to paint. */
+.wm-plate,
+#particles-js,
+.wm-grid,
+.wm-veil,
+.wm-scan {
+    position: fixed;
+    z-index: 0;
+}
+
+.wm-plate,
+.wm-grid,
+.wm-veil {
+    inset: 0;
+    pointer-events: none;
+}
+
+#particles-js {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none; /* the brain photo moves to its own layer below */
+}
+
+/* packet canvas, stacked on the particle canvas in the same coordinate space */
+#particles-js .wm-packets {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.header,
+.main,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Brain plate, re-cut as texture rather than photograph: knocked back hard and
+   tinted into the signal colour so it reads as neural structure, not stock. */
+.wm-plate {
+    background: url("/brain-dark.png") no-repeat 50% 42% / cover;
+    opacity: 0.8;
+    filter: grayscale(1) brightness(1.25) contrast(1.15)
+            sepia(1) hue-rotate(140deg) saturate(2);
+}
+
+/* Hairline survey grid — structure under the network, barely there. */
+.wm-grid {
+    background-image:
+        linear-gradient(to right, rgba(120, 170, 200, 0.055) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(120, 170, 200, 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 100%);
+}
+
+/* Vignette + colour grade over the whole stack, so content always wins. */
+.wm-veil {
+    background:
+        radial-gradient(ellipse 120% 80% at 50% -10%,
+            color-mix(in srgb, var(--wm-signal) 9%, transparent) 0%,
+            transparent 62%),
+        radial-gradient(ellipse 115% 105% at 50% 45%,
+            transparent 40%,
+            color-mix(in srgb, var(--wm-void) 88%, transparent) 100%);
+}
+
+/* Slow scan sweep. One element, one transform, GPU-cheap. */
+.wm-scan {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 45vh;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        color-mix(in srgb, var(--wm-signal) 3%, transparent) 60%,
+        color-mix(in srgb, var(--wm-signal) 7%, transparent) 92%,
+        color-mix(in srgb, var(--wm-signal) 22%, transparent) 99.4%,
+        transparent 100%);
+    animation: wm-sweep 14s linear infinite;
+}
+
+@keyframes wm-sweep {
+    0%   { transform: translate3d(0, -50vh, 0); opacity: 0; }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { transform: translate3d(0, 100vh, 0); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wm-scan { display: none; }
+}
+
+/* --- header ---------------------------------------------------------------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: color-mix(in srgb, var(--wm-void) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(1.3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    border-bottom: 1px solid var(--wm-line);
+}
+
+/* the signal seam: a lit hairline that fades out at both edges */
+.header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(to right,
+        transparent, var(--wm-signal-dim) 22%, var(--wm-signal) 50%,
+        var(--wm-signal-dim) 78%, transparent);
+    opacity: 0.5;
+}
+
+.nav {
+    align-items: center;
+}
+
+/* --- logo ------------------------------------------------------------------ */
+.logo__mark {
+    color: var(--wm-signal);
+    text-shadow: 0 0 14px var(--wm-signal-dim);
+}
+
+.logo__text {
+    font-family: var(--wm-mono);
+    color: var(--wm-head);
+    letter-spacing: -0.01em;
+}
+
+.logo__cursor {
+    background: var(--wm-signal) !important;
+    box-shadow: 0 0 10px var(--wm-signal-dim);
+}
+
+/* --- nav ------------------------------------------------------------------- */
+#menu {
+    gap: 2px;
+}
+
+#menu li + li {
+    margin-inline-start: 0;
+}
+
+#menu a {
+    font-family: var(--wm-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+    color: var(--wm-dim);
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: color 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+#menu a:hover {
+    color: var(--wm-head);
+    background: var(--wm-signal-haze);
+    border-color: var(--wm-signal-ghost);
+}
+
+/* upstream draws the active item with a full underline box; replace it with a
+   bracketed terminal-style marker that matches the ">#" logo */
+#menu .active {
+    font-weight: 500;
+    color: var(--wm-signal);
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+}
+
+#menu .active::before { content: "["; color: var(--wm-faint); margin-inline-end: 3px; }
+#menu .active::after  { content: "]"; color: var(--wm-faint); margin-inline-start: 3px; }
+
+/* --- telemetry rail --------------------------------------------------------
+   Small honest status line about how this site is served. Every claim here is
+   true of the deployment: TLS is enforced, the onion mirror is advertised via
+   Onion-Location, the feed is live, and the source is public. */
+.wm-rail {
+    position: relative;
+    z-index: 1;
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin-inline: auto;
+    padding: 12px var(--gap) 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    font-family: var(--wm-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--wm-faint);
+}
+
+.wm-rail span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.wm-rail span::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--wm-signal);
+    box-shadow: 0 0 7px var(--wm-signal);
+}
+
+.wm-rail .wm-rail-idle::before {
+    background: var(--wm-faint);
+    box-shadow: none;
+}
+
+@media (max-width: 700px) {
+    .wm-rail { display: none; }
+}
+
+/* --- footer ---------------------------------------------------------------- */
+.footer {
+    font-family: var(--wm-mono);
+    font-size: 0.72rem;
+    color: var(--wm-faint);
+    border-top: 1px solid var(--wm-line);
+    margin-top: 48px;
+    padding-top: 20px;
+    background: linear-gradient(to bottom, transparent, var(--wm-deep));
+}
+
+.footer a {
+    color: var(--wm-dim);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--wm-line-hi);
+}
+
+.footer a:hover {
+    color: var(--wm-signal);
+    border-bottom-color: var(--wm-signal-dim);
+}
+
+.onion-note {
+    font-family: var(--wm-mono);
+    opacity: 1 !important;
+    font-size: 0.7rem !important;
+}
+
+.onion-note a {
+    color: var(--wm-faint);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--wm-line-hi);
+}
+
+.onion-note a::before {
+    content: "tor // ";
+    color: var(--wm-signal);
+    opacity: 0.7;
+}
+
+.onion-note a:hover {
+    color: var(--wm-signal);
+}
+
+.top-link {
+    background: var(--wm-panel-hi);
+    border: 1px solid var(--wm-line-hi);
+    color: var(--wm-signal);
+    border-radius: var(--radius);
+    backdrop-filter: blur(8px);
+}
+
+/* --- social icons ---------------------------------------------------------- */
+.social-icons a svg {
+    color: var(--wm-dim);
+    transition: color 0.16s ease, transform 0.16s ease;
+}
+
+.social-icons a:hover svg {
+    color: var(--wm-signal);
+    transform: translateY(-2px);
+}
+
+/* --- scrollbar ------------------------------------------------------------- */
+::-webkit-scrollbar-track { background: var(--wm-void); }
+::-webkit-scrollbar-thumb { background: var(--wm-line-hi); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--wm-signal-dim); }
+
+::selection {
+    background: var(--wm-signal-dim);
+    color: var(--wm-void);
+}
