@@ -10,6 +10,10 @@
        live in the theme's own extend_footer partial, but this project-level partial
        overrides that one wholesale, so they were dropped when the onion note was
        added. Re-include them here, with root-absolute paths (relURL) so the
-       animation loads on every page and not only the homepage. */ -}}
+       animation loads on every page and not only the homepage.
+
+       particles-signal.js supersedes the old particles.js config: recoloured to
+       the signal palette, honours prefers-reduced-motion, adds the packet layer,
+       and drops the stats.js FPS counter that threw on every page load. */ -}}
 <script src="{{ "js/particles.min.js" | relURL }}" defer></script>
-<script src="{{ "js/particles.js" | relURL }}" defer></script>
+<script src="{{ "js/particles-signal.js" | relURL }}" defer></script>
