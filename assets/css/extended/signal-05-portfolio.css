@@ -48,18 +48,6 @@
     margin: 0 0 18px;
 }
 
-/* clearance reads as a credential badge, not as body text */
-.portfolio-clearance {
-    display: inline-block;
-    margin-inline-start: 6px;
-    padding: 2px 8px;
-    border: 1px solid var(--wm-signal-dim);
-    border-radius: 3px;
-    background: var(--wm-signal-haze);
-    color: var(--wm-signal);
-    font-size: 0.72rem;
-}
-
 .portfolio-positioning {
     max-width: 74ch;
     margin: 0 0 22px;

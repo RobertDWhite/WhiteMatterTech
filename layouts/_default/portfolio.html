@@ -6,10 +6,7 @@
   <header class="portfolio-head">
     <p class="portfolio-kicker">// portfolio</p>
     <h1 class="post-title">{{ site.Params.homeInfoParams.Title }}</h1>
-    <p class="portfolio-role">
-      {{ $p.location }}
-      {{- with $p.clearance }} <span class="portfolio-clearance">{{ . }}</span>{{ end }}
-    </p>
+    <p class="portfolio-role">{{ $p.location }}</p>
     <p class="portfolio-positioning">{{ $p.positioning }}</p>
     <p class="portfolio-actions">
       <a class="portfolio-btn portfolio-btn--primary" href="mailto:robert@whitematter.tech">Get in touch</a>

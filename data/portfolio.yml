@@ -18,7 +18,6 @@ positioning: >
   setting strategy with a board and in a terminal at 1am.
 
 location: "Cincinnati, OH · Remote (US)"
-clearance: "Active U.S. DoD Secret Clearance"
 
 signals:
   - value: "1,000+"
@@ -57,7 +56,7 @@ domains:
       real — government, defense, healthcare and regulated SaaS — and translating
       technical risk into decisions a board can act on.
     proof:
-      - "CISSP; active U.S. DoD Secret clearance"
+      - "CISSP-certified; security programs built and matured end to end"
       - "Programs aligned to NIST 800-53, CSF, RMF, CMMC and zero-trust — the control families under CJIS, FedRAMP, SOC 2, ISO 27001 and HIPAA"
       - "Stood up penetration-testing, incident-response and GRC practices from scratch"
       - "Incident response for state critical infrastructure; government cloud (GCC-High)"
@@ -203,7 +202,6 @@ certifications:
   primary: "CISSP"
   items:
     - "CISSP"
-    - "Active U.S. DoD Secret Clearance"
     - "Certified AI Trust Practitioner"
     - "Certified DSPM Architect"
     - "Certified Security for AI Fundamentals"
