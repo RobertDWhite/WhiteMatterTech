@@ -7,12 +7,18 @@
             the first viewport. It is fixed now (see signal-02-shell.css).
 
        Order matters — these are all z-index:0 and stack by document order:
-       plate (texture) → grid (structure) → particles (the network) →
-       veil (grade) → scan (sweep). */ -}}
+       plate (texture) → grid (structure) → veil (grade) → particles (the
+       network) → scan (sweep).
+
+       The veil sits UNDER the particles deliberately. It exists to knock the
+       brain plate back so body copy wins; when it was layered over the network
+       as well it washed the nodes out to almost nothing, worst at the edges
+       where its vignette is strongest. Grading the plate and grading the
+       network are two different jobs. */ -}}
 <div class="wm-plate" aria-hidden="true"></div>
 <div class="wm-grid" aria-hidden="true"></div>
-<div id="particles-js"></div>
 <div class="wm-veil" aria-hidden="true"></div>
+<div id="particles-js"></div>
 <div class="wm-scan" aria-hidden="true"></div>
 
 {{- /* Telemetry rail: how this page is actually served. Every claim is true of
