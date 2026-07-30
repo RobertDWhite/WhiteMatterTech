@@ -86,7 +86,7 @@ params:
     ShowCodeCopyButtons: true
     ShowToc: true
     comments: false
-    images: ["brain.jpg"]
+    images: ["images/whitemattertech-blog-thumbnail.png"]
 
     logo:
       logoHomeLink: "/"
