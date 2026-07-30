@@ -23,7 +23,7 @@
 
     particlesJS("particles-js", {
         particles: {
-            number: { value: 38, density: { enable: true, value_area: 900 } },
+            number: { value: 46, density: { enable: true, value_area: 900 } },
             color: { value: [SIGNAL, SIGNAL_2, "#ffffff"] },
             shape: {
                 type: "circle",
@@ -31,17 +31,17 @@
                 polygon: { nb_sides: 5 }
             },
             opacity: {
-                value: 0.55,
+                value: 0.8,
                 random: true,
                 anim: {
                     enable: !reduceMotion,
                     speed: 0.5,
-                    opacity_min: 0.08,
+                    opacity_min: 0.3,
                     sync: false
                 }
             },
             size: {
-                value: 2.4,
+                value: 2.6,
                 random: true,
                 anim: {
                     enable: !reduceMotion,
@@ -54,8 +54,8 @@
                 enable: true,
                 distance: 155,
                 color: SIGNAL,
-                opacity: 0.24,
-                width: 1
+                opacity: 0.4,
+                width: 1.2
             },
             move: {
                 enable: !reduceMotion,
