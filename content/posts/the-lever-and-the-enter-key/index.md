@@ -5,6 +5,7 @@ categories:
   - "science"
   - "ai"
 tags:
+  - "ai"
   - "neuroscience"
   - "reinforcement"
   - "llm"

@@ -8,6 +8,7 @@ categories:
   - "ai"
   - "tutorials"
 tags:
+  - "ai"
   - "sdr"
   - "gnuradio"
   - "kubernetes"
