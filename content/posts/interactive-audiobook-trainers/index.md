@@ -7,6 +7,7 @@ categories:
   - "kubernetes"
   - "learning"
 tags:
+  - "ai"
   - "whisper"
   - "mlx"
   - "apple-silicon"
