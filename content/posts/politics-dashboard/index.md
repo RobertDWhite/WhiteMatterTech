@@ -8,6 +8,7 @@ categories:
   - "oss"
   - "tutorials"
 tags:
+  - "ai"
   - "politics"
   - "rss"
   - "ollama"
