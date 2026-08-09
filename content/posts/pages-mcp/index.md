@@ -1,6 +1,6 @@
 ---
 title: "Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes"
-date: "2026-08-09"
+date: "2026-08-08"
 categories:
   - "ai"
   - "kubernetes"
