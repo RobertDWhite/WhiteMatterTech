@@ -9,10 +9,16 @@ ShowWordCount: false
 comments: false
 ---
 
-This site is also published as a **Tor onion service** — a copy of the site that
-lives entirely inside the [Tor network](https://www.torproject.org/). Reading it
-over Tor keeps your browsing private: your network, ISP, and the site itself
-can't see who you are or which pages you read.
+This site is also available as a **Tor onion service**: a version reachable only
+through the [Tor network](https://www.torproject.org/). An onion service conceals
+the service's network location and IP address, while Tor Browser prevents the
+site from learning a visitor's public IP address through the connection itself.
+
+This is a meaningful privacy property, not an absolute guarantee of anonymity.
+Your network provider can ordinarily observe that you are connecting to Tor,
+although it cannot ordinarily determine the particular onion service you visit.
+Likewise, information you voluntarily disclose through an account, form, or
+other application interaction remains attributable in the ordinary way.
 
 ## Onion address
 
@@ -22,17 +28,20 @@ geum4af5dyfmyiagbablqyixvwcjlo7zvwgmyebcsg7qmnbucignomqd.onion
 
 [**Open this site on Tor**](http://geum4af5dyfmyiagbablqyixvwcjlo7zvwgmyebcsg7qmnbucignomqd.onion)
 
-That link only opens in the **Tor Browser**. In a normal browser, copy the
-address above and paste it into Tor Browser instead.
+The address requires a Tor-aware browser and connection. **Tor Browser** is the
+recommended client; in an ordinary browser, copy the address above and open it
+in Tor Browser instead.
 
 ## Don't have Tor Browser yet?
 
-It's free and official: download it from
-[torproject.org/download](https://www.torproject.org/download/) for Windows,
-macOS, Linux, or Android. Install it, open it, and paste the address above.
+Tor Browser is free and available from the official
+[Tor Project download page](https://www.torproject.org/download/) for Windows,
+macOS, Linux, and Android. Install it, open it, and paste the address above.
 
-## Already browsing over Tor?
+## Navigating from the clearnet site
 
-You don't need this page — every page here advertises its own onion address, so
-the Tor Browser shows a purple **".onion available"** badge in the address bar.
-Click it and you'll be taken to the onion version automatically.
+Tor Browser displays a purple **".onion available"** prompt when a clearnet
+site returns the non-standard `Onion-Location` HTTP response header. This site
+does not currently emit that header from its public edge, which means the prompt
+should not be relied upon for automatic navigation. Use the address above when
+you want the onion version of the site.
