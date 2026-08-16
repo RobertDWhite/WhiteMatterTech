@@ -1,5 +1,5 @@
 ---
-title: "Parsing Every Congressional Stock Disclosure: Eighteen CronJobs and a Lot of Bad PDFs"
+title: "Parsing Every Congressional Stock Disclosure: Seventeen CronJobs and a Lot of Bad PDFs"
 date: "2026-08-09"
 categories:
   - "data"
@@ -28,11 +28,11 @@ aliases:
 --------------------------------------------------
 # Introduction
 
-Members of the US Congress are required to disclose their stock trades. The disclosures are public. They are also, as a dataset, close to unusable: the House publishes a ZIP of filings whose underlying documents are frequently scanned images, the Senate publishes through a separate system with its own quirks, tickers are inconsistent or absent, and neither chamber publishes anything you could call an API.
+Members of the United States Congress must disclose many securities transactions, and the resulting records are public. As a dataset, however, they are close to unusable: the House publishes a ZIP archive whose underlying filings are frequently scanned images; the Senate uses a separate system with its own irregularities; tickers are inconsistent or absent; and neither chamber provides an interface resembling a durable public API.
 
 Several commercial services solve this and sell the result. I wanted to see how much of it I could do myself, in-cluster, from the primary sources.
 
-The answer is `congress-trades`, running at `congress.white.fm`. It parses both chambers directly, enriches trades with party and district, reconstructs approximate net worth from annual financial disclosure reports, tags sectors, backtests follow-the-politician strategies, and serves the result behind public SSO. This post covers the architecture and the parts that turned out to be hard.
+The result is `congress-trades`, running at `congress.white.fm`. It ingests both chambers directly, enriches records with party and district data, estimates net-worth ranges from annual financial-disclosure reports, assigns sectors, calculates hypothetical follow-the-politician backtests, and serves the result behind public single sign-on. This post describes the architecture and the portions that demanded the greatest care.
 
 --------------------------------------------------------
 # Read This First
@@ -50,35 +50,35 @@ The answer is `congress-trades`, running at `congress.white.fm`. It parses both 
 --------------------------------------------------------
 # The Shape
 
-One Postgres instance, one API deployment, one UI deployment, and eighteen CronJobs. The CronJobs are the application; the API mostly reads what they wrote.
+One PostgreSQL instance, one API deployment, one UI deployment, and seventeen CronJobs compose the system. The CronJobs perform the substantive application work; the API primarily reads and presents their output.
 
 They fall into three tiers by cadence.
 
 **Ingest, every fifteen to twenty minutes.** The House job pulls the disclosure ZIP with a conditional GET, which means it returns 304 and does nothing on most runs. The Senate job walks the filing list incrementally and stops when it reaches a filing it has already seen, with a two-second throttle between requests. A third job cross-checks both twice daily as a safety net.
 
-**Enrichment, hourly to daily.** Live quotes every ten minutes, an SEC 8-K firehose every thirty, legislative context every six hours, StockTwits sentiment every six hours, price history and follower returns each morning, AI-written summaries at 06:30.
+**Enrichment, from ten minutes to daily.** Quote refreshes run every ten minutes; SEC 8-K collection runs every thirty minutes; legislative context and StockTwits sentiment refresh every six hours; price history, follower returns, and model-generated summaries run each morning.
 
 **Slow-moving, weekly.** Party, state, and district come from the `congress-legislators` dataset on Sundays. Net worth recalculates Monday mornings, because annual reports update roughly once a year and rechecking is cheap.
 
-Splitting on cadence rather than on subject matter is what keeps this affordable. The expensive, polite scrapers run rarely. The cheap conditional-GET poller runs constantly and usually does nothing.
+Cadence, rather than subject matter, determines the division of work. The more expensive and deliberately restrained scrapers run infrequently, whereas the inexpensive conditional-GET poller runs often and ordinarily performs no work.
 
 --------------------------------------------------------
 # Parsing Is the Whole Problem
 
-Everything interesting is in the ingest tier, and it is all recovering structure from documents that were never meant to be machine-read.
+The substantive difficulty resides in ingestion: recovering usable structure from documents that were never designed for machine interpretation.
 
 House filings arrive as PDFs. Some are digitally generated and yield clean text with `pdftotext`. Others are scans, sometimes of a printout of a form filled in by hand, and require OCR. The parser tries text extraction first and falls back to OCR when the extracted text is empty or implausibly short. Neither path is reliable enough to trust on its own, which is why a reconciliation job exists.
 
-Tickers are the second problem. A filing may name "Apple Inc" with no symbol, may use a symbol that has since changed, or may describe a holding in a way that maps to no symbol at all. A separate job runs conservative ticker normalization against trades with null tickers every six hours. Conservative is the operative word: a wrong ticker is worse than a missing one, because a wrong ticker silently corrupts every downstream calculation.
+Tickers constitute the second problem. A filing may name "Apple Inc" without a symbol, may use a symbol that has since changed, or may describe a holding that maps to no symbol at all. A separate job applies conservative ticker normalization to primary-source trades with null tickers every six hours. Conservatism is essential: an erroneous ticker silently contaminates every subsequent calculation and is materially worse than an acknowledged omission.
 
-The reconciliation job runs every four hours and compares parser output against an independent feed. It exists because a parser that silently degrades is the most likely failure mode in a system like this. Filings keep arriving, rows keep being written, dashboards keep rendering, and the numbers are quietly wrong. Comparing against a second source is the cheapest way to notice.
+The reconciliation job runs every four hours and compares parser output with an independent feed. It exists because silent parser degradation is the most plausible failure mode in a system of this kind: filings continue to arrive, rows continue to be written, dashboards continue to render, and the numbers become quietly incorrect. Comparison with a second source provides a practical means of detecting that condition.
 
 --------------------------------------------------------
 # Net Worth From Annual Reports
 
 Trades tell you what someone bought. They do not tell you whether the purchase was significant relative to their holdings, and a $15,000 trade means something different for different members.
 
-Annual financial disclosure reports give asset ranges rather than values, which means the reconstruction is necessarily approximate: the output is a band, not a number. The job that builds this runs weekly and its result is presented as a range in the UI, deliberately, because presenting a midpoint as a figure would imply precision the source documents do not contain.
+Annual financial-disclosure reports provide asset ranges rather than values; the resulting reconstruction is necessarily approximate, and the output is a band rather than a single figure. The weekly job presents that result as a range in the UI, because displaying a midpoint as a definitive figure would imply a precision absent from the source documents.
 
 --------------------------------------------------------
 # Serving It Publicly
@@ -92,21 +92,19 @@ The Authentik integration follows the same pattern as my other public services. 
 
 **Be a polite scraper.** The Senate job throttles two seconds between requests and stops as soon as it recognizes a filing. The House job uses conditional GETs and does nothing on a 304. These are public records and the servers are public infrastructure, and a homelab project has no business hammering either.
 
-**Approximate data must be labeled approximate.** Net worth comes from bracketed ranges. OCR output has an error rate. Ticker normalization is a guess. Every one of those is presented as what it is. A project like this fails by producing confident, wrong precision rather than by crashing.
+**Approximate data must retain its qualification.** Net worth derives from bracketed ranges; OCR output carries an error rate; and ticker normalization remains an inference. Each result is presented in those terms. A project of this kind fails when it produces confident but unwarranted precision, not when it visibly stops.
 
 **Say plainly what the thing is for.** Publishing a dashboard that backtests follow-the-politician strategies invites people to read it as a strategy, and a disclaimer buried at the bottom does not undo that. Put it up front, in the application as well as the write-up, and state the specific reasons the output is not actionable rather than relying on boilerplate. The 45-day disclosure lag is the single most important one, and it is a fact about the data rather than a legal hedge.
 
-**Anything scraped is untrusted input.** Filing text, article text, and social sentiment all flow into an LLM summarization step. None of it is trusted, and the summarization step has no tools and no ability to act.
+**All scraped material is untrusted input.** Filing text, article text, and social sentiment flow into an LLM summarization step. None is trusted, and the summarization step has no tools or capacity for external action.
 
 --------------------------------------------------------
 # Wrapping Up
 
-The engineering that took the time was accepting that the input is a pile of scanned PDFs from two incompatible systems, then building the reconciliation and labeling that let you use the output honestly anyway.
+The principal engineering task was accepting the character of the input—scanned PDFs from two incompatible systems—and then building the reconciliation and qualification required to use the resulting output honestly.
 
-Eighteen CronJobs sounds like a lot until you notice that fifteen of them are cheap and idempotent, and the three that are not run once a week.
+Seventeen CronJobs may appear excessive until their respective cadences are examined: most are inexpensive and idempotent, while the more substantial jobs run at intervals appropriate to their data sources.
 
-> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
->
-> Thanks for reading!
->
-> Robert
+Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a pull request](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+
+Robert

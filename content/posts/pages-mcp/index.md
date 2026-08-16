@@ -31,23 +31,23 @@ aliases:
 --------------------------------------------------
 # Introduction
 
-I use Claude Code for a lot of one-off analysis, and the output is very often a single self-contained HTML file. As of this writing, some examples are the following: a dashboard of my flight log, an interactive trainer built from an audiobook transcript _(I wrote about building those in [Building Interactive Trainers From My Audiobook Library](https://whitematter.tech/posts/interactive-audiobook-trainers/))_, a pedigree chart, and a client map. Every one of those started life as a Live Artifact, or as a file in `/tmp` that I opened with `file://`, looked at once, and then lost.
+I use Claude Code for substantial one-off analysis, and its output is frequently a single self-contained HTML file. Examples include a flight-log dashboard, an interactive trainer derived from an audiobook transcript _(described in [Building Interactive Trainers From My Audiobook Library](https://whitematter.tech/posts/interactive-audiobook-trainers/))_, a pedigree chart, and a client map. Each began either as a Live Artifact or as a file in `/tmp` that I opened with `file://`, inspected once, and subsequently lost.
 
-That is a bad ending for something that took real compute to produce. I wanted the agent to finish the job: build the thing, publish it, and hand me back a URL. A URL also means the artifact lives somewhere permanent instead of a temp directory and sharing it outside my network is as easy as sending a link when I need to.
+That is an unsatisfactory conclusion for an artifact that required material computation to produce. I wanted the agent to complete the final stage: construct the artifact, publish it, and return a URL. A URL places the artifact somewhere durable rather than in a temporary directory, while making controlled sharing no more difficult than sending a link.
 
-To solve this, I built **pages**, a small static-site host that runs in my Kubernetes cluster and exposes an MCP server for uploads. Claude calls one tool, `deploy_site`, and the site is live at `https://<name>.pages.internal.white.fm/` with a real Let's Encrypt cert. This requires no git push, no CI run, no `kubectl cp`, and no rebuild. However, I do sync the pages to a private Git repo for easy GitOps retrieval in case anything ever breaks in the future.
+I built **pages**, a compact static-site host running in my Kubernetes cluster with an MCP server for uploads. Claude calls `deploy_site`, and the resulting site is available at `https://<name>.pages.internal.white.fm/` with a publicly trusted Let's Encrypt certificate. The workflow requires no Git push, CI run, `kubectl cp`, or application rebuild. The deployed pages are nevertheless mirrored to a private Git repository for recovery and GitOps retrieval.
 
 This post covers the whole thing: the server, the manifests, the TLS and DNS work that turned out to be the hard part, how to gate a site behind SSO if you want to share it, and how to register the MCP server with Claude Code. The source is at [`github.com/RobertDWhite/pages-mcp`](https://github.com/RobertDWhite/pages-mcp).
 
 --------------------------------------------------------
 # The Design
 
-The whole system is one Python process listening on `:8080`. It serves two planes, selected by the `Host` header:
+The entire system is one Python process listening on `:8080`. It serves two planes, selected by the `Host` header:
 
 - **Control plane.** The MCP endpoint lives at `https://pages-mcp.internal.white.fm/mcp` and is gated by a static bearer token. It serves `/mcp` and returns 404 for everything else.
 - **Serving plane.** Each site is published at `https://<site>.pages.internal.white.fm/`, open on my tailnet with no auth gate. Every site gets its own subdomain. The apex, `https://pages.internal.white.fm/`, renders a directory index of everything hosted.
 
-Files live on a Longhorn PVC at `/data/sites`, one directory per site. That is the entire data model. There is no database, no build step, and no framework.
+Files reside on a Longhorn persistent volume claim (PVC) at `/data/sites`, with one directory per site. That is the complete data model: there is no database, build step, or framework.
 
 If the control plane were reachable on a content hostname, JavaScript in any hosted site could reach `/mcp` as a same-origin request, leaving the bearer token as the only control. The server closes that exposure by returning 404 for `/mcp` on every host except the control host.
 
@@ -57,7 +57,7 @@ The first version served sites at `pages.internal.white.fm/<site>/`. It worked, 
 
 Relative asset paths break under a path prefix unless you inject a `<base href="/<site>/">`. I did inject one, and it then broke any site that already carried a `<base>` tag or that built URLs in JavaScript. Because `localStorage` is scoped per-origin, every site on a shared host could read every other site's saved state. For a set of trainers that each remember your quiz progress, that is a real collision. A hostname is also easier to send to someone than a path.
 
-Moving to `<site>.pages.internal.white.fm` fixed all three at once. Each site is its own origin, `<base href="/">` is always correct, and the site name is now a DNS label, which supplies the validation rules for free. Origin separation does not extend to cookies, which the security notes below cover.
+Moving to `<site>.pages.internal.white.fm` resolved all three concerns. Each site receives its own origin, `<base href="/">` remains correct, and the site name becomes a DNS label with inherent validation constraints. Origin separation does not extend to cookies; the security notes address that limitation below.
 
 --------------------------------------------------------
 # The Server
@@ -105,7 +105,7 @@ RESERVED_NAMES = {"mcp", "healthz", "favicon.ico", "robots.txt"}
 
 ### Writing files without getting owned
 
-Because `deploy_site` accepts arbitrary paths from an LLM, path traversal is the obvious risk. Every path goes through one helper that resolves it and confirms it is still inside the site root:
+Because `deploy_site` accepts arbitrary paths from an LLM, path traversal is the principal risk. Every path passes through one helper that resolves it and confirms that it remains inside the site root:
 
 ```python
 def _safe_member(root: Path, rel: str) -> Path:
@@ -145,7 +145,7 @@ Python's `mimetypes` module is missing or wrong on a few types that matter for m
 --------------------------------------------------------
 # The MCP Tools
 
-There are four. Because the docstring is the only interface the model ever sees, it does more work than the code does.
+There are four tools. Because the docstring is the principal interface exposed to the model, it carries much of the operational contract.
 
 | Tool | Purpose |
 |------|---------|
@@ -175,12 +175,12 @@ def deploy_site(name: str, files: list[dict], replace: bool = True) -> dict:
     """
 ```
 
-Every constraint the model can violate is stated in the text it reads. Stating that `../` is rejected stopped the traversal attempts. Spelling out that the name becomes a subdomain ended the `My Cool Report` proposals, and the line about `index.html` stopped the lone `report.html` deploys. When the root `index.html` is missing anyway, the return value carries a `warning` field, which gives the model a second chance to notice.
+Every constraint the model can violate is stated in the text it receives. Explicitly stating that `../` is rejected prevented traversal attempts; explaining that the name becomes a subdomain prevented proposals such as `My Cool Report`; and specifying the need for `index.html` prevented single-file `report.html` deployments. When a root `index.html` remains absent, the return value contains a `warning` field that provides a further opportunity for correction.
 
 --------------------------------------------------------
 # The Container
 
-The image is small and boring. It is Python 3.14 slim, plus `git` and `openssh-client` for the backup mirror covered later:
+The image is deliberately minimal: Python 3.14 slim, plus `git` and `openssh-client` for the backup mirror described later.
 
 ```dockerfile
 FROM python:3.14-slim
@@ -290,7 +290,7 @@ I also pin `nodeSelector: kubernetes.io/arch: amd64`. One of my nodes is arm64 b
 
 ### The nested-wildcard problem
 
-This one cost me an evening.
+This required an evening of diagnosis.
 
 I have a wildcard cert and a Gateway listener for `*.internal.white.fm`. A wildcard certificate matches **exactly one** label. `white-ancestry.pages.internal.white.fm` is two labels deep under `internal.white.fm`. `*.internal.white.fm` therefore does not cover it, and the existing listener will not serve it.
 
@@ -327,7 +327,7 @@ This works because the cert is issued with a DNS-01 challenge through a cert-man
 
 **3. Add a wildcard DNS record.** My `internal.white.fm` zone is served by Technitium from static records rather than by external-dns. A `*.pages.internal.white.fm → 10.99.5.110` A record therefore has to be added there by hand, alongside the `pages` and `pages-mcp` records. `10.99.5.110` is the Gateway's LoadBalancer address.
 
-Each piece fails differently, which is what makes this hard to diagnose. Without the SAN, you get a cert error. Without the listener, you get a TLS handshake failure or a 404 from the wrong listener. Without the DNS record, you get `NXDOMAIN`. I hit all three in order.
+Each missing component fails differently, which complicates diagnosis. Without the SAN, the browser reports a certificate error; without the listener, the outcome is a TLS handshake failure or a 404 from the wrong listener; without the DNS record, resolution produces `NXDOMAIN`. I encountered all three conditions in sequence.
 
 ### Routes
 
@@ -407,7 +407,7 @@ If you forget the Authentik entry, the public SSO path in the next section fails
 
 Everything above is tailnet-only. Sometimes I want to send a site to someone who is not on my tailnet (a family member looking at a genealogy hub, for instance) with a login in front of it.
 
-The obvious approach is `white-ancestry.pages.white.fm`, and it does not work. Cloudflare Universal SSL covers `example.com` and `*.example.com`, one label only. A nested host like `white-ancestry.pages.white.fm` has no edge certificate, and the browser gets `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` before your origin is ever consulted. It is the same one-label rule as before, enforced by a different vendor.
+The intuitive approach is `white-ancestry.pages.white.fm`, yet it does not work. Cloudflare Universal SSL covers `example.com` and `*.example.com`, one label only. A nested host such as `white-ancestry.pages.white.fm` has no edge certificate, and the browser reports `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` before the origin is consulted. It is the same one-label rule as before, enforced by a different vendor.
 
 To work around this, public sites get a single-label host instead: `white-ancestry.white.fm`. That route lives in the `authentik` namespace, on the `*.white.fm` listener, and forwards to the Authentik embedded outpost rather than to `pages`:
 
@@ -446,7 +446,7 @@ One loose end remains. Because I run split-brain DNS, an internal client resolvi
 --------------------------------------------------------
 # Backing the Volume with Git
 
-A single Longhorn PVC holding the only copy of everything an agent has ever built is not a backup strategy. Rather than bolt on a backup system, I made the sites directory a git repository that pushes to a private GitHub repo on every change.
+A single Longhorn PVC containing the only copy of every artifact an agent has built does not constitute a backup strategy. Rather than introduce a separate backup system, I made the sites directory a Git repository that pushes to a private GitHub repository after each change.
 
 Setup is best-effort by design. If any of it fails, the mirror disables itself for the run, and the MCP tools keep working. I would much rather lose a backup than lose a deploy:
 
@@ -493,7 +493,7 @@ Auth is a read-write deploy key mounted from a SOPS-encrypted secret. `GIT_REMOT
 --------------------------------------------------------
 # Security Notes
 
-The threat model here is a single-tenant homelab on a private tailnet, and the design leans on that. Anyone reproducing this on a less trusted network should read these four items first.
+The threat model is a single-tenant homelab on a private tailnet, and the design depends materially upon that premise. Anyone reproducing it on a less trusted network should evaluate the following conditions first.
 
 **Cookies are not origin-scoped.** Giving each site its own subdomain isolates `localStorage`, `sessionStorage`, and same-origin requests. It does not isolate cookies. Cookies are scoped by domain, ignore the port, and can be set on any parent domain that is not a public suffix. `internal.white.fm` is not in the Public Suffix List, which means JavaScript on `anything.pages.internal.white.fm` can set a cookie with `Domain=.internal.white.fm`, and the browser will then attach that cookie to requests for every other service in the zone. If you plan to host untrusted or agent-generated HTML alongside authenticated internal services, put the site host on a separate registrable domain rather than on a subdomain of the one your services already use.
 
@@ -506,7 +506,7 @@ The threat model here is a single-tenant homelab on a private tailnet, and the d
 --------------------------------------------------------
 # Wiring It Into Claude Code
 
-Registration takes two commands. Pull the token out of the SOPS secret, then register the server:
+Registration requires two commands: retrieve the token from the SOPS secret, then register the server.
 
 ```sh
 sops -d apps/ai/pages/11-secret.sops.yaml | grep MCP_TOKEN
@@ -518,14 +518,14 @@ claude mcp add --transport http pages \
   --header "Authorization: Bearer <MCP_TOKEN>"
 ```
 
-Any MCP client works, since the transport is plain streamable HTTP with a bearer header. Verify it with `list_sites`, which comes back with an empty list on a fresh install.
+Any MCP client that supports streamable HTTP with a bearer header can use this endpoint. Verify the registration with `list_sites`, which returns an empty list on a fresh installation.
 
 --------------------------------------------------------
 # What the Workflow Looks Like
 
-I say something like "build an interactive trainer from this transcript and put it on pages." Claude writes the HTML, calls `deploy_site` with a slug and one file, and gets back `{"url": "https://voss-trainer.pages.internal.white.fm/", "files": 1, "bytes": 67128}`. It pastes me the URL. I open it on my phone.
+I issue an instruction such as, "build an interactive trainer from this transcript and put it on pages." Claude writes the HTML, calls `deploy_site` with a slug and one file, and receives `{"url": "https://voss-trainer.pages.internal.white.fm/", "files": 1, "bytes": 67128}`. It returns the URL, which I can open directly on a phone.
 
-Iterating is the same call again with `replace=True`. Retiring something is `delete_site`. There is no build, no push, no sync wait, and no step where I am the bottleneck between "the artifact exists" and "the artifact is reachable."
+Iteration is the same call with `replace=True`; retirement uses `delete_site`. There is no build, push, synchronization wait, or manual handoff between the artifact's creation and its availability.
 
 I currently have 18 sites up. Most are single-file HTML apps between 60 and 120 KB. A few are multi-file; the genealogy hub is 8 files and 265 KB. The whole PVC is nowhere near the 5Gi I gave it.
 
@@ -545,12 +545,10 @@ A few things cost me time along the way:
 --------------------------------------------------------
 # Wrapping Up
 
-The whole system is one Python file, nine YAML manifests, and a 5Gi volume. Almost none of the work was in the server. It was in the three-way coordination between the cert SAN, the Gateway listener, and the DNS record, and in accepting that wildcards match exactly one label.
+The complete system is one Python file, nine YAML manifests, and a 5 GiB volume. Relatively little of the work resided in the server itself; the substantive effort lay in coordinating the certificate SAN, Gateway listener, and DNS record, while accounting for the fact that wildcard certificates match exactly one label.
 
-If you already run a cluster with a Gateway, cert-manager, and a DNS server you control, you can reproduce this in an afternoon. The source is at [`github.com/RobertDWhite/pages-mcp`](https://github.com/RobertDWhite/pages-mcp) if you want to skip the typing.
+For an operator already running a cluster with a Gateway, cert-manager, and an administrable DNS server, the pattern is reproducible within an afternoon. The source is available at [`github.com/RobertDWhite/pages-mcp`](https://github.com/RobertDWhite/pages-mcp).
 
-> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
->
-> Thanks for reading!
->
-> Robert
+Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a pull request](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+
+Robert
