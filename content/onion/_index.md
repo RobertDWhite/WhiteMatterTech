@@ -32,6 +32,13 @@ The address requires a Tor-aware browser and connection. **Tor Browser** is the
 recommended client; in an ordinary browser, copy the address above and open it
 in Tor Browser instead.
 
+## Contribute capacity
+
+This cluster also contributes censorship-circumvention capacity through a
+Snowflake proxy deployment and a privately configured obfs4 bridge. Those
+services help Tor users reach the network where direct connections are subject
+to filtering. [Read about the deployment and its operational boundaries](/onion/tor-bridges-kubernetes/).
+
 ## Don't have Tor Browser yet?
 
 Tor Browser is free and available from the official
