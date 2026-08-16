@@ -1,6 +1,6 @@
 ---
 title: "No Proxy, No Fetch Tool: Capability-Scoped Internet Access for In-Cluster Agents"
-date: "2026-08-09"
+date: "2026-08-10"
 categories:
   - "ai"
   - "security"
