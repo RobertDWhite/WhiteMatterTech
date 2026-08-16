@@ -1,7 +1,7 @@
 ---
 title: "Spare Bandwidth Against Censorship: Running a Tor Bridge and a Snowflake Proxy on Kubernetes"
 date: "2026-08-09"
-draft: true
+draft: false
 type: "onion"
 ShowReadingTime: false
 ShowPostNavLinks: false
