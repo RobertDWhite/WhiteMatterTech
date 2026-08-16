@@ -1,7 +1,6 @@
 ---
 title: "Turning an RSS Reader Into an Intelligence Pipeline"
 date: "2026-08-09"
-draft: true
 categories:
   - "ai"
   - "data"
