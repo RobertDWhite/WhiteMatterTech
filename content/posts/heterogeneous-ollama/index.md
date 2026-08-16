@@ -1,7 +1,6 @@
 ---
 title: "One Ollama Endpoint, Two Very Different Backends"
 date: "2026-08-14"
-draft: true
 categories:
   - "ai"
   - "kubernetes"
