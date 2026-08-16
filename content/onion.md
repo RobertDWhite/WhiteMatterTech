@@ -14,11 +14,11 @@ through the [Tor network](https://www.torproject.org/). An onion service conceal
 the service's network location and IP address, while Tor Browser prevents the
 site from learning a visitor's public IP address through the connection itself.
 
-This is a meaningful privacy property, not an absolute guarantee of anonymity.
-Your network provider can ordinarily observe that you are connecting to Tor,
-although it cannot ordinarily determine the particular onion service you visit.
-Likewise, information you voluntarily disclose through an account, form, or
-other application interaction remains attributable in the ordinary way.
+This privacy property has defined boundaries. Your network provider can
+ordinarily observe a connection to Tor, although it cannot ordinarily determine
+the particular onion service you visit. Information you voluntarily disclose
+through an account, form, or other application interaction remains attributable
+in the ordinary way.
 
 ## Onion address
 
