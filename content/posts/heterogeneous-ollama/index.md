@@ -19,6 +19,8 @@ tags:
 aliases:
   - /posts/heterogeneous-ollama/heterogeneous-ollama
   - /2026/heterogeneous-ollama
+cover:
+  image: "cover.png"
 ---
 
 --------------------------------------------------
