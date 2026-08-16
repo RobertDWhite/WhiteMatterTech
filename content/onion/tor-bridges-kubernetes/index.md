@@ -53,7 +53,7 @@ Publishing a bridge's IP address, port, or obfs4 certificate supplies an adversa
 
 This post therefore contains no bridge addresses, fingerprints, ports, or certificates, including my own. The implementation pattern is reproducible, while the active instance remains undisclosed. Operators should place bridge-specific configuration in a private repository from the first commit: Git history persists, and an initial public disclosure cannot be fully withdrawn.
 
-The namespace is named `<private-namespace>`. This choice removes a trivially searchable identifier; it does not constitute a substantive security boundary.
+The namespace uses a non-descriptive name. This choice removes a trivially searchable identifier; it does not constitute a substantive security boundary.
 
 --------------------------------------------------------
 # The Blueprint
