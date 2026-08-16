@@ -37,7 +37,9 @@ in Tor Browser instead.
 This cluster also contributes censorship-circumvention capacity through a
 Snowflake proxy deployment and a privately configured obfs4 bridge. Those
 services help Tor users reach the network where direct connections are subject
-to filtering. [Read about the deployment and its operational boundaries](/onion/tor-bridges-kubernetes/).
+to filtering. [*Spare Bandwidth Against Censorship*](/onion/tor-bridges-kubernetes/)
+describes the deployment, its operational boundaries, and the reasons that its
+identifying configuration remains private.
 
 ## Don't have Tor Browser yet?
 
