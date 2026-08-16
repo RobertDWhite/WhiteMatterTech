@@ -28,7 +28,7 @@ cover:
 
 # Politics Dashboard: A Self-Hosted, AI-Summarized News & X Feed Reader
 
-**Bottom line up front.** I built and now open-sourced a self-hosted news dashboard that aggregates political news from RSS or FreshRSS, summarizes each article with a configurable LLM, generates a 24-hour thematic digest, and sits alongside live X/Twitter posts (with per-account AI summaries) via a self-hosted Nitter. Repository: [github.com/RobertDWhite/politics-dashboard](https://github.com/RobertDWhite/politics-dashboard). License: MIT. Multi-arch images at `ghcr.io/robertdwhite/politics-{api,ui}`. The image I run in production is the same image GitHub Actions builds from `main`.
+I built and open-sourced a self-hosted news dashboard that aggregates political news from RSS or FreshRSS, summarizes individual articles with a configurable large language model (LLM), generates a 24-hour thematic digest, and presents X posts with per-account summaries through a self-hosted Nitter instance. The repository is [github.com/RobertDWhite/politics-dashboard](https://github.com/RobertDWhite/politics-dashboard); it is MIT-licensed, and multi-architecture images are available at `ghcr.io/robertdwhite/politics-{api,ui}`. The production image is the same image GitHub Actions builds from `main`.
 
 This post documents the architecture, the configuration model, my own deployment, and the engineering issues encountered while generalizing the project for OSS release.
 
@@ -36,21 +36,21 @@ This post documents the architecture, the configuration model, my own deployment
 
 ## Origin
 
-I had a FreshRSS instance with several hundred feeds, organized into categories *News* and *U.S. Government*. Reading it had degraded into opening 60 tabs each morning, skimming a sentence each, and closing 55 of them. The signal-to-noise ratio was poor.
+I had a FreshRSS instance with several hundred feeds, organized under *News* and *U.S. Government*. Reading it had deteriorated into opening sixty tabs each morning, skimming a sentence from each, and closing fifty-five. The signal-to-noise ratio was poor.
 
 I had Ollama running locally with `llama3.1:8b` for unrelated work. I started piping articles through it for two-sentence summaries. Quality was acceptable: enough to triage headlines, not enough to replace reading.
 
-V1 ran on my cluster behind Authentik in two services and a few hundred lines of code. Two categories and a few dozen X handles. It became the first tab I opened each morning. That was the moment to invest more.
+The first version ran in my cluster behind Authentik as two services and a few hundred lines of code, with two categories and several dozen X handles. It became the first tab I opened each morning, which warranted further investment.
 
 ## Architecture
 
-Two services, no shared state, no database.
+Two services, no shared persistent state, and no database.
 
 **API.** FastAPI plus httpx. Polls feeds, summarizes articles, generates digests. The state is held in process memory (Python dicts plus an `asyncio.Queue`). Resident memory: ~150 MiB.
 
 **UI.** Vite, React, TypeScript. Static SPA served by an unprivileged nginx container. nginx reverse-proxies `/api/*` to the API. Resident memory: ~30 MiB.
 
-State is intentionally ephemeral. Restarting the API pod re-polls every source. The dashboard is a view over external feeds instead of a system of record. This decision keeps the operational footprint small enough to require zero PVCs and zero backup configuration.
+State is intentionally ephemeral. Restarting the API pod triggers a new poll of every source. The dashboard is a view over external feeds rather than a system of record; that decision keeps the operational footprint sufficiently small that it requires no persistent volume claims or backup configuration.
 
 Four loops run inside the API:
 
@@ -71,7 +71,7 @@ A single `config.yaml` drives the application. Secrets and per-deploy overrides 
 
 **Feeds.** Two sources: `rss` (direct fetch of feed URLs) or `freshrss` (Greader API to an existing FreshRSS instance). Categories are user-defined: an arbitrary slug, a UI label, and either a list of URLs or a FreshRSS category name. The API has no opinions about reasonable category names.
 
-**Twitter.** Optional. Requires a self-hosted Nitter instance — public Nitter is rate-limited to uselessness. Handle lists can be declared in YAML or pulled from environment variables via a `handles_env_prefix` knob, which is the path I use because it keeps handle lists in a SOPS-encrypted Kubernetes Secret.
+**Twitter.** This component is optional and requires a self-hosted Nitter instance; public instances frequently impose availability and rate-limit constraints unsuitable for a recurring workload. Handle lists can be declared in YAML or retrieved from environment variables through `handles_env_prefix`, the arrangement I use because it keeps the lists in a SOPS-encrypted Kubernetes Secret.
 
 **UI.** The API exposes a `/config` endpoint at startup. The front-end builds its category tabs, page title, and X-panel sections from that response. The same UI image works for any beat — political, scientific, hobby — without rebuilding.
 
@@ -110,15 +110,15 @@ twitter:
 
 Three categories, ~50 X handles split across them. ArgoCD watches the manifests and auto-syncs. Images come from GitHub Actions on every push to `main`, multi-arch (`linux/amd64`, `linux/arm64`), tagged `:main`, `:sha-<short>`, and on tag pushes, semver.
 
-End-to-end change cycle for a new X handle: ~30 seconds. `sops --set` on the secret, `git push`, ArgoCD applies, `kubectl rollout restart deployment/politics-api -n politics` so the new env var is picked up by a fresh pod.
+The end-to-end change cycle for a new X handle is approximately thirty seconds: `sops --set` updates the secret, `git push` initiates the ArgoCD reconciliation, and `kubectl rollout restart deployment/politics-api -n politics` ensures that a fresh pod receives the new environment variable.
 
-Adding a new category requires editing the configmap and the secret, both committed to the same repo, so it is one commit and one rollout.
+Adding a new category requires edits to the ConfigMap and Secret, both committed to the same repository; the resulting change requires one commit and one rollout.
 
 ## Engineering issues encountered
 
-A short post-mortem on five issues that took non-trivial time. Recording them so the next person who hits them spends less.
+A brief post-mortem follows, covering five issues that required non-trivial investigation. The intent is to reduce the diagnostic burden for the next operator who encounters them.
 
-**1. Reasoning-model `<think>` tags appearing in summaries.** When I swapped in qwen3 and deepseek-r1 variants, output started including `<think>... long chain-of-thought ...</think>` before the actual summary. Mitigation: a single `re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)` after each LLM response, before storage or display. Any application that lets users select arbitrary models eventually hits this. It's worth building in from day one.
+**1. Reasoning-model `<think>` tags appearing in summaries.** When I substituted qwen3 and deepseek-r1 variants, their output included `<think>...</think>` material before the user-facing summary. The mitigation is a `re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)` after each LLM response and before storage or display. Applications that permit arbitrary model selection should anticipate this output format and handle it deliberately.
 
 **2. nginx `rewrite ... break` halts subsequent `set` directives.** First attempt at a runtime-configurable upstream:
 
@@ -136,15 +136,15 @@ Result: `proxy_pass: invalid URL prefix in ""` at request time, with a warning t
 
 ![Remember: a few hours of trial and error can save you 30 minutes of reading the docs](trial-and-error.jpg)
 
-**4. Vite environment variables are baked at build time.** The Nitter iframe URL is a frontend concern (the browser, not the API, makes that request) and must therefore be reachable from end users (the API can use a separate internal URL for its own RSS scraping). My first attempt put it in the runtime configmap. `VITE_*` variables are inlined into the JavaScript bundle at build time, not read at runtime. Workaround: build-arg on the UI Dockerfile, with the OSS workflow building images without it (so the published OSS image renders blank iframes unless rebuilt). Planned change for V2.1: move the iframe URL into the runtime `/config` payload so the published image works straight from GHCR for any user with a Nitter instance.
+**4. Vite environment variables are baked at build time.** The Nitter iframe URL is a front-end concern—the browser, rather than the API, makes that request—and must therefore be reachable by end users. The API can use a separate internal URL for RSS retrieval. My first attempt placed the iframe URL in the runtime ConfigMap; `VITE_*` variables are inlined into the JavaScript bundle at build time rather than read at runtime. The interim arrangement is a build argument on the UI Dockerfile, with the OSS workflow building images without it; published OSS images consequently render blank iframes unless they are rebuilt. The planned V2.1 change moves the iframe URL into the runtime `/config` payload, allowing the published GHCR image to operate with any user-supplied Nitter instance.
 
-**5. The first OSS UI image broke the production deployment.** `politics-ui:2.0.0` shipped with `proxy_pass http://api:8000` hardcoded — correct for `docker compose up` (service name `api`) but wrong for my Kubernetes deploy (service name `politics-api`). The cluster sat on "Loading…" until V2.0.3 went out an hour later, after fixing issues #2 and #3 in the process. Lesson: end-to-end test the Kubernetes path before tagging an OSS release. V2.0.4 onward will go through a full test-cluster pass before tagging.
+**5. The first OSS UI image broke the production deployment.** `politics-ui:2.0.0` shipped with `proxy_pass http://api:8000` hard-coded—correct for `docker compose up`, where the service is named `api`, but incorrect for my Kubernetes deployment, where it is named `politics-api`. The cluster remained on "Loading…" until V2.0.3 was released an hour later, after issues #2 and #3 were corrected. The lesson is operational rather than novel: test the Kubernetes path end to end before tagging an OSS release. Releases from V2.0.4 onward are intended to receive a full test-cluster pass before tagging.
 
 ## Out of scope
 
 Four explicit non-goals.
 
-**No persistent database.** Search across historical articles, trend charts over months, audit of what was on the page at a given moment — different application. Adding Postgres would change the operational character significantly. The use case (a daily front page kept current) does not justify it.
+**No persistent database.** Historical search, multi-month trend charts, and an audit of the page at a given moment constitute a different application. Adding PostgreSQL would change the operational character materially; the intended use case, a current daily front page, does not justify that additional state.
 
 **No social-media ingestion beyond Nitter.** Mastodon, Bluesky, Threads each have their own auth, rate-limit, and content-shape conversations. Possible future providers.
 
@@ -152,16 +152,14 @@ Four explicit non-goals.
 
 ## Closing observation
 
-Most of the OSS work was not in application logic. It was in the seam between *what I had built for myself* and *what could plausibly run for someone else without my specific FreshRSS, Ollama, Nitter, and feed list*. Cleaning up that seam is roughly the entire OSS effort.
+Most of the open-source work resided outside the application logic. It lay at the boundary between *what I had built for myself* and *what could plausibly run for another operator without my particular FreshRSS, Ollama, Nitter, and feed list*. Making that boundary explicit constitutes much of the open-source effort.
 
-The code is a small, useful tool. I run it daily. If you do too, the categories you pick are likely the most informative thing about your configuration even more than the model selection or the feed sources. They describe what the user is paying attention to.
+The code is a compact tool that I run daily. For any deployment, the chosen categories may reveal more about the configuration than the selected model or feed sources, because they describe the material to which the operator has chosen to attend.
 
 ---
 
 > Source: [github.com/RobertDWhite/politics-dashboard](https://github.com/RobertDWhite/politics-dashboard). Images: `ghcr.io/robertdwhite/politics-api`, `ghcr.io/robertdwhite/politics-ui` (multi-arch). License: MIT.
 >
-> As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
->
-> Thanks for reading!
->
-> Robert
+Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a pull request](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
+
+Robert
