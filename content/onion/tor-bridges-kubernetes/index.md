@@ -72,6 +72,10 @@ The architecture uses familiar Kubernetes primitives, which keeps the operationa
 
 **Network boundary.** The bridge shares a pod network namespace with a dedicated VPN sidecar; its inbound and outbound Tor traffic therefore traverses that tunnel. The Snowflake proxies require direct outbound reachability to their broker, relay, and STUN endpoints. The private Kustomization presently contains no NetworkPolicy resource. Namespace separation remains useful for administration, but it does not furnish an enforced ingress or egress boundary in the active manifests.
 
+**VPN and forwarded-port boundary.** The endpoint presented to bridge clients and Tor relay peers is the VPN provider's public address, reached through the provider's forwarded-port allocation. The residential address supporting the cluster is absent from that connection path. This arrangement can prevent routine observation of the bridge endpoint from immediately identifying the home connection or premises. The forwarded port is an inbound network-address-translation assignment at the provider; it conveys connections into the pod across the existing tunnel and has no independent anonymity property.
+
+The arrangement establishes address separation, with consequential limits. A VPN provider can associate an allocated address and forwarding assignment with a subscriber account according to its retention and disclosure practices. Traffic-correlation capabilities, operator contact information, configuration artifacts, host-level telemetry, and voluntary public disclosures can each furnish independent routes to attribution. Tor's anonymity properties derive from its protocol and distributed relay architecture; the VPN sidecar does not confer personal anonymity upon the operator.
+
 --------------------------------------------------------
 # Practical and Legal Notes
 
