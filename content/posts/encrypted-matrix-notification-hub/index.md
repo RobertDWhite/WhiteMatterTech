@@ -255,7 +255,7 @@ oidc_providers:
         display_name_template: "{{ user.name }}"
 ```
 
-Worth stating plainly, because it is a common misunderstanding: OIDC authenticates the *account*. It has no relationship to the room-encryption keys, which are held by the device and survive no identity provider. Losing access to the IdP locks you out of the account; losing every logged-in device loses the message history in encrypted rooms unless key backup is configured. Configure key backup.
+This is the distinction I would have wanted written in larger type: OIDC authenticates the *account*; it neither creates nor carries the room-encryption keys, which remain on the participating devices and live independently of the identity provider. An IdP outage locks me out of the account for its duration. The loss of every logged-in device is more final: without client-side key backup, it takes the history of my encrypted rooms with it. I configure key backup before I need it, because after the devices are gone there is nothing left to configure.
 
 ## Publishing
 
