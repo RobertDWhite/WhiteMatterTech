@@ -33,7 +33,7 @@ Three years ago I wrote about [running a Matrix server with Docker Compose](/pos
 
 Nearly every machine-generated message in my infrastructure now arrives in an end-to-end encrypted Matrix room. Feed digests from FreshRSS, Prometheus alerts, GitOps deployment results, Falco runtime detections, Authentik authentication events, media-library activity, uptime state changes, weather alerts, and notifications from the UniFi and Synology appliances all terminate in rooms whose contents the homeserver itself cannot read. Two AI agents live in those same encrypted rooms and answer questions there.
 
-I am making a narrower claim than the general proposition that encryption is beneficial. A notification stream is an operational description of the infrastructure, changing as the infrastructure changes; it merits the confidentiality of a private conversation. This post follows that description from its producers through Kubernetes and the homeserver to the encrypted room, with particular attention to the transition from webhook payload to Matrix event, where the encryption boundary is most often misunderstood.
+The notification stream has become a running account of the infrastructure around me: its failures, its changes, the identities that pass through it, the moments when the house is occupied, and the subjects that hold my attention. Machine-written messages can still disclose a private life; the absence of a human author does not make the resulting record any less sensitive. I built this system around that premise, and this post traces the path from producer, through Kubernetes and the homeserver, to the encrypted Matrix room, following the conversion of a webhook payload into a Matrix event.
 
 --------------------------------------------------------
 
