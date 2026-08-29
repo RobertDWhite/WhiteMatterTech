@@ -33,31 +33,31 @@ Three years ago I wrote about [running a Matrix server with Docker Compose](/pos
 
 Nearly every machine-generated message in my infrastructure now arrives in an end-to-end encrypted Matrix room. Feed digests from FreshRSS, Prometheus alerts, GitOps deployment results, Falco runtime detections, Authentik authentication events, media-library activity, uptime state changes, weather alerts, and notifications from the UniFi and Synology appliances all terminate in rooms whose contents the homeserver itself cannot read. Two AI agents live in those same encrypted rooms and answer questions there.
 
-The argument for doing this is narrower than the general proposition that encryption is beneficial. A notification stream is an operational description of the infrastructure, changing as the infrastructure changes; it merits the confidentiality of a private conversation. The rest of this post follows that description from its producers through Kubernetes and the homeserver to the encrypted room, with particular attention to the transition from webhook payload to Matrix event, where the encryption boundary is most often misunderstood.
+I am making a narrower claim than the general proposition that encryption is beneficial. A notification stream is an operational description of the infrastructure, changing as the infrastructure changes; it merits the confidentiality of a private conversation. This post follows that description from its producers through Kubernetes and the homeserver to the encrypted room, with particular attention to the transition from webhook payload to Matrix event, where the encryption boundary is most often misunderstood.
 
 --------------------------------------------------------
 
 # Why Machine Notifications Deserve End-to-End Encryption
 
-The familiar case for encrypted messaging is human conversation; machine-generated notifications seem less intuitive, although the case for encrypting them is in some respects stronger.
+People usually defend encrypted messaging through human conversation; machine-generated notifications seem less intimate, yet their accumulated record is often more revealing.
 
-Consider what a year of my notification stream describes to a reader unfamiliar with the network. It names every host, service, and monitor by the labels I assigned. It records which services fail, how often, and for how long, producing a serviceable map of the infrastructure's weak points. It records each authentication event that Authentik considers notable — failed logins, policy exceptions, suspicious requests — together with the account involved. It records every camera and door event that the UniFi Protect stack considers significant, a record of when the house is occupied. It records what my media stack acquires and when, a record of what I watch and read. It records what my feed pipeline finds interesting, a record of what has captured my attention and, by implication, why.
+Consider what a year of my notification stream describes to a reader unfamiliar with the network. It names every host, service, and monitor by the labels I assigned. It records which services fail, how often, and for how long, producing a serviceable map of the infrastructure's weak points. It records each authentication event that Authentik considers notable, including failed logins, policy exceptions, and suspicious requests, together with the account involved. It records every camera and door event that the UniFi Protect stack considers significant, a record of when the house is occupied. It records what my media stack acquires and when, a record of what I watch and read. It records what my feed pipeline finds interesting, a record of what has captured my attention and, by implication, why.
 
 No individual message in that stream is especially sensitive; the aggregate is a detailed intelligence record about a residence and the person living in it, assembled at no cost by the notification service and delivered continuously.
 
-The conventional destinations for that stream are Slack, Discord, Telegram, a hosted push service, or email. Each receives the messages in plaintext and retains them, and each is a third party whose retention policy, breach history, and legal exposure are outside your control. A webhook to a chat service does more than transmit the description; it deposits a permanent, searchable copy of it with an organization that has no stake in protecting it. TLS already addresses interception in transit. The serious failure is that a complete operational map of your infrastructure sits in someone else's database indefinitely, for the ordinary reason that the integration was convenient.
+The conventional destinations for that stream are Slack, Discord, Telegram, a hosted push service, or email. Each receives the messages in plaintext and retains them, and each is a third party whose retention policy, breach history, and legal exposure are outside your control. A webhook to a chat service does more than transmit the description; it deposits a permanent, searchable copy of it with an organization that has no stake in protecting it. TLS already addresses interception in transit. The remaining failure is prosaic and total: a complete operational map of your infrastructure persists in someone else's database indefinitely, for the ordinary reason that the integration was convenient.
 
-Self-hosting the destination reduces the difficulty without resolving it. The third party disappears, but the homeserver operator can still read every room; that may be acceptable when the operator is you and the deployment is small, yet it becomes unacceptable once the database is backed up to a NAS, replicated off-site, or restored on a machine you no longer control, because anyone who obtains access to the homeserver obtains access to the room contents as well.
+Self-hosting the destination reduces the difficulty without resolving it. The third party disappears, but the homeserver operator can still read every room; that may be acceptable when the operator is you and the deployment is small, yet it becomes unacceptable once a backup places the database on a NAS, replication sends it off-site, or restoration brings it to a machine you no longer control because anyone who obtains access to the homeserver obtains access to the room contents as well.
 
-End-to-end encryption addresses the residual exposure. In an encrypted Matrix room, Synapse stores ciphertext; the decryption keys reside on the devices that participate in the room. My homeserver database, its Postgres backups, its Longhorn volumes, and their snapshots contain no readable notification content. Compromising the server yields room metadata — membership, timing, and event-graph shape — but not the message bodies. That is a materially smaller disclosure, and Matrix provides the protection as a property of the room, independent of any particular client.
+End-to-end encryption addresses the residual exposure. In an encrypted Matrix room, Synapse stores ciphertext; the decryption keys reside on the devices that participate in the room. My homeserver database, its Postgres backups, its Longhorn volumes, and their snapshots contain no readable notification content. Compromising the server yields room metadata (membership, timing, and event-graph shape), but not the message bodies. That is a materially smaller disclosure, and Matrix provides the protection as a property of the room, independent of any particular client.
 
-There is a second reason, absent from the deployment three years ago; notification channels have become bidirectional. Two AI agents in my cluster are members of these rooms, and I talk to them there; a channel carrying both a description of the infrastructure and instructions about it is a control plane, and control planes get encrypted.
+The deployment has acquired a second purpose in the three years since I wrote about it: notification channels have become bidirectional. Two AI agents in my cluster are members of these rooms, and I talk to them there; a channel carrying both a description of the infrastructure and instructions about it is a control plane, and control planes get encrypted.
 
 --------------------------------------------------------
 
 # The Stack
 
-Everything lives in one `matrix` namespace, deployed by a single ArgoCD Application that points at one Kustomize directory:
+Everything lives in one `matrix` namespace and is deployed by a single ArgoCD Application that points at one Kustomize directory:
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -66,11 +66,11 @@ metadata:
   name: matrix-stack
   namespace: argocd
 spec:
-  project: apps
+  project: default
   source:
     repoURL: git@github.com:RobertDWhite/whitehouse-rke2.git
     targetRevision: main
-    path: apps/social/matrix-stack
+    path: matrix-stack
   destination:
     server: https://kubernetes.default.svc
     namespace: matrix
@@ -87,25 +87,25 @@ The directory holds nine components. The arrangement is intentionally plain, wit
 | Component | Role |
 | --- | --- |
 | **Synapse** | The homeserver. One replica, `Recreate` strategy, Postgres-backed. |
-| **Postgres** | Synapse's database, with a `postgres-exporter` sidecar for Prometheus. |
-| **Redis** | Hookshot's cache, with a `redis_exporter` sidecar. |
+| **Postgres** | Synapse's database, with a separate `postgres-exporter` deployment for Prometheus. |
+| **Redis** | Hookshot's cache, with a separate `redis-exporter` deployment for Prometheus. |
 | **Element** | The primary web client. |
 | **Cinny** and **FluffyChat** | Alternative web clients on the same homeserver. |
 | **Hookshot** | The appservice that turns HTTP webhooks into encrypted room messages. |
-| **Maubot** | The plugin bot framework — polling integrations, including those without webhook support. |
+| **Maubot** | The plugin bot framework, including polling integrations without webhook support. |
 | **Postfix** | An SMTP relay that allows Synapse to send invitation and password-reset mail. |
 | **well-known** | An nginx pod serving the two delegation documents. |
 
 This is the part of the arrangement I care about. When I need to follow a notification from producer to room, I can inspect one ArgoCD Application, one Kustomize tree, and one namespace policy; there is no second control surface hiding somewhere else.
 
-All image tags are pinned in `kustomization.yaml`, with digest pins on Postgres and Redis where a moving tag would otherwise become a supply-chain surface:
+The manifest records image tags in `kustomization.yaml`; Postgres and Redis are pinned by digest, while several utility and bridge images still use mutable tags, which leaves a supply-chain surface. The principal application entries are:
 
 ```yaml
 images:
   - name: matrixdotorg/synapse
-    newTag: "v1.159.0"
+    newTag: "v1.153.0"
   - name: vectorim/element-web
-    newTag: "v1.12.26"
+    newTag: "v1.12.20"
   - name: dock.mau.dev/maubot/maubot
     newTag: "v0.6.0"
   - name: postgres
@@ -116,7 +116,7 @@ images:
     digest: "sha256:4d25e2fe601f7ffaeb4437cb6ced3518bc36edf34ebe98863c80836943d94529"
 ```
 
-Every secret in the namespace is a SOPS-encrypted file decrypted at sync time by ksops, including the federation signing key — the single credential that establishes this server's identity to the rest of the federation:
+Every secret in the namespace is a SOPS-encrypted file decrypted at sync time by ksops, including the federation signing key, the single credential that establishes this server's identity to the rest of the federation:
 
 ```yaml
 apiVersion: viaduct.ai/v1
@@ -141,11 +141,11 @@ files:
 
 # Homeserver Configuration
 
-The homeserver configuration is the part worth getting right the first time, because `server_name` cannot be changed afterward without abandoning every user identifier and room the server has created.
+Homeserver configuration establishes the server's architectural identity at the outset; `server_name` enters every user identifier, and changing it later means abandoning the identifiers and rooms created beneath it.
 
 ## Naming and Delegation
 
-My `server_name` is `white.fm` while Synapse actually runs at `matrix.white.fm`. That split is deliberate; user identifiers read `@robert:white.fm`, and the homeserver can move later without breaking a single identifier.
+My `server_name` is `white.fm`, while Synapse actually runs at `matrix.white.fm`. That split is intentional; user identifiers read `@robert:white.fm`, and the homeserver can move later without breaking a single identifier.
 
 ```yaml
 server_name: "white.fm"
@@ -168,7 +168,7 @@ Delegation is what makes that split work. Two documents served from the apex dom
 { "m.homeserver": { "base_url": "https://matrix.white.fm" } }
 ```
 
-Those are served by a two-line nginx pod mounting a ConfigMap, with Gateway API routes attaching the path prefix to the apex hostname:
+A two-line nginx pod serves those documents from a ConfigMap, while Gateway API routes attach the path prefix to the apex hostname:
 
 ```yaml
 apiVersion: gateway.networking.k8s.io/v1
@@ -193,11 +193,11 @@ spec:
           port: 80
 ```
 
-Two details matter here. The client document must be valid JSON with a `Content-Type` of `application/json`; clients parse it strictly, and a stray comment or trailing comma produces a login failure whose error message will not mention the well-known document at all. The delegation must also be reachable from the public internet even if the homeserver itself is private, because remote servers resolve delegation before they attempt federation.
+The client document must be valid JSON with a `Content-Type` of `application/json`; clients parse it strictly, and a stray comment or trailing comma produces a login failure whose error message will not mention the well-known document at all. The delegation must also be reachable from the public internet even if the homeserver itself is private because remote servers resolve delegation before they attempt federation.
 
 ## Secrets Outside the ConfigMap
 
-Synapse's configuration file is held in a ConfigMap, while the database credentials belong in a Secret. An init container renders the final file with `envsubst` into an `emptyDir`, pulling the values from the SOPS-decrypted Secret:
+I keep Synapse's configuration file in a ConfigMap, while the database credentials belong in a Secret. An init container renders the final file with `envsubst` into an `emptyDir`, pulling the values from the SOPS-decrypted Secret:
 
 ```yaml
 initContainers:
@@ -217,13 +217,13 @@ initContainers:
       - { name: config-rendered, mountPath: /rendered }
 ```
 
-The committed ConfigMap holds `${POSTGRES_PASSWORD}` and the init container substitutes the value at runtime. The rendered file is ephemeral; it never reaches the repository, an image layer, or a persistent volume.
+The committed ConfigMap holds `${POSTGRES_PASSWORD}`, and the init container substitutes the value at runtime. The rendered file is ephemeral; it never reaches the repository, an image layer, or a persistent volume.
 
-The remaining server secrets — `registration_shared_secret`, `macaroon_secret_key`, `form_secret`, and the OIDC client secret — are mounted as files from `synapse-secrets`; the signing key is mounted separately at `/data/white.fm.signing.key`.
+Synapse reads the remaining server secrets, namely `registration_shared_secret`, `macaroon_secret_key`, `form_secret`, and the OIDC client secret, from files in `synapse-secrets`; the pod mounts the signing key separately at `/data/white.fm.signing.key`.
 
 ## Hardening the Defaults
 
-Synapse's defaults are tuned for a public homeserver on a large federation. Four changes narrow that considerably for a private one:
+Synapse ships defaults suited to a public homeserver on a large federation. Four changes narrow that exposure for a private one:
 
 ```yaml
 presence:
@@ -237,7 +237,7 @@ registrations_require_3pid:
   - email
 ```
 
-The first three prevent an unauthenticated remote server from enumerating profiles. The fourth is intentionally left open; the public channel therefore remains discoverable over federation. This is a deliberate trade-off; everything that matters is in encrypted rooms outside the public directory.
+The first three prevent an unauthenticated remote server from enumerating profiles. I leave the fourth open, which keeps the public channel discoverable over federation. Everything operational remains in encrypted rooms outside the public directory; the public listing exposes the channel while the infrastructure remains concealed within those rooms.
 
 Registration stays enabled but requires a verified email address, and my own account authenticates through OIDC in place of a password:
 
@@ -255,11 +255,11 @@ oidc_providers:
         display_name_template: "{{ user.name }}"
 ```
 
-This is the distinction I would have wanted written in larger type: OIDC authenticates the *account*; it neither creates nor carries the room-encryption keys, which remain on the participating devices and live independently of the identity provider. An IdP outage locks me out of the account for its duration. The loss of every logged-in device is more final: without client-side key backup, it takes the history of my encrypted rooms with it. I configure key backup before I need it, because after the devices are gone there is nothing left to configure.
+I keep this distinction separate in my own deployment: OIDC authenticates the *account*; it neither creates nor governs the room-encryption keys, which remain on the participating devices and live independently of the identity provider. An IdP outage locks me out of the account for its duration. The loss of every logged-in device is more final: without client-side key backup, it takes the history of my encrypted rooms with it. I configure key backup before I need it, because after the devices are gone there is nothing left to configure.
 
 ## Publishing
 
-Only four hostnames reach the public internet through the Cloudflare tunnel and the Envoy Gateway `https-white-fm` listener: `matrix.white.fm` (the homeserver), `element.white.fm` (the client), `webhooks.white.fm` (webhook ingest), and `hookshot.white.fm` (the widget API). Everything else — including the Maubot administrative interface and the alternative clients — is reachable only on `*.internal.white.fm`, resolved by internal DNS. The homeserver route carries an extended timeout because federation requests to slow remote servers exceed the gateway default:
+Only four hostnames reach the public internet through the Cloudflare tunnel and the Envoy Gateway `https-white-fm` listener: `matrix.white.fm` (the homeserver), `element.white.fm` (the client), `webhooks.white.fm` (webhook ingest), and `hookshot.white.fm` (the widget API). Everything else, including the Maubot administrative interface and the alternative clients, is reachable only on `*.internal.white.fm`, resolved by internal DNS. The homeserver route has an extended timeout because federation requests to slow remote servers exceed the gateway default:
 
 ```yaml
 hostnames:
@@ -272,17 +272,15 @@ rules:
       request: "90s"
 ```
 
-The namespace runs default-deny for ingress and egress, with explicit allowances for the gateway, Prometheus scraping on the three metrics ports, and the specific namespaces that post webhooks in-cluster.
+The namespace declares default-deny ingress and egress, but an `allow-all-egress` policy currently reopens egress for every pod. Ingress allowances cover the cluster ingress path, Prometheus scraping on the three metrics ports, and the specific namespaces that post webhooks in-cluster.
 
 --------------------------------------------------------
 
 # Encrypted Webhooks
 
-This is where a naive design fails, and the failure is subtle enough to be worth describing.
+The tidy abstraction ends at the webhook boundary. A webhook is an HTTP POST request containing JSON and, by default, has no authentication. A Matrix room configured for end-to-end encryption expects room messages as Megolm-encrypted events, and the webhook protocol knows nothing about producing one. Between those states, a process must act as a Matrix client, hold device keys, and participate in the room's key-sharing; it receives the payload, composes the event, and performs the encryption.
 
-A webhook is an unauthenticated-by-default HTTP POST carrying JSON. A Matrix room with end-to-end encryption enabled accepts only Megolm-encrypted events. Nothing in the webhook protocol knows how to produce one. The gap between "a media service posted JSON" and "an encrypted event appears in the room" has to be closed by a process that is itself a Matrix client, holds device keys, and participates in the room's key-sharing.
-
-My original solution was the `matrix-encrypted-webhooks` container, paired with Maubot for the polling integrations — that is the arrangement described in the 2023 post. It worked, but it was a single-purpose service with no provisioning story; every new webhook meant editing a config file on a volume and restarting the pod.
+My original solution was the `matrix-encrypted-webhooks` container, paired with Maubot for the polling integrations; that is the arrangement described in the 2023 post. It worked, but it was a single-purpose service with no provisioning story; every new webhook meant editing a config file on a volume and restarting the pod.
 
 That role now belongs to [Hookshot](https://github.com/matrix-org/matrix-hookshot), which registers with Synapse as an *appservice*. An appservice is a first-class server-side integration with its own namespace of users and a shared registration token, and Hookshot maintains its own Olm/Megolm crypto store, which allows it to encrypt into rooms as a real device:
 
@@ -315,7 +313,7 @@ permissions:
         level: admin
 ```
 
-Three parts of that block carry the load.
+Three details decide whether this configuration survives contact with a restart, a redeployment, and the next delivery.
 
 `encryption.storagePath` must be a persistent volume. It holds the appservice's device identity and Megolm session state. Losing it interrupts delivery and produces a new device that other members have not verified; messages sent by the original device become permanently undecryptable to anyone who joins afterward. This is the one PVC in the stack whose contents cannot be regenerated without losing cryptographic continuity.
 
@@ -325,9 +323,9 @@ The `permissions` block is the one I got wrong. Current Hookshot webhook command
 
 ## Creating a Webhook Without the Legacy Provisioning API
 
-Hookshot 7.0 removed its legacy HTTP provisioning API. Webhook creation now goes through Matrix itself, either through the room widget or by asking the bot in the room. Both paths are interactive, and neither is scriptable — a poor fit when the webhook belongs to a CronJob deployed from a manifest.
+Hookshot 7.0 removed its legacy HTTP provisioning API. Webhook creation now goes through Matrix itself, either through the room widget or by asking the bot in the room. Both paths are interactive, and neither is scriptable; that is a poor fit when the webhook belongs to a CronJob deployed from a manifest.
 
-The state underneath is simple enough, though. A webhook is a `uk.half-shot.matrix-hookshot.generic.hook` state event in the room; Hookshot notices the new state event, mints a hook ID, and records the mapping in its own room account data. Both are ordinary client-server API operations, which makes the whole flow scriptable:
+The underlying state is simple. A webhook is a `uk.half-shot.matrix-hookshot.generic.hook` state event in the room; Hookshot notices the new state event, mints a hook ID, and records the mapping in its own room account data. Both are ordinary client-server API operations, which makes the whole flow scriptable:
 
 ```python
 # 1. Mint a one-shot server admin using registration_shared_secret
@@ -350,7 +348,7 @@ req("PUT", f"/_matrix/client/v3/rooms/{room}/state/{HOOK_EVENT}/{name}",
 #    then deactivate and erase the temporary admin in a finally block
 ```
 
-The full script runs inside the Synapse pod, where `127.0.0.1:8008` is the admin listener and the shared secret is already mounted; it therefore introduces no new long-lived credential. It writes the state event directly; this keeps the room history clean and, more importantly, avoids any need to decrypt content. The bot-command path would require the script to read an encrypted room, while a state event is unencrypted by design. The temporary admin is deactivated and erased in a `finally` block in every case, including failure of the remaining operations.
+The full script runs inside the Synapse pod, where `127.0.0.1:8008` is the admin listener and the shared secret is already mounted; it therefore introduces no new long-lived credential. It writes the state event directly, which keeps the room history clean and avoids any need to decrypt content. The bot-command path would require the script to read an encrypted room, while a state event is unencrypted by design. In a `finally` block, the script deactivates and erases the temporary admin even when one of the remaining operations fails.
 
 The result is one line on stdout:
 
@@ -361,7 +359,7 @@ The result is one line on stdout:
 
 ## Transformation Functions
 
-A raw media-service or Alertmanager payload rendered into a room is a wall of JSON. Hookshot's `allowJsTransformationFunctions` permits a JavaScript function, stored in the room's state event, to convert each payload into formatted text before the message is composed and encrypted:
+When Hookshot renders a raw media-service or Alertmanager payload directly into a room, the result is a wall of JSON. Its `allowJsTransformationFunctions` setting accepts a JavaScript function stored in the room's state event; the function converts each payload into formatted text before Hookshot composes and encrypts the message:
 
 ```js
 result = (() => {
@@ -381,9 +379,9 @@ result = (() => {
 })();
 ```
 
-Every transform I run escapes its output, a security control because the `html` field is rendered by the client and the payload arrives from a service that may itself be reporting on attacker-controlled input — a monitor name, an article title, or a username in a failed-login event. Unescaped input creates a direct injection path into the room; escape it at the boundary.
+Every transform I run escapes its output, a security control because the client renders the `html` field and the payload arrives from a service that may itself be reporting on attacker-controlled input, such as a monitor name, an article title, or a username in a failed-login event. Unescaped input creates a direct injection path into the room; escape it at the boundary.
 
-Two properties of transforms are easy to misread. First, they execute in the Hookshot process — they run *before* encryption, which means Hookshot sees every payload in cleartext by necessity, because it is the component doing the encrypting. Second, the transform is stored in room state, which means anyone who can write state in that room can change the code Hookshot executes on incoming payloads. Treat write access to those rooms as equivalent to code deployment, because it is.
+Two properties of transforms are easy to misread. First, they execute in the Hookshot process; they run *before* encryption, which means Hookshot sees every payload in cleartext by necessity because it is the component doing the encrypting. Second, the transform is stored in room state, which means anyone who can write state in that room can change the code Hookshot executes on incoming payloads. Treat write access to those rooms as equivalent to code deployment, because it is.
 
 The repository files document my transforms, yet they do not control the deployed versions. Hookshot reads the code stored in room state; editing a repository file has no effect until the corresponding state event is updated. That distinction has cost me a debugging session more than once.
 
@@ -391,7 +389,7 @@ The repository files document my transforms, yet they do not control the deploye
 
 # What Actually Sends Me Messages
 
-Producers fall into three classes, distinguished by how they reach the room.
+I have three paths into the rooms, each with its own trust boundary.
 
 **In-cluster producers** post over plain HTTP to `matrix-hookshot.matrix.svc.cluster.local:9000`, permitted by an explicit NetworkPolicy per source namespace. **External and appliance producers** post over HTTPS to `webhooks.white.fm/webhook/<id>` through the Cloudflare tunnel. **Bots** hold their own access tokens and speak the client-server API directly.
 
@@ -409,11 +407,11 @@ Producers fall into three classes, distinguished by how they reach the room.
 | GitHub / GitOps | Maubot plugin | Repository and deployment activity |
 | Hermes, Jarvis | Client-server API | Conversation |
 
-The RSS path is the most developed, because it carries the most volume. My [FreshRSS intelligence pipeline](/posts/rss-intelligence-pipeline/) runs as a CronJob every thirty minutes, clusters near-duplicate stories, extracts a structured event with a local model, scores it against profiles, and posts the survivors. Its transform handles three payload shapes on one hook — the scored alert digest, a plain-text digest from a separate CronJob, and individual feed entries — and falls back to a formatted JSON dump for anything unrecognized. That fallback has repeatedly been how I discovered that a producer had changed its payload shape.
+The RSS path is the most developed because it handles the greatest volume. My [FreshRSS intelligence pipeline](/posts/rss-intelligence-pipeline/) runs as a CronJob every thirty minutes, clusters near-duplicate stories, extracts a structured event with a local model, scores it against profiles, and posts the survivors. Its transform handles three payload shapes on one hook (the scored alert digest, a plain-text digest from a separate CronJob, and individual feed entries) and falls back to a formatted JSON dump for anything unrecognized. That fallback has repeatedly been how I discovered that a producer had changed its payload shape.
 
-The appliance producers deserve a note on where their configuration lives. UniFi, Synology, and the weather source are not Kubernetes workloads; their webhook configuration lives in each device's own interface and outside git. That is an honest gap in an otherwise declarative stack; the URL is a bearer credential held in an appliance's settings page, recoverable only by regenerating it, and if an appliance is reset, the webhook must be re-entered by hand.
+The declarative boundary ends at the appliances. UniFi, Synology, and the weather source are not Kubernetes workloads; their webhook configuration lives in each device's own interface and outside git. The stack therefore retains one unvarnished manual step: the URL is a bearer credential held in an appliance's settings page, recoverable only by regenerating it, and a reset appliance requires the webhook to be entered by hand.
 
-Maubot occupies the remaining niche. Where Hookshot is push-driven and appservice-backed, Maubot runs plugin bots that poll — the GitHub and RSS plugins in particular — and each bot is a real Matrix client with its own device, encrypting into rooms the same way any client does. The two are complementary; anything that can push, pushes to Hookshot, while anything that must be polled, Maubot polls.
+Maubot occupies the remaining niche. Where Hookshot is push-driven and appservice-backed, Maubot runs plugin bots that poll (the GitHub and RSS plugins in particular), and each bot is a real Matrix client with its own device, encrypting into rooms the same way any client does. The two are complementary; anything that can push goes to Hookshot, while Maubot polls anything that must be polled.
 
 --------------------------------------------------------
 
@@ -421,7 +419,7 @@ Maubot occupies the remaining niche. Where Hookshot is push-driven and appservic
 
 Encryption was the easy part. Keeping the rooms readable was not.
 
-An unfiltered notification hub that delivers everything becomes a notification hub nobody reads, and a channel nobody reads is worse than no channel, because it produces a false sense of coverage. Three controls do the filtering, and all three were added after the rooms became unusable.
+An unfiltered notification hub that delivers everything becomes a notification hub nobody reads, and a channel nobody reads is worse than no channel because it produces a false sense of coverage. I use three controls to keep the rooms readable; all three arrived after the rooms had become unusable.
 
 The transform is the final and most precise filter: it can discard a message entirely by returning `empty: true`. Uptime Kuma fires on every state transition, which means that recoveries and retries generate traffic alongside failures. I want the room to report the failure itself:
 
@@ -432,7 +430,7 @@ if (hb.status === 1 || hb.status === 2 || MUTED.has(mon.name)) {
 }
 ```
 
-Recoveries and pending retries are dropped, and a short list of chronic flappers is muted by name. Current state is always on the Kuma dashboard; the room carries state transitions.
+I drop recoveries and pending retries and mute a short list of chronic flappers by name. Current state is always on the Kuma dashboard; the room records state transitions.
 
 Alertmanager needed the same treatment at the routing layer, before the transform stage:
 
@@ -446,7 +444,7 @@ route:
 
 `group_interval` was originally five minutes, which meant a single flapping pod could generate a notification every five minutes indefinitely. Thirty minutes lets the alert stream settle and batches several flap cycles into one message. `repeat_interval` moved from four hours to twelve for the same reason; for an incident already under observation, re-notification every four hours adds volume without adding a decision. Both receivers set `send_resolved: false`; the useful signal is *this started firing*, while the corresponding *it stopped* doubles the volume without changing an operational response.
 
-The third control is an inhibit rule that I recommend to anyone running Alertmanager, added after an eleven-hour episode in which a crash-looping Alertmanager alerted me about the crash-looping Alertmanager through the very pod that was crash-looping:
+The third control is an inhibit rule added after an eleven-hour episode in which a crash-looping Alertmanager alerted me about the crash-looping Alertmanager through the very pod that was crash-looping:
 
 ```yaml
 inhibit_rules:
@@ -476,25 +474,25 @@ Hermes, my personal agent gateway, runs as `@hermes:white.fm`:
   value: "true"
 ```
 
-OpenClaw runs as `@jarvis:white.fm` with the same encryption settings and a tighter join policy — `autoJoin: "allowlist"`, `groupPolicy: "allowlist"`, and `requireMention: true` on the one group room it is permitted to enter.
+OpenClaw runs as `@jarvis:white.fm` with the same encryption settings and a tighter join policy, using `autoJoin: "allowlist"`, `groupPolicy: "allowlist"`, and `requireMention: true` for the one group room it may enter.
 
-Three consequences of that decision have mattered enough in practice to state plainly.
+That decision has three practical consequences; I have encountered each of them in operation.
 
-**A bot in an encrypted room holds that room's keys.** That is the correct behavior; the bot's device identity consequently deserves the same protection as a user's. Compromising the agent's pod yields the plaintext of every room of which it is a member. Both agents keep their state on a backed-up PVC for exactly that reason, and both are part of why the namespace runs default-deny egress.
+**A bot in an encrypted room holds that room's keys.** The bot is a cryptographic device in the same sense as a human user's phone or browser, and its device identity deserves the same protection. Compromising the agent's pod yields the plaintext of every room of which it is a member. Both agents keep their state on a backed-up PVC for exactly that reason, and both are part of why I need restrictive egress; the namespace's current `allow-all-egress` policy restores unrestricted egress to every pod.
 
-**Mention-gating is a cost control and a safety property.** `MATRIX_REQUIRE_MENTION` means the agent does not respond to the notification stream flowing past it. An agent that reacts to every Falco detection and every media import is both expensive and, more importantly, an arrangement that acts on machine-generated input without a human in the loop.
+**Mention-gating keeps the agent out of the stream.** `MATRIX_REQUIRE_MENTION` means the agent does not respond to notifications passing through the room. The setting controls cost and keeps machine-generated events from becoming instructions; an agent that reacts to every Falco detection and every media import acts without a human in the loop.
 
-**What the agent can reach is a deliberate decision, made at mount time.** Hermes has the Synology media, books, and downloads exports mounted read-write so its file tooling is useful. `/volume1/Personal` is deliberately not mounted, and the manifest explains the omission; the agent is reachable from Matrix, Telegram, and iMessage, which means anything mounted into it is reachable by anyone who can send it a message. The encryption protects the channel; a filesystem handed to something that answers strangers remains exposed.
+**The filesystem mounts define the agent's practical reach.** I mount the Synology media, books, and downloads exports read-write in Hermes for its file tooling. I leave `/volume1/Personal` out, and the manifest explains why; anyone who can send Hermes a message through Matrix, Telegram, or iMessage can reach anything I mount into it. The encryption protects the channel; a filesystem handed to something that answers strangers remains exposed.
 
-I will cover the agent design properly in a separate post; the point here is only that an encrypted notification channel carrying an agent must be designed as a control plane.
+I will cover the agent design in a separate post; here, an encrypted notification channel carrying an agent is a control plane.
 
 --------------------------------------------------------
 
 # Security Notes
 
-**Encryption starts at Hookshot.** This is the qualification that matters most. When a media service posts a webhook, that request is protected by TLS to the gateway, or uses plain HTTP inside the cluster; the request itself carries no end-to-end encryption. Hookshot receives cleartext, runs the transform on cleartext, and encrypts as it composes the room event. The guarantee is real but specific; message content is unreadable at rest in the homeserver database and unreadable to anyone who compromises Synapse. Hookshot can read it, as can anyone who intercepts the request before it reaches Hookshot. In-cluster producers posting over plain HTTP depend entirely on NetworkPolicy for that leg, which is why each source namespace has an explicit policy instead of a blanket allowance.
+**In this stack, Hookshot is the encryption boundary.** TLS protects a webhook request to the gateway; inside the cluster, some producers use plain HTTP, and the request itself is not end-to-end encrypted. Hookshot receives cleartext, runs the transform on cleartext, and encrypts as it composes the room event. The protection has a precise boundary: message content is unreadable at rest in the homeserver database and unreadable to anyone who compromises Synapse. Hookshot can read it, as can anyone who intercepts the request before it reaches Hookshot. In-cluster producers posting over plain HTTP depend entirely on NetworkPolicy for that leg, which is why each source namespace has an explicit policy instead of a blanket allowance.
 
-**A webhook URL is a bearer credential.** Anyone holding `https://webhooks.white.fm/webhook/<id>` can post to that room, forever, with no additional authentication. These URLs belong in secret management with the same seriousness as an API key. A manifest comment, public repository, or screenshot is an unacceptable place for one. Mine reach the public internet through the Cloudflare tunnel, which makes the URL the entire access control. Rotation means creating a new hook and updating each producer, a good argument for keeping the number of producers per hook small.
+**A webhook URL is a bearer credential.** Anyone holding `https://webhooks.white.fm/webhook/<id>` can post to that room, forever, with no additional authentication. These URLs belong in secret management with the same seriousness as an API key. A manifest comment, public repository, or screenshot is an unacceptable place for one. Mine reach the public internet through the Cloudflare tunnel, which makes the URL the entire access control. Rotation means creating a new hook and updating each producer, which is why I keep the number of producers per hook small.
 
 **`registration_shared_secret` is an admin-equivalent credential.** It can mint server administrators without any existing account; the webhook script relies on that capability. It should exist only inside the pod, and any tooling that uses it should create a temporary admin, do the work, and erase the account in a `finally` block. Do not build tooling that keeps a standing admin token.
 
@@ -504,22 +502,22 @@ I will cover the agent design properly in a separate post; the point here is onl
 
 **Key loss is data loss, and the failure is silent.** Hookshot's `encryption.storagePath` and the agents' data volumes hold device identities and Megolm sessions. Restore a pod without its volume and it becomes a new, unverified device; the old messages do not become readable again, and nothing in the interface announces what happened beyond an unverified-device warning that is easy to dismiss. Back up those volumes and configure client-side key backup for human accounts before you need it.
 
-**Federation exposes more than room content.** End-to-end encryption protects message bodies. It does not protect membership, timing, room structure, or the fact that a room exists. `allow_public_rooms_over_federation: true` in my configuration is a deliberate choice for one discoverable public channel; it means any federating server can enumerate the public room directory. Everything operational lives in encrypted, non-published rooms, and that separation is the actual control.
+**Federation exposes more than room content.** End-to-end encryption protects message bodies; membership, timing, room structure, and the existence of a room remain visible. `allow_public_rooms_over_federation: true` remains enabled for one discoverable public channel, which allows any federating server to enumerate the public room directory. Everything operational lives in encrypted, non-published rooms, and that separation is the actual control.
 
-**Assume the appliance webhooks are the weak link.** UniFi, Synology, and similar devices hold the webhook URL in a settings page, transmit over whatever TLS stack their firmware ships, and offer no rotation story. They are the least controlled producers in the stack, and they are the ones reporting on presence in the house. Give them their own hooks and their own rooms so a leaked URL from a device reset has a bounded blast radius.
+**Assume the appliance webhooks are the weak link.** UniFi, Synology, and similar devices hold the webhook URL in a settings page, transmit over whatever TLS stack their firmware ships, and offer no rotation story. They are the least controlled producers in the stack, and they are the ones reporting on presence in the house. Give them their own hooks and their own rooms; a leaked URL from a device reset then has a bounded blast radius.
 
 --------------------------------------------------------
 
 # Wrapping Up
 
-The technically interesting parts of this build were the appservice crypto store, the state-event provisioning path around a removed API, and the discovery that the central difficulty is noise; encryption is the easy part. The part worth arguing about is the premise.
+The technically interesting parts of this build were the appservice crypto store, the state-event provisioning path around a removed API, and the discovery that the central difficulty is noise; encryption is the easy part. The more consequential question is the premise.
 
-Every self-hosted stack generates a notification stream, and the default destination for that stream is a third-party chat service, chosen because the integration takes four minutes. That choice hands a continuously updated description of your infrastructure, your habits, and your presence in the house to an organization with no stake in protecting it. The alternative costs one homeserver, one appservice, and an afternoon, and it produces an arrangement in which the operator of the server — me — cannot read the rooms either.
+Every self-hosted stack generates a notification stream, and the default destination for that stream is a third-party chat service, chosen because the integration takes four minutes. That choice hands a continuously updated description of your infrastructure, your habits, and your presence in the house to an organization with no stake in protecting it. The alternative costs one homeserver, one appservice, and an afternoon; it produces an arrangement in which the operator of the server (me) cannot read the rooms either.
 
-That last property is the one I would emphasize. The cryptographic design removes the question of whether to trust me from the server's operation; it gives the arrangement a stronger foundation than a declaration of trust ever could.
+For me, that last property is decisive. The cryptographic design removes the question of whether to trust me from the server's operation; it gives the arrangement a stronger foundation than a declaration of trust ever could.
 
 I keep a public channel for this blog at [#whitematter:white.fm](https://matrix.to/#/%23whitematter:white.fm). It federates, which allows any Matrix account to join and ask about this post or any other subject.
 
-Questions or corrections may be raised in a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), submitted as a [GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or sent by email to [robert@whitematter.tech](mailto:robert@whitematter.tech). You may also [join the WhiteMatterTech Matrix channel](https://matrix.to/#/%23whitematter:white.fm) to discuss the post there.
+Raise questions or corrections in a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), submit a [GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or send email to [robert@whitematter.tech](mailto:robert@whitematter.tech). You may also [join the WhiteMatterTech Matrix channel](https://matrix.to/#/%23whitematter:white.fm) to discuss the post there.
 
 Robert
