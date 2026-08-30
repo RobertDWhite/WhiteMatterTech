@@ -1,0 +1,76 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WhiteMatterTech Content Index API",
+    "version": "1.0.0",
+    "summary": "Read-only JSON index of every published post on whitematter.tech.",
+    "description": "A single static JSON document listing every published post, regenerated at build time by Hugo. It is intended for search clients, feed readers, and automated agents that want the site's full text without crawling each page. There is no authentication, no rate limiting, and no pagination: the entire index is returned in one response.",
+    "contact": {
+      "name": "Robert D. White",
+      "url": "https://whitematter.tech/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://whitematter.tech",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/index.json": {
+      "get": {
+        "operationId": "getContentIndex",
+        "summary": "Retrieve the full content index",
+        "description": "Returns every published post as a JSON array. The response is a complete snapshot; clients should re-fetch to pick up new posts.",
+        "responses": {
+          "200": {
+            "description": "The complete content index.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentIndex"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ContentIndex": {
+        "type": "array",
+        "description": "Every published post, in the site's default ordering (most recent first).",
+        "items": {
+          "$ref": "#/components/schemas/ContentItem"
+        }
+      },
+      "ContentItem": {
+        "type": "object",
+        "required": ["title", "permalink", "summary", "content"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Post title.",
+            "examples": ["One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes"]
+          },
+          "permalink": {
+            "type": "string",
+            "format": "uri",
+            "description": "Absolute canonical URL of the post.",
+            "examples": ["https://whitematter.tech/posts/encrypted-matrix-notification-hub/"]
+          },
+          "summary": {
+            "type": "string",
+            "description": "Short excerpt of the post, as an HTML fragment."
+          },
+          "content": {
+            "type": "string",
+            "description": "Full post body as plain text, with markup stripped."
+          }
+        }
+      }
+    }
+  }
+}
