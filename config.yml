@@ -11,7 +11,6 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-googleAnalytics: "UA-193676598-1"
 pygmentsUseClasses: true
 mainsections: ["posts", "papermod"]
 
@@ -131,9 +130,6 @@ params:
     #     icon: icon.png
     #     iconHeight: 35
     #
-    analytics:
-        google:
-           SiteVerificationTag: "gtag('config', 'UA-193676598-1')"
 
 assets:
     favicon: "/favicon.ico"
