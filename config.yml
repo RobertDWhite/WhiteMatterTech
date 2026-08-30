@@ -56,11 +56,20 @@ markup:
     renderer:
       unsafe: true
 
+outputFormats:
+    AgentSkills:
+        mediaType: "application/json"
+        baseName: "index"
+        path: ".well-known/agent-skills"
+        isPlainText: true
+        notAlternative: true
+
 outputs:
     home:
         - HTML
         - RSS
         - JSON
+        - AgentSkills
 
 params:
 #    profileMode:
