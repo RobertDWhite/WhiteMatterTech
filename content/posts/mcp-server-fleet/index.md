@@ -24,16 +24,16 @@ cover:
 
 # A Reusable Access Layer
 
-I recently wrote about [pages](https://whitematter.tech/posts/pages-mcp/), a static-site host with an MCP upload tool. That server was the first in a fleet that has since grown to ten.
+I first built [pages](https://whitematter.tech/posts/pages-mcp/), a static-site host with an MCP upload tool. It was useful enough that I kept repeating the design. The cluster now has ten MCP servers: `congress-mcp`, `freshrss-mcp`, `googlenews-mcp`, `gsc-mcp`, `jetlog-mcp`, `media-mcp`, `monica-mcp`, `nodebyte-mcp`, `pages`, and the Kubernetes server.
 
-I now run ten MCP servers in the cluster. Each presents one self-hosted application: `congress-mcp`, `freshrss-mcp`, `googlenews-mcp`, `gsc-mcp`, `jetlog-mcp`, `media-mcp`, `monica-mcp`, `nodebyte-mcp`, `pages`, and the Kubernetes server. They share a core manifest pattern, a bearer-token boundary, a hostname convention, and a deployment path. Adding the tenth took approximately forty minutes; most of that time went into writing tool descriptions.
+Each server fronts one self-hosted application. The similarity is intentional. They share the manifest layout, bearer-token boundary, hostname convention, and deployment path. Adding the tenth took about forty minutes, most of it spent writing the tool descriptions that decide whether a client can use the server sensibly.
 
-This post describes the pattern across the fleet. If you self-host an application with an API, the pattern offers a repeatable way to make that application available to a large-language-model (LLM) client while keeping the application itself off the public internet.
+An API-backed application can take this shape without becoming public infrastructure. The client receives a narrow interface. The application stays behind the cluster boundary.
 
 --------------------------------------------------------
 # The Common Shape
 
-Every server follows the same core directory pattern:
+Every server begins with the same directory:
 
 ```
 00-namespace.yaml
@@ -46,19 +46,14 @@ ksops.yaml
 kustomization.yaml
 ```
 
-Some servers add an `ExternalSecret` or another registry and credential manifest, although the core shape remains stable. Adding a server usually involves copying the directory, replacing the application-specific values, and creating a new bearer token. The deployment, service, route, and policy decisions remain explicit in the copied files.
+Some services need an `ExternalSecret` or an additional registry credential manifest. The bones stay the same. I copy the directory, replace the application values, issue a fresh bearer token, and review the deployment, service, route, and network policy as a unit.
 
-Four conventions govern the fleet:
-
-- **Hostname.** `https://<app>-mcp.internal.white.fm/mcp`, resolved through internal DNS. These routes are not intended for the public internet.
-- **Authentication.** A static bearer token in `MCP_TOKEN`, supplied to the pod through a Kubernetes Secret generated from SOPS or an external secret. `/healthz` remains open for kubelet probes.
-- **Images.** Each server has its own container image. The deployment uses an internal registry reference, and `kustomization.yaml` pins the image tag, with digest pins where used. Several deployments carry Renovate update annotations.
-- **Ingress.** A default-deny NetworkPolicy is paired with a policy that permits only the Envoy Gateway namespace to reach the service on port 8080.
+The hostname is always `https://<app>-mcp.internal.white.fm/mcp`, resolved by internal DNS. The pod receives `MCP_TOKEN` and its upstream credentials through a Kubernetes Secret generated from SOPS or an external secret. Kubelet probes can still reach `/healthz`. Each service has its own image, referenced through the internal registry and pinned in `kustomization.yaml`, with digests and Renovate annotations where the deployment uses them. A default-deny NetworkPolicy then admits only the Envoy Gateway namespace to port 8080.
 
 --------------------------------------------------------
 # The Interface Carries the Design
 
-The servers are thin HTTP services built with `FastMCP`. They use Streamable HTTP with a bearer header. An MCP client that supports this transport and header-based authentication can register a server with a single command:
+These are small FastMCP HTTP services using Streamable HTTP and a bearer header. A compatible client registers one with a command like this:
 
 ```sh
 claude mcp add --transport http jetlog \
@@ -66,40 +61,36 @@ claude mcp add --transport http jetlog \
   --header "Authorization: Bearer <MCP_TOKEN>"
 ```
 
-The substantive engineering resides in two places: the tool boundaries and the metadata that describes them.
+The difficult part is the tool boundary. Function names, type annotations, parameter descriptions, server instructions, and docstrings all become part of the interface a model sees. A tool called `add_flight` with a one-line description invites malformed calls. One that names the date format, airport-code format, and duplicate check gives the client a workable path through the task.
 
-Tool metadata forms part of the interface presented to the model. In these servers, function names, type annotations, parameter descriptions, server instructions, and docstrings all influence how a client invokes a tool. A tool named `add_flight` with a one-line description leaves too much room for malformed input. A description that specifies the date format, airport-code format, and duplicate-check step gives the client a usable sequence of calls.
-
-The tools must correspond to the way a person requests work. `jetlog-mcp` provides the clearest example. A thin wrapper could expose the flight-log REST endpoints one-to-one. The server instead exposes `parse_boarding_pass`, `check_duplicate`, `enrich_flights`, `get_statistics`, and `get_analytics`, because the usual request is "log this flight from my confirmation email." The underlying API would represent that request as "POST to /api/flights."
+That boundary should resemble the request a person makes. `jetlog-mcp` could expose each flight-log REST endpoint. Instead it offers `parse_boarding_pass`, `check_duplicate`, `enrich_flights`, `get_statistics`, and `get_analytics`, because the usual request is "log this flight from my confirmation email." The underlying API sees a POST to `/api/flights`. The MCP server absorbs that translation.
 
 --------------------------------------------------------
 # Three Servers Worth Describing
 
-**`media-mcp` joins a stack of applications.** The server currently fronts Radarr, Sonarr, Prowlarr, Readarr, Bazarr, LazyLibrarian, Plex, and Tautulli. One MCP endpoint can look up a movie, add it to Radarr, trigger a search, request a Plex library scan, confirm that the item arrived, and inspect current playback. Separate wrappers would expose each API independently, leaving more cross-service sequencing to the client. This server keeps that workflow within one operational boundary.
+**`media-mcp` joins a stack of applications.** It fronts the download-management and library services in my media stack, plus Plex and Tautulli. One endpoint can look up a film, add it to the appropriate workflow, trigger a search, request a Plex library scan, confirm that the item arrived, and inspect playback. The client does not need to coordinate a handful of unrelated APIs for one ordinary request.
 
-**`monica-mcp` is a compatibility layer for the deployed Monica interface.** The Kubernetes deployment supplies the Monica base URL, an account email, and a DAV token to the MCP container. The image handles the DAV details and exposes higher-level operations to the client. The useful boundary is the translation layer: the client need not understand the upstream protocol.
+**`monica-mcp` smooths over the deployed Monica interface.** Its Kubernetes deployment provides the Monica base URL, an account email, and a DAV token to the MCP container. The image handles the DAV layer and exposes higher-level operations. The client need not learn the upstream protocol to use the data.
 
-**`gsc-mcp` replaces browser automation for API-backed work.** Search Console and IndexNow expose APIs for submission and analytics tasks. Browser automation is slower, more fragile, and requires credentials within a client session. Keeping the Google credential in the server confines credential handling to the service that requires it.
+**`gsc-mcp` keeps browser automation out of API work.** Search Console and IndexNow already expose APIs for submission and analytics. A browser is slower, more brittle, and forces credentials into a client session. The Google credential belongs in the service that needs it.
 
 --------------------------------------------------------
 # Security Notes
 
-The fleet assumes a single-tenant cluster reachable through a private tailnet. The routes use internal hostnames, NetworkPolicy limits traffic to the gateway path, and each server checks a bearer token before serving MCP requests. These controls describe the current trust boundary; they do not eliminate the risks associated with credential-bearing services.
+This fleet assumes a single-tenant cluster on a private tailnet. Internal hostnames, gateway-only NetworkPolicy ingress, and bearer tokens establish the present trust boundary. Credential-bearing services still deserve suspicion.
 
-**Every server is a credential holder.** `media-mcp` holds multiple upstream API keys and tokens. `gsc-mcp` holds a Google credential. A compromise of one server can expose the upstream capabilities and credentials assigned to that server. Use a distinct token per server, as this fleet does, and treat every token as a production credential; convenience strings are an unsafe mental model.
+**Every server holds credentials.** `media-mcp` has several upstream API keys and tokens. `gsc-mcp` has a Google credential. A compromised server can expose the authority assigned to it. Each server in this fleet receives its own token. I treat every one as a production secret, even when the service feels like a convenience wrapper.
 
-**Tokens are static and unrotated.** This design has no rotation mechanism or per-client scoping. Ten servers mean ten long-lived secrets. That is an accepted trade for a private network; it is unsuitable as a default for a shared or public service.
+**Tokens are static and unrotated.** There is no rotation mechanism or client-specific scope. Ten servers mean ten long-lived secrets. I accept that on a private network. It is a poor default for a shared or public service.
 
-**Scope tools deliberately.** `googlenews-mcp` has no arbitrary-URL fetch tool. A generic fetch escape hatch can turn a narrow capability into a general egress primitive. Add one only when the use case, allowed destinations, and response handling are explicit. I wrote about this in a [separate post on capability-scoped egress](https://whitematter.tech/posts/capability-scoped-agent-egress/).
+**Tool scope needs active restraint.** `googlenews-mcp` has no arbitrary-URL fetch tool. Such a tool can turn a narrow capability into a general egress route. I wrote more about that constraint in [No Proxy, No Fetch Tool](https://whitematter.tech/posts/capability-scoped-agent-egress/).
 
-The `media-mcp` implementation explicitly disables FastMCP's DNS-rebinding protection. A private-network assumption does not replace `Host` and `Origin` validation at an HTTP MCP endpoint. Review that setting before exposing the service beyond the trusted network.
+`media-mcp` explicitly disables FastMCP's DNS-rebinding protection. A private-network assumption does not substitute for `Host` and `Origin` validation at an HTTP MCP endpoint. I would review that setting before putting this service anywhere beyond the trusted network.
 
 --------------------------------------------------------
 # The Practical Result
 
-The fleet consists of ten services, ten image builds, and one reusable manifest pattern. The repeated work is intentionally uninteresting. The valuable asset is the directory structure and the four conventions; an individual implementation is less consequential.
-
-If you self-host applications and use an LLM client daily, build the uniform access layer first. It gives each subsequent integration the same model for authentication, routing, deployment, and review.
+The cluster has ten services, ten image builds, and one manifest pattern. The repetition is deliberately dull. That is the point. A new integration inherits a familiar way to authenticate, route, deploy, and review its access surface.
 
 Questions or corrections? Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
