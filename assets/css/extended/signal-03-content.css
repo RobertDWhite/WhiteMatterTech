@@ -178,15 +178,106 @@
     filter: saturate(0.85) contrast(1.05);
 }
 
-/* --- publications --------------------------------------------------------- */
+/* --- publications ---------------------------------------------------------
+   This page is a reading surface, not a telemetry card. Keep the animated
+   network behind an opaque panel and give the references enough air to scan. */
+.post-single:has(.publications-list) {
+    max-width: 980px;
+    margin: 32px auto;
+    padding: 34px clamp(24px, 5vw, 64px) 48px;
+    background: var(--wm-deep);
+    border-color: var(--wm-line-hi);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.post-single:has(.publications-list) .post-header {
+    max-width: 76ch;
+    margin: 0 auto 28px;
+    padding-bottom: 20px;
+}
+
+.post-single:has(.publications-list) .post-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.1;
+}
+
+.post-single:has(.publications-list) .post-content {
+    max-width: 76ch;
+    margin: 0 auto;
+    color: var(--wm-text);
+    font-size: 1rem;
+    line-height: 1.78;
+}
+
+.post-single:has(.publications-list) .post-content a {
+    color: #76eee2;
+    text-decoration: underline;
+    text-decoration-color: var(--wm-signal-dim);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.post-single:has(.publications-list) .post-content a:hover {
+    color: #b0fff8;
+    background: var(--wm-signal-haze);
+}
+
+.publications-intro {
+    margin-bottom: 2.15rem;
+    padding: 18px 22px;
+    background: var(--wm-panel-hi);
+    border: 1px solid var(--wm-line);
+    border-inline-start: 3px solid var(--wm-signal);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.publications-intro p {
+    margin: 0;
+}
+
+.publications-intro p + p {
+    margin-top: 0.65rem;
+    color: var(--wm-dim);
+    font-size: 0.94rem;
+}
+
 .publications-list {
-    margin-top: 1.5rem;
+    margin-top: 0;
 }
 
 .publications-list p {
-    margin: 0 0 1.25rem;
-    padding-inline-start: 2rem;
-    text-indent: -2rem;
+    margin: 0;
+    padding: 1.25rem 0 1.35rem 2.25rem;
+    color: var(--wm-text);
+    border-top: 1px solid var(--wm-line);
+    text-indent: -2.25rem;
+}
+
+.publications-list p:first-child {
+    border-top-color: var(--wm-line-hi);
+}
+
+@media (max-width: 640px) {
+    .post-single:has(.publications-list) {
+        margin: 16px 10px;
+        padding: 26px 18px 32px;
+    }
+
+    .post-single:has(.publications-list) .post-content {
+        font-size: 0.96rem;
+        line-height: 1.7;
+    }
+
+    .publications-intro {
+        padding: 16px 17px;
+    }
+
+    .publications-list p {
+        padding-inline-start: 1.4rem;
+        text-indent: -1.4rem;
+    }
 }
 
 /* --- post page -------------------------------------------------------------
