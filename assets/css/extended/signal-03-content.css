@@ -178,6 +178,17 @@
     filter: saturate(0.85) contrast(1.05);
 }
 
+/* --- publications --------------------------------------------------------- */
+.publications-list {
+    margin-top: 1.5rem;
+}
+
+.publications-list p {
+    margin: 0 0 1.25rem;
+    padding-inline-start: 2rem;
+    text-indent: -2rem;
+}
+
 /* --- post page -------------------------------------------------------------
    Long-form reading gets its own surface. The backdrop is deliberately busy
    on this site, and body copy should never have to compete with it. */
