@@ -1,0 +1,41 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WhiteMatterTech Feed API",
+    "version": "1.0.0",
+    "summary": "RSS 2.0 feed of posts published on whitematter.tech.",
+    "description": "The site's syndication feed, regenerated at build time by Hugo. Intended for feed readers and automated agents that poll for new posts. There is no authentication and no rate limiting.",
+    "contact": {
+      "name": "Robert D. White",
+      "url": "https://whitematter.tech/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://whitematter.tech",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/index.xml": {
+      "get": {
+        "operationId": "getFeed",
+        "summary": "Retrieve the RSS feed",
+        "description": "Returns the most recent posts as an RSS 2.0 document.",
+        "responses": {
+          "200": {
+            "description": "An RSS 2.0 feed document.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "description": "RSS 2.0 XML. The channel contains one item per recent post, each with title, link, pubDate, and description."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

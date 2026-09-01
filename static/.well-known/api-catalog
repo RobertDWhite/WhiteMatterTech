@@ -1,0 +1,38 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://whitematter.tech/index.json",
+      "service-desc": [
+        {
+          "href": "https://whitematter.tech/apis/content-index/openapi.json",
+          "type": "application/openapi+json",
+          "title": "Content Index API description (OpenAPI 3.1)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://whitematter.tech/apis/",
+          "type": "text/html",
+          "title": "WhiteMatterTech API documentation"
+        }
+      ]
+    },
+    {
+      "anchor": "https://whitematter.tech/index.xml",
+      "service-desc": [
+        {
+          "href": "https://whitematter.tech/apis/feed/openapi.json",
+          "type": "application/openapi+json",
+          "title": "Feed API description (OpenAPI 3.1)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://whitematter.tech/apis/",
+          "type": "text/html",
+          "title": "WhiteMatterTech API documentation"
+        }
+      ]
+    }
+  ]
+}

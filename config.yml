@@ -11,7 +11,6 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-googleAnalytics: "UA-193676598-1"
 pygmentsUseClasses: true
 mainsections: ["posts", "papermod"]
 
@@ -56,11 +55,20 @@ markup:
     renderer:
       unsafe: true
 
+outputFormats:
+    AgentSkills:
+        mediaType: "application/json"
+        baseName: "index"
+        path: ".well-known/agent-skills"
+        isPlainText: true
+        notAlternative: true
+
 outputs:
     home:
         - HTML
         - RSS
         - JSON
+        - AgentSkills
 
 params:
 #    profileMode:
@@ -130,10 +138,6 @@ params:
     #     icon: icon.png
     #     iconHeight: 35
     #
-    analytics:
-        google:
-           SiteVerificationTag: "gtag('config', 'UA-193676598-1')"
-
 assets:
     favicon: "/favicon.ico"
     favicon16x16:  "/favicon-16x16.png"

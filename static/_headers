@@ -1,0 +1,11 @@
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+  Cache-Control: public, max-age=3600
+
+/apis/content-index/openapi.json
+  Content-Type: application/openapi+json
+  Cache-Control: public, max-age=3600
+
+/apis/feed/openapi.json
+  Content-Type: application/openapi+json
+  Cache-Control: public, max-age=3600

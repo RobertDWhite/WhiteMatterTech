@@ -1,0 +1,26 @@
+{{- /* Agent Skills discovery index (v0.2.0).
+
+     Built from the SKILL.md files under assets/agent-skills/. Each skill's
+     name and description come from its own front matter and its digest is
+     hashed from the exact bytes published, so the index cannot drift from the
+     artifacts it describes. Adding a skill means dropping in a SKILL.md — no
+     edit here.
+
+     Spec: https://github.com/cloudflare/agent-skills-discovery-rfc */ -}}
+{{- $skills := slice -}}
+{{- range resources.Match "agent-skills/*/SKILL.md" -}}
+    {{- $raw := .Content -}}
+    {{- $front := index (split $raw "---") 1 | transform.Unmarshal -}}
+    {{- $artifact := . | resources.Copy (printf "/.well-known/agent-skills/%s/SKILL.md" $front.name) -}}
+    {{- $skills = $skills | append (dict
+        "name" $front.name
+        "type" "skill-md"
+        "description" $front.description
+        "url" $artifact.Permalink
+        "digest" (printf "sha256:%s" (crypto.SHA256 $raw))
+    ) -}}
+{{- end -}}
+{{- dict
+    "$schema" "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
+    "skills" $skills
+    | jsonify (dict "indent" "  ") -}}
