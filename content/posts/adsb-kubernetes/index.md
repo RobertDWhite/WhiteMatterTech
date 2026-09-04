@@ -220,6 +220,14 @@ Congratulations! You've successfully set up an ADS-B flight tracker using a chea
 Feel free to customize your setup further, experiment with additional features, and enhance your ADS-B flight tracking experience. Happy flight tracking!
 
 
+## Related Posts
+
+- [ADSB](/posts/adsb/) — the original Docker Compose build this post replaces.
+- [Always-On SDR: Building a Multi-Band Radio Intelligence Platform on Kubernetes](/posts/sdr-research-stack/) — the broader multi-band stack that this ADS-B deployment slots into.
+- [One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes](/posts/encrypted-matrix-notification-hub/) — the same SOPS-encrypted, ArgoCD-managed pattern on a much larger stack.
+
+
+
 > As always, if you have any questions or want to contribute to the above information, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/W3RDW/discussions), [submit a GitHub](https://github.com/RobertDWhite/W3RDW/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@w3rdw.radio](mailto:robert@w3rdw). Finally, feel free to [join my Matrix channel for W3RDW](https://matrix.to/#/%23w3rdw:white.fm) and chat with me there.
 >
 > Thanks for reading!

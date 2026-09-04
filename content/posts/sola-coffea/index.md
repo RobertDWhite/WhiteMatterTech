@@ -130,6 +130,14 @@ Sola Coffea is available as a complimentary download with core tracking features
 
 Three years of late evenings and a considerable quantity of coffee contributed to this application. It has been one of the more rewarding projects I have worked on, and I am genuinely excited about the result. I hope it becomes a valuable companion for your own coffee journey.
 
+
+## Related Posts
+
+- [The Ultimate Coffee Gear List for WFH](/posts/coffee-gear/) — the gear the app was written to keep track of.
+- [GrafLens: A Native iOS Application for Grafana](/posts/graflens/) — the other native iOS app, and the SwiftUI patterns shared between them.
+- [Weather Dashboard: A Self-Hosted, NWS-Grade Weather Operations Console](/posts/weather-dashboard/) — a PWA taking the opposite approach to the same problem.
+
+
 > As always, if you have any questions, feel free to reach out at [support@solacoffea.app](mailto:support@solacoffea.app) or contact me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

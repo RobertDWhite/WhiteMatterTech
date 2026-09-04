@@ -50,6 +50,15 @@ Now, if you select **Custom domains** at the top of the page, select **_Set up a
 Congrats! I hope that, if you made it this far, you have a working setup. If not, please reach out via the methods below. I am responsive to email, but posting a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions) might be helpful to others in the future. I highly prefer this option if possible.
 I hope this post was helpful to you in setting up your own static site hosting with Cloudflare and Hugo.
 
+
+## Related Posts
+
+- [Migrating from Wordpress to Hugo](/posts/migrating-from-wordpress-to-hugo/) — the migration that produced the static site this post deploys.
+- [Cloudflare Tunneling to Internal Resources with Cloudflared](/posts/cloudflare-tunneling/) — the companion piece: Cloudflare for internal resources instead of public pages.
+- [Host Your Own Free Wordpress Site with Traefik and Docker](/posts/hosting-your-own-site-with-traefik-and-wordpress/) — the self-hosted alternative, with all the maintenance that implies.
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — the eventual in-cluster replacement for hosted static site builds.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

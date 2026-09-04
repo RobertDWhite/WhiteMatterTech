@@ -77,6 +77,15 @@ Incorporating an NTLM hash lookup bulk check API into your cybersecurity toolkit
 # Wrapping Up
 Congrats! I hope that, if you made it this far, you have a working setup. If not, please reach out via the methods below. I am generally responsive to email, but posting a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions) might be helpful to others in the future. I highly prefer this option if possible.
 
+
+## Related Posts
+
+- [A Roadmap to a Rewarding Career in Cybersecurity: A Guide for Beginners](/posts/cybersecurity-career/) — where this kind of tooling fits in a security career.
+- [Manage Linux Logs on AlienVault OSSIM](/posts/managing-linux-logs-ossim/) — the detection side of the same discipline.
+- [How to Run AlienVault OSSIM as a VM on Unraid](/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/) — building the lab to test findings like these against.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — reducing the surface these credentials protect.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

@@ -80,6 +80,15 @@ Save the configuration page and load the VM. From here, you should be able to fo
 
 OSSIM is extremely powerful and can be complicated to use. If you are not already familiar with OSSIM, I recommend doing some intense Google searching about SIEM tools in general and specifically about configuration recommendations for OSSIM. It may be a little overkill for your Home Lab, but it is a valuable tool to be comfortable with for any security practitioner.
 
+
+## Related Posts
+
+- [Manage Linux Logs on AlienVault OSSIM](/posts/managing-linux-logs-ossim/) — the follow-up: getting Linux hosts to actually report into OSSIM.
+- [Run Graylog with Docker Compose on Unraid](/posts/run-graylog-with-docker-compose-on-unraid/) — a lighter alternative if OSSIM turns out to be more SIEM than you need.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — the network this SIEM is meant to be watching.
+- [A Roadmap to a Rewarding Career in Cybersecurity: A Guide for Beginners](/posts/cybersecurity-career/) — why a home SIEM lab is worth the effort.
+
+
 > As always, if you have any questions, feel free to post below or reach out to me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

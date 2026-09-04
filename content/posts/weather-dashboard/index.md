@@ -164,6 +164,15 @@ Most of the engineering effort in a project like this is in the seam between dis
 
 That experience generalizes beyond weather. Anywhere you build a dashboard over public data, expect 80% of the work to be in the adapters and 20% in the application. But that's where the fun is too!
 
+
+## Related Posts
+
+- [Politics Dashboard: A Self-Hosted, AI-Summarized News & X Feed Reader](/posts/politics-dashboard/) — the sibling dashboard, same stack and same deployment pipeline.
+- [Turning an RSS Reader Into an Intelligence Pipeline](/posts/rss-intelligence-pipeline/) — what happens when a feed reader gets the same treatment.
+- [GrafLens: A Native iOS Application for Grafana](/posts/graflens/) — dashboards on iOS, natively.
+- [Always-On SDR: Building a Multi-Band Radio Intelligence Platform on Kubernetes](/posts/sdr-research-stack/) — pulling weather and other signals off the air rather than an API.
+
+
 ---
 
 > Source: [github.com/RobertDWhite/weather-dashboard](https://github.com/RobertDWhite/weather-dashboard). Images: `ghcr.io/robertdwhite/weather-dashboard-api`, `ghcr.io/robertdwhite/weather-dashboard-ui` (multi-arch). License: MIT.

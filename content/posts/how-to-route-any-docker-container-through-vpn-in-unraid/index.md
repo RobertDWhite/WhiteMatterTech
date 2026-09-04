@@ -68,6 +68,15 @@ Once your container settings are saved, you will be able to access the GUI of yo
 
 **Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to anonymize certain portions of your network.
 
+
+## Related Posts
+
+- [Policy Based Routing with Unifi, PIA, and pfSense: How I Route My IoT External Traffic through PIA VPN](/posts/vpn-policy-based-routing-with-unifi-and-pia/) — the same idea at the router, applied to entire VLANs.
+- [How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/) — the pfSense side of policy-based VPN routing.
+- [How to Access Twitter Without an Account, Anonymously](/posts/how-to-access-twitter-without-an-account-anonymously/) — a container worth putting behind the VPN.
+- [No Proxy, No Fetch Tool: Capability-Scoped Internet Access for In-Cluster Agents](/posts/capability-scoped-agent-egress/) — the modern version of the question: what should this workload be allowed to reach.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

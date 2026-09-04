@@ -205,6 +205,14 @@ Congratulations! You've successfully set up an ADS-B flight tracker using a chea
 Feel free to customize your setup further, experiment with additional features, and enhance your ADS-B flight tracking experience. Happy flight tracking!
 
 
+## Related Posts
+
+- [ADSB on Kubernetes](/posts/adsb-kubernetes/) — the same tracker rebuilt on RKE2 and ArgoCD, with Docker Compose swapped for Git-driven YAML.
+- [Always-On SDR: Building a Multi-Band Radio Intelligence Platform on Kubernetes](/posts/sdr-research-stack/) — where ADS-B ends up as one band among many in an always-on radio platform.
+- ['Split-Brain DNS' for Internal HTTPS with Let's Encrypt](/posts/https-for-homelab-internal-resources/) — how to put a real TLS certificate in front of the map UI you just stood up.
+
+
+
 > As always, if you have any questions or want to contribute to the above information, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/W3RDW/discussions), [submit a GitHub](https://github.com/RobertDWhite/W3RDW/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@w3rdw.radio](mailto:robert@w3rdw). Finally, feel free to [join my Matrix channel for W3RDW](https://matrix.to/#/%23w3rdw:white.fm) and chat with me there.
 >
 > Thanks for reading!

@@ -170,6 +170,15 @@ Once saved, your internal self-hosted apps should be accessible via your Cloudfl
 
 I hope this post was helpful to you in setting up your own Cloudflare tunnel.
 
+
+## Related Posts
+
+- [Cloudflare Static Site Hosting](/posts/cloudflare-static-site-hosting/) — published the same day, covering the public static hosting side.
+- ['Split-Brain DNS' for Internal HTTPS with Let's Encrypt](/posts/https-for-homelab-internal-resources/) — split-brain DNS and Let's Encrypt for the internal names behind the tunnel.
+- [How to Easily Run A Reverse Proxy using Docker](/posts/run-a-reverse-proxy-using-docker/) — the reverse proxy the tunnel usually terminates against.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — why avoiding an open inbound port is worth the trouble in the first place.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

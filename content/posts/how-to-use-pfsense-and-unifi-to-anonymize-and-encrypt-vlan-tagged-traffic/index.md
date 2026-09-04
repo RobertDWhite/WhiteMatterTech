@@ -285,3 +285,12 @@ I hope this tutorial aids you in your endeavors to anonymize certain portions of
 If for some reason the Port Profile was not made automatically when you created your respective networks, you may need to go to Settings > Profiles in the Unifi dashboard. On this page, switch from RADIUS to SWITCH PORTS. Click "ADD NEW PORT PROFILE." Name the Profile and then click Native Network, and assign the pfSense network to this profile as shown below. Once selected, click Save/Apply. You can return to the assignment area and assign ports appropriately to use the pfSense VPN.
 
 ![](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/images/Screen-Shot-2021-04-02-at-11.53.29-PM-1024x541.png)
+
+
+## Related Posts
+
+- [Policy Based Routing with Unifi, PIA, and pfSense: How I Route My IoT External Traffic through PIA VPN](/posts/vpn-policy-based-routing-with-unifi-and-pia/) — the direct follow-up, which uses this build as its prerequisite.
+- [How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/) — creating the VLANs this post routes.
+- [How to Route Any Docker Container Through VPN in Unraid](/posts/how-to-route-any-docker-container-through-vpn-in-unraid/) — the per-container version, when a whole VLAN is too coarse.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — the hardening baseline underneath all of it.
+

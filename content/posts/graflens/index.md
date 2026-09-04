@@ -128,6 +128,15 @@ GrafLens is free on the App Store for iPhone, iPad, and Mac (via Catalyst). It c
 
 If you use Grafana in any capacity, whether production infrastructure, homelab, or anything in between, I hope you find GrafLens to be a valuable companion. It has already improved my own workflow, and I expect it will improve yours as well.
 
+
+## Related Posts
+
+- [Sola Coffea: A Native iOS App for Coffee Obsessives](/posts/sola-coffea/) — the other native iOS app, and what shipping to the App Store involved.
+- [Turning an RSS Reader Into an Intelligence Pipeline](/posts/rss-intelligence-pipeline/) — one of the Grafana dashboards GrafLens is most useful against.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the Prometheus metrics behind the inference dashboards.
+- [Weather Dashboard: A Self-Hosted, NWS-Grade Weather Operations Console](/posts/weather-dashboard/) — a browser-based dashboard built over the same cluster.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/WhiteMatter-Tech/graflens/discussions), [submit a GitHub PR](https://github.com/WhiteMatter-Tech/graflens/pulls) to recommend changes to the application, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

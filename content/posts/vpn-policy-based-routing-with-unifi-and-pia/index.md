@@ -161,6 +161,15 @@ All the traffic routed through WAN2 should now be encrypted via your VPN client.
 
 I hope this tutorial aids you in your endeavors to anonymize certain portions of your network.
 
+
+## Related Posts
+
+- [How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/) — the prerequisite build this post assumes.
+- [How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/) — creating the IoT VLAN being routed.
+- [How to Route Any Docker Container Through VPN in Unraid](/posts/how-to-route-any-docker-container-through-vpn-in-unraid/) — the per-container equivalent for one-off workloads.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — the wider hardening this fits into.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

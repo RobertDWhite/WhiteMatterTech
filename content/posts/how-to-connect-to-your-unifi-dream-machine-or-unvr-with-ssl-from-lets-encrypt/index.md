@@ -55,6 +55,15 @@ This solution is nice to me because you only have to remember your subdomain ins
 
 Like mentioned above, anytime you make services available to the world, you should protect your resources with strong passwords. I recommend a password manager to help with this. I use [1Password](https://1password.com/) and a [Yubikey](https://www.amazon.com/Yubico-Authentication-Security-Supported-Accounts/dp/B08DHL1YDL/ref=sr_1_4?dchild=1&keywords=yubikey&qid=1632281315&sr=8-4).
 
+
+## Related Posts
+
+- ['Split-Brain DNS' for Internal HTTPS with Let's Encrypt](/posts/https-for-homelab-internal-resources/) — the general version of this: real certificates for every internal name.
+- [How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/) — more UniFi configuration, on the segmentation side.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — hardening the network the controller manages.
+- [How to Easily Run A Reverse Proxy using Docker](/posts/run-a-reverse-proxy-using-docker/) — terminating TLS in front of services that cannot do it themselves.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

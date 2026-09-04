@@ -518,6 +518,15 @@ For me, that last property settles the question. The cryptographic design remove
 
 I keep a public channel for this blog at [#whitematter:white.fm](https://matrix.to/#/%23whitematter:white.fm). It federates, which allows any Matrix account to join and ask about this post or any other subject.
 
+
+## Related Posts
+
+- [My Encrypted Matrix Server with Docker-Compose](/posts/encrypted-matrix-server/) — the Docker Compose Synapse deployment this Kubernetes build grew out of.
+- [Hermes: Encrypted Conversation, Deliberate Authority](/posts/hermes-encrypted-agent-authority/) — the agent that lives in these rooms and acts on what arrives.
+- [Turning an RSS Reader Into an Intelligence Pipeline](/posts/rss-intelligence-pipeline/) — one of the producers that pushes into these rooms.
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — another Envoy Gateway service, with cert-manager TLS and Authentik in front.
+
+
 Raise questions or corrections in a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), submit a [GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or send email to [robert@whitematter.tech](mailto:robert@whitematter.tech). You may also [join the WhiteMatterTech Matrix channel](https://matrix.to/#/%23whitematter:white.fm) to discuss the post there.
 
 Robert

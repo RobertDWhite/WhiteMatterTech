@@ -110,6 +110,14 @@ If you choose to host your site from within your network, I recommend taking a l
 
 I hope this post was helpful getting WordPress migrated to Hugo.
 
+
+## Related Posts
+
+- [Host Your Own Free Wordpress Site with Traefik and Docker](/posts/hosting-your-own-site-with-traefik-and-wordpress/) — the WordPress deployment this migration abandoned.
+- [Cloudflare Static Site Hosting](/posts/cloudflare-static-site-hosting/) — where the generated Hugo site went to live.
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — static site hosting moved in-cluster.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

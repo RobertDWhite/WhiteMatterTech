@@ -156,6 +156,15 @@ Most of the open-source work resided outside the application logic. It lay at th
 
 The code is a compact tool that I run daily. For any deployment, the chosen categories may reveal more about the configuration than the selected model or feed sources, because they describe the material to which the operator has chosen to attend.
 
+
+## Related Posts
+
+- [Turning an RSS Reader Into an Intelligence Pipeline](/posts/rss-intelligence-pipeline/) — the successor: the same feeds, treated as an intelligence pipeline.
+- [Weather Dashboard: A Self-Hosted, NWS-Grade Weather Operations Console](/posts/weather-dashboard/) — the sibling dashboard on the same FastAPI, React, and GHCR stack.
+- [Parsing Every Congressional Stock Disclosure: Seventeen CronJobs and a Lot of Bad PDFs](/posts/congress-trades/) — structured disclosure data alongside the narrative coverage.
+- [How to Access Twitter Without an Account, Anonymously](/posts/how-to-access-twitter-without-an-account-anonymously/) — the Nitter setup this reader borrows from.
+
+
 ---
 
 > Source: [github.com/RobertDWhite/politics-dashboard](https://github.com/RobertDWhite/politics-dashboard). Images: `ghcr.io/robertdwhite/politics-api`, `ghcr.io/robertdwhite/politics-ui` (multi-arch). License: MIT.
