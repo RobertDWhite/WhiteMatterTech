@@ -97,6 +97,15 @@ I have a _Port Group_ with ports 51826 and 51827 for HomeKit. Make your own rule
 
 There you have it! You now have a fully-functional HomeKit setup enabled with extra security practices to prevent mischief from poorly-secured IoT devices reaching your internal LAN. It is clear this does not mitigate 100% of the risk since we're allowing traffic to flow in opposite direction. You can lock your subnets down even more by experimenting with fully blocking your traffic from your LAN to your IoT network but ONLY allowing instead your HomeKit controller (e.g., Apple TV, Homepod, etc.). These rules can and probably should be tweaked to fit your environment, but the rules described above will at least get you started.
 
+
+## Related Posts
+
+- [How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/) — the next step: encrypting the traffic leaving those VLANs.
+- [Policy Based Routing with Unifi, PIA, and pfSense: How I Route My IoT External Traffic through PIA VPN](/posts/vpn-policy-based-routing-with-unifi-and-pia/) — routing the IoT VLAN specifically out through a VPN.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — the broader hardening pass these VLANs are one part of.
+- [Live Better with Circadian Lighting](/posts/live-better-with-circadian-lighting/) — the HomeKit lighting setup living on the segmented network.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

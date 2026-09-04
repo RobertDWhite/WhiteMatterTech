@@ -116,6 +116,15 @@ An egress proxy asks where a workload may connect. For an agent, the more conseq
 
 The implementation is deliberately unglamorous: a small HTTP service for each capability, a bearer token, a NetworkPolicy, and the discipline to refuse the generic escape hatch whenever it would be convenient. That discipline is the point. The resulting system may require more repositories and more manifests, but it leaves the agent's external authority finite, legible, and subject to review.
 
+
+## Related Posts
+
+- [Hermes: Encrypted Conversation, Deliberate Authority](/posts/hermes-encrypted-agent-authority/) — the agent this egress model was built to contain.
+- [Ten MCP Servers for Ten Self-Hosted Apps: One Pattern](/posts/mcp-server-fleet/) — the ten MCP services that sit behind these capability boundaries.
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — a single narrow capability in detail, from manifest to published site.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — an earlier, pre-Kubernetes take on restricting what a host is allowed to reach.
+
+
 Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

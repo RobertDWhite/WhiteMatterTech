@@ -145,6 +145,15 @@ Once ports 80 and 443 are forwarded to Nginx Proxy Manager, you will be able to 
 
 I hope this post was helpful to you in setting up your own "split-brain DNS." This post may be a bit more complicated with more moving parts than usual. Please feel free to contact me via the methods below.
 
+
+## Related Posts
+
+- [Cloudflare Tunneling to Internal Resources with Cloudflared](/posts/cloudflare-tunneling/) — reaching those same internal services from outside the network.
+- [How to Connect to Your Unifi Dream Machine or UNVR with SSL from Let's Encrypt](/posts/how-to-connect-to-your-unifi-dream-machine-or-unvr-with-ssl-from-lets-encrypt/) — the same certificate problem on a specific appliance.
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — cert-manager doing this automatically, per site, years later.
+- [How to Easily Run A Reverse Proxy using Docker](/posts/run-a-reverse-proxy-using-docker/) — the proxy layer these certificates terminate on.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

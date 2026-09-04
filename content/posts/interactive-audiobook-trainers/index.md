@@ -116,3 +116,12 @@ Seven trainers, with a single hub page to find them, all served on my internal n
 ![The 48 Laws of Power trainer](/posts/interactive-audiobook-trainers/images/48-laws.png)
 
 I use the trainers regularly, and a five-minute quiz before a meeting is more useful than re-skimming an entire chapter. The objective was to convert a passive seven-hour listen into material that can be reviewed within five minutes; for books I already owned and had heard once, that has proved a materially better use of time. A personal audiobook library and a capable laptop are sufficient for a weekend implementation, provided that the source books have been legitimately acquired.
+
+
+## Related Posts
+
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — the hosting layer these trainers are published onto.
+- [Always-On SDR: Building a Multi-Band Radio Intelligence Platform on Kubernetes](/posts/sdr-research-stack/) — Whisper transcription at a very different scale.
+- [The Lever and the Enter Key: A Conceptualization of Agent-Mediated Software Development as a Functional Analog of Brain Stimulation Reward](/posts/the-lever-and-the-enter-key/) — why building this way is so easy to keep doing.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the in-cluster inference the distillation step leans on.
+

@@ -441,6 +441,15 @@ To add a blog post, click “Posts” and then “Add New”. A new, blank blog 
 After creating your post using the block editor, click “Publish” and then “Publish” again to make the post available. Navigate to the address shown on the “Post address”. Your blog post will look something like this. You can customize your site by changing settings or adding plug-ins.
 
 
+## Related Posts
+
+- [Migrating from Wordpress to Hugo](/posts/migrating-from-wordpress-to-hugo/) — why I eventually left WordPress for a static site.
+- [How to Easily Run A Reverse Proxy using Docker](/posts/run-a-reverse-proxy-using-docker/) — a simpler reverse proxy if Traefik's label syntax is more than you need.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — securing the network around the site you just published.
+- [Cloudflare Static Site Hosting](/posts/cloudflare-static-site-hosting/) — the low-maintenance alternative to running the whole stack yourself.
+
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

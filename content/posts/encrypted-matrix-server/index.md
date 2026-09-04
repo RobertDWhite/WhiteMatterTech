@@ -315,6 +315,15 @@ I use the webhooks and Maubot containers to send encrypted notifications from ot
 I also have a [public channel](https://matrix.to/#/#whitematter:white.fm) specific to this blog. Feel free to join and start a conversation or ask more questions about this post or any other!
 
 
+## Related Posts
+
+- [One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes](/posts/encrypted-matrix-notification-hub/) — the Kubernetes successor, with bridges and one encrypted room per signal.
+- [Hermes: Encrypted Conversation, Deliberate Authority](/posts/hermes-encrypted-agent-authority/) — putting an AI agent inside the encrypted rooms this server hosts.
+- ['Split-Brain DNS' for Internal HTTPS with Let's Encrypt](/posts/https-for-homelab-internal-resources/) — TLS for the internal names Synapse and Element sit behind.
+- [Cloudflare Tunneling to Internal Resources with Cloudflared](/posts/cloudflare-tunneling/) — exposing federation without opening an inbound port.
+
+
+
 > As always, if you have any questions or want to contribute to the above information, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech). Finally, in light of this particular post, feel free to [join my Matrix channel for WhiteMatterTech](https://matrix.to/#/#whitematter:white.fm) and chat with me there.
 >
 > Thanks for reading!

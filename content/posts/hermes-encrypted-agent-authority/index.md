@@ -117,6 +117,15 @@ Hermes gives me an encrypted conversation with a practical connection to the ser
 
 The architecture remains useful because it refuses a single undifferentiated credential. The message transport, inference route, tool selection, bearer token, upstream application account, and Kubernetes identity are distinct concerns. When Hermes performs useful work, the responsible authority is visible at the boundary where the action occurs.
 
+
+## Related Posts
+
+- [No Proxy, No Fetch Tool: Capability-Scoped Internet Access for In-Cluster Agents](/posts/capability-scoped-agent-egress/) — how Hermes reaches the internet without a general-purpose fetch tool.
+- [Ten MCP Servers for Ten Self-Hosted Apps: One Pattern](/posts/mcp-server-fleet/) — the tool surface Hermes selects from.
+- [One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes](/posts/encrypted-matrix-notification-hub/) — the encrypted Matrix rooms Hermes speaks in.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the inference endpoint behind the model routing described here.
+
+
 Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

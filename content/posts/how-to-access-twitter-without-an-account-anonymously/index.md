@@ -67,6 +67,15 @@ I would **highly recommend** setting up HTTP auth via your reverse proxy if you 
 
 **Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to anonymize your access to Twitter while substantially enhancing the privacy and preventing tracking of your personal data.
 
+
+## Related Posts
+
+- [Politics Dashboard: A Self-Hosted, AI-Summarized News & X Feed Reader](/posts/politics-dashboard/) — Nitter as one feed source inside a self-hosted, AI-summarized reader.
+- [How to Route Any Docker Container Through VPN in Unraid](/posts/how-to-route-any-docker-container-through-vpn-in-unraid/) — sending this container's traffic out through a VPN as well.
+- [Tails OS with Encrypted Persistence on Unraid as a VM](/posts/tails-os-with-encrypted-persistence-on-unraid-as-a-vm/) — a heavier approach when browsing anonymously is the whole point.
+- [How to Use pfSense and Unifi to Anonymize and Encrypt VLAN Tagged Traffic](/posts/how-to-use-pfsense-and-unifi-to-anonymize-and-encrypt-vlan-tagged-traffic/) — doing the same thing at the network layer instead of per container.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

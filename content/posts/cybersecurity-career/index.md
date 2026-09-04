@@ -80,6 +80,15 @@ Starting a career in cybersecurity is an exciting journey, and your efforts will
 
 Please share your experiences with breaking into a cybersecurity career. Let me know where you are in the process and how I might be able to help.
 
+
+## Related Posts
+
+- [Using a New NTLM Hash Lookup Bulk Check API](/posts/ntlm-lookup-api/) — hands-on offensive tooling, the kind of project worth having on a resume.
+- [How to Run AlienVault OSSIM as a VM on Unraid](/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/) — how to build the home SIEM lab this post recommends.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — practical hardening you can do on your own network to learn the fundamentals.
+- [Unlocking Digital Transformation: The Crucial Role of IT Services](/posts/digital-transformation/) — the business context security work has to justify itself inside of.
+
+
 > As always, if you have any questions or advice on a career in cybersecurity, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

@@ -80,6 +80,14 @@ Once the above is completed, you can use your new user to join your chat in your
 
 Special thanks to [Samuel Wallace](https://wallacelabs.tech) for dreaming with me and making the ins-and-outs of this project work.
 
+
+## Related Posts
+
+- [How To Do An In-Place Upgrade To Windows Server 2022](/posts/how-to-do-an-in-place-upgrade-to-windows-server-2022/) — the other Windows guide on this blog.
+- [How to Run Dockerized MacOS on Unraid](/posts/run-dockerized-macos-on-unraid/) — another project that exists mainly because it should not work.
+- [One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes](/posts/encrypted-matrix-notification-hub/) — routing signals into chat rooms, taken a good deal further.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

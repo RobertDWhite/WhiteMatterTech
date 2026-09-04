@@ -134,6 +134,15 @@ The router is a small NGINX configuration. The backends supply the interesting f
 
 Mixed inference hardware rewards attention to memory limits, node lifecycle, and failed-request semantics. The proxy is the easy part.
 
+
+## Related Posts
+
+- [Hermes: Encrypted Conversation, Deliberate Authority](/posts/hermes-encrypted-agent-authority/) — an agent that treats this endpoint as one interchangeable model route.
+- [Turning an RSS Reader Into an Intelligence Pipeline](/posts/rss-intelligence-pipeline/) — a batch consumer that hammers the endpoint on a schedule.
+- [Politics Dashboard: A Self-Hosted, AI-Summarized News & X Feed Reader](/posts/politics-dashboard/) — an earlier consumer, summarizing feeds through the same backend.
+- [Always-On SDR: Building a Multi-Band Radio Intelligence Platform on Kubernetes](/posts/sdr-research-stack/) — Whisper and Ollama sharing the same cluster GPUs.
+
+
 Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

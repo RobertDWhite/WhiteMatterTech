@@ -47,6 +47,14 @@ It can certainly be intimidating to make these upgrades on production machines t
 
 **Congratulations** if you made it this far and everything is working! I hope this tutorial aids you in your endeavors to upgrade your servers to Windows Server 2022.
 
+
+## Related Posts
+
+- [Xbox2Discord: How to Forward Audio from Xbox Live to Discord](/posts/xbox2discord-how-to-forward-audio-from-xbox-live-to-discord/) — the other Windows-side project on this blog.
+- [Unlocking Digital Transformation: The Crucial Role of IT Services](/posts/digital-transformation/) — the business case for keeping the estate current.
+- [How to Run AlienVault OSSIM as a VM on Unraid](/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/) — watching the servers you just upgraded.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

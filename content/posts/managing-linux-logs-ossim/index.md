@@ -150,6 +150,15 @@ Congratulations if you made it this far! After a few minutes, your endpoint will
 
 OSSIM is extremely powerful and can be complicated to use. If you are not already familiar with OSSIM, I recommend doing some intense Google searching about SIEM tools in general and specifically about configuration recommendations for OSSIM. It may be a little overkill for your Home Lab, but it is a valuable tool to be comfortable with for any security practitioner.
 
+
+## Related Posts
+
+- [How to Run AlienVault OSSIM as a VM on Unraid](/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/) — the install this post picks up from.
+- [Run Graylog with Docker Compose on Unraid](/posts/run-graylog-with-docker-compose-on-unraid/) — the same logs, pointed at a much simpler platform.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — the hosts generating the logs being collected.
+- [A Roadmap to a Rewarding Career in Cybersecurity: A Guide for Beginners](/posts/cybersecurity-career/) — the detection skills this kind of lab work builds.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

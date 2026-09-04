@@ -196,6 +196,15 @@ Scroll to the bottom of the container config and click **SAVE**. If all goes wel
 # Wrapping Up
 I hope this post was helpful getting Graylog running on Unraid.
 
+
+## Related Posts
+
+- [Manage Linux Logs on AlienVault OSSIM](/posts/managing-linux-logs-ossim/) — shipping the same Linux logs to OSSIM instead.
+- [How to Run AlienVault OSSIM as a VM on Unraid](/posts/how-to-run-alienvault-ossim-as-a-vm-on-unraid/) — the heavier SIEM alternative, run as a VM.
+- [How to Run a Locally Hosted Docker Registry GUI with Harbor](/posts/how-to-run-a-locally-hosted-docker-registry-gui-with-harbor/) — another multi-container Compose deployment on Unraid.
+- [My Encrypted Matrix Server with Docker-Compose](/posts/encrypted-matrix-server/) — a larger Compose stack, with secrets and federation to worry about.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

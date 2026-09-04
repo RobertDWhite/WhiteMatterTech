@@ -549,6 +549,15 @@ The complete system is one Python file, nine YAML manifests, and a 5 GiB volume.
 
 For an operator already running a cluster with a Gateway, cert-manager, and an administrable DNS server, the pattern is reproducible within an afternoon. The source is available at [`github.com/RobertDWhite/pages-mcp`](https://github.com/RobertDWhite/pages-mcp).
 
+
+## Related Posts
+
+- [Ten MCP Servers for Ten Self-Hosted Apps: One Pattern](/posts/mcp-server-fleet/) — the wider pattern this server established.
+- [No Proxy, No Fetch Tool: Capability-Scoped Internet Access for In-Cluster Agents](/posts/capability-scoped-agent-egress/) — how a narrow capability like this replaces a generic fetch tool.
+- [Building Interactive Trainers From My Audiobook Library](/posts/interactive-audiobook-trainers/) — sites published through this server.
+- [Cloudflare Static Site Hosting](/posts/cloudflare-static-site-hosting/) — the hosted alternative this pattern replaced.
+
+
 Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a pull request](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

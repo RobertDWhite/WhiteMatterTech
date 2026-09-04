@@ -161,3 +161,11 @@ First Completed Unit
 ![](/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/images/IMG_1883-min-1024x768.jpeg)
 
 Undershot of a Successful Build
+
+
+## Related Posts
+
+- [The Lever and the Enter Key: A Conceptualization of Agent-Mediated Software Development as a Functional Analog of Brain Stimulation Reward](/posts/the-lever-and-the-enter-key/) — more behavioral neuroscience, this time pointed at coding agents rather than rodents.
+- [Usability Evaluations: Findability](/posts/usability-evaluations-findability/) — another research write-up from the same period, on evaluation methodology.
+- [Live Better with Circadian Lighting](/posts/live-better-with-circadian-lighting/) — a lighter build in the same spirit: cheap sensors and lights applied to a measurable outcome.
+

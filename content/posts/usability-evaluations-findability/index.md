@@ -73,6 +73,14 @@ A final study examined the usability of health information websites and findabil
 
 This review evaluated the concept of usability evaluations and the foundational component of findability. Findability is a crucial usability factor that, when present and emphasized in effective ways, leads to more usable products and websites. The studies examined provide insight into a high-level understanding of how these usability evaluations are considered and approached. They also provide insight into the relationship of findability and usability, where greater findability tends to lead to greater usability and overall user satisfaction. The importance of considering definitions and conceptualizations of the various terms involved is evident when reviewing the literature. While many studies use similar definitions of findability, different definitions can lead to slightly different understandings of the importance of findability in these usability evaluations, which may lead to completely different approaches, biases, and considerations when designing studies. 
 
+
+## Related Posts
+
+- [The Lever and the Enter Key: A Conceptualization of Agent-Mediated Software Development as a Functional Analog of Brain Stimulation Reward](/posts/the-lever-and-the-enter-key/) — human-computer interaction analysis applied to coding agents.
+- [Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research](/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/) — research from the same period, on the instrumentation side.
+- [A Quick Note on Leading Geographically Dispersed Teams](/posts/a-quick-note-on-leading-geographically-dispersed-teams/) — another literature review, on distributed teams.
+
+
 ## **References**
 
 **Auinger, A., Brandtner, P., Großdehner, P., & Holzinger, A. (2012)**. Search engine optimization meets e-business-A theory-based evaluation: Findability and usability as key success factors. In _ICE-B 2012: International Conference on e-Business and Telecommunications_ (pp. 237-250). 

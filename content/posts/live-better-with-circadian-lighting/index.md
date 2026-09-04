@@ -94,6 +94,14 @@ Thanks for reading!
 CL Switches on Home Assistant Dashboard
 
 
+## Related Posts
+
+- [How to Add VLAN Segmentation for HomeKit IoT Devices with Unifi](/posts/how-to-add-vlan-segmentation-for-homekit-iot-devices-with-unifi/) — isolating the smart bulbs and hubs this setup depends on.
+- [The Ultimate Coffee Gear List for WFH](/posts/coffee-gear/) — the other half of a home setup worth working in.
+- [Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research](/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/) — more sensor work, with the science stated explicitly.
+
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!

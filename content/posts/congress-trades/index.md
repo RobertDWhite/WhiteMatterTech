@@ -105,6 +105,15 @@ The principal engineering task was accepting the character of the input—scanne
 
 Seventeen CronJobs may appear excessive until their respective cadences are examined: most are inexpensive and idempotent, while the more substantial jobs run at intervals appropriate to their data sources.
 
+
+## Related Posts
+
+- [Turning an RSS Reader Into an Intelligence Pipeline](/posts/rss-intelligence-pipeline/) — the same shape of pipeline: scheduled ingest, LLM extraction, deterministic ranking.
+- [Politics Dashboard: A Self-Hosted, AI-Summarized News & X Feed Reader](/posts/politics-dashboard/) — the reading side of the same subject matter.
+- [Weather Dashboard: A Self-Hosted, NWS-Grade Weather Operations Console](/posts/weather-dashboard/) — the sibling FastAPI and React stack over a different public data source.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the in-cluster inference endpoint doing the extraction.
+
+
 Questions or corrections are welcome. Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a pull request](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

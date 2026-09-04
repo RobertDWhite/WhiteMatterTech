@@ -25,6 +25,14 @@ A key component to success for organizations facing a growing virtual team envir
 
 Finally, researchers emphasize the importance of empowering leadership for virtual teams, defined by the empowering leadership theory (Bell & Kozlowski, 2002; Hill & Bartol, 2016). Empowering leadership is characterized by leadership behaviors emphasizing shared power between leaders and subordinates. These types of behaviors lead to increased intrinsic motivation in subordinates. Empowering leadership fosters supportive environments for subordinates to have opportunities to leverage the power entrusted to them (Hill & Bartol, 2016). Leadership training in empowering leadership is a viable option to encourage the development of empowering leadership practices in leaders, especially if an organization tends toward virtual or dispersed team environments. Hill & Bartol (2016) suggest that, the more dispersed a team is, the greater the positive impact of successful empowering leadership is.
 
+
+## Related Posts
+
+- [Unlocking Digital Transformation: The Crucial Role of IT Services](/posts/digital-transformation/) — the organizational side of the same problem: why IT services decide whether change actually lands.
+- [A Roadmap to a Rewarding Career in Cybersecurity: A Guide for Beginners](/posts/cybersecurity-career/) — another people-first piece, aimed at the person joining the team rather than the one leading it.
+- [Usability Evaluations: Findability](/posts/usability-evaluations-findability/) — more literature-backed analysis, applied to interfaces instead of teams.
+
+
 **References**
 
 Bell, B. S., & Kozlowski, S. W. (2002). A typology of virtual teams: Implications for effective leadership. Group & organization management, 27(1), 14-49.

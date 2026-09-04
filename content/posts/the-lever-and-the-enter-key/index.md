@@ -71,6 +71,15 @@ The analogy proposed in this essay is still in the conceptualization phase, but 
 
 Considering this framing, the locus at which the phenomenon should be addressed shifts from the level of individual willpower to the level of the interaction loop itself. Specifically, if the reinforcement profile of agent-mediated development is structurally similar to that observed in BSR, then the appropriate response is neither moral exhortation toward individual willpower nor abstinence from the use of these tools, but rather a deliberate examination of the interaction. A particular strength of this framing is, importantly, that it converts a previously diffuse concern into a tractable design and empirical question, with predictions that can be tested empirically against measurable behavioral outcomes. The current essay exemplifies the need for further work to examine the practical implications of this framing for agent-mediated development.
 
+
+## Related Posts
+
+- [Arduino MQ-3B Ethanol Sensor: Behavioral Neuroscience Research](/posts/arduino-mq-3b-ethanol-sensor-behavioral-neuroscience-research/) — earlier behavioral neuroscience work, at the bench rather than the keyboard.
+- [Building Interactive Trainers From My Audiobook Library](/posts/interactive-audiobook-trainers/) — another project that exists mostly because the loop is so easy to keep pressing.
+- [Usability Evaluations: Findability](/posts/usability-evaluations-findability/) — more human-computer interaction analysis, with the same literature-first approach.
+- [Parsing Every Congressional Stock Disclosure: Seventeen CronJobs and a Lot of Bad PDFs](/posts/congress-trades/) — seventeen CronJobs is what the loop looks like from the outside.
+
+
 **References**
 
 Bielajew, C., & Shizgal, P. (1986). Evidence implicating descending fibers in self-stimulation of the medial forebrain bundle. *The Journal of Neuroscience, 6*(4), 919–929.

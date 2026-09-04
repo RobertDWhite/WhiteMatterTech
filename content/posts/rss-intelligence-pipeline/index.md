@@ -100,6 +100,15 @@ Extraction and scoring were straightforward. Keeping an alert stream worth readi
 
 The pattern travels beyond RSS. Group the repeated material first, extract a typed record, rank it with deterministic code, and keep feedback in a bounded state file. The model helps with interpretation. The rules that interrupt someone remain visible to the people who must live with them.
 
+
+## Related Posts
+
+- [Politics Dashboard: A Self-Hosted, AI-Summarized News & X Feed Reader](/posts/politics-dashboard/) — the earlier FreshRSS reader this pipeline replaced.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the inference endpoint doing the extraction.
+- [One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes](/posts/encrypted-matrix-notification-hub/) — where the alerts that clear the threshold end up.
+- [Parsing Every Congressional Stock Disclosure: Seventeen CronJobs and a Lot of Bad PDFs](/posts/congress-trades/) — the same ingest, extract, rank shape over PDFs instead of feeds.
+
+
 Questions or corrections? Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

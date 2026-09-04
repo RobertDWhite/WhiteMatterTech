@@ -119,6 +119,15 @@ In 2022, my split-brain DNS ran on two Raspberry Pis. It now runs on four Techni
 
 Plan for the circular dependency before deploying this: the DNS server also needs DNS to start.
 
+
+## Related Posts
+
+- ['Split-Brain DNS' for Internal HTTPS with Let's Encrypt](/posts/https-for-homelab-internal-resources/) — the earlier split-brain DNS setup, back when Pi-hole was the resolver.
+- [One Encrypted Room Per Signal: Matrix as a Notification Hub on Kubernetes](/posts/encrypted-matrix-notification-hub/) — the same encrypted-secret and ArgoCD pattern on a much larger manifest set.
+- [Cloudflare Tunneling to Internal Resources with Cloudflared](/posts/cloudflare-tunneling/) — the public half of the name resolution story.
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — what happens when an agent needs to create DNS records programmatically.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls) to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 > Thanks for reading!
 >

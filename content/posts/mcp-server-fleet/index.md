@@ -92,6 +92,15 @@ This fleet assumes a single-tenant cluster on a private tailnet. Internal hostna
 
 The cluster has ten services, ten image builds, and one manifest pattern. The repetition is deliberately dull. That is the point. A new integration inherits a familiar way to authenticate, route, deploy, and review its access surface.
 
+
+## Related Posts
+
+- [Agentic Static-Site Hosting: Giving Claude a Place to Publish on Kubernetes](/posts/pages-mcp/) — one of the ten, documented end to end.
+- [No Proxy, No Fetch Tool: Capability-Scoped Internet Access for In-Cluster Agents](/posts/capability-scoped-agent-egress/) — the egress rules these servers are deployed behind.
+- [Hermes: Encrypted Conversation, Deliberate Authority](/posts/hermes-encrypted-agent-authority/) — the agent that consumes this tool surface.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the inference endpoint an agent reaches for alongside these tools.
+
+
 Questions or corrections? Start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub PR](https://github.com/RobertDWhite/WhiteMatterTech/pulls), or email me at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 
 Robert

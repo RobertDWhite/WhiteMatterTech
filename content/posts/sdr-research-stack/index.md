@@ -397,6 +397,15 @@ The full stack is in [my GitHub repo](https://github.com/RobertDWhite/whitehouse
 
 The web application source is not currently public. If there is interest, i am open to discussing it. Reach out via the channels below.
 
+
+## Related Posts
+
+- [ADSB on Kubernetes](/posts/adsb-kubernetes/) — the ADS-B piece of this stack, covered on its own.
+- [ADSB](/posts/adsb/) — the original single-band Docker build that started it.
+- [One Ollama Endpoint, Two Very Different Backends](/posts/heterogeneous-ollama/) — the inference endpoint behind the Whisper and LLM stages.
+- [Building Interactive Trainers From My Audiobook Library](/posts/interactive-audiobook-trainers/) — Whisper applied to a much less noisy signal.
+
+
 ---
 
 > *Originally published at [w3rdw.radio](https://w3rdw.radio/posts/sdr-research-stack/).*

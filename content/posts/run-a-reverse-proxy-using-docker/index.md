@@ -126,6 +126,15 @@ Once your host is added, you can add more following similar guidelines! The conf
 
 Please feel free to reach out to me if you have any questions or if this post was helpful! I love to hear how people are running their homelabs or offices. 
 
+
+## Related Posts
+
+- [Host Your Own Free Wordpress Site with Traefik and Docker](/posts/hosting-your-own-site-with-traefik-and-wordpress/) — the Traefik version, if you want routing by container label.
+- ['Split-Brain DNS' for Internal HTTPS with Let's Encrypt](/posts/https-for-homelab-internal-resources/) — adding real certificates to the internal names this proxy serves.
+- [Cloudflare Tunneling to Internal Resources with Cloudflared](/posts/cloudflare-tunneling/) — publishing those same services without an inbound port.
+- [How to Harden Your Network Security for Your In-Home Web Hosting](/posts/network-hardening-webhosting/) — the hardening that should accompany anything you expose.
+
+
 > As always, if you have any questions, feel free to start a [Discussion on GitHub](https://github.com/RobertDWhite/WhiteMatterTech/discussions), [submit a GitHub](https://github.com/RobertDWhite/WhiteMatterTech/pulls) PR to recommend changes/fixes in the article, or reach out to me directly at [robert@whitematter.tech](mailto:robert@whitematter.tech).
 >
 > Thanks for reading!
