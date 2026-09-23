@@ -10,12 +10,21 @@
 
 {{- /* Rendered client-side from the public GitHub events API so the feed is always
        current without rebuilding the site. Only public activity is ever returned. */}}
-<div id="git-feed" class="git-feed" data-user="{{ $user }}">
-  <p class="git-status">Loading activity&hellip;</p>
-  <noscript>
-    <p class="git-status">This feed needs JavaScript. See
-      <a href="https://github.com/{{ $user }}">github.com/{{ $user }}</a> instead.</p>
-  </noscript>
+<div id="git-feed" class="git-feed" data-user="{{ $user }}"
+     data-hide-repos="{{ .Params.hideRepos | default slice | jsonify }}"
+     data-hide-branches="{{ .Params.hideBranches | default slice | jsonify }}">
+  <p id="git-summary" class="git-summary" hidden></p>
+  <div id="git-filters" class="git-filters" hidden>
+    <div class="git-chips" id="git-type-chips" role="group" aria-label="Filter by activity type"></div>
+    <div class="git-chips" id="git-repo-chips" role="group" aria-label="Filter by repository"></div>
+  </div>
+  <div id="git-list">
+    <p class="git-status">Loading activity&hellip;</p>
+    <noscript>
+      <p class="git-status">This feed needs JavaScript. See
+        <a href="https://github.com/{{ $user }}">github.com/{{ $user }}</a> instead.</p>
+    </noscript>
+  </div>
 </div>
 
 <p class="git-more">
@@ -24,6 +33,16 @@
 
 <style>
   .git-feed { margin-top: var(--content-gap); }
+  .git-summary { color: var(--content); margin-bottom: 14px; font-size: 15px; }
+  .git-summary strong { color: var(--primary); }
+  .git-filters { margin-bottom: var(--gap); }
+  .git-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .git-chip { font: inherit; font-size: 13px; padding: 3px 10px; cursor: pointer;
+    color: var(--secondary); background: transparent; border: 1px solid var(--border);
+    border-radius: 999px; line-height: 1.6; }
+  .git-chip:hover { color: var(--primary); border-color: var(--tertiary); }
+  .git-chip[aria-pressed="true"] { color: var(--theme); background: var(--primary); border-color: var(--primary); }
+  .git-chip .n { opacity: .65; margin-left: 4px; }
   .git-day { margin-bottom: var(--gap); }
   .git-day-header { font-size: 14px; color: var(--secondary); margin-bottom: 8px;
     text-transform: uppercase; letter-spacing: .05em; }
@@ -44,8 +63,30 @@
 <script>
 (function () {
   var root = document.getElementById("git-feed");
+  var list = document.getElementById("git-list");
+  var summaryEl = document.getElementById("git-summary");
+  var filtersEl = document.getElementById("git-filters");
   var user = root.dataset.user;
   var gh = "https://github.com/";
+
+  function parse(s) { try { return JSON.parse(s) || []; } catch (_) { return []; } }
+  var hideRepos = parse(root.dataset.hideRepos).map(function (r) {
+    return (r.indexOf("/") === -1 ? user + "/" + r : r).toLowerCase();
+  });
+  var hideBranches = parse(root.dataset.hideBranches).map(function (p) { return new RegExp(p); });
+
+  var TYPES = [
+    { key: "push", label: "Pushes", match: ["PushEvent"] },
+    { key: "pr", label: "Pull requests", match: ["PullRequestEvent", "PullRequestReviewEvent", "PullRequestReviewCommentEvent"] },
+    { key: "issue", label: "Issues", match: ["IssuesEvent", "IssueCommentEvent"] },
+    { key: "ref", label: "Branches & tags", match: ["CreateEvent", "DeleteEvent"] },
+    { key: "release", label: "Releases", match: ["ReleaseEvent"] },
+    { key: "other", label: "Other", match: ["WatchEvent", "ForkEvent", "PublicEvent"] }
+  ];
+  function typeOf(e) {
+    for (var i = 0; i < TYPES.length; i++) if (TYPES[i].match.indexOf(e.type) !== -1) return TYPES[i].key;
+    return null;
+  }
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -53,11 +94,11 @@
     });
   }
   function link(href, text) { return '<a href="' + esc(href) + '">' + esc(text) + "</a>"; }
-  function repoLink(name) {
-    var short = name.indexOf(user + "/") === 0 ? name.slice(user.length + 1) : name;
-    return link(gh + name, short);
-  }
+  function shortRepo(name) { return name.indexOf(user + "/") === 0 ? name.slice(user.length + 1) : name; }
+  function repoLink(name) { return link(gh + name, shortRepo(name)); }
   function branch(ref) { return (ref || "").replace(/^refs\/(heads|tags)\//, ""); }
+  function cap(s) { s = String(s || ""); return s.charAt(0).toUpperCase() + s.slice(1); }
+  function plural(n, word, many) { return n + " " + (n === 1 ? word : many || word + "s"); }
   function ago(date) {
     var s = (Date.now() - date) / 1000;
     if (s < 60) return "just now";
@@ -66,10 +107,18 @@
     return Math.floor(s / 86400) + "d ago";
   }
 
-  // Collapse runs of pushes to the same repo+branch into one entry.
+  function isNoise(e) {
+    if (hideRepos.indexOf(e.repo.name.toLowerCase()) !== -1) return true;
+    var ref = e.type === "PushEvent" ? branch(e.payload.ref)
+      : (e.type === "CreateEvent" || e.type === "DeleteEvent") && e.payload.ref_type === "branch" ? e.payload.ref
+      : null;
+    return ref !== null && hideBranches.some(function (re) { return re.test(ref); });
+  }
+
+  // Collapse runs of same-day pushes to the same repo+branch into one entry.
   function group(events) {
     var out = [];
-    events.slice().sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }).forEach(function (e) {
+    events.forEach(function (e) {
       var prev = out[out.length - 1];
       if (e.type === "PushEvent" && prev && prev.type === "PushEvent" &&
           prev.repo.name === e.repo.name && prev.payload.ref === e.payload.ref &&
@@ -78,9 +127,7 @@
         prev.oldest = e.payload.before;
         return;
       }
-      e.count = 1;
-      e.oldest = e.payload.before;
-      out.push(e);
+      out.push(Object.assign({}, e, { count: 1, oldest: e.payload.before }));
     });
     return out;
   }
@@ -102,6 +149,10 @@
         var verb = p.action === "closed" && p.pull_request && p.pull_request.merged ? "merged" : p.action;
         var icon = verb === "merged" ? "🟣" : verb === "opened" ? "🔀" : "✖️";
         return [icon, cap(verb) + " pull request " + pr + " in " + r + title];
+      case "PullRequestReviewEvent":
+      case "PullRequestReviewCommentEvent":
+        var rp = p.pull_request || {};
+        return ["👀", "Reviewed " + link(gh + repo + "/pull/" + rp.number, "#" + rp.number) + " in " + r];
       case "IssuesEvent":
         var i = p.issue || {};
         return ["🐛", cap(p.action) + " issue " + link(i.html_url || gh + repo + "/issues", "#" + i.number) +
@@ -110,9 +161,6 @@
         var ic = p.issue || {};
         return ["💬", "Commented on " + link((p.comment && p.comment.html_url) || gh + repo, "#" + ic.number) +
           " in " + r + (ic.title ? " — " + esc(ic.title) : "")];
-      case "PullRequestReviewEvent":
-        var rp = p.pull_request || {};
-        return ["👀", "Reviewed " + link(gh + repo + "/pull/" + rp.number, "#" + rp.number) + " in " + r];
       case "CreateEvent":
         if (p.ref_type === "repository") return ["✨", "Created repository " + r];
         if (p.ref_type === "tag") return ["🏷️", "Tagged " + link(gh + repo + "/releases/tag/" + p.ref, p.ref) + " in " + r];
@@ -132,11 +180,57 @@
         return null;
     }
   }
-  function cap(s) { s = String(s || ""); return s.charAt(0).toUpperCase() + s.slice(1); }
 
-  function render(events) {
-    var items = group(events);
-    if (!items.length) { root.innerHTML = '<p class="git-status">No recent public activity.</p>'; return; }
+  // Filter state lives in the URL hash so a filtered view can be linked (#repo=x&type=pr).
+  function readState() {
+    var s = { type: "all", repo: "all" };
+    location.hash.replace(/^#/, "").split("&").forEach(function (kv) {
+      var parts = kv.split("=");
+      if (parts[0] in s && parts[1]) s[parts[0]] = decodeURIComponent(parts[1]);
+    });
+    return s;
+  }
+  function writeState(s) {
+    var h = [];
+    if (s.type !== "all") h.push("type=" + encodeURIComponent(s.type));
+    if (s.repo !== "all") h.push("repo=" + encodeURIComponent(s.repo));
+    history.replaceState(null, "", h.length ? "#" + h.join("&") : location.pathname + location.search);
+  }
+
+  function summarize(events) {
+    var weekAgo = Date.now() - 7 * 86400000;
+    var recent = events.filter(function (e) { return new Date(e.created_at) >= weekAgo; });
+    var oldest = events.length ? new Date(events[events.length - 1].created_at) : null;
+    var scope = oldest && oldest < weekAgo ? "This week" :
+      oldest ? "Since " + oldest.toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "";
+    var pushes = 0, merged = 0, opened = 0, repos = {};
+    recent.forEach(function (e) {
+      repos[e.repo.name] = 1;
+      if (e.type === "PushEvent") pushes++;
+      if (e.type === "PullRequestEvent") {
+        if (e.payload.action === "merged" || (e.payload.action === "closed" && e.payload.pull_request && e.payload.pull_request.merged)) merged++;
+        if (e.payload.action === "opened") opened++;
+      }
+    });
+    var parts = ["<strong>" + plural(pushes, "push", "pushes") + "</strong> across <strong>" +
+      plural(Object.keys(repos).length, "repo") + "</strong>"];
+    if (opened) parts.push(plural(opened, "PR") + " opened");
+    if (merged) parts.push(plural(merged, "PR") + " merged");
+    return scope + ": " + parts.join(" · ");
+  }
+
+  function chips(el, options, current, onPick) {
+    el.innerHTML = options.map(function (o) {
+      return '<button type="button" class="git-chip" data-v="' + esc(o.value) + '" aria-pressed="' +
+        (o.value === current) + '">' + esc(o.label) + (o.n != null ? '<span class="n">' + o.n + "</span>" : "") + "</button>";
+    }).join("");
+    el.onclick = function (ev) {
+      var b = ev.target.closest(".git-chip");
+      if (b) onPick(b.dataset.v);
+    };
+  }
+
+  function renderList(items) {
     var html = "", day = "";
     items.forEach(function (e) {
       var d = describe(e);
@@ -153,24 +247,73 @@
         '<time class="git-time" datetime="' + esc(e.created_at) + '" title="' + esc(when.toLocaleString()) + '">' +
         ago(when) + "</time></div>";
     });
-    root.innerHTML = html + (day ? "</div>" : "");
+    list.innerHTML = day ? html + "</div>" : '<p class="git-status">Nothing matches this filter.</p>';
   }
 
-  // Cache for 10 minutes to stay well under the 60 req/hr unauthenticated limit.
-  var key = "git-feed:" + user, cached = null;
+  function render(raw) {
+    var events = raw
+      .filter(function (e) { return typeOf(e) && !isNoise(e); })
+      .sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; });
+    if (!events.length) { list.innerHTML = '<p class="git-status">No recent public activity.</p>'; return; }
+
+    summaryEl.innerHTML = summarize(events);
+    summaryEl.hidden = false;
+
+    var state = readState();
+    function update() {
+      var byType = {}, byRepo = {};
+      events.forEach(function (e) {
+        var t = typeOf(e), r = shortRepo(e.repo.name);
+        if (state.repo === "all" || r === state.repo) byType[t] = (byType[t] || 0) + 1;
+        if (state.type === "all" || t === state.type) byRepo[r] = (byRepo[r] || 0) + 1;
+      });
+      chips(document.getElementById("git-type-chips"),
+        [{ value: "all", label: "All" }].concat(TYPES.filter(function (t) { return byType[t.key] || t.key === state.type; })
+          .map(function (t) { return { value: t.key, label: t.label, n: byType[t.key] || 0 }; })),
+        state.type, function (v) { state.type = v; writeState(state); update(); });
+      chips(document.getElementById("git-repo-chips"),
+        [{ value: "all", label: "All repos" }].concat(Object.keys(byRepo)
+          .sort(function (a, b) { return byRepo[b] - byRepo[a] || a.localeCompare(b); })
+          .map(function (r) { return { value: r, label: r, n: byRepo[r] }; })),
+        state.repo, function (v) { state.repo = v; writeState(state); update(); });
+      filtersEl.hidden = false;
+
+      renderList(group(events.filter(function (e) {
+        return (state.type === "all" || typeOf(e) === state.type) &&
+               (state.repo === "all" || shortRepo(e.repo.name) === state.repo);
+      })));
+    }
+    update();
+    window.addEventListener("hashchange", function () { state = readState(); update(); });
+  }
+
+  // GitHub serves at most 3 pages (300 events). Cache for 10 minutes so a visitor
+  // stays well under the 60 req/hr unauthenticated limit.
+  var key = "git-feed:v2:" + user, cached = null;
   try { cached = JSON.parse(sessionStorage.getItem(key) || "null"); } catch (_) {}
   if (cached && Date.now() - cached.t < 600000) { render(cached.d); return; }
 
-  fetch("https://api.github.com/users/" + encodeURIComponent(user) + "/events/public?per_page=100",
-        { headers: { Accept: "application/vnd.github+json" } })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  function page(n) {
+    return fetch("https://api.github.com/users/" + encodeURIComponent(user) + "/events/public?per_page=100&page=" + n,
+                 { headers: { Accept: "application/vnd.github+json" } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+  page(1)
+    .then(function (first) {
+      if (first.length < 100) return first;
+      // Later pages are best-effort; the first page alone is enough to render.
+      return Promise.all([page(2).catch(function () { return []; }), page(3).catch(function () { return []; })])
+        .then(function (rest) { return first.concat(rest[0], rest[1]); });
+    })
     .then(function (d) {
+      var seen = {};
+      d = d.filter(function (e) { return seen[e.id] ? false : (seen[e.id] = true); });
       try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: d })); } catch (_) {}
       render(d);
     })
     .catch(function () {
       if (cached) { render(cached.d); return; }
-      root.innerHTML = '<p class="git-status">Couldn\'t reach GitHub right now. ' +
+      list.innerHTML = '<p class="git-status">Couldn\'t reach GitHub right now. ' +
         link(gh + user, "View activity on GitHub") + " instead.</p>";
     });
 })();
