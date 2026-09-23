@@ -34,6 +34,9 @@ languages:
                 - name: Apps
                   url: apps/
                   weight: 7
+                - name: Git
+                  url: git/
+                  weight: 7
                 - name: Gear & Tools
                   url: recommended-products/
                   weight: 8

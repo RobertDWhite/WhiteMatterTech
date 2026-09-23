@@ -1,0 +1,178 @@
+{{- define "main" }}
+{{- $user := .Params.githubUser | default "RobertDWhite" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . }}</div>
+  {{- end }}
+</header>
+
+{{- /* Rendered client-side from the public GitHub events API so the feed is always
+       current without rebuilding the site. Only public activity is ever returned. */}}
+<div id="git-feed" class="git-feed" data-user="{{ $user }}">
+  <p class="git-status">Loading activity&hellip;</p>
+  <noscript>
+    <p class="git-status">This feed needs JavaScript. See
+      <a href="https://github.com/{{ $user }}">github.com/{{ $user }}</a> instead.</p>
+  </noscript>
+</div>
+
+<p class="git-more">
+  <a href="https://github.com/{{ $user }}">More on github.com/{{ $user }} &rarr;</a>
+</p>
+
+<style>
+  .git-feed { margin-top: var(--content-gap); }
+  .git-day { margin-bottom: var(--gap); }
+  .git-day-header { font-size: 14px; color: var(--secondary); margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: .05em; }
+  .git-item { display: flex; gap: 12px; align-items: baseline; padding: 10px 14px;
+    background: var(--entry); border: 1px solid var(--border); border-radius: var(--radius);
+    margin-bottom: 8px; font-size: 16px; line-height: 1.5; }
+  .git-icon { flex: 0 0 20px; text-align: center; }
+  .git-body { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .git-body a { color: var(--primary); box-shadow: 0 1px 0 var(--tertiary); }
+  .git-body a:hover { box-shadow: 0 1px 0 var(--primary); }
+  .git-body code { font-size: .85em; }
+  .git-time { flex: 0 0 auto; color: var(--secondary); font-size: 13px; white-space: nowrap; }
+  .git-status { color: var(--secondary); }
+  .git-more { margin-top: var(--gap); }
+  .git-more a { color: var(--secondary); }
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById("git-feed");
+  var user = root.dataset.user;
+  var gh = "https://github.com/";
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function link(href, text) { return '<a href="' + esc(href) + '">' + esc(text) + "</a>"; }
+  function repoLink(name) {
+    var short = name.indexOf(user + "/") === 0 ? name.slice(user.length + 1) : name;
+    return link(gh + name, short);
+  }
+  function branch(ref) { return (ref || "").replace(/^refs\/(heads|tags)\//, ""); }
+  function ago(date) {
+    var s = (Date.now() - date) / 1000;
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.floor(s / 60) + "m ago";
+    if (s < 86400) return Math.floor(s / 3600) + "h ago";
+    return Math.floor(s / 86400) + "d ago";
+  }
+
+  // Collapse runs of pushes to the same repo+branch into one entry.
+  function group(events) {
+    var out = [];
+    events.slice().sort(function (a, b) { return a.created_at < b.created_at ? 1 : -1; }).forEach(function (e) {
+      var prev = out[out.length - 1];
+      if (e.type === "PushEvent" && prev && prev.type === "PushEvent" &&
+          prev.repo.name === e.repo.name && prev.payload.ref === e.payload.ref &&
+          new Date(prev.created_at).toDateString() === new Date(e.created_at).toDateString()) {
+        prev.count += 1;
+        prev.oldest = e.payload.before;
+        return;
+      }
+      e.count = 1;
+      e.oldest = e.payload.before;
+      out.push(e);
+    });
+    return out;
+  }
+
+  function describe(e) {
+    var p = e.payload, repo = e.repo.name, r = repoLink(repo);
+    switch (e.type) {
+      case "PushEvent":
+        var b = branch(p.ref);
+        var what = e.count > 1 ? e.count + " pushes" : "Pushed";
+        var cmp = p.head && e.oldest && !/^0+$/.test(e.oldest)
+          ? gh + repo + "/compare/" + e.oldest.slice(0, 12) + "..." + p.head.slice(0, 12)
+          : gh + repo + "/tree/" + b;
+        return ["⬆️", link(cmp, what) + " to <code>" + esc(b) + "</code> in " + r];
+      case "PullRequestEvent":
+        var n = p.number || (p.pull_request && p.pull_request.number);
+        var pr = link(gh + repo + "/pull/" + n, "#" + n);
+        var title = p.pull_request && p.pull_request.title ? " — " + esc(p.pull_request.title) : "";
+        var verb = p.action === "closed" && p.pull_request && p.pull_request.merged ? "merged" : p.action;
+        var icon = verb === "merged" ? "🟣" : verb === "opened" ? "🔀" : "✖️";
+        return [icon, cap(verb) + " pull request " + pr + " in " + r + title];
+      case "IssuesEvent":
+        var i = p.issue || {};
+        return ["🐛", cap(p.action) + " issue " + link(i.html_url || gh + repo + "/issues", "#" + i.number) +
+          " in " + r + (i.title ? " — " + esc(i.title) : "")];
+      case "IssueCommentEvent":
+        var ic = p.issue || {};
+        return ["💬", "Commented on " + link((p.comment && p.comment.html_url) || gh + repo, "#" + ic.number) +
+          " in " + r + (ic.title ? " — " + esc(ic.title) : "")];
+      case "PullRequestReviewEvent":
+        var rp = p.pull_request || {};
+        return ["👀", "Reviewed " + link(gh + repo + "/pull/" + rp.number, "#" + rp.number) + " in " + r];
+      case "CreateEvent":
+        if (p.ref_type === "repository") return ["✨", "Created repository " + r];
+        if (p.ref_type === "tag") return ["🏷️", "Tagged " + link(gh + repo + "/releases/tag/" + p.ref, p.ref) + " in " + r];
+        return ["🌱", "Created branch " + link(gh + repo + "/tree/" + p.ref, p.ref) + " in " + r];
+      case "DeleteEvent":
+        return ["🗑️", "Deleted " + esc(p.ref_type) + " <code>" + esc(p.ref) + "</code> in " + r];
+      case "ReleaseEvent":
+        var rel = p.release || {};
+        return ["🚀", "Released " + link(rel.html_url || gh + repo + "/releases", rel.name || rel.tag_name || "a new version") + " of " + r];
+      case "WatchEvent":
+        return ["⭐", "Starred " + r];
+      case "ForkEvent":
+        return ["🍴", "Forked " + r + (p.forkee ? " to " + link(p.forkee.html_url, p.forkee.full_name) : "")];
+      case "PublicEvent":
+        return ["📢", "Open-sourced " + r];
+      default:
+        return null;
+    }
+  }
+  function cap(s) { s = String(s || ""); return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  function render(events) {
+    var items = group(events);
+    if (!items.length) { root.innerHTML = '<p class="git-status">No recent public activity.</p>'; return; }
+    var html = "", day = "";
+    items.forEach(function (e) {
+      var d = describe(e);
+      if (!d) return;
+      var when = new Date(e.created_at);
+      var label = when.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+      if (label !== day) {
+        if (day) html += "</div>";
+        html += '<div class="git-day"><div class="git-day-header">' + esc(label) + "</div>";
+        day = label;
+      }
+      html += '<div class="git-item"><span class="git-icon" aria-hidden="true">' + d[0] + "</span>" +
+        '<span class="git-body">' + d[1] + "</span>" +
+        '<time class="git-time" datetime="' + esc(e.created_at) + '" title="' + esc(when.toLocaleString()) + '">' +
+        ago(when) + "</time></div>";
+    });
+    root.innerHTML = html + (day ? "</div>" : "");
+  }
+
+  // Cache for 10 minutes to stay well under the 60 req/hr unauthenticated limit.
+  var key = "git-feed:" + user, cached = null;
+  try { cached = JSON.parse(sessionStorage.getItem(key) || "null"); } catch (_) {}
+  if (cached && Date.now() - cached.t < 600000) { render(cached.d); return; }
+
+  fetch("https://api.github.com/users/" + encodeURIComponent(user) + "/events/public?per_page=100",
+        { headers: { Accept: "application/vnd.github+json" } })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (d) {
+      try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: d })); } catch (_) {}
+      render(d);
+    })
+    .catch(function () {
+      if (cached) { render(cached.d); return; }
+      root.innerHTML = '<p class="git-status">Couldn\'t reach GitHub right now. ' +
+        link(gh + user, "View activity on GitHub") + " instead.</p>";
+    });
+})();
+</script>
+{{- end }}{{/* end main */}}
